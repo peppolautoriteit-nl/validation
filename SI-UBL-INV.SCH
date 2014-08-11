@@ -33,6 +33,7 @@
 		<active pattern="SI-UBL-INV-WARNING"/>
 		<active pattern="SI-UBL-INV-FATAL"/>
 		<active pattern="SI-UBL-INV-CALC"/>
+		<active pattern="SI-UBL-INV-REQUIRED"/>
 	</phase>
 	<!-- Abstract CEN BII patterns -->
 	<!-- ========================= -->
@@ -43,9 +44,20 @@
 	<!-- Code Lists Binding rules -->
 	<!-- ======================== -->
 	<include href="PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
+	
+
+	
+	<!-- Simplerinvoicing rules -->
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-CALC">
 		<rule context="ubl:Invoice/cbc:LegalMonetaryTotal" flag="fatal">
 			<assert test="cbc:LineExtensionAmount/text()  = sum(//cac:InvoiceLine/cbc:LineExtensionAmount/text())">[SI-UBL-INV-C1]-The sum of the amounts in the invoice lines  be the same as the total</assert>
+		</rule>
+	</pattern>
+	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-REQUIRED">
+		<rule context="ubl:Invoice">
+		</rule>
+		<rule context="cac:InvoiceLine">
+			<assert test="cbc:InvoicedQuantity" flag="fatal">[SI-UBL-INV-REQ001]-Each invoice line MUST have an invoiced quantity</assert>
 		</rule>
 	</pattern>
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-FATAL">
@@ -500,7 +512,6 @@
 		<rule context="ubl:Invoice/cac:InvoiceLine" flag="warning">
 			<assert test="count(cac:TaxTotal)&lt;=1" flag="warning">[SI-UBL-INV-R412]-Element 'TaxTotal' may occur at maximum 1 times.</assert>
 			<assert test="count(cac:Price)=1" flag="warning">[SI-UBL-INV-R413]-Element 'Price' must occur exactly 1 times.</assert>
-			<assert test="(cbc:InvoicedQuantity and cbc:InvoicedQuantity/@unitCode)" flag="warning">[SI-UBL-INV-R425]-Each invoice line SHOULD contain the quantity and unit of measure</assert>
 		</rule>
 		<rule context="ubl:Invoice/cac:InvoiceLine/cac:Item" flag="warning">
 			<assert test="count(cbc:Description)&lt;=1" flag="warning">[SI-UBL-INV-R414]-Element 'Description' may occur at maximum 1 times.</assert>
