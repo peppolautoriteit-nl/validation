@@ -23,19 +23,31 @@
 	<ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
 	<ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
 	<ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
-	<phase id="OPENPEPPOLT10_phase">
-		<active pattern="UBL-T10"/>
+	<phase id="T10_phase">
+		<active pattern="BII-UBL-T10"/>
+		<active pattern="PEPPOL-UBL-T10"/>
 	</phase>
 	<phase id="codelist_phase">
-		<active pattern="CodesT10"/>
+		<active pattern="BII-CodesT10"/>
+		<active pattern="PEPPOL-CodesT10"/>
 	</phase>
-	<phase id="BIICORET10_phase">
+	<phase id="si_phase">
 		<active pattern="SI-UBL-INV-WARNING"/>
 		<active pattern="SI-UBL-INV-FATAL"/>
-		<active pattern="SI-UBL-INV-CALC"/>
 		<active pattern="SI-UBL-INV-REQUIRED"/>
 	</phase>
-	<!-- Abstract CEN BII patterns -->
+  <!-- Abstract CEN BII patterns -->
+  <!-- ========================= -->
+  <include href="BII/abstract/BIIRULES-T10.sch"/>
+  <!-- Data Binding parameters -->
+  <!-- ======================= -->
+  <include href="BII/UBL/BIIRULES-UBL-T10.sch"/>
+  <!-- Code Lists Binding rules -->
+  <!-- ======================== -->
+  <include href="BII/codelist/BIIRULESCodesT10-UBL.sch"/>	
+	
+	
+	<!-- Abstract PEPPOL patterns -->
 	<!-- ========================= -->
 	<include href="PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
 	<!-- Data Binding parameters -->
@@ -45,14 +57,11 @@
 	<!-- ======================== -->
 	<include href="PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
 	
+	
+	
 
 	
 	<!-- Simplerinvoicing rules -->
-	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-CALC">
-		<rule context="ubl:Invoice/cbc:LegalMonetaryTotal" flag="fatal">
-			<assert test="cbc:LineExtensionAmount/text()  = sum(//cac:InvoiceLine/cbc:LineExtensionAmount/text())">[SI-UBL-INV-C1]-The sum of the amounts in the invoice lines  be the same as the total</assert>
-		</rule>
-	</pattern>
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-REQUIRED">
 		<rule context="ubl:Invoice">
 		</rule>
