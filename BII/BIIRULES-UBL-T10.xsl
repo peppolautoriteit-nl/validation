@@ -162,14 +162,14 @@
          <svrl:ns-prefix-in-attribute-values uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" prefix="cac"/>
          <svrl:ns-prefix-in-attribute-values uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" prefix="ubl"/>
          <svrl:active-pattern>
-            <axsl:attribute name="id">UBL-T10</axsl:attribute>
-            <axsl:attribute name="name">UBL-T10</axsl:attribute>
+            <axsl:attribute name="id">BII-UBL-T10</axsl:attribute>
+            <axsl:attribute name="name">BII-UBL-T10</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
          <axsl:apply-templates select="/" mode="M6"/>
          <svrl:active-pattern>
-            <axsl:attribute name="id">CodesT10</axsl:attribute>
-            <axsl:attribute name="name">CodesT10</axsl:attribute>
+            <axsl:attribute name="id">BII-CodesT10</axsl:attribute>
+            <axsl:attribute name="name">BII-CodesT10</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
          <axsl:apply-templates select="/" mode="M7"/>
@@ -180,7 +180,7 @@
 
    <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron">BIIRULES  T10 bound to UBL</svrl:text>
 
-<!--PATTERN UBL-T10-->
+<!--PATTERN BII-UBL-T10-->
 
 
 	<!--RULE -->
@@ -923,9 +923,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(//cbc:TaxableAmount)"/>
+         <axsl:when test="(cbc:TaxableAmount)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="(//cbc:TaxableAmount)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="(cbc:TaxableAmount)">
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-get-full-path"/>
@@ -938,9 +938,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(//cbc:TaxAmount)"/>
+         <axsl:when test="(cbc:TaxAmount)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="(//cbc:TaxAmount)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="(cbc:TaxAmount)">
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-get-full-path"/>
@@ -953,9 +953,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(//cac:TaxCategory/cbc:ID)"/>
+         <axsl:when test="(cac:TaxCategory/cbc:ID)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="(//cac:TaxCategory/cbc:ID)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="(cac:TaxCategory/cbc:ID)">
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-get-full-path"/>
@@ -968,9 +968,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(//cac:TaxCategory/cbc:Percent) or not(//cac:TaxCategory/cbc:ID = 'S')"/>
+         <axsl:when test="(cac:TaxCategory/cbc:Percent) or not(cac:TaxCategory/cbc:ID = 'S')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="(//cac:TaxCategory/cbc:Percent) or not(//cac:TaxCategory/cbc:ID = 'S')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="(cac:TaxCategory/cbc:Percent) or not(cac:TaxCategory/cbc:ID = 'S')">
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-get-full-path"/>
@@ -1001,7 +1001,7 @@
       <axsl:apply-templates select="@*|*|comment()|processing-instruction()" mode="M6"/>
    </axsl:template>
 
-<!--PATTERN CodesT10-->
+<!--PATTERN BII-CodesT10-->
 
 
 	<!--RULE -->

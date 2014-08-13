@@ -24,10 +24,10 @@
   <param name="BII2-T10-R024" value="(cbc:EndDate)"/>
   <param name="BII2-T10-R025" value="(cbc:AllowanceChargeReason)"/>
   <param name="BII2-T10-R026" value="(//cac:TaxScheme/cbc:ID = 'VAT') or not(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount)"/>
-  <param name="BII2-T10-R027" value="(//cbc:TaxableAmount)"/>
-  <param name="BII2-T10-R028" value="(//cbc:TaxAmount)"/>
-  <param name="BII2-T10-R029" value="(//cac:TaxCategory/cbc:ID)"/>
-  <param name="BII2-T10-R030" value="(//cac:TaxCategory/cbc:Percent) or not(//cac:TaxCategory/cbc:ID = 'S')"/>
+  <param name="BII2-T10-R027" value="(cbc:TaxableAmount)"/>
+  <param name="BII2-T10-R028" value="(cbc:TaxAmount)"/>
+  <param name="BII2-T10-R029" value="(cac:TaxCategory/cbc:ID)"/>
+  <param name="BII2-T10-R030" value="(cac:TaxCategory/cbc:Percent) or not(cac:TaxCategory/cbc:ID = 'S')"/>
   <param name="BII2-T10-R031" value="(cbc:StartDate and cbc:EndDate) and (number(translate(cbc:StartDate,'-','')) &lt;= number(translate(cbc:EndDate,'-','')))"/>
   <param name="BII2-T10-R032" value="(//cac:StandardItemIdentification/cbc:ID/@schemeID) or not(//cac:StandardItemIdentification)"/>
   <param name="BII2-T10-R033" value="(//cac:CommodityClassification/cbc:ItemClassificationCode/@listID) or not(//cac:CommodityClassification)"/>
