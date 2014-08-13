@@ -1,7 +1,7 @@
 <!-- Schematron rules generated automatically. -->
 <!-- Abstract rules for T10 -->
 <!-- (2009). Invinet Sistemes -->
-<pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="T10">
+<pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="PEPPOL-T10">
   <rule context="$Allowance_Charge">
     <assert test="$EUGEN-T10-R012" flag="fatal">[EUGEN-T10-R012]-An allowance percentage MUST NOT be negative.</assert>
     <assert test="$EUGEN-T10-R022" flag="fatal">[EUGEN-T10-R022]-An allowance or charge amount MUST NOT be negative.</assert>
