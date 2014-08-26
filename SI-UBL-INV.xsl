@@ -186,20 +186,20 @@
          </svrl:active-pattern>
          <axsl:apply-templates select="/" mode="M10"/>
          <svrl:active-pattern>
-            <axsl:attribute name="id">SI-UBL-INV-CALC</axsl:attribute>
-            <axsl:attribute name="name">SI-UBL-INV-CALC</axsl:attribute>
-            <axsl:apply-templates/>
-         </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M11"/>
-         <svrl:active-pattern>
             <axsl:attribute name="id">SI-UBL-INV-REQUIRED</axsl:attribute>
             <axsl:attribute name="name">SI-UBL-INV-REQUIRED</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M12"/>
+         <axsl:apply-templates select="/" mode="M11"/>
          <svrl:active-pattern>
             <axsl:attribute name="id">SI-UBL-INV-FATAL</axsl:attribute>
             <axsl:attribute name="name">SI-UBL-INV-FATAL</axsl:attribute>
+            <axsl:apply-templates/>
+         </svrl:active-pattern>
+         <axsl:apply-templates select="/" mode="M12"/>
+         <svrl:active-pattern>
+            <axsl:attribute name="id">SI-UBL-INV-WARNING-NEW</axsl:attribute>
+            <axsl:attribute name="name">SI-UBL-INV-WARNING-NEW</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
          <axsl:apply-templates select="/" mode="M13"/>
@@ -1999,47 +1999,19 @@
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
-<!--PATTERN SI-UBL-INV-CALC-->
-
-
-	<!--RULE -->
-
-   <axsl:template match="ubl:Invoice/cbc:LegalMonetaryTotal" priority="1000" mode="M11">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice/cbc:LegalMonetaryTotal"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="cbc:LineExtensionAmount/text()  = sum(//cac:InvoiceLine/cbc:LineExtensionAmount/text())"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="cbc:LineExtensionAmount/text() = sum(//cac:InvoiceLine/cbc:LineExtensionAmount/text())">
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-get-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[SI-UBL-INV-C1]-The sum of the amounts in the invoice lines  be the same as the total</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M11"/>
-   </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M11"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M11">
-      <axsl:apply-templates select="@*|*" mode="M11"/>
-   </axsl:template>
-
 <!--PATTERN SI-UBL-INV-REQUIRED-->
 
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice" priority="1001" mode="M12">
+   <axsl:template match="ubl:Invoice" priority="1001" mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice"/>
-      <axsl:apply-templates select="@*|*" mode="M12"/>
+      <axsl:apply-templates select="@*|*" mode="M11"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine" priority="1000" mode="M12">
+   <axsl:template match="cac:InvoiceLine" priority="1000" mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:InvoiceLine"/>
 
 		<!--ASSERT -->
@@ -2056,11 +2028,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M12"/>
+      <axsl:apply-templates select="@*|*" mode="M11"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M12"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M12">
-      <axsl:apply-templates select="@*|*" mode="M12"/>
+   <axsl:template match="text()" priority="-1" mode="M11"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M11">
+      <axsl:apply-templates select="@*|*" mode="M11"/>
    </axsl:template>
 
 <!--PATTERN SI-UBL-INV-FATAL-->
@@ -2068,7 +2040,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice" priority="1008" mode="M13">
+   <axsl:template match="ubl:Invoice" priority="1008" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice"/>
 
 		<!--ASSERT -->
@@ -2160,12 +2132,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M13"/>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge" priority="1007" mode="M13">
+   <axsl:template match="cac:AllowanceCharge" priority="1007" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:AllowanceCharge"/>
 
 		<!--ASSERT -->
@@ -2242,12 +2214,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M13"/>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory" priority="1006" mode="M13">
+   <axsl:template match="cac:TaxCategory" priority="1006" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:TaxCategory"/>
 
 		<!--ASSERT -->
@@ -2264,12 +2236,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M13"/>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice/cac:PayeeParty" priority="1005" mode="M13">
+   <axsl:template match="ubl:Invoice/cac:PayeeParty" priority="1005" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice/cac:PayeeParty"/>
 
 		<!--ASSERT -->
@@ -2286,12 +2258,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M13"/>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:Item/cac:ClassifiedTaxCategory" priority="1004" mode="M13">
+   <axsl:template match="cac:Item/cac:ClassifiedTaxCategory" priority="1004" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:Item/cac:ClassifiedTaxCategory"/>
 
 		<!--ASSERT -->
@@ -2308,12 +2280,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M13"/>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:LegalMonetaryTotal" priority="1003" mode="M13">
+   <axsl:template match="cac:LegalMonetaryTotal" priority="1003" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:LegalMonetaryTotal"/>
 
 		<!--ASSERT -->
@@ -2330,12 +2302,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M13"/>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoicePeriod" priority="1002" mode="M13">
+   <axsl:template match="cac:InvoicePeriod" priority="1002" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:InvoicePeriod"/>
 
 		<!--ASSERT -->
@@ -2367,12 +2339,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M13"/>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PartyIdentification/cbc:ID/@schemeID" priority="1001" mode="M13">
+   <axsl:template match="cac:PartyIdentification/cbc:ID/@schemeID" priority="1001" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:PartyIdentification/cbc:ID/@schemeID"/>
 
 		<!--ASSERT -->
@@ -2389,12 +2361,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M13"/>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:EndpointID/@schemeID" priority="1000" mode="M13">
+   <axsl:template match="cbc:EndpointID/@schemeID" priority="1000" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cbc:EndpointID/@schemeID"/>
 
 		<!--ASSERT -->
@@ -2408,6 +2380,35 @@
                   <axsl:apply-templates select="." mode="schematron-get-full-path"/>
                </axsl:attribute>
                <svrl:text>[SI-UBL-INV-R452]-Endpoint Identifiers MUST use the PEPPOL PartyID list.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
+   </axsl:template>
+   <axsl:template match="text()" priority="-1" mode="M12"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M12">
+      <axsl:apply-templates select="@*|*" mode="M12"/>
+   </axsl:template>
+
+<!--PATTERN SI-UBL-INV-WARNING-NEW-->
+
+
+	<!--RULE -->
+
+   <axsl:template match="ubl:Invoice" priority="1000" mode="M13">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="contains(cbc:CustomizationID, 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.1.x')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="contains(cbc:CustomizationID, 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.1.x')">
+               <axsl:attribute name="flag">warning</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-get-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[SI-UBL-INV-R000]-This XML instance is NOT a core SI-UBL Invoice</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -2425,21 +2426,6 @@
 
    <axsl:template match="ubl:Invoice" priority="1017" mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="contains(cbc:CustomizationID, 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x')"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="contains(cbc:CustomizationID, 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x')">
-               <axsl:attribute name="flag">warning</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-get-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[SI-UBL-INV-R000]-This XML instance is NOT a core SI-UBL Invoice</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
 
 		<!--ASSERT -->
 
