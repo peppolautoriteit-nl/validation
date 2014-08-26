@@ -36,9 +36,11 @@
     <assert test="$BII2-T10-R020" flag="fatal">[BII2-T10-R020]-Each invoice line MUST have an invoice line net amount</assert>
     <assert test="$BII2-T10-R021" flag="fatal">[BII2-T10-R021]-Each invoice line MUST have an invoice line item name and/or the invoice line item identifier</assert>
     <assert test="$BII2-T10-R032" flag="fatal">[BII2-T10-R032]-A scheme identifier for the invoice line item registered identifier MUST be provided if invoice line item registered identifiers are used to identify a product.(e.g. GTIN)</assert>
-    <assert test="$BII2-T10-R033" flag="fatal">[BII2-T10-R033]-A scheme identifier for a invoice line item commodity classification MUST be provided if invoice line item commodity classification are used to classify an invoice line item (e.g. CPV or UNSPSC)</assert>
     <assert test="$BII2-T10-R034" flag="fatal">[BII2-T10-R034]-Invoice line item net price MUST NOT be negative</assert>
     <assert test="$BII2-T10-R046" flag="fatal">[BII2-T10-R046]-Each invoice line MUST be categorized with the invoice line VAT category if the invoice has a VAT total amount </assert>
+  </rule>
+  <rule context="cac:Item/cac:CommodityClassification">
+      <assert test="$BII2-T10-R033" flag="fatal">[BII2-T10-R033]-A scheme identifier for a invoice line item commodity classification MUST be provided if invoice line item commodity classification are used to classify an invoice line item (e.g. CPV or UNSPSC)</assert>
   </rule>
   <rule context="$Invoice_Period_Information">
     <assert test="$BII2-T10-R023" flag="fatal">[BII2-T10-R023]-Each invoice period information MUST have an invoice period start date</assert>
