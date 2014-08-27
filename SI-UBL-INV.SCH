@@ -22,6 +22,15 @@
 		
 		TODO: 
 			- Fix rule numbering
+			- Backwards compatibility with v1.0
+			- Add calculation rules for going from taxamount to transactioncurrencyamount
+			- Fix PEPPOL and BII rules to ensure that they target the proper context to facilitate easier pinpointing of problems
+			- Fix BII rules for payable amounts calculation 
+						- doesn't work when prepaid is filled, but payable amounts is still the same
+						- doesn't check payable rounding amounts correctly
+			- Add warnings for elements not in the core
+			- Decide whether or not multiple occurences of items that have macoccur of 1 should be fatal or warning
+						
 		
 	-->
 	<title>Simplerinvoicing invoice v1.1 bound to UBL 2.1 and OPENPEPPOL v2</title>
@@ -38,9 +47,8 @@
 		<active pattern="SI-UBL-CODES"/>
 	</phase>
 	<phase id="si_phase">
-		<active pattern="SI-UBL-INV-WARNING-NEW"/>
 		<active pattern="SI-UBL-INV-WARNING"/>
-		<active pattern="SI-UBL-INV-FATAL"/>
+		<active pattern="SI-UBL-INV-VALUECHECK"/>
 		<active pattern="SI-UBL-INV-REQUIRED"/>
 	</phase>
   <!-- Abstract CEN BII patterns -->
@@ -75,16 +83,13 @@
 			<assert test="cbc:UBLVersionID='2.1'" flag="fatal">[SI-V11-INV-R001]-Each invoice MUST be specified as a UBL 2.1 document</assert>
 			<assert test="cbc:InvoiceTypeCode" flag="fatal">[SI-V11-INV-R002]-Each invoice MUST have a type declaration</assert>
 		</rule>
-		<rule context="cac:InvoiceLine">
-			<assert test="normalize-space(cbc:InvoicedQuantity/text()) != ''" flag="fatal">[SI-V11-INV-R003]-Each invoice line MUST have an invoiced quantity</assert>
-		</rule>
 		<rule context="cbc:CompanyID">
 			<assert test="@schemeID" flag="fatal">[SI-V11-INV-R004]-A CompanyID MUST be specified using a PEPPOL Party identifier</assert>
 		</rule>
 		<rule context="cac:ExternalReference">
 			<assert test="normalize-space(cbc:URI) != ''">[SI-V11-INV-R005]-An external reference MUST have its uri specified</assert>
 		</rule>
-		<rule context="cac:Country">
+		<rule context="cac:Country | cac:OriginCountry">
 			<assert test="cbc:IdentificationCode">[SI-V11-INV-R006]-A country MUST be identified by a two-letter identification code as specified in ISO3166-1:Alpha2</assert>
 		</rule>
 		<rule context="cac:TaxScheme">
@@ -118,41 +123,45 @@
 			<assert test="cbc:ID" flag="fatal">[SI-V11-INV-R016]-A tax category MUST have an id</assert>
 			<assert test="string(cbc:ID) != 'S' or cbc:Percent">[SI-V11-INV-R017]-The VAT category percentage MUST be provided if the VAT category code is standard.</assert>
 		</rule>
-
-		
-
-	</pattern>
-	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-FATAL">
-		<!-- Rules are numbered in the region 1xx -->
-		<rule context="@currencyID">
-			<assert test="string(.) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)">[SI-UBL-INV-R100]-Currency Identifier MUST be in stated in the currency stated on header level</assert>
+		<rule context="cbc:MathematicOperatorCode" flag="fatal">
+			<assert test="translate(text(), 'MULTIPLY', 'multiply') = 'multiply' or translate(text(), 'DIVE', 'dive') = 'divide'" flag="fatal">[SI-V11-INV-R018]-A mathematic operator MUST be specified as a code specifying whether the calculation rate is a multiplier or divisor</assert>
 		</rule>
-		
-		<rule context="cac:TaxCategory" flag="fatal">
-			<assert test="(parent::cac:AllowanceCharge) or (cbc:ID and cbc:Percent) or (cbc:ID = 'AE')" flag="fatal">[SI-UBL-INV-R430]-For each tax subcategory the category ID and the applicable tax percentage MUST be provided.</assert>
+		<rule context="cac:LegalMonetaryTotal">
+			<assert test="not(/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator='false']) or cbc:AllowanceTotalAmount">[SI-V11-INV-R019]-An allowance total MUST be specified when allowances are applicable</assert>
+			<assert test="not(/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator='true']) or cbc:ChargeTotalAmount">[SI-V11-INV-R020]-A charge total MUST be specified when charges are applicable</assert>
 		</rule>
-		
-		<rule context="ubl:Invoice" flag="fatal">
-			<assert test="//cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID and (//cac:TaxCategory/cbc:ID) = 'AE' or not((//cac:TaxCategory/cbc:ID) = 'AE')" flag="fatal">[SI-UBL-INV-R436]-IF VAT = "AE" (reverse charge) THEN it MUST contain Supplier VAT id and Customer VAT</assert>
-			<assert test="(((//cac:TaxCategory/cbc:ID) = 'AE')  and not((//cac:TaxCategory/cbc:ID) != 'AE' )) or not((//cac:TaxCategory/cbc:ID) = 'AE') or not(//cac:TaxCategory)" flag="fatal">[SI-UBL-INV-R437]-IF VAT = "AE" (reverse charge) THEN VAT MAY NOT contain other VAT categories.</assert>
-			<assert test="(//cbc:TaxExclusiveAmount = //cac:TaxTotal/cac:TaxSubtotal[cac:TaxCategory/cbc:ID='AE']/cbc:TaxableAmount) and (//cac:TaxCategory/cbc:ID) = 'AE' or not((//cac:TaxCategory/cbc:ID) = 'AE')" flag="fatal">[SI-UBL-INV-R438]-IF VAT = "AE" (reverse charge) THEN The taxable amount MUST equal the invoice total without VAT amount.</assert>
-			<assert test="//cac:TaxTotal/cbc:TaxAmount = 0 and (//cac:TaxCategory/cbc:ID) = 'AE' or not((//cac:TaxCategory/cbc:ID) = 'AE')" flag="fatal">[SI-UBL-INV-R439]-IF VAT = "AE" (reverse charge) THEN VAT tax amount MUST be zero.</assert>
-
+		<rule context="cac:Item">
+			<assert test="cbc:Name">[SI-V11-INV-R021]-An item on an invoiceline MUST have a name</assert>
 		</rule>
-		<rule context="cac:AllowanceCharge" flag="fatal">
-			<assert test="not(cbc:MultiplierFactorNumeric) or number(cbc:MultiplierFactorNumeric) &gt;=0" flag="fatal">[SI-UBL-INV-R434]-An allowance percentage MUST NOT be negative.</assert>
-			<assert test="(cbc:MultiplierFactorNumeric and cbc:BaseAmount) or (not(cbc:MultiplierFactorNumeric) and not(cbc:BaseAmount)) " flag="warning">[SI-UBL-INV-R435]-In allowances, both or none of percentage and base amount SHOULD be provided</assert>
+		<rule context="cac:OriginCountry/cbc:IdentificationCode">
+			<assert test="@listID='3166-1:Alpha2'">[SI-V11-INV-R022]-A country identification code MUST have a list identifier attribute 'ISO3166-1:Alpha2'</assert>
+		</rule>
+		<rule context="cac:AdditionalItemProperty">
+			<assert test="cbc:Value and cbc:Name">[SI-V11-INV-R023]-An additional item property MUST have a name and a value</assert>
+		</rule>
+		<rule context="cac:InvoiceLine">
+			<assert test="cac:Price">[SI-V11-INV-R024]-An invoiceline MUST have a price section</assert>
 		</rule>
 		<rule context="ubl:Invoice/cac:PayeeParty" flag="fatal">
-			<assert test="cac:PartyName/cbc:Name" flag="fatal">[SI-UBL-INV-R432]-If payee information is provided then the payee name MUST be specified.</assert>
+			<assert test="cac:PartyName/cbc:Name" flag="fatal">[SI-V11-INV-R025]-If payee information is provided then the payee name MUST be specified.</assert>
 		</rule>
-		<rule context="cac:Item/cac:ClassifiedTaxCategory" flag="fatal">
-			<assert test="(//cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount and cbc:ID) or not((//cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']))" flag="fatal">[SI-UBL-INV-R433]-If the VAT total amount in an invoice exists then each invoice line item MUST have a VAT category ID.</assert>
+
+	</pattern>
+	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-VALUECHECK">
+		<!-- Rules are numbered in the region 1xx -->
+		<rule context="cbc:TransactionCurrencyTaxAmount/@currencyID[/ubl:Invoice/cbc:TaxCurrencyCode]">
+			<assert test="/ubl:Invoice/cbc:TaxCurrencyCode and string(.) = string(/ubl:Invoice/cbc:TaxCurrencyCode)">[SI-UBL-INV-R102]-Transaction currency tax amounts MUST be in the local currency and equal to the tax currency defined on the header level</assert>
 		</rule>
-		<rule context="cac:LegalMonetaryTotal" flag="fatal">
-			<assert test="number(cbc:PayableAmount) &gt;= 0" flag="fatal">[SI-UBL-INV-R440]-Total payable amount in an invoice MUST NOT be negative</assert>
+		<rule context="@currencyID">
+			<assert test="string(.) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)">[SI-UBL-INV-R100]-Currency Identifier MUST be stated in the currency as defined on header level</assert>
 		</rule>
-		
+		<rule context="/ubl:Invoice/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount" flag="fatal">
+			<report test="not(/ubl:Invoice/cac:InvoiceLine/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT'])" flag="fatal">[SI-UBL-INV-R103]-If the VAT total amount in an invoice exists then each invoice line item MUST have a VAT category ID.</report>
+		</rule>
+		<rule context="cac:AllowanceCharge" flag="fatal">
+			<assert test="not(cbc:MultiplierFactorNumeric) or number(cbc:MultiplierFactorNumeric) &gt;=0" flag="fatal">[SI-UBL-INV-R104]-An allowance percentage MUST NOT be negative.</assert>
+			<assert test="(cbc:MultiplierFactorNumeric and cbc:BaseAmount) or (not(cbc:MultiplierFactorNumeric) and not(cbc:BaseAmount)) " flag="fatal">[SI-UBL-INV-R105]-In allowances, both or none of numeric factor and base amount SHOULD be provided</assert>
+		</rule>
 	</pattern>
 	
 	
@@ -164,10 +173,16 @@
 		<rule context="cbc:ID[parent::cac:TaxScheme]">
 			<assert test="((not(contains(normalize-space(.),' ')) and contains( ' AAA AAB AAC AAD AAE AAF AAG AAH AAI AAJ AAK ADD BOL CAP CAR COC CST CUD CVD ENV EXC EXP FET FRE GCN GST ILL IMP IND LAC LCN LDP LOC LST MCA MCD OTH PDB PDC PRF SCN SSS STT SUP SUR SWT TAC TOT TOX TTA VAD VAT ',concat(' ',normalize-space(.),' ') ) ) )">[SI-V11-CODE-R002]-A tax scheme identifier MUST be from the UN/ECE 5153 list</assert>
 		</rule>
+		<rule context="cac:OriginCountry/cbc:IdentificationCode" flag="fatal">
+			<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BL BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal">[SI-V11-CODE-R003]-Country codes in an invoice MUST be coded using ISO code list 3166-1</assert>
+		</rule>
+		<rule context="cac:StandardItemIdentification/cbc:ID/@schemeID" flag="fatal">
+			<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' GTIN ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal">[SI-V11-CODE-R004]-Standard item identifiers SHOULD be GTIN.</assert>
+		</rule>
 	</pattern>
 	
 	
-	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-WARNING-NEW">
+	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-WARNING">
 		<!-- Rules are numbered in the region 2xx -->
 		<rule context="cbc:CustomizationID">
 			<assert test="contains(., 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.1.x')" flag="warning">[SI-V11-INV-R000]-This XML instance is NOT tagged as a SI-UBL v1.1 invoice</assert>
@@ -209,7 +224,6 @@
 		<rule context="cac:PaymentTerms[2]">
 			<report test=".">[SI-V11-INV-R212]-An invoice SHOULD not have multiple payment terms</report>
 		</rule>
-		
 		<!-- Next rule is commented because it conflicts with rule BII2-T10-R025, for the moment we assume the BII2 
 		rule should be followed -->
 		<!--<rule context="cbc:AllowanceChargeReason" flag="fatal">
@@ -218,48 +232,27 @@
 		<rule context="cbc:TaxExemptionReasonCode | cbc:TaxExemptionReason">
 			<assert test="preceding-sibling::cbc:ID[text() = 'E' or text() = 'AB']">[SI-UBL-INV-R214]-A tax exemption reason or reason code SHOULD only be given when the tax category is tax exempt</assert>
 		</rule>
-		
 		<rule context="cac:TaxCategory[2]">
 			<report test=".">[SI-V11-INV-R215]-Tax category SHOULD not occur more than once in a section</report>
+		</rule>
+		<rule context="cac:TaxTotal[2]">
+			<report test=".">[SI-V11-INV-R216]-An invoice SHOULD not have multiple tax totals on invoice level</report>
+		</rule>
+		<rule context="cac:Delivery/cac:DeliveryLocation/cbc:ID/@schemeID" flag="warning">
+			<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' GLN ',concat(' ',normalize-space(.),' ') ) ) )" flag="warning">[SI-UBL-INV-R217]-Location identifiers SHOULD be GLN</assert>
+		</rule>
+		<rule context="cac:Delivery[2]">
+			<report test=".">[SI-V11-INV-R218]-Each invoiceline SHOULD have no more than one delivery specified</report>
+		</rule>
+		<rule context="cac:ClassifiedTaxCategory[2]">
+			<report test=".">[SI-V11-INV-R219]-An invoiceline SHOULD not have more than one classified tax category</report>
+		</rule>
+		<rule context="cac:Price/cac:AllowanceCharge[2]">
+			<report test=".">[SI-V11-INV-R220]-The price in an invoiceline SHOULD not have more than one allowance charge</report>
 		</rule>
 		
 		<rule context="*">
 			<assert test="* or normalize-space(text()) != ''" flag="warning">[SI-V11-INV-R001]-An invoice SHOULD not contain empty elements.</assert>
-		</rule>
-	</pattern>
-	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-WARNING">
-		<rule context="ubl:Invoice/cac:InvoiceLine" flag="warning">
-			<assert test="count(cac:TaxTotal)&lt;=1" flag="warning">[SI-UBL-INV-R412]-Element 'TaxTotal' may occur at maximum 1 times.</assert>
-			<assert test="count(cac:Price)=1" flag="warning">[SI-UBL-INV-R413]-Element 'Price' must occur exactly 1 times.</assert>
-		</rule>
-		<rule context="ubl:Invoice/cac:InvoiceLine/cac:Item" flag="warning">
-			<assert test="count(cbc:Description)&lt;=1" flag="warning">[SI-UBL-INV-R414]-Element 'Description' may occur at maximum 1 times.</assert>
-			<assert test="count(cbc:Name)=1" flag="warning">[SI-UBL-INV-R415]-Element 'Name' must occur exactly 1 times.</assert>
-			<assert test="count(cac:ClassifiedTaxCategory)&lt;=1" flag="warning">[SI-UBL-INV-R416]-Element 'ClassifiedTaxCategory' may occur at maximum 1 times.</assert>
-		</rule>
-		<rule context="ubl:Invoice/cac:InvoiceLine/cac:Price" flag="warning">
-			<assert test="count(cac:AllowanceCharge)&lt;=1" flag="warning">[SI-UBL-INV-R417]-Element 'AllowanceCharge' may occur at maximum 1 times.</assert>
-		</rule>
-		<rule context="ubl:Invoice/cac:LegalMonetaryTotal" flag="warning">
-			<assert test="count(cbc:TaxExclusiveAmount)=1" flag="warning">[SI-UBL-INV-R418]-Element 'TaxExclusiveAmount' must occur exactly 1 times.</assert>
-			<assert test="count(cbc:TaxInclusiveAmount)=1" flag="warning">[SI-UBL-INV-R419]-Element 'TaxInclusiveAmount' must occur exactly 1 times.</assert>
-			<assert test="count(cbc:LineExtensionAmount)=1" flag="warning">[SI-UBL-INV-R453]-Element 'LineExtensionAmount' must occur exactly 1 times.</assert>
-		</rule>
-
-		<rule context="cac:Delivery/cac:DeliveryLocation/cac:Address" flag="warning">
-			<assert test="(cbc:CityName and cbc:PostalZone and cac:Country/cbc:IdentificationCode)" flag="warning">[SI-UBL-INV-R427]-A Delivery address in an invoice SHOULD contain at least, city, zip code and country code.</assert>
-		</rule>
-		<rule context="cac:TaxSubtotal" flag="warning">
-			<assert test="((cac:TaxCategory/cbc:ID = 'E') and (cac:TaxCategory/cbc:TaxExemptionReason or cac:TaxCategory/cbc:TaxExemptionReasonCode)) or (cac:TaxCategory/cbc:ID != 'E')" flag="warning">[SI-UBL-INV-R431]-If the category for VAT is exempt (E) then an exemption reason SHOULD be provided.</assert>
-		</rule>
-		<rule context="cac:PostalAddress/cbc:ID//@schemeID" flag="warning">
-			<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' GLN ',concat(' ',normalize-space(.),' ') ) ) )" flag="warning">[SI-UBL-INV-R447]-Postal address identifiers SHOULD be GLN.</assert>
-		</rule>
-		<rule context="cac:Delivery/cac:DeliveryLocation/cbc:ID//@schemeID" flag="warning">
-			<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' GLN ',concat(' ',normalize-space(.),' ') ) ) )" flag="warning">[SI-UBL-INV-R448]-Location identifiers SHOULD be GLN</assert>
-		</rule>
-		<rule context="cac:Item/cac:StandardItemIdentification/cbc:ID//@schemeID" flag="warning">
-			<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' GTIN ',concat(' ',normalize-space(.),' ') ) ) )" flag="warning">[SI-UBL-INV-R449]-Standard item identifiers SHOULD be GTIN.</assert>
 		</rule>
 	</pattern>
 </schema>
