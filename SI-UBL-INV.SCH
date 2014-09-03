@@ -79,6 +79,9 @@
 	<!-- Simplerinvoicing rules -->
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-UBL-INV-REQUIRED">
 		<!-- Rules are numbered in the region 0xx -->
+		<rule context="/">
+			<assert test="ubl:Invoice" flag="fatal">[SI-V11-INV-R000]-This is NOT a UBL 2.x document, validation cannot continue</assert>
+		</rule>
 		<rule context="ubl:Invoice">
 			<assert test="cbc:UBLVersionID='2.1'" flag="fatal">[SI-V11-INV-R001]-Each invoice MUST be specified as a UBL 2.1 document</assert>
 			<assert test="cbc:InvoiceTypeCode" flag="fatal">[SI-V11-INV-R002]-Each invoice MUST have a type declaration</assert>
