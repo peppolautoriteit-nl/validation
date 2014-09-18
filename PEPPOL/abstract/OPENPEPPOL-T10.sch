@@ -2,6 +2,9 @@
 <!-- Abstract rules for T10 -->
 <!-- (2009). Invinet Sistemes -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="PEPPOL-T10">
+	<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
+	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']"/>
+	<!-- End backwards compatibiltiy statement -->
   <rule context="$Allowance_Charge">
     <assert test="$EUGEN-T10-R012" flag="fatal">[EUGEN-T10-R012]-An allowance percentage MUST NOT be negative.</assert>
     <assert test="$EUGEN-T10-R022" flag="fatal">[EUGEN-T10-R022]-An allowance or charge amount MUST NOT be negative.</assert>

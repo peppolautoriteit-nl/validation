@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?><pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="BII-CodesT10">
+	<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
+	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']"/>
+	<!-- End backwards compatibiltiy statement -->
 <!--
   This implementation supports genericode code lists with no instance
   meta data.

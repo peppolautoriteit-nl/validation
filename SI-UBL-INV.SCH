@@ -21,7 +21,6 @@
 		If the context would be a to broad match than limit it using predicates with a parent match like cbc:ID[parent::cac:TaxScheme]
 		
 		TODO: 
-			- Backwards compatibility with v1.0
 			- Add calculation rules for going from taxamount to transactioncurrencyamount
 			- Fix PEPPOL and BII rules to ensure that they target the proper context to facilitate easier pinpointing of problems
 			- Fix BII rules for payable amounts calculation 
@@ -49,34 +48,32 @@
 	<phase id="warning_phase">
 		<active pattern="SI-V11-INV-WARNING"/>
 	</phase>
-  <!-- Abstract CEN BII patterns -->
-  <!-- ========================= -->
-  <include href="BII/abstract/BIIRULES-T10.sch"/>
-  <!-- Data Binding parameters -->
-  <!-- ======================= -->
-  <include href="BII/UBL/BIIRULES-UBL-T10.sch"/>
-  <!-- Code Lists Binding rules -->
-  <!-- ======================== -->
-  <include href="BII/codelist/BIIRULESCodesT10-UBL.sch"/>	
+	<phase id="simplerinvoicing_compatibility_phase">
+		<active pattern="SI-V10-INV-FATAL"/>
+		<active pattern="SI-V10-INV-WARNING"/>
+	</phase>
+  
+	<!-- BII patterns -->
+	<include href="BII/abstract/BIIRULES-T10.sch"/>
+	<include href="BII/UBL/BIIRULES-UBL-T10.sch"/>
+	<include href="BII/codelist/BIIRULESCodesT10-UBL.sch"/>	
 	
-	
-	<!-- Abstract PEPPOL patterns -->
-	<!-- ========================= -->
+	<!-- PEPPOL patterns -->
 	<include href="PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
-	<!-- Data Binding parameters -->
-	<!-- ======================= -->
 	<include href="PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
-	<!-- Code Lists Binding rules -->
-	<!-- ======================== -->
 	<include href="PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
 	
-	
-	
+	<!-- Simplerinvoicing 1.0 patterns -->
+	<include href="SI-UBL-INV-COMPAT-FATAL.SCH"/>
+	<include href="SI-UBL-INV-COMPAT-WARNING.SCH"/>
 
 	
 	<!-- Simplerinvoicing rules -->
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V11-INV">
-		<!-- Rules are numbered in the region 0xx -->
+	<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
+	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']"/>
+	<!-- End backwards compatibiltiy statement -->
+		
 		<rule context="/">
 			<assert test="ubl:Invoice" flag="fatal">[SI-V11-INV-R000]-This is NOT a UBL 2.x document, validation cannot continue</assert>
 		</rule>
@@ -163,6 +160,10 @@
 
 	
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V11-CODES">
+		<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
+		<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']"/>
+		<!-- End backwards compatibiltiy statement -->
+	
 		<rule context="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID" flag="warning">
 			<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' UNSPSC eCLASS CPV ',concat(' ',normalize-space(.),' ') ) ) )" flag="warning">[SI-V11-CODE-R001]-Commodity classification SHOULD be one of UNSPSC, eClass or CPV.</assert>
 		</rule>
@@ -179,6 +180,10 @@
 	
 	
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V11-INV-WARNING">
+		<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
+		<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']"/>
+		<!-- End backwards compatibiltiy statement -->
+		
 		<!-- Rules are numbered in the region 2xx -->
 		<rule context="cbc:CustomizationID">
 			<assert test="contains(., 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.1.x')" flag="warning">[SI-V11-INV-R200]-This XML instance is NOT tagged as a SI-UBL v1.1 invoice</assert>
