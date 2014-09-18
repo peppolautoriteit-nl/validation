@@ -151,6 +151,7 @@
 <!--SCHEMA METADATA-->
 
    <axsl:template match="/">
+	   <axsl:processing-instruction name="xml-stylesheet">type="text/xsl" href="C:\Users\Marcel.BYRONBAY-LAPTOP\Documents\GitHub\validation\reports\SVRLReport.xsl"</axsl:processing-instruction>
       <svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" title="Simplerinvoicing invoice v1.1 bound to UBL 2.1 and OPENPEPPOL v2" schemaVersion="">
          <axsl:comment>
             <axsl:value-of select="$archiveDirParameter"/>   
