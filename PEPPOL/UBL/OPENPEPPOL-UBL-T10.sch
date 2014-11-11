@@ -5,23 +5,23 @@
   <param name="EUGEN-T10-R004" value="((cbc:PaymentMeansCode = '31') and (cac:PayeeFinancialAccount/cbc:ID/@schemeID and cac:PayeeFinancialAccount/cbc:ID/@schemeID = 'IBAN') and (cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID/@schemeID and cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID/@schemeID = 'BIC')) or (string(cbc:PaymentMeansCode) != '31') or ((cbc:PaymentMeansCode = '31') and  (not(cac:PayeeFinancialAccount/cbc:ID/@schemeID) or (string(cac:PayeeFinancialAccount/cbc:ID/@schemeID) != 'IBAN')))"/>
   <param name="EUGEN-T10-R008" value="(parent::cac:AllowanceCharge) or (cbc:ID and cbc:Percent) or (cbc:ID = 'AE')"/>
   <param name="EUGEN-T10-R012" value="not(cbc:MultiplierFactorNumeric) or number(cbc:MultiplierFactorNumeric) &gt;=0"/>
-  <param name="EUGEN-T10-R022" value="number(cbc:Amount)&gt;=0"/>
+   <!-- EUGEN-T10-R022 is removed for Simplerinvoicing --><!--<param name="EUGEN-T10-R022" value="number(cbc:Amount)&gt;=0"/>-->
   <param name="EUGEN-T10-R023" value="@schemeID"/>
   <param name="EUGEN-T10-R024" value="@schemeID"/>
   <param name="EUGEN-T10-R025" value="@listID = 'UNCL1001'"/>
-  <param name="EUGEN-T10-R026" value="@listID =  'ISO4217'"/>
+  <!-- EUGEN-T10-R026 is removed for Simplerinvoicing --><!--<param name="EUGEN-T10-R026" value="@listID =  'ISO4217'"/>-->
   <param name="EUGEN-T10-R027" value="@listID = 'ISO3166-1:Alpha2'"/>
   <param name="EUGEN-T10-R028" value="@listID = 'UNCL4461'"/>
   <param name="EUGEN-T10-R029" value="@listID = 'UNCL4465'"/>
-  <param name="EUGEN-T10-R030" value="not(attribute::unitCode) or (attribute::unitCode and attribute::unitCodeListID = 'UNECERec20')"/>
+  <!-- EUGEN-T10-R030 is removed for Simplerinvoicing --><!--<param name="EUGEN-T10-R030" value="not(attribute::unitCode) or (attribute::unitCode and attribute::unitCodeListID = 'UNECERec20')"/>-->
   <param name="EUGEN-T10-R031" value="@schemeID"/>
   <param name="EUGEN-T10-R032" value="@schemeID = 'UNCL5305'"/>
   <param name="EUGEN-T10-R033" value="@listID = 'UNCL1001'"/>
   <param name="EUGEN-T10-R034" value="@schemeID"/>
-  <param name="EUGEN-T10-R035" value="(cac:Party/cac:PartyName/cbc:Name)"/>
-  <param name="EUGEN-T10-R036" value="(cac:Party/cac:PartyName/cbc:Name)"/>
-  <param name="EUGEN-T10-R037" value="(cac:Party/cac:PostalAddress)"/>
-  <param name="EUGEN-T10-R038" value="(cac:Party/cac:PostalAddress)"/>
+  <!-- EUGEN-T10-R035 is removed for Simplerinvoicing --><!--<param name="EUGEN-T10-R035" value="(cac:Party/cac:PartyName/cbc:Name)"/>-->
+  <!-- EUGEN-T10-R036 is removed for Simplerinvoicing --><!--<param name="EUGEN-T10-R036" value="(cac:Party/cac:PartyName/cbc:Name)"/>-->
+  <!-- EUGEN-T10-R037 is removed for Simplerinvoicing --><!--<param name="EUGEN-T10-R037" value="(cac:Party/cac:PostalAddress)"/>-->
+  <!-- EUGEN-T10-R038 is removed for Simplerinvoicing --><!--<param name="EUGEN-T10-R038" value="(cac:Party/cac:PostalAddress)"/>-->
   <param name="EUGEN-T10-R039" value="(cac:Party/cac:PartyLegalEntity)"/>
   <param name="EUGEN-T10-R040" value="(cac:Party/cac:PartyLegalEntity)"/>
   <param name="EUGEN-T10-R041" value="not(/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') or (starts-with(cac:Party/cac:PartyTaxScheme/cbc:CompanyID,cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))"/>

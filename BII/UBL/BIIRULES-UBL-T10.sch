@@ -30,7 +30,8 @@
   <param name="BII2-T10-R021" value="(cac:Item/cbc:Name) or (cac:Item/cac:StandardItemIdentification/cbc:ID) or  (cac:Item/cac:SellersItemIdentification/cbc:ID)"/>
   <param name="BII2-T10-R023" value="(cbc:StartDate)"/>
   <param name="BII2-T10-R024" value="(cbc:EndDate)"/>
-  <param name="BII2-T10-R025" value="(cbc:AllowanceChargeReason)"/>
+  <!-- BII2-T10-R025 is adapted for Simplerinvoicing -->
+  <param name="BII2-T10-R025" value="cbc:AllowanceChargeReason or cbc:AllowanceChargeReasonCode"/>
   <param name="BII2-T10-R026" value="(//cac:TaxScheme/cbc:ID = 'VAT') or not(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount)"/>
   <param name="BII2-T10-R027" value="(cbc:TaxableAmount)"/>
   <param name="BII2-T10-R028" value="(cbc:TaxAmount)"/>
@@ -39,17 +40,20 @@
   <param name="BII2-T10-R031" value="(cbc:StartDate and cbc:EndDate) and (number(translate(cbc:StartDate,'-','')) &lt;= number(translate(cbc:EndDate,'-','')))"/>
   <param name="BII2-T10-R032" value="(cac:StandardItemIdentification/cbc:ID/@schemeID) or not(cac:StandardItemIdentification)"/>
   <param name="BII2-T10-R033" value="cbc:ItemClassificationCode/@listID"/>
-  <param name="BII2-T10-R034" value="number(cac:Price/cbc:PriceAmount) &gt;= 0"/>
-  <param name="BII2-T10-R035" value="not(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) or number(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) &gt;= 0"/>
-  <param name="BII2-T10-R037" value="number(cac:LegalMonetaryTotal/cbc:PayableAmount) &gt;= 0"/>
+  <!-- BII2-T10-R034 is removed for Simplerinvoicing --><!--param name="BII2-T10-R034" value="number(cac:Price/cbc:PriceAmount) &gt;= 0"/-->
+  <!-- BII2-T10-R035 is adapted for Simplerinvoicing -->
+  <param name="BII2-T10-R035" value="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or not(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) or number(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) &gt;= 0"/>
+  <!-- BII2-T10-R037 is adapted for Simplerinvoicing -->
+  <param name="BII2-T10-R037" value="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or number(cac:LegalMonetaryTotal/cbc:PayableAmount) &gt;= 0"/>
   <param name="BII2-T10-R039" value="((cbc:PaymentMeansCode = '31') and (cac:PayeeFinancialAccount/cbc:ID)) or (string(cbc:PaymentMeansCode) != '31')"/>
   <param name="BII2-T10-R040" value="(cac:PayeeFinancialAccount/cbc:ID/@schemeID and (cac:PayeeFinancialAccount/cbc:ID/@schemeID = 'IBAN') and cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID) or (cac:PayeeFinancialAccount/cbc:ID/@schemeID != 'IBAN') or (not(cac:PayeeFinancialAccount/cbc:ID/@schemeID))"/>
   <param name="BII2-T10-R041" value="(cbc:PaymentMeansCode)"/>
   <param name="BII2-T10-R042" value="(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID/@schemeID='BIC') and (cac:PayeeFinancialAccount/cbc:ID/@schemeID = 'IBAN') or not(cac:PayeeFinancialAccount/cbc:ID/@schemeID = 'IBAN')"/>
-  <param name="BII2-T10-R043" value="(/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') and (cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT')"/>
+  <!-- BII2-T10-R043 is adapted for Simplerinvoicing -->
+  <param name="BII2-T10-R043" value="(/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT' and cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT') or count(/ubl:Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory) = 1"/>
   <param name="BII2-T10-R044" value="(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID) or not(cac:TaxTotal/*/*/*/cbc:ID = 'VAT')"/>
-  <param name="BII2-T10-R045" value="(cac:TaxCategory/cbc:TaxExemptionReason) or not ((cac:TaxCategory/cbc:ID='E') or (cac:TaxCategory/cbc:ID='AE'))"/>
-  <param name="BII2-T10-R046" value="(cac:Item/cac:ClassifiedTaxCategory/cbc:ID) or not(/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID='VAT')"/>
+   <!-- BII2-T10-R045 is removed for Simplerinvoicing --><!--param name="BII2-T10-R045" value="(cac:TaxCategory/cbc:TaxExemptionReason) or not ((cac:TaxCategory/cbc:ID='E') or (cac:TaxCategory/cbc:ID='AE'))"/-->
+   <!-- BII2-T10-R046 is removed for Simplerinvoicing --><!--param name="BII2-T10-R046" value="(cac:Item/cac:ClassifiedTaxCategory/cbc:ID) or not(/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID='VAT')"/-->
   <param name="BII2-T10-R047" value="(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID) or not(cac:TaxTotal/*/*/cbc:ID = 'AE')"/>
   <param name="BII2-T10-R048" value="count(child::cac:TaxTotal/*/*/cbc:ID) = count(child::cac:TaxTotal/*/*/cbc:ID[. = 'AE']) or count(child::cac:TaxTotal/*/*/cbc:ID[. = 'AE']) = 0"/>
   <param name="BII2-T10-R049" value="(cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'AE']/cbc:TaxableAmount = (cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount)) or  not(cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'AE']/cbc:TaxableAmount)"/>

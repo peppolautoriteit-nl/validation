@@ -1,6 +1,7 @@
-<!-- Schematron rules generated automatically. -->
 <!-- Abstract rules for T10 -->
 <!-- (2009). Invinet Sistemes -->
+<!-- 2014 - Innopay changes for Simplerinvoicing
+The following rules have been removed BII2-T10-R034 BII2-T10-R046 BII2-T10-R045 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="BII-T10">
 	<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
 	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']"/>
@@ -39,8 +40,8 @@
     <assert test="$BII2-T10-R020" flag="fatal">[BII2-T10-R020]-Each invoice line MUST have an invoice line net amount</assert>
     <assert test="$BII2-T10-R021" flag="fatal">[BII2-T10-R021]-Each invoice line MUST have an invoice line item name and/or the invoice line item identifier</assert>
     <assert test="$BII2-T10-R032" flag="fatal">[BII2-T10-R032]-A scheme identifier for the invoice line item registered identifier MUST be provided if invoice line item registered identifiers are used to identify a product.(e.g. GTIN)</assert>
-    <assert test="$BII2-T10-R034" flag="fatal">[BII2-T10-R034]-Invoice line item net price MUST NOT be negative</assert>
-    <assert test="$BII2-T10-R046" flag="fatal">[BII2-T10-R046]-Each invoice line MUST be categorized with the invoice line VAT category if the invoice has a VAT total amount </assert>
+    <!--<assert test="$BII2-T10-R034" flag="fatal">[BII2-T10-R034]-Invoice line item net price MUST NOT be negative</assert>-->
+    <!--<assert test="$BII2-T10-R046" flag="fatal">[BII2-T10-R046]-Each invoice line MUST be categorized with the invoice line VAT category if the invoice has a VAT total amount </assert>-->
   </rule>
   <rule context="cac:Item/cac:CommodityClassification">
       <assert test="$BII2-T10-R033" flag="fatal">[BII2-T10-R033]-A scheme identifier for a invoice line item commodity classification MUST be provided if invoice line item commodity classification are used to classify an invoice line item (e.g. CPV or UNSPSC)</assert>
@@ -70,6 +71,6 @@
     <assert test="$BII2-T10-R028" flag="fatal">[BII2-T10-R028]-Each VAT category details MUST have a VAT category tax amount</assert>
     <assert test="$BII2-T10-R029" flag="fatal">[BII2-T10-R029]-Every VAT category details MUST be defined through a VAT category code</assert>
     <assert test="$BII2-T10-R030" flag="fatal">[BII2-T10-R030]-The VAT category percentage MUST be provided if the VAT category code is standard.</assert>
-    <assert test="$BII2-T10-R045" flag="fatal">[BII2-T10-R045]-A VAT exemption reason MUST be provided if the VAT category code is exempt or reverse charge.</assert>
+    <!--<assert test="$BII2-T10-R045" flag="fatal">[BII2-T10-R045]-A VAT exemption reason MUST be provided if the VAT category code is exempt or reverse charge.</assert>-->
   </rule>
 </pattern>

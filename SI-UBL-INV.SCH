@@ -78,7 +78,7 @@
 		</rule>
 		<rule context="ubl:Invoice" flag="fatal">
 			<assert test="cbc:UBLVersionID='2.1'" flag="fatal">[SI-V11-INV-R001]-Each invoice MUST be specified as a UBL 2.1 document</assert>
-			<assert test="cbc:InvoiceTypeCode" flag="fatal">[SI-V11-INV-R002]-Each invoice MUST have a type declaration</assert>
+			<assert test="cbc:InvoiceTypeCode" flag="fatal">[SI-V11-INV-R002]-Each invoice MUST have an InvoiceTypeCode declaration</assert>
 		</rule>
 		<rule context="cbc:CompanyID" flag="fatal">
 			<assert test="@schemeID" flag="fatal">[SI-V11-INV-R003]-A CompanyID MUST be specified using a PEPPOL Party identifier</assert>
