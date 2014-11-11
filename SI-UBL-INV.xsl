@@ -615,9 +615,6 @@
 <xsl:choose><xsl:when test="not(cbc:LineCountNumeric)" /><xsl:otherwise><svrl:failed-assert test="not(cbc:LineCountNumeric)" xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron"><xsl:attribute name="flag">warning</xsl:attribute><xsl:attribute name="location"><xsl:apply-templates select="." mode="schematron-get-full-path" /></xsl:attribute><svrl:text>A Simplerinvoicing invoice SHOULD not contain the element cbc:LineCountNumeric</svrl:text></svrl:failed-assert></xsl:otherwise></xsl:choose>
 
 		<!--ASSERT -->
-<xsl:choose><xsl:when test="not(cac:BillingReference)" /><xsl:otherwise><svrl:failed-assert test="not(cac:BillingReference)" xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron"><xsl:attribute name="flag">warning</xsl:attribute><xsl:attribute name="location"><xsl:apply-templates select="." mode="schematron-get-full-path" /></xsl:attribute><svrl:text>A Simplerinvoicing invoice SHOULD not contain the element cac:BillingReference</svrl:text></svrl:failed-assert></xsl:otherwise></xsl:choose>
-
-		<!--ASSERT -->
 <xsl:choose><xsl:when test="not(cac:DespatchDocumentReference)" /><xsl:otherwise><svrl:failed-assert test="not(cac:DespatchDocumentReference)" xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron"><xsl:attribute name="flag">warning</xsl:attribute><xsl:attribute name="location"><xsl:apply-templates select="." mode="schematron-get-full-path" /></xsl:attribute><svrl:text>A Simplerinvoicing invoice SHOULD not contain the element cac:DespatchDocumentReference</svrl:text></svrl:failed-assert></xsl:otherwise></xsl:choose>
 
 		<!--ASSERT -->

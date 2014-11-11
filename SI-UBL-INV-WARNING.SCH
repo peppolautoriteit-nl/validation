@@ -79,7 +79,6 @@
 		<assert test="not(cbc:PaymentAlternativeCurrencyCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cbc:PaymentAlternativeCurrencyCode</assert>
 		<assert test="not(cbc:AccountingCostCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cbc:AccountingCostCode</assert>
 		<assert test="not(cbc:LineCountNumeric)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cbc:LineCountNumeric</assert>
-		<assert test="not(cac:BillingReference)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:BillingReference</assert>
 		<assert test="not(cac:DespatchDocumentReference)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:DespatchDocumentReference</assert>
 		<assert test="not(cac:ReceiptDocumentReference)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:ReceiptDocumentReference</assert>
 		<assert test="not(cac:OriginatorDocumentReference)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:OriginatorDocumentReference</assert>
