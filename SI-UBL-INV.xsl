@@ -487,36 +487,6 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or not(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) or number(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) &gt;= 0"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or not(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) or number(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) &gt;= 0">
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-get-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[BII2-T10-R035]-Invoice total with VAT MUST NOT be negative</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or number(cac:LegalMonetaryTotal/cbc:PayableAmount) &gt;= 0"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or number(cac:LegalMonetaryTotal/cbc:PayableAmount) &gt;= 0">
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-get-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[BII2-T10-R037]-Amount due for payment in an invoice MUST NOT be negative</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
          <axsl:when test="(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID) or not(cac:TaxTotal/*/*/*/cbc:ID = 'VAT')"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID) or not(cac:TaxTotal/*/*/*/cbc:ID = 'VAT')">

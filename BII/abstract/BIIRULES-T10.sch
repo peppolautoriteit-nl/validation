@@ -25,8 +25,8 @@ The following rules have been removed BII2-T10-R034 BII2-T10-R046 BII2-T10-R045 
     <assert test="$BII2-T10-R014" flag="fatal">[BII2-T10-R014]-An invoice MUST have at least one invoice line</assert>
     <assert test="$BII2-T10-R015" flag="fatal">[BII2-T10-R015]-An invoice MUST specify the VAT total amount, if there are VAT line amounts</assert>
     <assert test="$BII2-T10-R026" flag="fatal">[BII2-T10-R026]-An invoice MUST contain VAT category details unless VAT total amount is omitted.</assert>
-    <assert test="$BII2-T10-R035" flag="fatal">[BII2-T10-R035]-Invoice total with VAT MUST NOT be negative</assert>
-    <assert test="$BII2-T10-R037" flag="fatal">[BII2-T10-R037]-Amount due for payment in an invoice MUST NOT be negative</assert>
+    <!--<assert test="$BII2-T10-R035" flag="fatal">[BII2-T10-R035]-Invoice total with VAT MUST NOT be negative</assert>-->
+    <!--<assert test="$BII2-T10-R037" flag="fatal">[BII2-T10-R037]-Amount due for payment in an invoice MUST NOT be negative</assert>-->
     <assert test="$BII2-T10-R044" flag="fatal">[BII2-T10-R044]-A seller VAT identifier MUST be provided if the invoice has a VAT total amount</assert>
     <assert test="$BII2-T10-R047" flag="fatal">[BII2-T10-R047]-A buyer VAT identifier MUST be present if the VAT category code is reverse VAT</assert>
     <assert test="$BII2-T10-R049" flag="fatal">[BII2-T10-R049]-The invoice total without VAT MUST be equal to the VAT category taxable amount if the VAT category code is reverse charge</assert>

@@ -40,11 +40,11 @@
   <param name="BII2-T10-R031" value="(cbc:StartDate and cbc:EndDate) and (number(translate(cbc:StartDate,'-','')) &lt;= number(translate(cbc:EndDate,'-','')))"/>
   <param name="BII2-T10-R032" value="(cac:StandardItemIdentification/cbc:ID/@schemeID) or not(cac:StandardItemIdentification)"/>
   <param name="BII2-T10-R033" value="cbc:ItemClassificationCode/@listID"/>
-  <!-- BII2-T10-R034 is removed for Simplerinvoicing --><!--param name="BII2-T10-R034" value="number(cac:Price/cbc:PriceAmount) &gt;= 0"/-->
-  <!-- BII2-T10-R035 is adapted for Simplerinvoicing -->
-  <param name="BII2-T10-R035" value="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or not(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) or number(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) &gt;= 0"/>
-  <!-- BII2-T10-R037 is adapted for Simplerinvoicing -->
-  <param name="BII2-T10-R037" value="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or number(cac:LegalMonetaryTotal/cbc:PayableAmount) &gt;= 0"/>
+  <!-- BII2-T10-R034 is removed for Simplerinvoicing --><!--param name="BII2-T10-R034" value="number(cac:Price/cbc:PriceAmount) &gt;= 0"-->
+  <!-- BII2-T10-R035 is removed for Simplerinvoicing -->
+  <!-- param name="BII2-T10-R035" value="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or not(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) or number(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount) &gt;= 0”-->
+  <!-- BII2-T10-R037 is removed for Simplerinvoicing -->
+  <!-- param name="BII2-T10-R037" value="/ubl:Invoice/cbc:InvoiceTypeCode != 380 or number(cac:LegalMonetaryTotal/cbc:PayableAmount) &gt;= 0”-->
   <param name="BII2-T10-R039" value="((cbc:PaymentMeansCode = '31') and (cac:PayeeFinancialAccount/cbc:ID)) or (string(cbc:PaymentMeansCode) != '31')"/>
   <param name="BII2-T10-R040" value="(cac:PayeeFinancialAccount/cbc:ID/@schemeID and (cac:PayeeFinancialAccount/cbc:ID/@schemeID = 'IBAN') and cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID) or (cac:PayeeFinancialAccount/cbc:ID/@schemeID != 'IBAN') or (not(cac:PayeeFinancialAccount/cbc:ID/@schemeID))"/>
   <param name="BII2-T10-R041" value="(cbc:PaymentMeansCode)"/>
