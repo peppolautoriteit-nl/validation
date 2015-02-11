@@ -1,6 +1,8 @@
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V10-INV-WARNING">
 	<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
-	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.0'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.0']"/>
+	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.0'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.0']">
+		<assert test="true()" />
+	</rule>
 	<!-- End backwards compatibiltiy statement -->
 	<rule context="ubl:Invoice" flag="warning">
 		<assert test="contains(cbc:CustomizationID, 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x')" flag="warning">[SI-UBL-INV-R000]-This XML instance is NOT a core SI-UBL Invoice</assert>
