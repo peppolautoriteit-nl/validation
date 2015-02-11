@@ -70,7 +70,10 @@
 	<!-- Simplerinvoicing rules -->
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V11-INV">
 		<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
-		<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']" />
+		<!--<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']" />-->
+		<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']">
+			<assert test="true()" />
+		</rule>
 		<!-- End backwards compatibiltiy statement -->
 		
 		<rule context="/" flag="fatal">
@@ -159,7 +162,9 @@
 
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V11-CODES">
 		<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
-		<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']"/>
+		<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']">
+			<assert test="true()" />
+		</rule>
 		<!-- End backwards compatibiltiy statement -->
 	
 		<rule context="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID" flag="warning">

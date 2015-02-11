@@ -4,7 +4,9 @@
 The following rules have been removed BII2-T10-R034 BII2-T10-R046 BII2-T10-R045 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="BII-T10">
 	<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
-	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']"/>
+	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']">
+		<assert test="true()" />
+	</rule>
 	<!-- End backwards compatibiltiy statement -->
   <rule context="$Allowance_Charge">
     <assert test="$BII2-T10-R025" flag="fatal">[BII2-T10-R025]-Each document level allowance or charge details MUST have an allowance and charge reason text</assert>
