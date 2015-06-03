@@ -1864,9 +1864,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="contains(., 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.1.x')"/>
+         <axsl:when test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="contains(., 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.1.x')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x')">
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-get-full-path"/>
