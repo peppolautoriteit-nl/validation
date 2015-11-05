@@ -53,6 +53,8 @@
 	</phase>
 -->
 
+    <!-- SimplerInvoicing Version 1.1 -->
+
     <!-- BII patterns, one per version -->
     <include href="v1.1/BII/abstract/BIIRULES-T10.sch"/>
     <include href="v1.1/BII/UBL/BIIRULES-UBL-T10.sch"/>
@@ -64,13 +66,19 @@
     <include href="v1.1/PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
 	
     <!-- and SI itself -->
-    <include href="v1.1/SI-UBL-INV-V11.SCH" />
+    <include href="v1.1/SI-UBL-INV-V11-WARNING.SCH" />
+    <include href="v1.1/SI-UBL-INV-V11-FATAL.SCH" />
     <include href="v1.1/SI-UBL-INV-V11-Codes.SCH" />
     
 	<!-- Simplerinvoicing patterns -->
+<!--
 	<include href="SI-UBL-INV-WARNING.SCH"/>
 	<include href="SI-UBL-INV-COMPAT-FATAL.SCH"/>
 	<include href="SI-UBL-INV-COMPAT-WARNING.SCH"/>
-	
+-->
+
+    <!-- SimplerInvoicing Version 1.0 -->
+	<include href="v1.0/SI-UBL-INV-V10-FATAL.SCH"/>
+	<include href="v1.0/SI-UBL-INV-V10-WARNING.SCH"/>
 	
 </schema>

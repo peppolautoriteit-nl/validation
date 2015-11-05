@@ -1,9 +1,9 @@
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V10-INV-FATAL">
-	<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
-	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.0'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.0']">
-		<assert test="true()" />
-	</rule>
-	<!-- End backwards compatibiltiy statement -->
+	<!-- Version check -->
+    <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0:#urn:www.peppol.eu:bis:peppol4a:ver1.0#urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0:#urn:www.peppol.eu:bis:peppol4a:ver1.0#urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x'))]">
+        <assert test="true()" />
+    </rule>
+	<!-- End version check -->
 	<rule context="ubl:Invoice" flag="fatal">
 		<assert test="false()" flag="warning">[SI-UBL-INV-R000]-Simplerinvoicing v1.0 validation is used but will soon be obsolete, please move to Simplerinvoicing v1.1</assert>
 		<assert test="//cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID and (//cac:TaxCategory/cbc:ID) = 'AE' or not((//cac:TaxCategory/cbc:ID) = 'AE')" flag="fatal">[SI-UBL-INV-R436]-IF VAT = "AE" (reverse charge) THEN it MUST contain Supplier VAT id and Customer VAT</assert>
