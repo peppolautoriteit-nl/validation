@@ -10,6 +10,11 @@
 	These are rules: BII2-T10-R053
 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" is-a="BII-T10" id="BII-UBL-T10">
+    <!-- Version check -->
+    <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x'))]">
+        <assert test="true()" />
+    </rule>
+    <!-- End of version check -->
   <param name="BII2-T10-R001" value="(cbc:CustomizationID)"/>
   <param name="BII2-T10-R002" value="(cbc:ProfileID)"/>
   <param name="BII2-T10-R003" value="(cbc:ID)"/>

@@ -33,6 +33,7 @@
 	<ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
 	<ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
 	<ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
+<!--
 	<phase id="invoice_phase">
 		<active pattern="BII-UBL-T10"/>
 		<active pattern="PEPPOL-UBL-T10"/>
@@ -50,31 +51,40 @@
 		<active pattern="SI-V10-INV-FATAL"/>
 		<active pattern="SI-V10-INV-WARNING"/>
 	</phase>
-  
-	<!-- BII patterns, one per version -->
-	<include href="v1.1/BII/abstract/BIIRULES-T10.sch"/>
-	<include href="v1.1/BII/UBL/BIIRULES-UBL-T10.sch"/>
-	<include href="v1.1/BII/codelist/BIIRULESCodesT10-UBL.sch"/>	
-	
-	<!-- PEPPOL patterns -->
-	<include href="v1.1/PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
-	<include href="v1.1/PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
-	<include href="v1.1/PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
+-->
+
+    <!-- BII patterns, one per version -->
+    <include href="v1.1/BII/abstract/BIIRULES-T10.sch"/>
+    <include href="v1.1/BII/UBL/BIIRULES-UBL-T10.sch"/>
+    <include href="v1.1/BII/codelist/BIIRULESCodesT10-UBL.sch"/>
+    
+    <!-- PEPPOL patterns -->
+    <include href="v1.1/PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
+    <include href="v1.1/PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
+    <include href="v1.1/PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
 	
 	<!-- Simplerinvoicing patterns -->
 	<include href="SI-UBL-INV-WARNING.SCH"/>
 	<include href="SI-UBL-INV-COMPAT-FATAL.SCH"/>
 	<include href="SI-UBL-INV-COMPAT-WARNING.SCH"/>
-
 	
 	<!-- Simplerinvoicing rules -->
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V11-INV">
 		<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
 		<!--<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']" />-->
-		<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']">
-			<assert test="true()" />
-		</rule>
+        <!-- Version check -->
+        <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x'))]">
+            <assert test="true()" />
+        </rule>
+        <!-- if we want to warn for new version, this would be a good place -->
+        <rule context="ubl:Invoice" flag="warning">
+            <assert test="false()" flag="warning">[SI-UBL-INV-R000]-Simplerinvoicing v1.1 validation is used but will soon be obsolete, please move to Simplerinvoicing v1.1.1</assert>
+        </rule>
+        <!-- end of warning for new version -->
+        <!-- End of version check -->
 		<!-- End backwards compatibiltiy statement -->
+
+
 		
 		<rule context="/" flag="fatal">
 			<assert test="ubl:Invoice" flag="fatal">[SI-V11-INV-R000]-This is NOT a UBL 2.x document, validation cannot continue</assert>
@@ -162,9 +172,9 @@
 
 	<pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V11-CODES">
 		<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
-		<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']">
-			<assert test="true()" />
-		</rule>
+        <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x'))]">
+            <assert test="true()" />
+        </rule>
 		<!-- End backwards compatibiltiy statement -->
 	
 		<rule context="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID" flag="warning">
