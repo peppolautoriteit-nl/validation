@@ -51,15 +51,15 @@
 		<active pattern="SI-V10-INV-WARNING"/>
 	</phase>
   
-	<!-- BII patterns -->
-	<include href="BII/abstract/BIIRULES-T10.sch"/>
-	<include href="BII/UBL/BIIRULES-UBL-T10.sch"/>
-	<include href="BII/codelist/BIIRULESCodesT10-UBL.sch"/>	
+	<!-- BII patterns, one per version -->
+	<include href="v1.1/BII/abstract/BIIRULES-T10.sch"/>
+	<include href="v1.1/BII/UBL/BIIRULES-UBL-T10.sch"/>
+	<include href="v1.1/BII/codelist/BIIRULESCodesT10-UBL.sch"/>	
 	
 	<!-- PEPPOL patterns -->
-	<include href="PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
-	<include href="PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
-	<include href="PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
+	<include href="v1.1/PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
+	<include href="v1.1/PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
+	<include href="v1.1/PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
 	
 	<!-- Simplerinvoicing patterns -->
 	<include href="SI-UBL-INV-WARNING.SCH"/>
