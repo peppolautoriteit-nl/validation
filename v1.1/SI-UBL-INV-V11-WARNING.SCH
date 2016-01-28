@@ -7,7 +7,7 @@
 	
 	<!-- Rules are numbered in the region 2xx -->
 	<rule context="cbc:CustomizationID">
-		<assert test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x')" flag="warning">[SI-V11-INV-R200]-This XML instance is NOT tagged as a SI-UBL v1.1 invoice</assert>
+		<assert test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.1')" flag="fatal">[SI-V11-INV-R200]-This XML instance is NOT tagged as an SI-UBL invoice</assert>
 	</rule>
 	<rule context="cac:ContractDocumentReference[2]">
 		<assert test="false()">[SI-V11-INV-R201]-An SI invoice SHOULD not contain more than one contract document reference</assert>

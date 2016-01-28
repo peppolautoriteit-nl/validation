@@ -1955,14 +1955,14 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x')"/>
+         <axsl:when test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.1')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.1.x')">
-               <axsl:attribute name="flag">warning</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.1')">
+               <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-get-full-path"/>
                </axsl:attribute>
-               <svrl:text>[SI-V11-INV-R200]-This XML instance is NOT tagged as a SI-UBL v1.1 invoice</svrl:text>
+               <svrl:text>[SI-V11-INV-R200]-This XML instance is NOT tagged as an SI-UBL invoice</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
