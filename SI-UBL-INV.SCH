@@ -54,6 +54,7 @@
 -->
 
     <!-- SimplerInvoicing Version 1.1 -->
+    <include href="SI-UBL-VERSIONS.SCH" />
 
     <!-- BII patterns, one per version -->
     <include href="v1.1/BII/abstract/BIIRULES-T10.sch"/>
