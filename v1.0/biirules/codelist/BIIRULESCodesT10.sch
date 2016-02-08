@@ -8,6 +8,12 @@
 Version 0.3
 -->
 
+<!-- Version check -->
+<rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0:#urn:www.peppol.eu:bis:peppol4a:ver1.0#urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0:#urn:www.peppol.eu:bis:peppol4a:ver1.0#urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x'))]">
+  <assert test="true()" />
+</rule>
+<!-- end of version check -->
+
 <rule context="cbc:InvoiceTypeCode" flag="fatal">
   <assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' 380 393 ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal">[CL-010-001]-InvoiceTypeCode in an invoice MUST be 380 from UN/ECE 1001 code list</assert>
 </rule>

@@ -85,11 +85,12 @@
     <include href="v1.0/biirules/abstract/BIIRULES-T10.sch"/>
     <include href="v1.0/biirules/UBL/BIIRULES-UBL-T10.sch"/>
     <include href="v1.0/biirules/codelist/BIIRULESCodesT10.sch"/>
+<!--
 
     <include href="v1.0/eugen/abstract/EUGEN-T10.sch"/>
     <include href="v1.0/eugen/UBL/EUGEN-UBL-T10.sch"/>
     <include href="v1.0/eugen/codelist/EUGENCodesT10.sch"/>
-
+-->
 <!--
     <include href="v1.0/biicore/ubl/BIICORE-UBL-T10.sch"/>
     <include href="v1.0/biicore/ubl/BIICORE-UBL-T10.sch"/>
