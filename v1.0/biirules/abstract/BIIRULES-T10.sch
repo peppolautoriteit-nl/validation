@@ -7,7 +7,6 @@
     <assert test="true()" />
   </rule>
   <!-- end of version check -->
-<!--
   <rule context="$Total_Amounts">
     <assert test="$BIIRULE-T10-R011" flag="fatal">[BIIRULE-T10-R011]-Invoice total line extension amount MUST equal the sum of the line totals</assert>
     <assert test="$BIIRULE-T10-R012" flag="fatal">[BIIRULE-T10-R012]-Invoice tax exclusive amount MUST equal the sum of lines plus allowances and charges on header level.</assert>
@@ -89,5 +88,4 @@
   <rule context="$Annex">
     <assert test="$BIIRULE-T10-R037" flag="fatal">[BIIRULE-T10-R037]-Any reference to a document MUST specify the document identifier.</assert>
   </rule>
--->
 </pattern>

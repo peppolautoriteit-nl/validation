@@ -74,30 +74,24 @@
     
 
     <!-- SimplerInvoicing Version 1.0 -->
+    
 	<include href="v1.0/SI-UBL-INV-V10-FATAL.SCH"/>
 	<include href="v1.0/SI-UBL-INV-V10-WARNING.SCH"/>
 
+<!-- core is replaced by SI-specific set
     <include href="v1.0/biicore/abstract/BIICORE-T10.sch"/>
     <include href="v1.0/biicore/ubl/BIICORE-UBL-T10.sch"/>
     <include href="v1.0/biiprofiles/abstract/BIIPROFILES-T10.sch"/>
     <include href="v1.0/biiprofiles/UBL/BIIPROFILES-UBL-T10.sch"/>
+-->
 
     <include href="v1.0/biirules/abstract/BIIRULES-T10.sch"/>
     <include href="v1.0/biirules/UBL/BIIRULES-UBL-T10.sch"/>
-    <include href="v1.0/biirules/codelist/BIIRULESCodesT10.sch"/>
 <!--
+    <include href="v1.0/biirules/codelist/BIIRULESCodesT10.sch"/>
 
     <include href="v1.0/eugen/abstract/EUGEN-T10.sch"/>
     <include href="v1.0/eugen/UBL/EUGEN-UBL-T10.sch"/>
     <include href="v1.0/eugen/codelist/EUGENCodesT10.sch"/>
 -->
-<!--
-    <include href="v1.0/biicore/ubl/BIICORE-UBL-T10.sch"/>
-    <include href="v1.0/biicore/ubl/BIICORE-UBL-T10.sch"/>
-    <include href="v1.0/biiprofiles/UBL/BIIPROFILES-UBL-T10.sch"/>
-    <include href="v1.0/biirules/UBL/BIIRULES-UBL-T10.sch"/>
-    <include href="v1.0/eugen/UBL/EUGEN-UBL-T10.sch"/>
--->
-    <!-- TODO: Codelist and not core? -->
-	
 </schema>
