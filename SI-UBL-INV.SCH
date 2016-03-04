@@ -39,6 +39,7 @@
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
 
+<!--
     <phase id="invoice_phase">
         <active pattern="BII-UBL-T10"/>
         <active pattern="PEPPOL-UBL-T10"/>
@@ -56,11 +57,28 @@
         <active pattern="SI-V10-INV-FATAL"/>
         <active pattern="SI-V10-INV-WARNING"/>
     </phase>
+-->
 
     <!-- basic version-independent checks -->
     <include href="general/SI-UBL-GENERAL.SCH" />
 
+    <!-- SimplerInvoicing Version 1.2 -->
+
+    <include href="v1.2/SI-UBL-INV-V12-WARNING.SCH" />
+    <include href="v1.2/SI-UBL-INV-V12-FATAL.SCH" />
+    <include href="v1.2/SI-UBL-INV-V12-Codes.SCH" />
+
+    <include href="v1.2/BII/abstract/BIIRULES-T10.sch"/>
+    <include href="v1.2/BII/UBL/BIIRULES-UBL-T10.sch"/>
+    <include href="v1.2/BII/codelist/BIIRULESCodesT10-UBL.sch"/>
+
+    <include href="v1.2/PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
+    <include href="v1.2/PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
+    <include href="v1.2/PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
+
     <!-- SimplerInvoicing Version 1.1 -->
+
+    <!-- BII patterns, one per version -->
 
     <include href="v1.1/BII/abstract/BIIRULES-T10.sch"/>
     <include href="v1.1/BII/UBL/BIIRULES-UBL-T10.sch"/>
@@ -75,14 +93,12 @@
     <include href="v1.1/SI-UBL-INV-V11-WARNING.SCH" />
     <include href="v1.1/SI-UBL-INV-V11-FATAL.SCH" />
     <include href="v1.1/SI-UBL-INV-V11-Codes.SCH" />
-    
+
 
     <!-- SimplerInvoicing Version 1.0 -->
     <include href="v1.0/SI-UBL-INV-V10-FATAL.SCH"/>
     <include href="v1.0/SI-UBL-INV-V10-WARNING.SCH"/>
 
-<!-- Uncomment this to enable BII content checks on SI-UBL 1.0 documents
     <include href="v1.0/biirules/abstract/BIIRULES-T10.sch"/>
     <include href="v1.0/biirules/UBL/BIIRULES-UBL-T10.sch"/>
--->
 </schema>
