@@ -1852,8 +1852,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="@unitCode" priority="1004" mode="M12">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="@unitCode"/>
+   <axsl:template match="//cbc:*[@unitCode]/@unitCode" priority="1004" mode="M12">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="//cbc:*[@unitCode]/@unitCode"/>
 
 		<!--ASSERT -->
 
