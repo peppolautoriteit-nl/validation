@@ -87,13 +87,18 @@
     <rule context="ubl:Invoice/cac:PayeeParty" flag="fatal">
         <assert test="cac:PartyName/cbc:Name" flag="fatal">[SI-V11-INV-R024]-If payee information is provided then the payee name MUST be specified.</assert>
     </rule>
-    <rule context="cbc:TransactionCurrencyTaxAmount/@currencyID[/ubl:Invoice/cbc:TaxCurrencyCode]" flag="fatal">
-        <assert test="/ubl:Invoice/cbc:TaxCurrencyCode and string(.) = string(/ubl:Invoice/cbc:TaxCurrencyCode)" flag="fatal">[SI-V11-INV-R025]-Transaction currency tax amounts MUST be in the local currency and equal to the tax currency defined on the header level</assert>
+    <rule context="cbc:TransactionCurrencyTaxAmount[/ubl:Invoice/cbc:TaxCurrencyCode]" flag="fatal">
+        <assert test="/ubl:Invoice/cbc:TaxCurrencyCode and string(attribute::currencyID) = string(/ubl:Invoice/cbc:TaxCurrencyCode)" flag="fatal">[SI-V11-INV-R025]-Transaction currency tax amounts MUST be in the local currency and equal to the tax currency defined on the header level</assert>
     </rule>
-    <rule context="@currencyID" flag="fatal">
-        <assert test="string(.) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)" flag="fatal">[SI-V11-INV-R026]-Currency Identifier MUST be stated in the currency as defined on header level</assert>
+    <!-- this rule was never triggered, but it is wrong too.
+         for specific currency fields it *should* be different than
+         DocumentCurrencyCode. These are special-cased (since for
+         most elements we do want this check)
+    -->
+    <rule context="cbc:*[@currencyID]" flag="fatal">
+        <assert test="(local-name()='TransactionCurrencyTaxAmount') or (attribute::currencyID = string(/ubl:Invoice/cbc:DocumentCurrencyCode))" flag="fatal">[SI-V11-INV-R026]-Currency Identifier MUST be stated in the currency as defined on header level</assert>
     </rule>
-    <rule context="ubl:Invoice/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount" flag="fatal">
+    <rule context="/ubl:Invoice/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']" flag="fatal">
         <assert test="not(/ubl:Invoice/cac:InvoiceLine/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID != 'VAT'])" flag="fatal">[SI-V11-INV-R027]-If the VAT total amount in an invoice exists then each invoice line item MUST have a VAT category ID.</assert>
     </rule>
     <rule context="cac:AllowanceCharge" flag="fatal">

@@ -36,10 +36,10 @@
 		<assert test="(cbc:StartDate)" flag="fatal">[SI-UBL-INV-R441]-If the invoice refers to a period, the period MUST have a start date.</assert>
 		<assert test="(cbc:EndDate)" flag="fatal">[SI-UBL-INV-R442]-If the invoice refers to a period, the period MUST have an end date.</assert>
 	</rule>
-	<rule context="cac:PartyIdentification/cbc:ID/@schemeID" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' GLN DUNS IBAN DK:CPR DK:CVR DK:P DK:SE DK:VANS IT:VAT IT:CF IT:FTI IT:SIA IT:SECETI NO:ORGNR NO:VAT HU:VAT SE:ORGNR FI:OVT EU:VAT EU:REID FR:SIRET AT:VAT AT:GOV AT:CID IS:KT IBAN AT:KUR ES:VAT NL:KVK NL:VAT NL:OIN ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal">[SI-UBL-INV-R451]-Party Identifiers MUST use the PEPPOL PartyID list</assert>
+	<rule context="cac:PartyIdentification/cbc:ID[@schemeID]" flag="fatal">
+		<assert test="( ( not(contains(normalize-space(attribute::schemeID),' ')) and contains( ' GLN DUNS IBAN DK:CPR DK:CVR DK:P DK:SE DK:VANS IT:VAT IT:CF IT:FTI IT:SIA IT:SECETI NO:ORGNR NO:VAT HU:VAT SE:ORGNR FI:OVT EU:VAT EU:REID FR:SIRET AT:VAT AT:GOV AT:CID IS:KT IBAN AT:KUR ES:VAT NL:KVK NL:VAT NL:OIN ',concat(' ',normalize-space(attribute::schemeID),' ') ) ) )" flag="fatal">[SI-UBL-INV-R451]-Party Identifiers MUST use the PEPPOL PartyID list</assert>
 	</rule>
-	<rule context="cbc:EndpointID/@schemeID" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' GLN DUNS IBAN DK:CPR DK:CVR DK:P DK:SE DK:VANS IT:VAT IT:CF IT:FTI IT:SIA IT:SECETI NO:ORGNR NO:VAT HU:VAT SE:ORGNR FI:OVT EU:VAT EU:REID FR:SIRET AT:VAT AT:GOV AT:CID IS:KT IBAN AT:KUR ES:VAT NL:KVK NL:VAT NL:OIN ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal">[SI-UBL-INV-R452]-Endpoint Identifiers MUST use the PEPPOL PartyID list.</assert>
+	<rule context="cbc:EndpointID[@schemeID]" flag="fatal">
+		<assert test="( ( not(contains(normalize-space(attribute::schemeID),' ')) and contains( ' GLN DUNS IBAN DK:CPR DK:CVR DK:P DK:SE DK:VANS IT:VAT IT:CF IT:FTI IT:SIA IT:SECETI NO:ORGNR NO:VAT HU:VAT SE:ORGNR FI:OVT EU:VAT EU:REID FR:SIRET AT:VAT AT:GOV AT:CID IS:KT IBAN AT:KUR ES:VAT NL:KVK NL:VAT NL:OIN ',concat(' ',normalize-space(attribute::schemeID),' ') ) ) )" flag="fatal">[SI-UBL-INV-R452]-Endpoint Identifiers MUST use the PEPPOL PartyID list.</assert>
 	</rule>
 </pattern>
