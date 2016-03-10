@@ -9004,7 +9004,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1'))]" priority="1004" mode="M15">
+   <axsl:template match="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1'))]" priority="1003" mode="M15">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1'))]"/>
 
 		<!--ASSERT -->
@@ -9017,28 +9017,6 @@
                   <axsl:apply-templates select="." mode="schematron-get-full-path"/>
                </axsl:attribute>
                <svrl:text/>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M15"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID" priority="1003" mode="M15">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="( ( not(contains(normalize-space(.),' ')) and contains( ' UNSPSC eCLASS CPV ',concat(' ',normalize-space(.),' ') ) ) )"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="( ( not(contains(normalize-space(.),' ')) and contains( ' UNSPSC eCLASS CPV ',concat(' ',normalize-space(.),' ') ) ) )">
-               <axsl:attribute name="flag">warning</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-get-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[SI-V11-CODE-R001]-Commodity classification SHOULD be one of UNSPSC, eClass or CPV.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -9511,7 +9489,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="node()[/ubl:Invoice/cbc:UBLVersionID != '2.0'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.0']" priority="1018" mode="M17">
+   <axsl:template match="node()[/ubl:Invoice/cbc:UBLVersionID != '2.0'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.0']" priority="1017" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.0'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.0']"/>
 
 		<!--ASSERT -->
@@ -9532,7 +9510,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice" priority="1017" mode="M17">
+   <axsl:template match="ubl:Invoice" priority="1016" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice"/>
 
 		<!--ASSERT -->
@@ -15419,7 +15397,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingCustomerParty/cac:Party" priority="1016" mode="M17">
+   <axsl:template match="cac:AccountingCustomerParty/cac:Party" priority="1015" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:AccountingCustomerParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -15471,7 +15449,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress" priority="1015" mode="M17">
+   <axsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress" priority="1014" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -15493,7 +15471,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty/cac:Party" priority="1014" mode="M17">
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party" priority="1013" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:AccountingSupplierParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -15575,7 +15553,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice/cac:InvoiceLine" priority="1013" mode="M17">
+   <axsl:template match="ubl:Invoice/cac:InvoiceLine" priority="1012" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice/cac:InvoiceLine"/>
 
 		<!--ASSERT -->
@@ -15627,7 +15605,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice/cac:InvoiceLine/cac:Item" priority="1012" mode="M17">
+   <axsl:template match="ubl:Invoice/cac:InvoiceLine/cac:Item" priority="1011" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice/cac:InvoiceLine/cac:Item"/>
 
 		<!--ASSERT -->
@@ -15679,7 +15657,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice/cac:InvoiceLine/cac:Price" priority="1011" mode="M17">
+   <axsl:template match="ubl:Invoice/cac:InvoiceLine/cac:Price" priority="1010" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice/cac:InvoiceLine/cac:Price"/>
 
 		<!--ASSERT -->
@@ -15701,7 +15679,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice/cac:LegalMonetaryTotal" priority="1010" mode="M17">
+   <axsl:template match="ubl:Invoice/cac:LegalMonetaryTotal" priority="1009" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice/cac:LegalMonetaryTotal"/>
 
 		<!--ASSERT -->
@@ -15753,7 +15731,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice/cac:PayeeParty" priority="1009" mode="M17">
+   <axsl:template match="ubl:Invoice/cac:PayeeParty" priority="1008" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice/cac:PayeeParty"/>
 
 		<!--ASSERT -->
@@ -15790,7 +15768,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount" priority="1008" mode="M17">
+   <axsl:template match="ubl:Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount" priority="1007" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="ubl:Invoice/cac:PaymentMeans/cac:PayeeFinancialAccount"/>
 
 		<!--ASSERT -->
@@ -15812,7 +15790,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PaymentMeans" priority="1007" mode="M17">
+   <axsl:template match="cac:PaymentMeans" priority="1006" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:PaymentMeans"/>
 
 		<!--ASSERT -->
@@ -15834,7 +15812,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:Delivery/cac:DeliveryLocation/cac:Address" priority="1006" mode="M17">
+   <axsl:template match="cac:Delivery/cac:DeliveryLocation/cac:Address" priority="1005" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:Delivery/cac:DeliveryLocation/cac:Address"/>
 
 		<!--ASSERT -->
@@ -15856,7 +15834,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxSubtotal" priority="1005" mode="M17">
+   <axsl:template match="cac:TaxSubtotal" priority="1004" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:TaxSubtotal"/>
 
 		<!--ASSERT -->
@@ -15878,7 +15856,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:FinancialInstitution/cbc:ID//@schemeID" priority="1004" mode="M17">
+   <axsl:template match="cac:FinancialInstitution/cbc:ID//@schemeID" priority="1003" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:FinancialInstitution/cbc:ID//@schemeID"/>
 
 		<!--ASSERT -->
@@ -15900,7 +15878,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PostalAddress/cbc:ID//@schemeID" priority="1003" mode="M17">
+   <axsl:template match="cac:PostalAddress/cbc:ID//@schemeID" priority="1002" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:PostalAddress/cbc:ID//@schemeID"/>
 
 		<!--ASSERT -->
@@ -15922,7 +15900,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:Delivery/cac:DeliveryLocation/cbc:ID//@schemeID" priority="1002" mode="M17">
+   <axsl:template match="cac:Delivery/cac:DeliveryLocation/cbc:ID//@schemeID" priority="1001" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:Delivery/cac:DeliveryLocation/cbc:ID//@schemeID"/>
 
 		<!--ASSERT -->
@@ -15944,7 +15922,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:Item/cac:StandardItemIdentification/cbc:ID//@schemeID" priority="1001" mode="M17">
+   <axsl:template match="cac:Item/cac:StandardItemIdentification/cbc:ID//@schemeID" priority="1000" mode="M17">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:Item/cac:StandardItemIdentification/cbc:ID//@schemeID"/>
 
 		<!--ASSERT -->
@@ -15958,28 +15936,6 @@
                   <axsl:apply-templates select="." mode="schematron-get-full-path"/>
                </axsl:attribute>
                <svrl:text>[SI-UBL-INV-R449]-Standard item identifiers SHOULD be GTIN.</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M17"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode//@listID" priority="1000" mode="M17">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" context="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode//@listID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="( ( not(contains(normalize-space(.),' ')) and contains( ' UNSPSC eCLASS CPV ',concat(' ',normalize-space(.),' ') ) ) )"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:schold="http://www.ascc.net/xml/schematron" test="( ( not(contains(normalize-space(.),' ')) and contains( ' UNSPSC eCLASS CPV ',concat(' ',normalize-space(.),' ') ) ) )">
-               <axsl:attribute name="flag">warning</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-get-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[SI-UBL-INV-R450]-Commodity classification SHOULD be one of UNSPSC, eClass or CPV.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>

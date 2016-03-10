@@ -7,9 +7,11 @@
     </rule>
     <!-- End backwards compatibiltiy statement -->
 
+    <!-- This rule appears too strict (see SEeF specification, for instance), so we have are removing it
     <rule context="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID" flag="warning">
         <assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' UNSPSC eCLASS CPV ',concat(' ',normalize-space(.),' ') ) ) )" flag="warning">[SI-V11-CODE-R001]-Commodity classification SHOULD be one of UNSPSC, eClass or CPV.</assert>
     </rule>
+    -->
     <rule context="cbc:ID[parent::cac:TaxScheme]" flag="fatal">
         <assert test="((not(contains(normalize-space(.),' ')) and contains( ' AAA AAB AAC AAD AAE AAF AAG AAH AAI AAJ AAK ADD BOL CAP CAR COC CST CUD CVD ENV EXC EXP FET FRE GCN GST ILL IMP IND LAC LCN LDP LOC LST MCA MCD OTH PDB PDC PRF SCN SSS STT SUP SUR SWT TAC TOT TOX TTA VAD VAT ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal">[SI-V11-CODE-R002]-A tax scheme identifier MUST be from the UN/ECE 5153 list</assert>
     </rule>
