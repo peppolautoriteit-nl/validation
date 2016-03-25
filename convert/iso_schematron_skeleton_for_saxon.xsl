@@ -509,11 +509,11 @@ which require a preprocess.
   which I find a bit surprising but anyway I'll use the longr faster version.
 -->
 <xsl:variable name="context-xpath">
-  <xsl:if test="$attributes='true' and parent::node() ">@*|</xsl:if>
+  <xsl:if test="$attributes='true'">@*|</xsl:if>
   <xsl:choose>
     <xsl:when test="$only-child-elements='true'">*</xsl:when>
     <xsl:when test="$visit-text='true'">node()</xsl:when>
-    <xsl:otherwise>*|comment()|processing-instruction()</xsl:otherwise>
+    <xsl:otherwise>@*|*|comment()|processing-instruction()</xsl:otherwise>
   </xsl:choose>
 </xsl:variable>
 

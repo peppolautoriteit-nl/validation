@@ -1,10 +1,3 @@
-
-XSLT Implementation for XSLT2 engines, taken from schematron.com, with slight modifications to run with xslt2.
-
-Original readme content below
-
------------------------------
-
 <h1>ISO SCHEMATRON 2010</h1>
 
 XSLT implementation by Rick Jelliffe with assistance from members of Schematron-love-in maillist.
