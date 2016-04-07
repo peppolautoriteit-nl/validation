@@ -459,7 +459,9 @@
 	<rule context="cac:Item/cac:StandardItemIdentification/cbc:ID//@schemeID" flag="warning">
 		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' GTIN ',concat(' ',normalize-space(.),' ') ) ) )" flag="warning">[SI-UBL-INV-R449]-Standard item identifiers SHOULD be GTIN.</assert>
 	</rule>
+    <!-- This rule appears too strict (see SEeF specification, for instance), so we have are removing it
 	<rule context="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode//@listID" flag="warning">
 		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' UNSPSC eCLASS CPV ',concat(' ',normalize-space(.),' ') ) ) )" flag="warning">[SI-UBL-INV-R450]-Commodity classification SHOULD be one of UNSPSC, eClass or CPV.</assert>
 	</rule>
+    -->
 </pattern>

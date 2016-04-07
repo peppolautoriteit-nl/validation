@@ -4,11 +4,11 @@
 The following rules have been removed - EUGEN-T10-R022 EUGEN-T10-R026 EUGEN-T10-R036
 EUGEN-T10-R038 EUGEN-T10-R035 EUGEN-T10-R037 EUGEN-T10-R030 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="PEPPOL-T10">
-	<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
-	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']">
-		<assert test="true()" />
-	</rule>
-	<!-- End backwards compatibiltiy statement -->
+    <!-- Version check -->
+    <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1'))]">
+        <assert test="true()" />
+    </rule>
+    <!-- End of version check -->
   <rule context="$Allowance_Charge">
     <assert test="$EUGEN-T10-R012" flag="fatal">[EUGEN-T10-R012]-An allowance percentage MUST NOT be negative.</assert>
  <!--   <assert test="$EUGEN-T10-R022" flag="fatal">[EUGEN-T10-R022]-An allowance or charge amount MUST NOT be negative.</assert>-->
