@@ -2,7 +2,7 @@
 <schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" queryBinding="xslt" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--
         Release 1.1.1
-        Author: Jelte Jansen (SIDN)
+        Author: Jelte Jansen (SIDN Labs)
         Changes since 1.1:
         - SI-UBL version detection is now based on CustomizationID instead of UBLVersion
         - Split up schematron tree into versions (v1.0 and v1.1)
@@ -57,8 +57,10 @@
         <active pattern="SI-V10-INV-WARNING"/>
     </phase>
 
+    <!-- basic version-independent checks -->
+    <include href="general/SI-UBL-GENERAL.SCH" />
+
     <!-- SimplerInvoicing Version 1.1 -->
-    <include href="SI-UBL-GENERAL.SCH" />
 
     <include href="v1.1/BII/abstract/BIIRULES-T10.sch"/>
     <include href="v1.1/BII/UBL/BIIRULES-UBL-T10.sch"/>
