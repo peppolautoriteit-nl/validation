@@ -15,12 +15,7 @@
     <!-- end of warning for new version -->
     <!-- End of version check -->
     <!-- End backwards compatibiltiy statement -->
-
-
     
-    <rule context="/" flag="fatal">
-        <assert test="ubl:Invoice" flag="fatal">[SI-V11-INV-R000]-This is NOT a UBL 2.x document, validation cannot continue</assert>
-    </rule>
     <rule context="ubl:Invoice" flag="fatal">
         <assert test="cbc:UBLVersionID='2.1'" flag="fatal">[SI-V11-INV-R001]-Each invoice MUST be specified as a UBL 2.1 document</assert>
         <assert test="cbc:InvoiceTypeCode" flag="fatal">[SI-V11-INV-R002]-Each invoice MUST have an InvoiceTypeCode declaration</assert>

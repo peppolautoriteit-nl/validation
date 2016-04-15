@@ -14,4 +14,7 @@
                       contains(., 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x')
                      " flag="fatal">[SI-V11-INV-R200]-This XML instance is NOT tagged as an SI-UBL invoice</assert>
 	</rule>
+    <rule context="/" flag="fatal">
+        <assert test="ubl:Invoice" flag="fatal">[SI-INV-R000]-This is NOT a UBL 2.x Invoice, validation cannot continue</assert>
+    </rule>
 </pattern>
