@@ -1,6 +1,6 @@
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V10-INV-WARNING">
 	<!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
-	<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.0'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.0']">
+	<rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0:#urn:www.peppol.eu:bis:peppol4a:ver1.0#urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biicoretrdm010:ver1.0:#urn:www.peppol.eu:bis:peppol4a:ver1.0#urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x'))]">
 		<assert test="true()" />
 	</rule>
 	<!-- End backwards compatibiltiy statement -->
