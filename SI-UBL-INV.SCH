@@ -76,6 +76,7 @@
     <include href="v1.2/PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
     <include href="v1.2/PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
 
+<!--    <include href="v1.2/CORE/OPENPEPPOLCORE-UBL-T10.sch"/>-->
     <!-- SimplerInvoicing Version 1.1 -->
 
     <!-- BII patterns, one per version -->

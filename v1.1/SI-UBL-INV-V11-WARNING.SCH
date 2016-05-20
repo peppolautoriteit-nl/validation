@@ -489,7 +489,7 @@
 		<assert test="not(cac:Price/cac:AllowanceCharge/cac:PaymentMeans)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cac:PaymentMeans</assert>
 		<assert test="not(cac:OrderLineReference/cbc:UUID)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cac:OrderLineReference/cbc:UUID</assert>
 		<assert test="not(cac:OrderLineReference/cbc:LineStatusCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cac:OrderLineReference/cbc:LineStatusCode</assert>
-		<assert test="not(cac:OrderLineReference/cac:OrderReference)" flag="warning">[SI-UBL-INV-R404]-A conformant SI-UBL invoice core data model SHOULD not have data elements not in the core.</assert>
+		<assert test="not(cac:OrderLineReference/cac:OrderReference)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cac:OrderLineReference/cbc:OrderReference</assert>
 	</rule>
 		
 	<rule context="*">

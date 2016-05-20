@@ -1,6 +1,4 @@
-<!-- Schematron rules generated automatically. -->
-<!-- Abstract rules for T10 -->
-<!-- (2009). Invinet Sistemes -->
+<!-- Schematron rules generated automatically by Validex Generator Midran ltd -->
 
 <!--
     2016 - SIDN Labs changes for Simplerinvoicing
@@ -11,13 +9,14 @@
                      BII2-T10-R045 BII2-T10-R046
 -->
 
+<!-- Abstract rules for T10 -->
+<!-- Timestamp: 2016-03-05 16:02:14 +0100 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="BIIRULES12_T10">
-  <!-- SimplerInvoicing 1.2 Version check -->
-  <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]">
-    <assert test="true()" />
-  </rule>
-  <!-- End of version check -->
-
+    <!-- Version check -->
+    <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]">
+        <assert test="true()" />
+    </rule>
+    <!-- end of version check -->
   <rule context="$Allowance_Charge">
     <assert test="$BII2-T10-R025" flag="fatal" id="BII2-T10-R025">[BII2-T10-R025]-Each document level allowance or charge details MUST have an allowance and charge reason text</assert>
     <assert test="$BII2-T10-R043" flag="fatal" id="BII2-T10-R043">[BII2-T10-R043]-Document level allowances and charges details MUST have allowance and charge VAT category if the invoice has a VAT total amount</assert>
@@ -37,8 +36,8 @@
     <assert test="$BII2-T10-R014" flag="fatal" id="BII2-T10-R014">[BII2-T10-R014]-An invoice MUST have at least one invoice line</assert>
     <assert test="$BII2-T10-R015" flag="fatal" id="BII2-T10-R015">[BII2-T10-R015]-An invoice MUST specify the VAT total amount, if there are VAT line amounts</assert>
     <assert test="$BII2-T10-R026" flag="fatal" id="BII2-T10-R026">[BII2-T10-R026]-An invoice MUST contain VAT category details unless VAT total amount is omitted.</assert>
-    <!-- Removed for SimplerInvoicing <assert test="$BII2-T10-R035" flag="fatal" id="BII2-T10-R035">[BII2-T10-R035]-Invoice total with VAT MUST NOT be negative</assert> -->
-    <!-- Removed for SimplerInvoicing <assert test="$BII2-T10-R037" flag="fatal" id="BII2-T10-R037">[BII2-T10-R037]-Amount due for payment in an invoice MUST NOT be negative</assert> -->
+    <!--<assert test="$BII2-T10-R035" flag="fatal" id="BII2-T10-R035">[BII2-T10-R035]-Invoice total with VAT MUST NOT be negative</assert>-->
+    <!--<assert test="$BII2-T10-R037" flag="fatal" id="BII2-T10-R037">[BII2-T10-R037]-Amount due for payment in an invoice MUST NOT be negative</assert>-->
     <assert test="$BII2-T10-R044" flag="fatal" id="BII2-T10-R044">[BII2-T10-R044]-A seller VAT identifier MUST be provided if the invoice has a VAT total amount</assert>
     <assert test="$BII2-T10-R047" flag="fatal" id="BII2-T10-R047">[BII2-T10-R047]-A buyer VAT identifier MUST be present if the VAT category code is reverse VAT</assert>
     <assert test="$BII2-T10-R048" flag="fatal" id="BII2-T10-R048">[BII2-T10-R048]-An invoice with a VAT category code of reverse charge MUST NOT contain other VAT categories.</assert>
@@ -54,8 +53,8 @@
     <assert test="$BII2-T10-R021" flag="fatal" id="BII2-T10-R021">[BII2-T10-R021]-Each invoice line MUST have an invoice line item name and/or the invoice line item identifier</assert>
     <assert test="$BII2-T10-R032" flag="fatal" id="BII2-T10-R032">[BII2-T10-R032]-A scheme identifier for the invoice line item registered identifier MUST be provided if invoice line item registered identifiers are used to identify a product.(e.g. GTIN)</assert>
     <assert test="$BII2-T10-R033" flag="fatal" id="BII2-T10-R033">[BII2-T10-R033]-A scheme identifier for a invoice line item commodity classification MUST be provided if invoice line item commodity classification are used to classify an invoice line item (e.g. CPV or UNSPSC)</assert>
-    <!-- Removed for SimplerInvoicing <assert test="$BII2-T10-R034" flag="fatal" id="BII2-T10-R034">[BII2-T10-R034]-Invoice line item net price MUST NOT be negative</assert> -->
-    <!-- Removed for SimplerInvoicing <assert test="$BII2-T10-R046" flag="fatal" id="BII2-T10-R046">[BII2-T10-R046]-Each invoice line MUST be categorized with the invoice line VAT category if the invoice has a VAT total amount </assert> -->
+    <!--<assert test="$BII2-T10-R034" flag="fatal" id="BII2-T10-R034">[BII2-T10-R034]-Invoice line item net price MUST NOT be negative</assert>-->
+    <!--<assert test="$BII2-T10-R046" flag="fatal" id="BII2-T10-R046">[BII2-T10-R046]-Each invoice line MUST be categorized with the invoice line VAT category if the invoice has a VAT total amount </assert>-->
   </rule>
   <rule context="$Invoice_Period_Information">
     <assert test="$BII2-T10-R023" flag="fatal" id="BII2-T10-R023">[BII2-T10-R023]-Each invoice period information MUST have an invoice period start date</assert>
@@ -81,6 +80,6 @@
     <assert test="$BII2-T10-R028" flag="fatal" id="BII2-T10-R028">[BII2-T10-R028]-Each VAT category details MUST have a VAT category tax amount</assert>
     <assert test="$BII2-T10-R029" flag="fatal" id="BII2-T10-R029">[BII2-T10-R029]-Every VAT category details MUST be defined through a VAT category code</assert>
     <assert test="$BII2-T10-R030" flag="fatal" id="BII2-T10-R030">[BII2-T10-R030]-The VAT category percentage MUST be provided if the VAT category code is standard.</assert>
-    <!-- Removed for SimplerInvoicing <assert test="$BII2-T10-R045" flag="fatal" id="BII2-T10-R045">[BII2-T10-R045]-A VAT exemption reason MUST be provided if the VAT category code is exempt or reverse charge.</assert> -->
+    <!--<assert test="$BII2-T10-R045" flag="fatal" id="BII2-T10-R045">[BII2-T10-R045]-A VAT exemption reason MUST be provided if the VAT category code is exempt or reverse charge.</assert>-->
   </rule>
 </pattern>
