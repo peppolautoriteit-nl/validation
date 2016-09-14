@@ -9,9 +9,9 @@
     </rule>
     <!-- must be si 1.0 to 1.2 -->
     <rule context="cbc:CustomizationID">
-        <assert test="contains(., 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1') or
-                      contains(., 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2') or
-                      contains(., 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x')
+        <assert test="contains(normalize-space(.), 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1') or
+                      contains(normalize-space(.), 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2') or
+                      contains(normalize-space(.), 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x')
                      " flag="fatal">[SI-V11-INV-R200]-This XML instance is NOT tagged as an SI-UBL invoice; please check the CustomizationID value</assert>
     </rule>
     <rule context="/" flag="fatal">
