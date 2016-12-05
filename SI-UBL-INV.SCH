@@ -2,7 +2,7 @@
 <schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" queryBinding="xslt" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--
         Release 1.2
-        Author: Rik Ribbers, Jelte Jansen (SIDN)
+        Author: Rik Ribbers, Jelte Jansen (SIDN Labs)
         Email: info@simplerinvoicing.org
         Changes since 1.1.1:
         - SI-UBL version 1.2 rules included
@@ -40,7 +40,7 @@
             - Add warnings for elements not in the core
             - Decide whether or not multiple occurences of items that have macoccur of 1 should be fatal or warning
     -->
-    <title>Simplerinvoicing invoice v1.1 bound to UBL 2.1 and OPENPEPPOL v2</title>
+    <title>Simplerinvoicing invoice v1.2 bound to UBL 2.1 and OPENPEPPOL v2</title>
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
