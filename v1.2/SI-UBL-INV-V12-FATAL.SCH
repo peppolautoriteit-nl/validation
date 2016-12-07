@@ -21,6 +21,7 @@
     <rule context="ubl:Invoice" flag="fatal">
         <assert test="cbc:UBLVersionID='2.1'" flag="fatal">[SI-V12-INV-R001]-Each invoice MUST be specified as a UBL 2.1 document</assert>
         <assert test="cbc:InvoiceTypeCode" flag="fatal">[SI-V12-INV-R002]-Each invoice MUST have an InvoiceTypeCode declaration</assert>
+        <assert test="cbc:InvoiceTypeCode!='384' or cac:BillingReference" flag="fatal">[SI-V11-INV-R453]-For corrective invoices a billing reference MUST be set</assert>
     </rule>
     <rule context="cbc:CompanyID" flag="fatal">
         <assert test="@schemeID" flag="fatal">[SI-V12-INV-R003]-A CompanyID MUST be specified using a PEPPOL Party identifier</assert>
