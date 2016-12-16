@@ -70,17 +70,17 @@
 
     <!-- SimplerInvoicing Version 1.2 -->
 
-    <include href="v1.2/SI-UBL-INV-V12-WARNING.SCH" />
-    <include href="v1.2/SI-UBL-INV-V12-FATAL.SCH" />
-    <include href="v1.2/SI-UBL-INV-V12-Codes.SCH" />
+    <include href="v1.2/si-invoice/SI-UBL-INV-V12-WARNING.SCH" />
+    <include href="v1.2/si-invoice/SI-UBL-INV-V12-FATAL.SCH" />
+    <include href="v1.2/si-invoice/SI-UBL-INV-V12-Codes.SCH" />
 
-    <include href="v1.2/BII/abstract/BIIRULES-T10.sch"/>
-    <include href="v1.2/BII/UBL/BIIRULES-UBL-T10.sch"/>
-    <include href="v1.2/BII/codelist/BIIRULESCodesT10-UBL.sch"/>
+    <include href="v1.2/si-invoice/BII/abstract/BIIRULES-T10.sch"/>
+    <include href="v1.2/si-invoice/BII/UBL/BIIRULES-UBL-T10.sch"/>
+    <include href="v1.2/si-invoice/BII/codelist/BIIRULESCodesT10-UBL.sch"/>
 
-    <include href="v1.2/PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
-    <include href="v1.2/PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
-    <include href="v1.2/PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
+    <include href="v1.2/si-invoice/PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
+    <include href="v1.2/si-invoice/PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
+    <include href="v1.2/si-invoice/PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
 
 <!--    <include href="v1.2/CORE/OPENPEPPOLCORE-UBL-T10.sch"/>-->
     <!-- SimplerInvoicing Version 1.1 -->
