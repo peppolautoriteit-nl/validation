@@ -13,7 +13,7 @@
         //assert[not(@flag) or @flag != parent::rule/@flag] - - - > Gets all asserts where the flag differs from the rule flag 
 
         Development comments:
-        To facilitate developers of invoicing software, the rules should point to the actual elements that are giving the problem. Sometimes this
+        To facilitate developers of software, the rules should point to the actual elements that are giving the problem. Sometimes this
         is not possible, like when the element is required but it's not there, but most times this should be possible.
         So instead of writing an assert with cbc:ID = 'something' you should ensure that the cbc:ID is matched in the context of the rule and the
         assert then only needs to check .='something' 
@@ -23,7 +23,7 @@
     <title>Simplerinvoicing purchase order v1.2 bound to UBL 2.1 and OPENPEPPOL v2</title>
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
-    <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
+    <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Order-2"/>
 
     <!-- basic version-independent checks -->
     <include href="general/SI-UBL-GENERAL.SCH" />
