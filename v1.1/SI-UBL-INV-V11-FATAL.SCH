@@ -9,7 +9,7 @@
     <!-- if we want to warn for new version, this would be a good place -->
     <!--
     <rule context="ubl:Invoice" flag="warning">
-        <assert test="false()" flag="warning">[SI-UBL-INV-R000]-Simplerinvoicing v1.1 validation is used but will soon be obsolete, please move to Simplerinvoicing v1.1.1</assert>
+        <assert test="false()" flag="warning">[SI-UBL-INV-R000]-Simplerinvoicing v1.1 validation is used but will soon be obsolete, please move to Simplerinvoicing v1.2</assert>
     </rule>
     -->
     <!-- end of warning for new version -->

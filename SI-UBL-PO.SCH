@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" queryBinding="xslt" xmlns="http://purl.oclc.org/dsdl/schematron">
+<schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Order-2" queryBinding="xslt" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--
         Release 1.2
         Author: Rik Ribbers
@@ -25,21 +25,18 @@
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Order-2"/>
 
-    <!-- basic version-independent checks -->
-    <include href="general/SI-UBL-GENERAL.SCH" />
-
     <!-- SimplerInvoicing Version 1.2 -->
 
     <include href="v1.2/si-po/SI-UBL-PO-V12-WARNING.SCH" />
     <include href="v1.2/si-po/SI-UBL-PO-V12-FATAL.SCH" />
     <include href="v1.2/si-po/SI-UBL-PO-V12-Codes.SCH" />
 
-    <include href="v1.2/si-po/BII/abstract/BIIRULES-T10.sch"/>
-    <include href="v1.2/si-po/BII/UBL/BIIRULES-UBL-T10.sch"/>
-    <include href="v1.2/si-po/BII/codelist/BIIRULESCodesT10-UBL.sch"/>
+    <include href="v1.2/si-po/BII/abstract/BIIRULES-T01.sch"/>
+    <include href="v1.2/si-po/BII/UBL/BIIRULES-UBL-T01.sch"/>
+    <include href="v1.2/si-po/BII/codelist/BIIRULESCodesT01-UBL.sch"/>
 
-    <include href="v1.2/si-po/PEPPOL/abstract/OPENPEPPOL-T10.sch"/>
-    <include href="v1.2/si-po/PEPPOL/UBL/OPENPEPPOL-UBL-T10.sch"/>
-    <include href="v1.2/si-po/PEPPOL/codelist/OPENPEPPOLCodesT10-UBL.sch"/>
+    <include href="v1.2/si-po/PEPPOL/abstract/OPENPEPPOL-T01.sch"/>
+    <include href="v1.2/si-po/PEPPOL/UBL/OPENPEPPOL-UBL-T01.sch"/>
+    <include href="v1.2/si-po/PEPPOL/codelist/OPENPEPPOLCodesT01-UBL.sch"/>
 
 </schema>

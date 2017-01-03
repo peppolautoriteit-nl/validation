@@ -2,7 +2,7 @@
 <schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" queryBinding="xslt" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--
         Release 1.2
-        Author: Rik Ribbers, Jelte Jansen (SIDN Labs)
+        Author: Rik Ribbers, Jelte Jansen (SIDN)
         Email: info@simplerinvoicing.org
         Changes since 1.1.1:
         - SI-UBL version 1.2 rules included
@@ -66,6 +66,7 @@
 -->
 
     <!-- basic version-independent checks -->
+    <!-- LATER: integrate general map into invoice schematron -->
     <include href="general/SI-UBL-GENERAL.SCH" />
 
     <!-- SimplerInvoicing Version 1.2 -->

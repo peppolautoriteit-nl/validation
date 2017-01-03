@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V12-INV">
-    <!-- Backwards compatibility statement for Simplerinvoicing v1.0, it should include the version for which the asserts in this pattern MUST not be executed -->
-    <!--<rule context="node()[/ubl:Invoice/cbc:UBLVersionID != '2.1'] | @*[/ubl:Invoice/cbc:UBLVersionID != '2.1']" />-->
     <!-- Version check -->
     <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]">
         <assert test="true()" />
@@ -16,12 +14,22 @@
     <!-- End of version check -->
     <!-- End backwards compatibiltiy statement -->
 
-
+ <!-- must be si 1.0 to 1.2 -->
+    <rule context="cbc:CustomizationID">
+        <assert test="contains(normalize-space(.), 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1') or
+                      contains(normalize-space(.), 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2') or
+                      contains(normalize-space(.), 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x')
+                     " flag="fatal">[SI-V12-INV-R200]-This XML instance is NOT tagged as an SI-UBL invoice; please check the CustomizationID value</assert>
+    </rule>
+    <rule context="/" flag="fatal">
+        <assert test="ubl:Invoice" flag="fatal">[SI-INV-R000]-This is NOT a UBL 2.x Invoice, validation cannot continue</assert>
+    </rule>
     
     <rule context="ubl:Invoice" flag="fatal">
         <assert test="cbc:UBLVersionID='2.1'" flag="fatal">[SI-V12-INV-R001]-Each invoice MUST be specified as a UBL 2.1 document</assert>
         <assert test="cbc:InvoiceTypeCode" flag="fatal">[SI-V12-INV-R002]-Each invoice MUST have an InvoiceTypeCode declaration</assert>
         <assert test="cbc:InvoiceTypeCode!='384' or cac:BillingReference" flag="fatal">[SI-V11-INV-R453]-For corrective invoices a billing reference MUST be set</assert>
+        <assert test="cbc:CustomizationID" flag="fatal">[BII2-T10-R001] An invoice MUST have a customization identifier</assert>
     </rule>
     <rule context="cbc:CompanyID" flag="fatal">
         <assert test="@schemeID" flag="fatal">[SI-V12-INV-R003]-A CompanyID MUST be specified using a PEPPOL Party identifier</assert>
