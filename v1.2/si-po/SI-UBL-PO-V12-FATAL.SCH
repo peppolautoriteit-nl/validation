@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="SI-V12-PO-FATAL">
     <!-- Version check -->
- <!-- TODO figure out why this is not working 
-    <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]">
+    <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]">
         <assert test="true()" />
     </rule>
--->
     <!-- if we want to warn for new version, this would be a good place -->
     <!--
     <rule context="ubl:Invoice" flag="warning">
@@ -17,7 +15,7 @@
     <!-- End backwards compatibiltiy statement -->
 
     <rule context="cbc:CustomizationID">
-        <assert test="contains(normalize-space(.), 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2') "  flag="fatal">[SI-V12-PO-R200]-This XML instance is NOT tagged as an SI-UBL order; please check the CustomizationID value</assert>
+        <assert test="not(contains(normalize-space(.), 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))"  flag="fatal">[SI-V12-PO-R200]-This XML instance is NOT tagged as an SI-UBL order; please check the CustomizationID value</assert>
     </rule>
     
     <rule context="ubl:Order" flag="fatal">
