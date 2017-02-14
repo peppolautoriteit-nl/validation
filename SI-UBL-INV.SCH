@@ -66,8 +66,7 @@
 -->
 
     <!-- basic version-independent checks -->
-    <!-- LATER: integrate general map into invoice schematron -->
-    <include href="general/SI-UBL-GENERAL.SCH" />
+    <include href="general/SI-UBL-INV-GENERAL.SCH" />
 
     <!-- SimplerInvoicing Version 1.2 -->
 

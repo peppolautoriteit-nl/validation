@@ -25,6 +25,11 @@
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Order-2"/>
 
+
+    <!-- basic version-independent checks -->
+    <include href="general/SI-UBL-PO-GENERAL.SCH" />
+
+
     <!-- SimplerInvoicing Version 1.2 -->
 
     <include href="v1.2/si-po/SI-UBL-PO-V12-WARNING.SCH" />

@@ -7,6 +7,10 @@
     - Renamed ID
 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="PEPPOL-T01">
+  <!-- version check: only apply these rules for this version -->
+  <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]">
+    <assert test="true()" />
+  </rule>
   <rule context="$Country_identification">
     <assert test="$EUGEN-T01-R015" flag="fatal" id="EUGEN-T01-R015">[EUGEN-T01-R015]-A country
       identification code MUST have a list identifier attribute
