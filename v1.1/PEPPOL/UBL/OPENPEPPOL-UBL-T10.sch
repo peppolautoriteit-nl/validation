@@ -31,7 +31,12 @@
   <param name="EUGEN-T10-R040" value="(cac:Party/cac:PartyLegalEntity)"/>
   <param name="EUGEN-T10-R041" value="not(/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') or (starts-with(cac:Party/cac:PartyTaxScheme/cbc:CompanyID,cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))"/>
   <param name="EUGEN-T10-R042" value="((cbc:TaxAmount) and (cbc:TaxableAmount) and (cac:TaxCategory/cbc:Percent) and (number(cbc:TaxAmount - 1) &lt; number(cbc:TaxableAmount * (cac:TaxCategory/cbc:Percent div 100))) and (number(cbc:TaxAmount + 1) &gt; number(cbc:TaxableAmount * (cac:TaxCategory/cbc:Percent div 100)))) or not(cac:TaxCategory/cbc:Percent) or not(cbc:TaxableAmount)"/>
-  <param name="EUGEN-T10-R043" value="(number(child::cbc:TaxAmount)= round(number(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10)) div 100) "/>
+  <!-- Adopted for Simplerivoicing for proper rounding.
+ 
+    <param name="EUGEN-T10-R043" value="(number(child::cbc:TaxAmount)= round(number(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10)) div 100) "/> 
+  -->
+  <param name="EUGEN-T10-R043" value="(round(xs:decimal(child::cbc:TaxAmount) * 10 * 10) div 100= round(xs:decimal(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10)) div 100) "/> 
+  
   <param name="EUGEN-T10-R044" value="not(/ubl:Invoice/cbc:TaxCurrencyCode) or (string(/ubl:Invoice/cbc:TaxCurrencyCode) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)) or (/ubl:Invoice/cac:TaxExchangeRate)"/>
   <param name="EUGEN-T10-R045" value="(cbc:CalculationRate) and (cbc:MathematicOperatorCode)"/>
   <param name="EUGEN-T10-R046" value="not(/ubl:Invoice/cbc:TaxCurrencyCode) or (string(/ubl:Invoice/cbc:TaxCurrencyCode) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)) or (cbc:TaxAmount and cbc:TransactionCurrencyTaxAmount)"/>

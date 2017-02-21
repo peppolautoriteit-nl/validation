@@ -689,7 +689,9 @@
                <td>EUGEN-T10-R043</td>
                <td>EUGEN</td>
                <td>The total tax amount MUST equal the sum of tax amounts per category.</td>
-               <td>(xs:decimal(child::cbc:TaxAmount)= round(number(xs:decimal(sum(cac:TaxSubtotal/cbc:TaxAmount)) * 10 * 10)) div 100)</td>
+               <td>(round(xs:decimal(child::cbc:TaxAmount) * 10 * 10) div 100= round(xs:decimal(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10))
+                  div 100)
+               </td>
             </tr>
             <tr>
                <td>EUGEN-T10-R042</td>
@@ -1183,7 +1185,9 @@
                <td>EUGEN-T10-R043</td>
                <td>EUGEN</td>
                <td>The total tax amount MUST equal the sum of tax amounts per category.</td>
-               <td>(number(child::cbc:TaxAmount)= round(number(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10)) div 100)</td>
+               <td>(round(xs:decimal(child::cbc:TaxAmount) * 10 * 10) div 100= round(xs:decimal(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10))
+                  div 100)
+               </td>
             </tr>
             <tr>
                <td>EUGEN-T10-R042</td>
