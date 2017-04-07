@@ -3,7 +3,7 @@
     <!--
         Release 1.2
         Author: Rik Ribbers, Jelte Jansen (SIDN)
-        Email: info@simplerinvoicing.org
+        Email: support@simplerinvoicing.org
         Changes since 1.1.1:
         - SI-UBL version 1.2 rules included
         - XSLT 2.0 support
