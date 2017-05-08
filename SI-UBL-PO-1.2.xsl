@@ -176,6 +176,7 @@
          <svrl:ns-prefix-in-attribute-values uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
                                              prefix="cac"/>
          <svrl:ns-prefix-in-attribute-values uri="urn:oasis:names:specification:ubl:schema:xsd:Order-2" prefix="ubl"/>
+         <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
          <svrl:active-pattern>
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
@@ -184,7 +185,7 @@
             <xsl:attribute name="name">SI-UBL-VERSIONS</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M4"/>
+         <xsl:apply-templates select="/" mode="M5"/>
          <svrl:active-pattern>
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
@@ -193,7 +194,7 @@
             <xsl:attribute name="name">SI-V12-PO-WARNING</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M5"/>
+         <xsl:apply-templates select="/" mode="M6"/>
          <svrl:active-pattern>
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
@@ -202,7 +203,7 @@
             <xsl:attribute name="name">SI-V12-PO-FATAL</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M6"/>
+         <xsl:apply-templates select="/" mode="M7"/>
          <svrl:active-pattern>
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
@@ -211,7 +212,7 @@
             <xsl:attribute name="name">SI-V12-PO-CODES</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M7"/>
+         <xsl:apply-templates select="/" mode="M8"/>
          <svrl:active-pattern>
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
@@ -220,7 +221,7 @@
             <xsl:attribute name="name">BII-UBL-T01</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M8"/>
+         <xsl:apply-templates select="/" mode="M9"/>
          <svrl:active-pattern>
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
@@ -229,7 +230,7 @@
             <xsl:attribute name="name">CodesT01</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M9"/>
+         <xsl:apply-templates select="/" mode="M10"/>
          <svrl:active-pattern>
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
@@ -238,7 +239,7 @@
             <xsl:attribute name="name">PEPPOL-UBL-T01</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M10"/>
+         <xsl:apply-templates select="/" mode="M11"/>
          <svrl:active-pattern>
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
@@ -247,7 +248,7 @@
             <xsl:attribute name="name">CodesT01</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M11"/>
+         <xsl:apply-templates select="/" mode="M12"/>
       </svrl:schematron-output>
    </xsl:template>
 
@@ -258,7 +259,7 @@
 
 
 	  <!--RULE -->
-   <xsl:template match="ubl:Order" priority="1002" mode="M4">
+   <xsl:template match="ubl:Order" priority="1002" mode="M5">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl:Order"/>
 
 		    <!--ASSERT -->
@@ -274,11 +275,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M4"/>
+      <xsl:apply-templates select="@*|*" mode="M5"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:CustomizationID" priority="1001" mode="M4">
+   <xsl:template match="cbc:CustomizationID" priority="1001" mode="M5">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:CustomizationID"/>
 
 		    <!--ASSERT -->
@@ -295,11 +296,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M4"/>
+      <xsl:apply-templates select="@*|*" mode="M5"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="/" priority="1000" mode="M4">
+   <xsl:template match="/" priority="1000" mode="M5">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/"/>
 
 		    <!--ASSERT -->
@@ -315,11 +316,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M4"/>
+      <xsl:apply-templates select="@*|*" mode="M5"/>
    </xsl:template>
-   <xsl:template match="text()" priority="-1" mode="M4"/>
-   <xsl:template match="@*|node()" priority="-2" mode="M4">
-      <xsl:apply-templates select="@*|*" mode="M4"/>
+   <xsl:template match="text()" priority="-1" mode="M5"/>
+   <xsl:template match="@*|node()" priority="-2" mode="M5">
+      <xsl:apply-templates select="@*|*" mode="M5"/>
    </xsl:template>
 
    <!--PATTERN SI-V12-PO-WARNING-->
@@ -328,77 +329,6 @@
 	  <!--RULE -->
    <xsl:template match="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"
                  priority="1002"
-                 mode="M5">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"/>
-
-		    <!--ASSERT -->
-      <xsl:choose>
-         <xsl:when test="true()"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="true()">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text/>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M5"/>
-   </xsl:template>
-
-	  <!--RULE -->
-   <xsl:template match="cbc:CustomizationID" priority="1001" mode="M5">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:CustomizationID"/>
-
-		    <!--ASSERT -->
-      <xsl:choose>
-         <xsl:when test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.2')"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.2')">
-               <xsl:attribute name="flag">fatal</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>[SI-V12-PO-R201]-This XML instance is NOT tagged as an SI-UBL order</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M5"/>
-   </xsl:template>
-
-	  <!--RULE -->
-   <xsl:template match="*" priority="1000" mode="M5">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="*"/>
-
-		    <!--ASSERT -->
-      <xsl:choose>
-         <xsl:when test="* or normalize-space(text()) != ''"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="* or normalize-space(text()) != ''">
-               <xsl:attribute name="flag">warning</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>[SI-V12-PO-R300]-An order SHOULD not contain empty elements.</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M5"/>
-   </xsl:template>
-   <xsl:template match="text()" priority="-1" mode="M5"/>
-   <xsl:template match="@*|node()" priority="-2" mode="M5">
-      <xsl:apply-templates select="@*|*" mode="M5"/>
-   </xsl:template>
-
-   <!--PATTERN SI-V12-PO-FATAL-->
-
-
-	  <!--RULE -->
-   <xsl:template match="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"
-                 priority="1001"
                  mode="M6">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"/>
@@ -419,19 +349,41 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="ubl:Order" priority="1000" mode="M6">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl:Order"/>
+   <xsl:template match="cbc:CustomizationID" priority="1001" mode="M6">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:CustomizationID"/>
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="cbc:UBLVersionID='2.1'"/>
+         <xsl:when test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.2')"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:UBLVersionID='2.1'">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.2')">
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[SI-V12-PO-R001]-Each order MUST be specified as a UBL 2.1 document</svrl:text>
+               <svrl:text>[SI-V12-PO-R201]-This XML instance is NOT tagged as an SI-UBL order</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M6"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="*" priority="1000" mode="M6">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="*"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="* or normalize-space(text()) != ''"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="* or normalize-space(text()) != ''">
+               <xsl:attribute name="flag">warning</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[SI-V12-PO-R300]-An order SHOULD not contain empty elements.</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -442,7 +394,7 @@
       <xsl:apply-templates select="@*|*" mode="M6"/>
    </xsl:template>
 
-   <!--PATTERN SI-V12-PO-CODES-->
+   <!--PATTERN SI-V12-PO-FATAL-->
 
 
 	  <!--RULE -->
@@ -468,9 +420,58 @@
    </xsl:template>
 
 	  <!--RULE -->
+   <xsl:template match="ubl:Order" priority="1000" mode="M7">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl:Order"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="cbc:UBLVersionID='2.1'"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:UBLVersionID='2.1'">
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[SI-V12-PO-R001]-Each order MUST be specified as a UBL 2.1 document</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M7"/>
+   </xsl:template>
+   <xsl:template match="text()" priority="-1" mode="M7"/>
+   <xsl:template match="@*|node()" priority="-2" mode="M7">
+      <xsl:apply-templates select="@*|*" mode="M7"/>
+   </xsl:template>
+
+   <!--PATTERN SI-V12-PO-CODES-->
+
+
+	  <!--RULE -->
+   <xsl:template match="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"
+                 priority="1001"
+                 mode="M8">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="true()"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="true()">
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text/>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M8"/>
+   </xsl:template>
+
+	  <!--RULE -->
    <xsl:template match="cac:OriginCountry/cbc:IdentificationCode"
                  priority="1000"
-                 mode="M7">
+                 mode="M8">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:OriginCountry/cbc:IdentificationCode"/>
 
@@ -488,18 +489,18 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M7"/>
+      <xsl:apply-templates select="@*|*" mode="M8"/>
    </xsl:template>
-   <xsl:template match="text()" priority="-1" mode="M7"/>
-   <xsl:template match="@*|node()" priority="-2" mode="M7">
-      <xsl:apply-templates select="@*|*" mode="M7"/>
+   <xsl:template match="text()" priority="-1" mode="M8"/>
+   <xsl:template match="@*|node()" priority="-2" mode="M8">
+      <xsl:apply-templates select="@*|*" mode="M8"/>
    </xsl:template>
 
    <!--PATTERN BII-UBL-T01-->
 
 
 	  <!--RULE -->
-   <xsl:template match="/ubl:Order/cac:AllowanceCharge" priority="1006" mode="M8">
+   <xsl:template match="/ubl:Order/cac:AllowanceCharge" priority="1006" mode="M9">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="/ubl:Order/cac:AllowanceCharge"/>
 
@@ -518,11 +519,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M8"/>
+      <xsl:apply-templates select="@*|*" mode="M9"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//cac:BuyerCustomerParty" priority="1005" mode="M8">
+   <xsl:template match="//cac:BuyerCustomerParty" priority="1005" mode="M9">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//cac:BuyerCustomerParty"/>
 
@@ -541,11 +542,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M8"/>
+      <xsl:apply-templates select="@*|*" mode="M9"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//cac:AnticipatedMonetaryTotal" priority="1004" mode="M8">
+   <xsl:template match="//cac:AnticipatedMonetaryTotal" priority="1004" mode="M9">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//cac:AnticipatedMonetaryTotal"/>
 
@@ -643,11 +644,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M8"/>
+      <xsl:apply-templates select="@*|*" mode="M9"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//cac:AdditionalItemProperty" priority="1003" mode="M8">
+   <xsl:template match="//cac:AdditionalItemProperty" priority="1003" mode="M9">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//cac:AdditionalItemProperty"/>
 
@@ -680,11 +681,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M8"/>
+      <xsl:apply-templates select="@*|*" mode="M9"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="/ubl:Order" priority="1002" mode="M8">
+   <xsl:template match="/ubl:Order" priority="1002" mode="M9">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order"/>
 
 		    <!--ASSERT -->
@@ -794,11 +795,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M8"/>
+      <xsl:apply-templates select="@*|*" mode="M9"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//cac:OrderLine" priority="1001" mode="M8">
+   <xsl:template match="//cac:OrderLine" priority="1001" mode="M9">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:OrderLine"/>
 
 		    <!--ASSERT -->
@@ -895,11 +896,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M8"/>
+      <xsl:apply-templates select="@*|*" mode="M9"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//cac:SellerSupplierParty" priority="1000" mode="M8">
+   <xsl:template match="//cac:SellerSupplierParty" priority="1000" mode="M9">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//cac:SellerSupplierParty"/>
 
@@ -918,18 +919,18 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M8"/>
+      <xsl:apply-templates select="@*|*" mode="M9"/>
    </xsl:template>
-   <xsl:template match="text()" priority="-1" mode="M8"/>
-   <xsl:template match="@*|node()" priority="-2" mode="M8">
-      <xsl:apply-templates select="@*|*" mode="M8"/>
+   <xsl:template match="text()" priority="-1" mode="M9"/>
+   <xsl:template match="@*|node()" priority="-2" mode="M9">
+      <xsl:apply-templates select="@*|*" mode="M9"/>
    </xsl:template>
 
    <!--PATTERN CodesT01-->
 
 
 	  <!--RULE -->
-   <xsl:template match="cac:TaxCategory/cbc:ID" priority="1000" mode="M9">
+   <xsl:template match="cac:TaxCategory/cbc:ID" priority="1000" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:TaxCategory/cbc:ID"/>
 
@@ -947,11 +948,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M9"/>
+      <xsl:apply-templates select="@*|*" mode="M10"/>
    </xsl:template>
-   <xsl:template match="text()" priority="-1" mode="M9"/>
-   <xsl:template match="@*|node()" priority="-2" mode="M9">
-      <xsl:apply-templates select="@*|*" mode="M9"/>
+   <xsl:template match="text()" priority="-1" mode="M10"/>
+   <xsl:template match="@*|node()" priority="-2" mode="M10">
+      <xsl:apply-templates select="@*|*" mode="M10"/>
    </xsl:template>
 
    <!--PATTERN PEPPOL-UBL-T01-->
@@ -960,7 +961,7 @@
 	  <!--RULE -->
    <xsl:template match="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"
                  priority="1008"
-                 mode="M10">
+                 mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"/>
 
@@ -976,13 +977,13 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
 
 	  <!--RULE -->
    <xsl:template match="//cac:Country/cbc:IdentificationCode"
                  priority="1007"
-                 mode="M10">
+                 mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//cac:Country/cbc:IdentificationCode"/>
 
@@ -1003,11 +1004,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//cbc:DocumentCurrencyCode" priority="1006" mode="M10">
+   <xsl:template match="//cbc:DocumentCurrencyCode" priority="1006" mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//cbc:DocumentCurrencyCode"/>
 
@@ -1026,11 +1027,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//cbc:EndpointID" priority="1005" mode="M10">
+   <xsl:template match="//cbc:EndpointID" priority="1005" mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:EndpointID"/>
 
 		    <!--ASSERT -->
@@ -1048,11 +1049,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//cbc:OrderTypeCode" priority="1004" mode="M10">
+   <xsl:template match="//cbc:OrderTypeCode" priority="1004" mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:OrderTypeCode"/>
 
 		    <!--ASSERT -->
@@ -1071,11 +1072,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//cac:PartyIdentification/cbc:ID" priority="1003" mode="M10">
+   <xsl:template match="//cac:PartyIdentification/cbc:ID" priority="1003" mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//cac:PartyIdentification/cbc:ID"/>
 
@@ -1094,13 +1095,13 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
 
 	  <!--RULE -->
    <xsl:template match="//cac:ClassifiedTaxCategory/cbc:ID"
                  priority="1002"
-                 mode="M10">
+                 mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//cac:ClassifiedTaxCategory/cbc:ID"/>
 
@@ -1119,11 +1120,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="//*[contains(name(),'Quantity')]" priority="1001" mode="M10">
+   <xsl:template match="//*[contains(name(),'Quantity')]" priority="1001" mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="//*[contains(name(),'Quantity')]"/>
 
@@ -1143,11 +1144,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="/ubl:Order" priority="1000" mode="M10">
+   <xsl:template match="/ubl:Order" priority="1000" mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order"/>
 
 		    <!--ASSERT -->
@@ -1166,11 +1167,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
-   <xsl:template match="text()" priority="-1" mode="M10"/>
-   <xsl:template match="@*|node()" priority="-2" mode="M10">
-      <xsl:apply-templates select="@*|*" mode="M10"/>
+   <xsl:template match="text()" priority="-1" mode="M11"/>
+   <xsl:template match="@*|node()" priority="-2" mode="M11">
+      <xsl:apply-templates select="@*|*" mode="M11"/>
    </xsl:template>
 
    <!--PATTERN CodesT01-->
@@ -1179,7 +1180,7 @@
 	  <!--RULE -->
    <xsl:template match="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"
                  priority="1009"
-                 mode="M11">
+                 mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"/>
 
@@ -1195,11 +1196,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:OrderTypeCode" priority="1008" mode="M11">
+   <xsl:template match="cbc:OrderTypeCode" priority="1008" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:OrderTypeCode"/>
 
 		    <!--ASSERT -->
@@ -1217,11 +1218,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:DocumentCurrencyCode" priority="1007" mode="M11">
+   <xsl:template match="cbc:DocumentCurrencyCode" priority="1007" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cbc:DocumentCurrencyCode"/>
 
@@ -1240,11 +1241,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:*/@mimeCode" priority="1006" mode="M11">
+   <xsl:template match="cbc:*/@mimeCode" priority="1006" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:*/@mimeCode"/>
 
 		    <!--ASSERT -->
@@ -1262,11 +1263,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:EndpointID//@schemeID" priority="1005" mode="M11">
+   <xsl:template match="cbc:EndpointID//@schemeID" priority="1005" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cbc:EndpointID//@schemeID"/>
 
@@ -1285,13 +1286,13 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 
 	  <!--RULE -->
    <xsl:template match="cac:PartyIdentification/cbc:ID//@schemeID"
                  priority="1004"
-                 mode="M11">
+                 mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:PartyIdentification/cbc:ID//@schemeID"/>
 
@@ -1310,13 +1311,13 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 
 	  <!--RULE -->
    <xsl:template match="cac:Country//cbc:IdentificationCode"
                  priority="1003"
-                 mode="M11">
+                 mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:Country//cbc:IdentificationCode"/>
 
@@ -1335,11 +1336,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:*/@currencyID" priority="1002" mode="M11">
+   <xsl:template match="cbc:*/@currencyID" priority="1002" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:*/@currencyID"/>
 
 		    <!--ASSERT -->
@@ -1357,11 +1358,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:TaxCategory/cbc:ID" priority="1001" mode="M11">
+   <xsl:template match="cac:TaxCategory/cbc:ID" priority="1001" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:TaxCategory/cbc:ID"/>
 
@@ -1380,11 +1381,11 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:*/@unitCode" priority="1000" mode="M11">
+   <xsl:template match="cbc:*/@unitCode" priority="1000" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:*/@unitCode"/>
 
 		    <!--ASSERT -->
@@ -1402,10 +1403,10 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
-   <xsl:template match="text()" priority="-1" mode="M11"/>
-   <xsl:template match="@*|node()" priority="-2" mode="M11">
-      <xsl:apply-templates select="@*|*" mode="M11"/>
+   <xsl:template match="text()" priority="-1" mode="M12"/>
+   <xsl:template match="@*|node()" priority="-2" mode="M12">
+      <xsl:apply-templates select="@*|*" mode="M12"/>
    </xsl:template>
 </xsl:stylesheet>
