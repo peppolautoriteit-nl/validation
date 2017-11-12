@@ -4,7 +4,7 @@
         <assert test="true()" />
     </rule>
 	<!-- End backwards compatibility statement -->
-	
+
 	<!-- Rules are numbered in the region 2xx -->
 	<rule context="cbc:CustomizationID">
 		<assert test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.2')" flag="fatal">[SI-V12-INV-R200]-This XML instance is NOT tagged as an SI-UBL invoice</assert>
@@ -43,10 +43,10 @@
 		<assert test="string-length(normalize-space(text())) = 4 or string-length(normalize-space(text())) = 6">[SI-V12-INV-R211]-In accordance to general rules for
 			referencing payments cards only the last 4 or 6 digits of the card number SHOULD be used.</assert>
 	</rule>
-	<rule context="cac:PaymentTerms[2]">
-		<assert test="false()">[SI-V12-INV-R212]-An invoice SHOULD not have multiple payment terms</assert>
+	<rule context="cac:PaymentTerms[3]">
+		<assert test="false()">[SI-V12-INV-R212]-An invoice SHOULD not have more than 2 payment terms</assert>
 	</rule>
-	<!-- Next rule is commented because it conflicts with rule BII2-T10-R025, for the moment we assume the BII2 
+	<!-- Next rule is commented because it conflicts with rule BII2-T10-R025, for the moment we assume the BII2
 	rule should be followed -->
 	<!--<rule context="cbc:AllowanceChargeReason" flag="fatal">
 		<assert test="not(preceding-sibling::cbc:AllowanceChargeReasonCode)">[SI-V12-INV-R213]-When an allowance charge reason code is specified the allowance charge reason SHOULD not be included</assert>
@@ -79,7 +79,6 @@
 		<assert test="not(cbc:PricingCurrencyCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cbc:PricingCurrencyCode</assert>
 		<assert test="not(cbc:PaymentCurrencyCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cbc:PaymentCurrencyCode</assert>
 		<assert test="not(cbc:PaymentAlternativeCurrencyCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cbc:PaymentAlternativeCurrencyCode</assert>
-		<assert test="not(cbc:AccountingCostCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cbc:AccountingCostCode</assert>
 		<assert test="not(cbc:LineCountNumeric)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cbc:LineCountNumeric</assert>
 		<assert test="not(cac:DespatchDocumentReference)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:DespatchDocumentReference</assert>
 		<assert test="not(cac:ReceiptDocumentReference)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:ReceiptDocumentReference</assert>
@@ -90,7 +89,7 @@
 		<assert test="not(cac:PricingExchangeRate)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PricingExchangeRate</assert>
 		<assert test="not(cac:PaymentExchangeRate)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentExchangeRate</assert>
 		<assert test="not(cac:PaymentAlternativeExchangeRate)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentAlternativeExchangeRate</assert>
-		
+
 		<!-- Elements removed from SI v1.1 compared to v1.0 -->
 		<assert test="not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:ID)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:ID</assert>
 		<assert test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:StreetName)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:StreetName</assert>
@@ -163,6 +162,7 @@
 		<assert test="not(cac:Attachment/cac:ExternalReference/cbc:ExpiryTime)" flag="warning">[SI-UBL-INV-R055]-A conformant SI-UBL invoice core data model SHOULD not have data elements not in the core.</assert>
 	</rule>
 	<rule context="cac:AccountingSupplierParty">
+		<assert test="cac:Party/cac:PostalAddress" flag="warning">[SI-V12-INV-R100] - An SI-UBL 1.2 Invoice SHOULD contain the element cac:AccountingSupplierParty/cac:Party/cac:PostalAddress</assert>
 		<assert test="not(cbc:DataSendingCapability)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:AccountingSupplierParty/cbc:DataSendingCapability</assert>
 		<assert test="not(cac:DespatchContact)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:AccountingSupplierParty/cac:DespatchContact</assert>
 		<assert test="not(cac:AccountingContact)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:AccountingSupplierParty/cac:AccountingContact</assert>
@@ -360,8 +360,6 @@
 		<assert test="not(cbc:PaymentMeansID)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cbc:PaymentMeansID</assert>
 		<assert test="not(cbc:PrepaidPaymentReferenceID)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cbc:PrepaidPaymentReferenceID</assert>
 		<assert test="not(cbc:ReferenceEventCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cbc:ReferenceEventCode</assert>
-		<assert test="not(cbc:SettlementDiscountPercent)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cbc:SettlementDiscountPercent</assert>
-		<assert test="not(cbc:PenaltySurchargePercent)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cbc:PenaltySurchargePercent</assert>
 		<assert test="not(cbc:Amount)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cbc:Amount</assert>
 		<assert test="not(cac:SettlementPeriod)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cac:SettlementPeriod</assert>
 		<assert test="not(cac:PenaltyPeriod)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cac:PenaltyPeriod</assert>
@@ -399,7 +397,6 @@
 	<rule context="cac:InvoiceLine">
 		<assert test="not(cbc:UUID)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cbc:UUID</assert>
 		<assert test="not(cbc:TaxPointDate)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cbc:TaxPointDate</assert>
-		<assert test="not(cbc:AccountingCostCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cbc:AccountingCostCode</assert>
 		<assert test="not(cbc:FreeOfChargeIndicator)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cbc:FreeOfChargeIndicator</assert>
 		<assert test="not(cac:OrderLineReference/cbc:SalesOrderLineID)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cac:OrderLineReference/cbc:SalesOrderLineID</assert>
 		<assert test="not(cac:DespatchLineReference)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cac:DespatchLineReference</assert>
@@ -491,8 +488,8 @@
 		<assert test="not(cac:OrderLineReference/cbc:LineStatusCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cac:OrderLineReference/cbc:LineStatusCode</assert>
 		<assert test="not(cac:OrderLineReference/cac:OrderReference)" flag="warning">[SI-UBL-INV-R404]-A conformant SI-UBL invoice core data model SHOULD not have data elements not in the core.</assert>
 	</rule>
-		
+
 	<rule context="*">
 		<assert test="* or normalize-space(text()) != ''" flag="warning">[SI-V12-INV-R300]-An invoice SHOULD not contain empty elements.</assert>
-	</rule>		
+	</rule>
 </pattern>

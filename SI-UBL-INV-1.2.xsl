@@ -685,8 +685,8 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:PaymentTerms[2]" priority="1023" mode="M6">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PaymentTerms[2]"/>
+   <xsl:template match="cac:PaymentTerms[3]" priority="1023" mode="M6">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PaymentTerms[3]"/>
 
 		    <!--ASSERT -->
       <xsl:choose>
@@ -696,7 +696,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[SI-V12-INV-R212]-An invoice SHOULD not have multiple payment terms</svrl:text>
+               <svrl:text>[SI-V12-INV-R212]-An invoice SHOULD not have more than 2 payment terms</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -934,21 +934,6 @@
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
                <svrl:text>A Simplerinvoicing invoice SHOULD not contain the element cbc:PaymentAlternativeCurrencyCode</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-      <xsl:choose>
-         <xsl:when test="not(cbc:AccountingCostCode)"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cbc:AccountingCostCode)">
-               <xsl:attribute name="flag">warning</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>A Simplerinvoicing invoice SHOULD not contain the element cbc:AccountingCostCode</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -2001,6 +1986,21 @@
    <xsl:template match="cac:AccountingSupplierParty" priority="1009" mode="M6">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:AccountingSupplierParty"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="cac:Party/cac:PostalAddress"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="cac:Party/cac:PostalAddress">
+               <xsl:attribute name="flag">warning</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[SI-V12-INV-R100] - An SI-UBL 1.2 Invoice SHOULD contain the element cac:AccountingSupplierParty/cac:Party/cac:PostalAddress</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
 
 		    <!--ASSERT -->
       <xsl:choose>
@@ -4817,36 +4817,6 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cbc:SettlementDiscountPercent)"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cbc:SettlementDiscountPercent)">
-               <xsl:attribute name="flag">warning</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cbc:SettlementDiscountPercent</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-      <xsl:choose>
-         <xsl:when test="not(cbc:PenaltySurchargePercent)"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cbc:PenaltySurchargePercent)">
-               <xsl:attribute name="flag">warning</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentTerms/cbc:PenaltySurchargePercent</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-      <xsl:choose>
          <xsl:when test="not(cbc:Amount)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cbc:Amount)">
@@ -5315,21 +5285,6 @@
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
                <svrl:text>A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cbc:TaxPointDate</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-      <xsl:choose>
-         <xsl:when test="not(cbc:AccountingCostCode)"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cbc:AccountingCostCode)">
-               <xsl:attribute name="flag">warning</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cbc:AccountingCostCode</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
