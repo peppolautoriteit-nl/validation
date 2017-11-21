@@ -9254,10 +9254,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="((/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') and (//cac:TaxCategory/cbc:ID)) or not(/ubl:Invoice/cac:TaxTotal)"/>
+         <xsl:when test="((/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') and (cac:TaxCategory/cbc:ID)) or not(/ubl:Invoice/cac:TaxTotal)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="((/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') and (//cac:TaxCategory/cbc:ID)) or not(/ubl:Invoice/cac:TaxTotal)">
+                                test="((/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') and (cac:TaxCategory/cbc:ID)) or not(/ubl:Invoice/cac:TaxTotal)">
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
@@ -17175,7 +17175,7 @@
 
 	  <!--RULE -->
    <xsl:template match="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1'))]"
-                 priority="1025"
+                 priority="1026"
                  mode="M18">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1'))]"/>
@@ -17196,7 +17196,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="ubl:Invoice" priority="1024" mode="M18">
+   <xsl:template match="ubl:Invoice" priority="1025" mode="M18">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl:Invoice"/>
 
 		    <!--ASSERT -->
@@ -17226,18 +17226,24 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M18"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="cbc:InvoiceTypeCode" priority="1024" mode="M18">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:InvoiceTypeCode"/>
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="cbc:InvoiceTypeCode!='384' or cac:BillingReference"/>
+         <xsl:when test="not(cbc:InvoiceTypeCode!='384' or cac:BillingReference)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="cbc:InvoiceTypeCode!='384' or cac:BillingReference">
+                                test="not(cbc:InvoiceTypeCode!='384' or cac:BillingReference)">
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[SI-V11-INV-R453]-For corrective invoices a billing reference MUST be set</svrl:text>
+               <svrl:text>[SI-V11-INV-R453]-For corrective invoices a billing reference MUST be set!</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
