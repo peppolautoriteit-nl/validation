@@ -6,7 +6,7 @@
   Author: Marcel Diepstra
   It seems that BII2-T10-R043 description is not corresponding with the xpath check
   A few changes were made for ensuring that some complex calculation rules do not fire if elements are missing. Since these rules can be confusing
-	if elements are missing altogether. It then makes more sense to just let the rules fire that fail when these elements are missing. 
+	if elements are missing altogether. It then makes more sense to just let the rules fire that fail when these elements are missing.
 	These are rules: BII2-T10-R053
 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" is-a="BII-T10" id="BII-UBL-T10">
@@ -55,8 +55,8 @@
   <param name="BII2-T10-R041" value="(cbc:PaymentMeansCode)"/>
   <param name="BII2-T10-R042" value="(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID/@schemeID='BIC') and (cac:PayeeFinancialAccount/cbc:ID/@schemeID = 'IBAN') or not(cac:PayeeFinancialAccount/cbc:ID/@schemeID = 'IBAN')"/>
   <!-- BII2-T10-R043 is adapted for Simplerinvoicing -->
-  <param name="BII2-T10-R043" value="((/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') and (//cac:TaxCategory/cbc:ID)) or not(/ubl:Invoice/cac:TaxTotal)"/>
-  <!--<param name="BII2-T10-R043" value="((/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') and (cac:TaxCategory/cbc:ID)) or not(/ubl:Invoice/cac:TaxTotal)"/>-->
+  <!--<param name="BII2-T10-R043" value="((/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') and (//cac:TaxCategory/cbc:ID)) or not(/ubl:Invoice/cac:TaxTotal)"/>-->
+  <param name="BII2-T10-R043" value="((/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID = 'VAT') and (cac:TaxCategory/cbc:ID)) or not(/ubl:Invoice/cac:TaxTotal)"/>
   <param name="BII2-T10-R044" value="(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID) or not(cac:TaxTotal/*/*/*/cbc:ID = 'VAT')"/>
    <!-- BII2-T10-R045 is removed for Simplerinvoicing --><!--param name="BII2-T10-R045" value="(cac:TaxCategory/cbc:TaxExemptionReason) or not ((cac:TaxCategory/cbc:ID='E') or (cac:TaxCategory/cbc:ID='AE'))"/-->
    <!-- BII2-T10-R046 is removed for Simplerinvoicing --><!--param name="BII2-T10-R046" value="(cac:Item/cac:ClassifiedTaxCategory/cbc:ID) or not(/ubl:Invoice/cac:TaxTotal/*/*/*/cbc:ID='VAT')"/-->
