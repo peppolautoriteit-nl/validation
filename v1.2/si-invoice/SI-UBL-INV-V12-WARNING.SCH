@@ -10,13 +10,13 @@
 		<assert test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.2')" flag="fatal">[SI-V12-INV-R200]-This XML instance is NOT tagged as an SI-UBL invoice</assert>
 	</rule>
 	<rule context="cac:ContractDocumentReference[2]">
-		<assert test="false()">[SI-V12-INV-R201]-An SI invoice SHOULD not contain more than one contract document reference</assert>
+		<assert test="false()" flag="warning">[SI-V12-INV-R201]-An SI invoice SHOULD not contain more than one contract document reference</assert>
 	</rule>
 	<rule context="cac:InvoicePeriod[2]">
-		<assert test="false()">[SI-V12-INV-R202]-An SI invoice SHOULD not contain more than one invoice period</assert>
+		<assert test="false()" flag="warning">[SI-V12-INV-R202]-An SI invoice SHOULD not contain more than one invoice period</assert>
 	</rule>
 	<rule context="cbc:Note[2]">
-		<assert test="false()">[SI-V12-INV-R203]-Multple notes in a section SHOULD not occur</assert>
+		<assert test="false()" flag="warning">[SI-V12-INV-R203]-Multple notes in a section SHOULD not occur</assert>
 	</rule>
 	<rule context="cbc:PartyIdentification[2]">
 		<assert test="false()" flag="warning">[SI-V12-INV-R204]-A party SHOULD not contain more than one identification</assert>
@@ -40,37 +40,37 @@
 		<assert test="false()" flag="warning">[SI-V12-INV-R210]-A payment means SHOULD not have multiple payment ids</assert>
 	</rule>
 	<rule context="cbc:PrimaryAccountNumberID">
-		<assert test="string-length(normalize-space(text())) = 4 or string-length(normalize-space(text())) = 6">[SI-V12-INV-R211]-In accordance to general rules for
+		<assert test="string-length(normalize-space(text())) = 4 or string-length(normalize-space(text())) = 6" flag="warning">[SI-V12-INV-R211]-In accordance to general rules for
 			referencing payments cards only the last 4 or 6 digits of the card number SHOULD be used.</assert>
 	</rule>
 	<rule context="cac:PaymentTerms[3]">
-		<assert test="false()">[SI-V12-INV-R212]-An invoice SHOULD not have more than 2 payment terms</assert>
+		<assert test="false()" flag="warning">[SI-V12-INV-R212]-An invoice SHOULD not have more than 2 payment terms</assert>
 	</rule>
 	<!-- Next rule is commented because it conflicts with rule BII2-T10-R025, for the moment we assume the BII2
 	rule should be followed -->
-	<!--<rule context="cbc:AllowanceChargeReason" flag="fatal">
-		<assert test="not(preceding-sibling::cbc:AllowanceChargeReasonCode)">[SI-V12-INV-R213]-When an allowance charge reason code is specified the allowance charge reason SHOULD not be included</assert>
+	<!--<rule context="cbc:AllowanceChargeReason">
+		<assert test="not(preceding-sibling::cbc:AllowanceChargeReasonCode)" flag="fatal">[SI-V12-INV-R213]-When an allowance charge reason code is specified the allowance charge reason SHOULD not be included</assert>
 	</rule>-->
 	<rule context="cbc:TaxExemptionReasonCode | cbc:TaxExemptionReason">
-		<assert test="preceding-sibling::cbc:ID[text() = 'E' or text() = 'AB']">[SI-V12-INV-R214]-A tax exemption reason or reason code SHOULD only be given when the tax category is tax exempt</assert>
+		<assert test="preceding-sibling::cbc:ID[text() = 'E' or text() = 'AB']" flag="warning">[SI-V12-INV-R214]-A tax exemption reason or reason code SHOULD only be given when the tax category is tax exempt</assert>
 	</rule>
 	<rule context="cac:TaxCategory[2]">
-		<assert test="false()">[SI-V12-INV-R215]-Tax category SHOULD not occur more than once in a section</assert>
+		<assert test="false()" flag="warning">[SI-V12-INV-R215]-Tax category SHOULD not occur more than once in a section</assert>
 	</rule>
 	<rule context="cac:TaxTotal[2]">
-		<assert test="false()">[SI-V12-INV-R216]-An invoice SHOULD not have multiple tax totals on invoice level</assert>
+		<assert test="false()" flag="warning">[SI-V12-INV-R216]-An invoice SHOULD not have multiple tax totals on invoice level</assert>
 	</rule>
-	<rule context="cac:Delivery/cac:DeliveryLocation/cbc:ID/@schemeID" flag="warning">
+	<rule context="cac:Delivery/cac:DeliveryLocation/cbc:ID/@schemeID">
 		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' GLN ',concat(' ',normalize-space(.),' ') ) ) )" flag="warning">[SI-V12-INV-R217]-Location identifiers SHOULD be GLN</assert>
 	</rule>
 	<rule context="cac:Delivery[2]">
-		<assert test="false()">[SI-V12-INV-R218]-Each invoiceline SHOULD have no more than one delivery specified</assert>
+		<assert test="false()" flag="warning">[SI-V12-INV-R218]-Each invoiceline SHOULD have no more than one delivery specified</assert>
 	</rule>
 	<rule context="cac:ClassifiedTaxCategory[2]">
-		<assert test="false()">[SI-V12-INV-R219]-An invoiceline SHOULD not have more than one classified tax category</assert>
+		<assert test="false()" flag="warning">[SI-V12-INV-R219]-An invoiceline SHOULD not have more than one classified tax category</assert>
 	</rule>
 	<rule context="cac:Price/cac:AllowanceCharge[2]">
-		<assert test="false()">[SI-V12-INV-R220]-The price in an invoiceline SHOULD not have more than one allowance charge</assert>
+		<assert test="false()" flag="warning">[SI-V12-INV-R220]-The price in an invoiceline SHOULD not have more than one allowance charge</assert>
 	</rule>
 	<rule context="ubl:Invoice" flag="warning">
 		<assert test="not(cbc:CopyIndicator)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cbc:CopyIndicator</assert>
