@@ -4,7 +4,7 @@
         <assert test="true()" />
     </rule>
 	<!-- End backwards compatibiltiy statement -->
-	
+
 	<!-- Rules are numbered in the region 2xx -->
 	<rule context="cbc:CustomizationID">
 		<assert test="contains(., 'urn:www.simplerinvoicing.org:si:si-ubl:ver1.1')" flag="fatal">[SI-V11-INV-R200]-This XML instance is NOT tagged as an SI-UBL 1.1 invoice</assert>
@@ -46,13 +46,13 @@
 	<rule context="cac:PaymentTerms[2]">
 		<assert test="false()">[SI-V11-INV-R212]-An invoice SHOULD not have multiple payment terms</assert>
 	</rule>
-	<!-- Next rule is commented because it conflicts with rule BII2-T10-R025, for the moment we assume the BII2 
+	<!-- Next rule is commented because it conflicts with rule BII2-T10-R025, for the moment we assume the BII2
 	rule should be followed -->
 	<!--<rule context="cbc:AllowanceChargeReason" flag="fatal">
 		<assert test="not(preceding-sibling::cbc:AllowanceChargeReasonCode)">[SI-V11-INV-R213]-When an allowance charge reason code is specified the allowance charge reason SHOULD not be included</assert>
 	</rule>-->
 	<rule context="cbc:TaxExemptionReasonCode | cbc:TaxExemptionReason">
-		<assert test="preceding-sibling::cbc:ID[text() = 'E' or text() = 'AB']">[SI-V11-INV-R214]-A tax exemption reason or reason code SHOULD only be given when the tax category is tax exempt</assert>
+		<assert test="preceding-sibling::cbc:ID[text() = 'E' or text() = 'AB']" flag="warning">[SI-V11-INV-R214]-A tax exemption reason or reason code SHOULD only be given when the tax category is tax exempt</assert>
 	</rule>
 	<rule context="cac:TaxCategory[2]">
 		<assert test="false()">[SI-V11-INV-R215]-Tax category SHOULD not occur more than once in a section</assert>
@@ -90,7 +90,7 @@
 		<assert test="not(cac:PricingExchangeRate)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PricingExchangeRate</assert>
 		<assert test="not(cac:PaymentExchangeRate)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentExchangeRate</assert>
 		<assert test="not(cac:PaymentAlternativeExchangeRate)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:PaymentAlternativeExchangeRate</assert>
-		
+
 		<!-- Elements removed from SI v1.1 compared to v1.0 -->
 		<assert test="not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:ID)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:ID</assert>
 		<assert test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:StreetName)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress/cbc:StreetName</assert>
@@ -491,8 +491,8 @@
 		<assert test="not(cac:OrderLineReference/cbc:LineStatusCode)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cac:OrderLineReference/cbc:LineStatusCode</assert>
 		<assert test="not(cac:OrderLineReference/cac:OrderReference)" flag="warning">A Simplerinvoicing invoice SHOULD not contain the element cac:InvoiceLine/cac:OrderLineReference/cbc:OrderReference</assert>
 	</rule>
-		
+
 	<rule context="*">
 		<assert test="* or normalize-space(text()) != ''" flag="warning">[SI-V11-INV-R300]-An invoice SHOULD not contain empty elements.</assert>
-	</rule>		
+	</rule>
 </pattern>
