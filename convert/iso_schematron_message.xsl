@@ -1,6 +1,6 @@
-<?xml version="1.0" ?><?xar XSLT?> 
+<?xml version="1.0" ?><?xar XSLT?>
 <!-- Implementation for the Schematron XML Schema Language. 
-     Generates simple text output messages using XSLT2 engine
+     Generates simple text output messages using XSLT1 engine
 -->
 <!--
 Open Source Initiative OSI - The MIT License:Licensing
@@ -35,11 +35,11 @@ THE SOFTWARE.
 <!-- Schematron message -->
 
 <xsl:stylesheet
-   version="2.0"
+   version="1.0"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:axsl="http://www.w3.org/1999/XSL/TransformAlias">
 
-<xsl:import href="iso_schematron_skeleton_for_saxon.xsl"/>
+<xsl:import href="iso_schematron_skeleton_for_xslt1.xsl"/>
 
 <xsl:template name="process-prolog">
    <axsl:output method="text" />
