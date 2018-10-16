@@ -1,0 +1,1769 @@
+<html xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+      <title>Rules overview</title>
+   </head>
+   <body>
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Category</th>
+               <th>Description</th>
+               <th>Query</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>BII2-T10-R001</td>
+               <td>BII2</td>
+               <td></td>
+               <td>cbc:CustomizationID</td>
+            </tr>
+            <tr>
+               <td>BII2-T10-R001</td>
+               <td>BII2</td>
+               <td></td>
+               <td>cbc:CustomizationID</td>
+            </tr>
+            <tr>
+               <td>SI-V20-INV-R000</td>
+               <td>SI</td>
+               <td>This XML instance is NOT tagged as an SI-UBL 2.0 invoice or credit note; please check the CustomizationID value</td>
+               <td>contains(normalize-space(.), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0')</td>
+            </tr>
+            <tr>
+               <td>SI-INV-R000</td>
+               <td>SI</td>
+               <td>This is not an SI-UBL 2.0 Invoice or CreditNote, validation cannot continue</td>
+               <td>ubl:Invoice or cn:CreditNote</td>
+            </tr>
+            <tr>
+               <td>BR-CL-01</td>
+               <td>BR</td>
+               <td>The document type code MUST be coded by the invoice and credit note related code lists of UNTDID 1001.</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-03</td>
+               <td>BR</td>
+               <td>currencyID MUST be coded using ISO code list 4217 alpha-3</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-04</td>
+               <td>BR</td>
+               <td>Invoice currency code MUST be coded using ISO code list 4217 alpha-3</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-05</td>
+               <td>BR</td>
+               <td>Tax currency code MUST be coded using ISO code list 4217 alpha-3</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-06</td>
+               <td>BR</td>
+               <td>Value added tax point date code MUST be coded using a restriction of
+                  UNTDID 2005iterm
+                  .
+               </td>
+               <td>((not(contains(normalize-space(.), ' ')) and contains(' 3 35 432 ', concat(' ', normalize-space(.), ' '))))</td>
+            </tr>
+            <tr>
+               <td>BR-CL-07</td>
+               <td>BR</td>
+               <td>Object identifier identification scheme identifier MUST be coded using a restriction of UNTDID 1153.</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-10</td>
+               <td>BR</td>
+               <td>Any identifier identification scheme identifier MUST be coded using one of the ISO 6523 ICD list.</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-11</td>
+               <td>BR</td>
+               <td>Any registration identifier identification scheme identifier MUST be coded using one of the ISO 6523 ICD list.</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-13</td>
+               <td>BR</td>
+               <td>Item classification identifier identification scheme identifier MUST be
+                  coded using one of the UNTDID 7143 list.
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-14</td>
+               <td>BR</td>
+               <td>Country codes in an invoice MUST be coded using ISO code list 3166-1</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-15</td>
+               <td>BR</td>
+               <td>Country codes in an invoice MUST be coded using ISO code list 3166-1</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-16</td>
+               <td>BR</td>
+               <td>Payment means in an invoice MUST be coded using UNCL4461 code list</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-17</td>
+               <td>BR</td>
+               <td>Invoice tax categories MUST be coded using UNCL5305 code list</td>
+               <td>( ( not(contains(normalize-space(.),' ')) and contains( ' AE L M E S Z G O K ',concat(' ',normalize-space(.),' ') ) ) )</td>
+            </tr>
+            <tr>
+               <td>BR-CL-18</td>
+               <td>BR</td>
+               <td>Invoice tax categories MUST be coded using UNCL5305 code list</td>
+               <td>( ( not(contains(normalize-space(.),' ')) and contains( ' AE L M E S Z G O K ',concat(' ',normalize-space(.),' ') ) ) )</td>
+            </tr>
+            <tr>
+               <td>BR-CL-19</td>
+               <td>BR</td>
+               <td>Coded allowance reasons MUST belong to the UNCL 5189 code list</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-20</td>
+               <td>BR</td>
+               <td>Coded charge reasons MUST belong to the UNCL 7161 code list</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-21</td>
+               <td>BR</td>
+               <td>Item standard identifier scheme identifier MUST belong to the ISO 6523 ICD code list</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-23</td>
+               <td>BR</td>
+               <td>Unit code MUST be coded according to the UN/ECE Recommendation 20 with
+                  Rec 21 extension
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CL-24</td>
+               <td>BR</td>
+               <td>For Mime code in attribute use MIMEMediaType.</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-52</td>
+               <td>BR</td>
+               <td>Each Additional supporting document (BG-24) shall contain a Supporting document reference (BT-122).&nbsp; &nbsp; </td>
+               <td>(cbc:ID) != ''</td>
+            </tr>
+            <tr>
+               <td>BR-CO-25</td>
+               <td>BR</td>
+               <td>In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall
+                  be present.
+               </td>
+               <td>((. &gt; 0) and (exists(//cbc:DueDate) or exists(//cac:PaymentTerms/cbc:Note))) or (. &lt;= 0)</td>
+            </tr>
+            <tr>
+               <td>BR-63</td>
+               <td>BR</td>
+               <td>The Buyer electronic address (BT-49) shall have a Scheme identifier.&nbsp; &nbsp; </td>
+               <td>exists(@schemeID)</td>
+            </tr>
+            <tr>
+               <td>BR-11</td>
+               <td>BR</td>
+               <td>The Buyer postal address shall contain a Buyer country code (BT-55).</td>
+               <td>(cac:Country/cbc:IdentificationCode) != ''</td>
+            </tr>
+            <tr>
+               <td>BR-51</td>
+               <td>BR</td>
+               <td>The last 4 to 6 digits of the Payment card primary account number (BT-87) shall be present if Payment card information (BG-18)
+                  is provided in the Invoice.
+               </td>
+               <td>string-length(cbc:PrimaryAccountNumberID)&gt;=4 and string-length(cbc:PrimaryAccountNumberID)&lt;=6</td>
+            </tr>
+            <tr>
+               <td>BR-57</td>
+               <td>BR</td>
+               <td>Each Deliver to address (BG-15) shall contain a Deliver to country code (BT-80).</td>
+               <td>exists(cac:Country/cbc:IdentificationCode)</td>
+            </tr>
+            <tr>
+               <td>BR-31</td>
+               <td>BR</td>
+               <td>Each Document level allowance (BG-20) shall have a Document level allowance amount (BT-92).</td>
+               <td>exists(cbc:Amount)</td>
+            </tr>
+            <tr>
+               <td>BR-32</td>
+               <td>BR</td>
+               <td>Each Document level allowance (BG-20) shall have a Document level allowance VAT category code (BT-95).</td>
+               <td>exists(cac:TaxCategory/cbc:ID)</td>
+            </tr>
+            <tr>
+               <td>BR-33</td>
+               <td>BR</td>
+               <td>Each Document level allowance (BG-20) shall have a Document level allowance reason (BT-97) or a Document level allowance reason
+                  code (BT-98).
+               </td>
+               <td>exists(cbc:AllowanceChargeReason) or exists(cbc:AllowanceChargeReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-CO-05</td>
+               <td>BR</td>
+               <td>Document level allowance reason code (BT-98) and Document level allowance reason (BT-97) shall indicate the same type of allowance.</td>
+               <td>true()</td>
+            </tr>
+            <tr>
+               <td>BR-CO-21</td>
+               <td>BR</td>
+               <td>Each Document level allowance (BG-20) shall contain a Document level allowance reason (BT-97) or a Document level allowance
+                  reason code (BT-98), or both.
+               </td>
+               <td>exists(cbc:AllowanceChargeReason) or exists(cbc:AllowanceChargeReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-01</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Document level allowance amount (BT-92) is 2.</td>
+               <td>string-length(substring-after(cbc:Amount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-02</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Document level allowance base amount (BT-93) is 2.&nbsp; &nbsp; </td>
+               <td>string-length(substring-after(cbc:BaseAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-36</td>
+               <td>BR</td>
+               <td>Each Document level charge (BG-21) shall have a Document level charge amount (BT-99).</td>
+               <td>exists(cbc:Amount)</td>
+            </tr>
+            <tr>
+               <td>BR-37</td>
+               <td>BR</td>
+               <td>Each Document level charge (BG-21) shall have a Document level charge VAT category code (BT-102).</td>
+               <td>exists(cac:TaxCategory/cbc:ID)</td>
+            </tr>
+            <tr>
+               <td>BR-38</td>
+               <td>BR</td>
+               <td>Each Document level charge (BG-21) shall have a Document level charge reason (BT-104) or a Document level charge reason code
+                  (BT-105).&nbsp; &nbsp; 
+               </td>
+               <td>exists(cbc:AllowanceChargeReason) or exists(cbc:AllowanceChargeReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-CO-06</td>
+               <td>BR</td>
+               <td>Document level charge reason code (BT-105) and Document level charge reason (BT-104) shall indicate the same type of charge.</td>
+               <td>true()</td>
+            </tr>
+            <tr>
+               <td>BR-CO-22</td>
+               <td>BR</td>
+               <td>Each Document level charge (BG-21) shall contain a Document level charge reason (BT-104) or a Document level charge reason
+                  code (BT-105), or both.
+               </td>
+               <td>exists(cbc:AllowanceChargeReason) or exists(cbc:AllowanceChargeReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-05</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Document level charge amount (BT-99) is 2.</td>
+               <td>string-length(substring-after(cbc:Amount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-06</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Document level charge base amount (BT-100) is 2.&nbsp; &nbsp; </td>
+               <td>string-length(substring-after(cbc:BaseAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-12</td>
+               <td>BR</td>
+               <td>An Invoice shall have the Sum of Invoice line net amount (BT-106).</td>
+               <td>exists(cbc:LineExtensionAmount)</td>
+            </tr>
+            <tr>
+               <td>BR-13</td>
+               <td>BR</td>
+               <td>An Invoice shall have the Invoice total amount without VAT (BT-109).</td>
+               <td>exists(cbc:TaxExclusiveAmount)</td>
+            </tr>
+            <tr>
+               <td>BR-14</td>
+               <td>BR</td>
+               <td>An Invoice shall have the Invoice total amount with VAT (BT-112).</td>
+               <td>exists(cbc:TaxInclusiveAmount)</td>
+            </tr>
+            <tr>
+               <td>BR-15</td>
+               <td>BR</td>
+               <td>An Invoice shall have the Amount due for payment (BT-115).</td>
+               <td>exists(cbc:PayableAmount)</td>
+            </tr>
+            <tr>
+               <td>BR-CO-10</td>
+               <td>BR</td>
+               <td>Sum of Invoice line net amount (BT-106) = &#931; Invoice line net amount (BT-131).</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CO-11</td>
+               <td>BR</td>
+               <td>Sum of allowances on document level (BT-107) = &#931; Document level allowance amount (BT-92).</td>
+               <td>xs:decimal(cbc:AllowanceTotalAmount) = (round(sum(../cac:AllowanceCharge[cbc:ChargeIndicator='false']/xs:decimal(cbc:Amount))
+                  * 10 * 10) div 100) or not(cbc:AllowanceTotalAmount)
+               </td>
+            </tr>
+            <tr>
+               <td>BR-CO-12</td>
+               <td>BR</td>
+               <td>Sum of charges on document level (BT-108) = &#931; Document level charge amount (BT-99).</td>
+               <td>xs:decimal(cbc:ChargeTotalAmount) = (round(sum(../cac:AllowanceCharge[cbc:ChargeIndicator='true']/xs:decimal(cbc:Amount))
+                  * 10 * 10) div 100) or not(cbc:ChargeTotalAmount)
+               </td>
+            </tr>
+            <tr>
+               <td>BR-CO-13</td>
+               <td>BR</td>
+               <td>Invoice total amount without VAT (BT-109) = &#931; Invoice line net amount (BT-131) - Sum of allowances on document level (BT-107)
+                  + Sum of charges on document level (BT-108).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CO-16</td>
+               <td>BR</td>
+               <td>Amount due for payment (BT-115) = Invoice total amount with VAT (BT-112) -Paid amount (BT-113) +Rounding amount (BT-114).</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-09</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Sum of Invoice line net amount (BT-106) is 2.</td>
+               <td>string-length(substring-after(cbc:LineExtensionAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-10</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Sum of allowanced on document level (BT-107) is 2.</td>
+               <td>string-length(substring-after(cbc:AllowanceTotalAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-11</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Sum of charges on document level (BT-108) is 2.</td>
+               <td>string-length(substring-after(cbc:ChargeTotalAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-12</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Invoice total amount without VAT (BT-109) is 2.&nbsp; &nbsp; </td>
+               <td>string-length(substring-after(cbc:TaxExclusiveAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-14</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Invoice total amount with VAT (BT-112) is 2.</td>
+               <td>string-length(substring-after(cbc:TaxInclusiveAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-16</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Paid amount (BT-113) is 2.</td>
+               <td>string-length(substring-after(cbc:PrepaidAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-17</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Rounding amount (BT-114) is 2.</td>
+               <td>string-length(substring-after(cbc:PayableRoundingAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-18</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Amount due for payment (BT-115) is 2.&nbsp; </td>
+               <td>string-length(substring-after(cbc:PayableAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-01</td>
+               <td>BR</td>
+               <td>An Invoice shall have a Specification identifier (BT-24).&nbsp; &nbsp;</td>
+               <td>(cbc:CustomizationID) != ''</td>
+            </tr>
+            <tr>
+               <td>BR-02</td>
+               <td>BR</td>
+               <td>An Invoice shall have an Invoice number (BT-1).</td>
+               <td>(cbc:ID) !=''</td>
+            </tr>
+            <tr>
+               <td>BR-03</td>
+               <td>BR</td>
+               <td>An Invoice shall have an Invoice issue date (BT-2).</td>
+               <td>(cbc:IssueDate) !=''</td>
+            </tr>
+            <tr>
+               <td>BR-04</td>
+               <td>BR</td>
+               <td>An Invoice shall have an Invoice type code (BT-3).</td>
+               <td>(cbc:InvoiceTypeCode) !='' or (cbc:CreditNoteTypeCode) !=''</td>
+            </tr>
+            <tr>
+               <td>BR-05</td>
+               <td>BR</td>
+               <td>An Invoice shall have an Invoice currency code (BT-5).</td>
+               <td>(cbc:DocumentCurrencyCode) !=''</td>
+            </tr>
+            <tr>
+               <td>BR-06</td>
+               <td>BR</td>
+               <td>An Invoice shall contain the Seller name (BT-27).</td>
+               <td>(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) !=''</td>
+            </tr>
+            <tr>
+               <td>BR-07</td>
+               <td>BR</td>
+               <td>An Invoice shall contain the Buyer name (BT-44).</td>
+               <td>(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) !=''</td>
+            </tr>
+            <tr>
+               <td>BR-08</td>
+               <td>BR</td>
+               <td>An Invoice shall contain the Seller postal address. </td>
+               <td>exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress)</td>
+            </tr>
+            <tr>
+               <td>BR-10</td>
+               <td>BR</td>
+               <td>An Invoice shall contain the Buyer postal address (BG-8).</td>
+               <td>exists(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress)</td>
+            </tr>
+            <tr>
+               <td>BR-16</td>
+               <td>BR</td>
+               <td>An Invoice shall have at least one Invoice line (BG-25)</td>
+               <td>exists(cac:InvoiceLine) or exists(cac:CreditNoteLine)</td>
+            </tr>
+            <tr>
+               <td>BR-53</td>
+               <td>BR</td>
+               <td>If the VAT accounting currency code (BT-6) is present, then the Invoice total VAT amount in accounting currency (BT-111) shall
+                  be provided.
+               </td>
+               <td>every $taxcurrency in cbc:TaxCurrencyCode satisfies exists(//cac:TaxTotal/cbc:TaxAmount[@currencyID=$taxcurrency])</td>
+            </tr>
+            <tr>
+               <td>BR-AE-01</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where
+                  the VAT category code (BT-151, BT-95 or BT-102) is &#8220;Reverse charge&#8221; shall contain in the VATBReakdown (BG-23) exactly one
+                  VAT category code (BT-118) equal with "VAT reverse charge".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-AE-02</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is &#8220;Reverse charge&#8221; shall
+                  contain the Seller VAT Identifier (BT-31), the Seller Tax registration identifier (BT-32) and/or the Seller tax representative
+                  VAT identifier (BT-63) and the Buyer VAT identifier (BT-48) and/or the Buyer legal registration identifier (BT-47).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-AE-03</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is
+                  &#8220;Reverse charge&#8221; shall contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the
+                  Seller tax representative VAT identifier (BT-63) and the Buyer VAT identifier (BT-48) and/or the Buyer legal registration
+                  identifier (BT-47).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-AE-04</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is &#8220;Reverse
+                  charge&#8221; shall contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller
+                  tax representative VAT identifier (BT-63) and the Buyer VAT identifier (BT-48) and/or the Buyer legal registration identifier
+                  (BT-47).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CO-03</td>
+               <td>BR</td>
+               <td>Value added tax point date (BT-7) and Value added tax point date code (BT-8) are mutually exclusive.</td>
+               <td>(exists(cbc:TaxPointDate) and not(cac:InvoicePeriod/cbc:DescriptionCode)) or (not(cbc:TaxPointDate) and exists(cac:InvoicePeriod/cbc:DescriptionCode))
+                  or (not(cbc:TaxPointDate) and not(cac:InvoicePeriod/cbc:DescriptionCode))
+               </td>
+            </tr>
+            <tr>
+               <td>BR-CO-15</td>
+               <td>BR</td>
+               <td>Invoice total amount with VAT (BT-112) = Invoice total amount without VAT (BT-109) + Invoice total VAT amount (BT-110).</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-CO-18</td>
+               <td>BR</td>
+               <td>An Invoice shall at least have one VATBReakdown group (BG-23).</td>
+               <td>exists(cac:TaxTotal/cac:TaxSubtotal)</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-13</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Invoice total VAT amount (BT-110) is 2.</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-15</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Invoice total VAT amount in accounting currency (BT-111) is 2.</td>
+               <td>(//cac:TaxTotal/cbc:TaxAmount[@currencyID = cbc:TaxCurrencyCode] and (string-length(substring-after(//cac:TaxTotal/cbc:TaxAmount[@currencyID
+                  = cbc:TaxCurrencyCode],'.'))&lt;=2)) or (not(//cac:TaxTotal/cbc:TaxAmount[@currencyID = cbc:TaxCurrencyCode]))
+               </td>
+            </tr>
+            <tr>
+               <td>BR-E-01</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where
+                  the VAT category code (BT-151, BT-95 or BT-102) is &#8220;Exempt from VAT&#8221; shall contain exactly one VATBReakdown (BG-23) with the
+                  VAT category code (BT-118) equal to "Exempt from VAT".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-E-02</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is &#8220;Exempt from VAT&#8221; shall
+                  contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller tax representative
+                  VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-E-03</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is
+                  &#8220;Exempt from VAT&#8221; shall contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the
+                  Seller tax representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-E-04</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is &#8220;Exempt
+                  from VAT&#8221; shall contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller
+                  tax representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-G-01</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where
+                  the VAT category code (BT-151, BT-95 or BT-102) is &#8220;Export outside the EU&#8221; shall contain in the VATBReakdown (BG-23) exactly
+                  one VAT category code (BT-118) equal with "Export outside the EU".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-G-02</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is &#8220;Export outside the
+                  EU&#8221; shall contain the Seller VAT Identifier (BT-31) or the Seller tax representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-G-03</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is
+                  &#8220;Export outside the EU&#8221; shall contain the Seller VAT Identifier (BT-31) or the Seller tax representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-G-04</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is &#8220;Export
+                  outside the EU&#8221; shall contain the Seller VAT Identifier (BT-31) or the Seller tax representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IC-01</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where
+                  the VAT category code (BT-151, BT-95 or BT-102) is &#8220;Intra-community supply&#8221; shall contain in the VATBReakdown (BG-23) exactly
+                  one VAT category code (BT-118) equal with "Intra-community supply".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IC-02</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is &#8220;Intra-community supply&#8221;
+                  shall contain the Seller VAT Identifier (BT-31) or the Seller tax representative VAT identifier (BT-63) and the Buyer VAT
+                  identifier (BT-48).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IC-03</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is
+                  &#8220;Intra-community supply&#8221; shall contain the Seller VAT Identifier (BT-31) or the Seller tax representative VAT identifier (BT-63)
+                  and the Buyer VAT identifier (BT-48).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IC-04</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is &#8220;Intra-community
+                  supply&#8221; shall contain the Seller VAT Identifier (BT-31) or the Seller tax representative VAT identifier (BT-63) and the Buyer
+                  VAT identifier (BT-48).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IC-11</td>
+               <td>BR</td>
+               <td>In an Invoice with a VATBReakdown (BG-23) where the VAT category code (BT-118) is "Intra-community supply" the Actual delivery
+                  date (BT-72) or the Invoicing period (BG-14) shall not be blank.
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IC-12</td>
+               <td>BR</td>
+               <td>In an Invoice with a VATBReakdown (BG-23) where the VAT category code (BT-118) is "Intra-community supply" the Deliver to
+                  country code (BT-80) shall not be blank.
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IG-01</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where
+                  the VAT category code (BT-151, BT-95 or BT-102) is &#8220;IGIC&#8221; shall contain in the VATBReakdown (BG-23) at least one VAT category
+                  code (BT-118) equal with "IGIC".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IG-02</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is &#8220;IGIC&#8221; shall contain
+                  the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller tax representative VAT
+                  identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IG-03</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is
+                  &#8220;IGIC&#8221; shall contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller tax
+                  representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IG-04</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is &#8220;IGIC&#8221;
+                  shall contain the Seller VAT Identifier (BT-31), the Seller Tax registration identifier (BT-32) and/or the Seller tax representative
+                  VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IP-01</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where
+                  the VAT category code (BT-151, BT-95 or BT-102) is &#8220;IPSI&#8221; shall contain in the VATBReakdown (BG-23) at least one VAT category
+                  code (BT-118) equal with "IPSI".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IP-02</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is &#8220;IPSI&#8221; shall contain
+                  the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller tax representative VAT
+                  identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IP-03</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is
+                  &#8220;IPSI&#8221; shall contain the Seller VAT Identifier (BT-31), the Seller Tax registration identifier (BT-32) and/or the Seller tax
+                  representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IP-04</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is &#8220;IPSI&#8221;
+                  shall contain the Seller VAT Identifier (BT-31), the Seller Tax registration identifier (BT-32) and/or the Seller tax representative
+                  VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-O-01</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where
+                  the VAT category code (BT-151, BT-95 or BT-102) is &#8220;Not subject to VAT&#8221; shall contain exactly one VATBReakdown group (BG-23)
+                  with the VAT category code (BT-118) equal to "Not subject to VAT".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-O-02</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is &#8220;Not subject to VAT&#8221;
+                  shall not contain the Seller VAT identifier (BT-31), the Seller tax representative VAT identifier (BT-63) or the Buyer VAT
+                  identifier (BT-46).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-O-03</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is
+                  &#8220;Not subject to VAT&#8221; shall not contain the Seller VAT identifier (BT-31), the Seller tax representative VAT identifier (BT-63)
+                  or the Buyer VAT identifier (BT-48).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-O-04</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is &#8220;Not
+                  subject to VAT&#8221; shall not contain the Seller VAT identifier (BT-31), the Seller tax representative VAT identifier (BT-63)
+                  or the Buyer VAT identifier (BT-48).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-O-11</td>
+               <td>BR</td>
+               <td>An Invoice that contains a VATBReakdown group (BG-23) with a VAT category code (BT-118) "Not subject to VAT" shall not contain
+                  other VATBReakdown groups (BG-23).&nbsp; &nbsp; 
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-O-12</td>
+               <td>BR</td>
+               <td>An Invoice that contains a VATBReakdown group (BG-23) with a VAT category code (BT-118) "Not subject to VAT" shall not contain
+                  an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is not "Not subject to VAT".
+               </td>
+               <td>(exists(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID[normalize-space(.) = 'O']) and count(//cac:ClassifiedTaxCategory[normalize-space(cbc:ID)
+                  != 'O']) = 0) or not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID[normalize-space(.) = 'O'])
+               </td>
+            </tr>
+            <tr>
+               <td>BR-O-13</td>
+               <td>BR</td>
+               <td>An Invoice that contains a VATBReakdown group (BG-23) with a VAT category code (BT-118) "Not subject to VAT" shall not contain
+                  Document level allowances (BG-20) where Document level allowance VAT category code (BT-95) is not "Not subject to VAT".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-O-14</td>
+               <td>BR</td>
+               <td>An Invoice that contains a VATBReakdown group (BG-23) with a VAT category code (BT-118) "Not subject to VAT" shall not contain
+                  Document level charges (BG-21) where Document level charge VAT category code (BT-102) is not "Not subject to VAT".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-S-01</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where
+                  the VAT category code (BT-151, BT-95 or BT-102) is &#8220;Standard rated&#8221; shall contain in the VATBReakdown (BG-23) at least one
+                  VAT category code (BT-118) equal with "Standard rated".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-S-02</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is &#8220;Standard rated&#8221; shall
+                  contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller tax representative
+                  VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-S-03</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is
+                  &#8220;Standard rated&#8221; shall contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the
+                  Seller tax representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-S-04</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is &#8220;Standard
+                  rated&#8221; shall contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller tax
+                  representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-Z-01</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where
+                  the VAT category code (BT-151, BT-95 or BT-102) is &#8220;Zero rated&#8221; shall contain in the VATBReakdown (BG-23) exactly one VAT
+                  category code (BT-118) equal with "Zero rated".&nbsp; &nbsp; 
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-Z-02</td>
+               <td>BR</td>
+               <td>An Invoice that contains an Invoice line where the Invoiced item VAT category code (BT-151) is &#8220;Zero rated&#8221; shall contain
+                  the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller tax representative VAT
+                  identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-Z-03</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is
+                  &#8220;Zero rated&#8221; shall contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller
+                  tax representative VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-Z-04</td>
+               <td>BR</td>
+               <td>An Invoice that contains a Document level charge where the Document level charge VAT category code (BT-102) is &#8220;Zero rated&#8221;
+                  shall contain the Seller VAT Identifier (BT-31), the Seller tax registration identifier (BT-32) and/or the Seller tax representative
+                  VAT identifier (BT-63).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-21</td>
+               <td>BR</td>
+               <td>Each Invoice line (BG-25) shall have an Invoice line identifier (BT-126).</td>
+               <td>(cbc:ID) != ''</td>
+            </tr>
+            <tr>
+               <td>BR-22</td>
+               <td>BR</td>
+               <td>Each Invoice line (BG-25) shall have an Invoiced quantity (BT-129).</td>
+               <td>exists(cbc:InvoicedQuantity) or exists(cbc:CreditedQuantity)</td>
+            </tr>
+            <tr>
+               <td>BR-23</td>
+               <td>BR</td>
+               <td>An Invoice line (BG-25) shall have an Invoiced quantity unit of measure code (BT-130).</td>
+               <td>exists(cbc:InvoicedQuantity/@unitCode) or exists(cbc:CreditedQuantity/@unitCode)</td>
+            </tr>
+            <tr>
+               <td>BR-24</td>
+               <td>BR</td>
+               <td>Each Invoice line (BG-25) shall have an Invoice line net amount (BT-131).</td>
+               <td>exists(cbc:LineExtensionAmount)</td>
+            </tr>
+            <tr>
+               <td>BR-25</td>
+               <td>BR</td>
+               <td>Each Invoice line (BG-25) shall contain the Item name (BT-153).</td>
+               <td>(cac:Item/cbc:Name) != ''</td>
+            </tr>
+            <tr>
+               <td>BR-26</td>
+               <td>BR</td>
+               <td>Each Invoice line (BG-25) shall contain the Item net price (BT-146).</td>
+               <td>exists(cac:Price/cbc:PriceAmount)</td>
+            </tr>
+            <tr>
+               <td>BR-27</td>
+               <td>BR</td>
+               <td>The Item net price (BT-146) shall NOT be negative.</td>
+               <td>(cac:Price/cbc:PriceAmount) &gt;= 0</td>
+            </tr>
+            <tr>
+               <td>BR-28</td>
+               <td>BR</td>
+               <td>The Item gross price (BT-148) shall NOT be negative.</td>
+               <td>(cac:Price/cac:AllowanceCharge/cbc:BaseAmount) &gt;= 0 or not(exists(cac:Price/cac:AllowanceCharge/cbc:BaseAmount))</td>
+            </tr>
+            <tr>
+               <td>BR-CO-04</td>
+               <td>BR</td>
+               <td>Each Invoice line (BG-25) shall be categorized with an Invoiced item VAT category code (BT-151).</td>
+               <td>(cac:Item/cac:ClassifiedTaxCategory/cbc:ID)</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-23</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Invoice line net amount (BT-131) is 2.&nbsp; &nbsp; </td>
+               <td>string-length(substring-after(cbc:LineExtensionAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-41</td>
+               <td>BR</td>
+               <td>Each Invoice line allowance (BG-27) shall have an Invoice line allowance amount (BT-136).</td>
+               <td>exists(cbc:Amount)</td>
+            </tr>
+            <tr>
+               <td>BR-42</td>
+               <td>BR</td>
+               <td>Each Invoice line allowance (BG-27) shall have an Invoice line allowance reason (BT-139) or an Invoice line allowance reason
+                  code (BT-140).
+               </td>
+               <td>exists(cbc:AllowanceChargeReason) or exists(cbc:AllowanceChargeReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-CO-07</td>
+               <td>BR</td>
+               <td>Invoice line allowance reason code (BT-140) and Invoice line allowance reason (BT-139) shall indicate the same type of allowance
+                  reason.
+               </td>
+               <td>true()</td>
+            </tr>
+            <tr>
+               <td>BR-CO-23</td>
+               <td>BR</td>
+               <td>Each Invoice line allowance (BG-27) shall contain an Invoice line allowance reason (BT-139) or an Invoice line allowance reason
+                  code (BT-140), or both.
+               </td>
+               <td>exists(cbc:AllowanceChargeReason) or exists(cbc:AllowanceChargeReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-24</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Invoice line allowance amount (BT-136) is 2.</td>
+               <td>string-length(substring-after(cbc:Amount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-25</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Invoice line allowance base amount (BT-137) is 2.&nbsp; &nbsp; </td>
+               <td>string-length(substring-after(cbc:BaseAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-43</td>
+               <td>BR</td>
+               <td>Each Invoice line charge (BG-28) shall have an Invoice line charge amount (BT-141).</td>
+               <td>exists(cbc:Amount)</td>
+            </tr>
+            <tr>
+               <td>BR-44</td>
+               <td>BR</td>
+               <td>Each Invoice line charge shall have an Invoice line charge reason or an invoice line allowance reason code. </td>
+               <td>exists(cbc:AllowanceChargeReason) or exists(cbc:AllowanceChargeReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-CO-08</td>
+               <td>BR</td>
+               <td>Invoice line charge reason code (BT-145) and Invoice line charge reason (BT144) shall indicate the same type of charge reason.</td>
+               <td>true()</td>
+            </tr>
+            <tr>
+               <td>BR-CO-24</td>
+               <td>BR</td>
+               <td>Each Invoice line charge (BG-28) shall contain an Invoice line charge reason (BT-144) or an Invoice line charge reason code
+                  (BT-145), or both.
+               </td>
+               <td>exists(cbc:AllowanceChargeReason) or exists(cbc:AllowanceChargeReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-27</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Invoice line charge amount (BT-141) is 2.</td>
+               <td>string-length(substring-after(cbc:Amount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-28</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the Invoice line charge base amount (BT-142) is 2.&nbsp; &nbsp; </td>
+               <td>string-length(substring-after(cbc:BaseAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-30</td>
+               <td>BR</td>
+               <td>If both Invoice line period start date (BT-134) and Invoice line period end date (BT-135) are given then the Invoice line
+                  period end date (BT-135) shall be later or equal to the Invoice line period start date (BT-134).
+               </td>
+               <td>(exists(cbc:EndDate) and exists(cbc:StartDate) and (cbc:EndDate) &gt;= (cbc:StartDate)) or not(exists(cbc:StartDate)) or not(exists(cbc:EndDate))</td>
+            </tr>
+            <tr>
+               <td>BR-CO-20</td>
+               <td>BR</td>
+               <td>If Invoice line period (BG-26) is used, the Invoice line period start date (BT-134) or the Invoice line period end date (BT-135)
+                  shall be filled, or both.
+               </td>
+               <td>exists(cbc:StartDate) or exists(cbc:EndDate)</td>
+            </tr>
+            <tr>
+               <td>BR-29</td>
+               <td>BR</td>
+               <td>If both Invoicing period start date (BT-73) and Invoicing period end date (BT-74) are given then the Invoicing period end
+                  date (BT-74) shall be later or equal to the Invoicing period start date (BT-73).
+               </td>
+               <td>(exists(cbc:EndDate) and exists(cbc:StartDate) and (cbc:EndDate) &gt;= (cbc:StartDate)) or not(exists(cbc:StartDate)) or not(exists(cbc:EndDate))</td>
+            </tr>
+            <tr>
+               <td>BR-CO-19</td>
+               <td>BR</td>
+               <td>If Invoicing period (BG-14) is used, the Invoicing period start date (BT-73) or the Invoicing period end date (BT-74) shall
+                  be filled, or both.
+               </td>
+               <td>exists(cbc:StartDate) or exists(cbc:EndDate)</td>
+            </tr>
+            <tr>
+               <td>BR-54</td>
+               <td>BR</td>
+               <td>Each Item attribute (BG-32) shall contain an Item attribute name (BT-160) and an Item attribute value (BT-161).</td>
+               <td>exists(cbc:Name) and exists(cbc:Value)</td>
+            </tr>
+            <tr>
+               <td>BR-65</td>
+               <td>BR</td>
+               <td>The Item classification identifier (BT-158) shall have a Scheme identifier.</td>
+               <td>exists(@listID)</td>
+            </tr>
+            <tr>
+               <td>BR-64</td>
+               <td>BR</td>
+               <td>The Item standard identifier (BT-157) shall have a Scheme identifier.</td>
+               <td>exists(@schemeID)</td>
+            </tr>
+            <tr>
+               <td>BR-CL-08</td>
+               <td>BR</td>
+               <td>Invoiced note subject code SHOULD be coded using UNCL4451</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-17</td>
+               <td>BR</td>
+               <td>The Payee name (BT-59) shall be provided in the Invoice, if the Payee (BG-10) is different from the Seller (BG-4)</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-50</td>
+               <td>BR</td>
+               <td>A Payment account identifier (BT-84) shall be present if Credit transfer (BG-17) information is provided in the Invoice.</td>
+               <td>(cbc:ID) != ''</td>
+            </tr>
+            <tr>
+               <td>BR-49</td>
+               <td>BR</td>
+               <td>A Payment instruction (BG-16) shall specify the Payment means type code (BT-81).</td>
+               <td>exists(cbc:PaymentMeansCode)</td>
+            </tr>
+            <tr>
+               <td>BR-61</td>
+               <td>BR</td>
+               <td>If the Payment means type code (BT-81) means SEPA credit transfer, Local credit transfer or Non-SEPA international credit
+                  transfer, the Payment account identifier (BT-84) shall be present.
+               </td>
+               <td>(exists(cac:PayeeFinancialAccount/cbc:ID) and ((normalize-space(cbc:PaymentMeansCode) = '30') or (normalize-space(cbc:PaymentMeansCode)
+                  = '58') )) or ((normalize-space(cbc:PaymentMeansCode) != '30') and (normalize-space(cbc:PaymentMeansCode) != '58'))
+               </td>
+            </tr>
+            <tr>
+               <td>BR-55</td>
+               <td>BR</td>
+               <td>Each Preceding Invoice reference (BG-3) shall contain a Preceding Invoice reference (BT-25).</td>
+               <td>exists(cac:InvoiceDocumentReference/cbc:ID)</td>
+            </tr>
+            <tr>
+               <td>BR-CO-26</td>
+               <td>BR</td>
+               <td>In order for the buyer to automatically identify a supplier, the Seller identifier (BT-29), the Seller legal registration
+                  identifier (BT-30) and/or the Seller VAT identifier (BT-31) shall be present.&nbsp; 
+               </td>
+               <td>exists(cac:Party/cac:PartyTaxScheme/cbc:CompanyID) or exists(cac:Party/cac:PartyIdentification/cbc:ID) or exists(cac:Party/cac:PartyLegalEntity/cbc:CompanyID)</td>
+            </tr>
+            <tr>
+               <td>BR-62</td>
+               <td>BR</td>
+               <td>The Seller electronic address (BT-34) shall have a Scheme identifier.</td>
+               <td>exists(@schemeID)</td>
+            </tr>
+            <tr>
+               <td>BR-09</td>
+               <td>BR</td>
+               <td>The Seller postal address (BG-5) shall contain a Seller country code (BT-40).</td>
+               <td>(cac:Country/cbc:IdentificationCode) != ''</td>
+            </tr>
+            <tr>
+               <td>BR-18</td>
+               <td>BR</td>
+               <td>The Seller tax representative name (BT-62) shall be provided in the Invoice, if the Seller (BG-4) has a Seller tax representative
+                  party (BG-11)
+               </td>
+               <td>(cac:PartyName/cbc:Name) != ''</td>
+            </tr>
+            <tr>
+               <td>BR-19</td>
+               <td>BR</td>
+               <td>The Seller tax representative postal address (BG-12) shall be provided in the Invoice, if the Seller (BG-4) has a Seller tax
+                  representative party (BG-11).
+               </td>
+               <td>exists(cac:PostalAddress)</td>
+            </tr>
+            <tr>
+               <td>BR-56</td>
+               <td>BR</td>
+               <td>Each Seller tax representative party (BG-11) shall have a Seller tax representative VAT identifier (BT-63).&nbsp; &nbsp; </td>
+               <td>exists(cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/cbc:CompanyID)</td>
+            </tr>
+            <tr>
+               <td>BR-20</td>
+               <td>BR</td>
+               <td>The Seller tax representative postal address (BG-12) shall contain a Tax representative country code (BT-69), if the Seller
+                  (BG-4) has a Seller tax representative party (BG-11).
+               </td>
+               <td>(cac:Country/cbc:IdentificationCode) != ''</td>
+            </tr>
+            <tr>
+               <td>BR-CO-14</td>
+               <td>BR</td>
+               <td>Invoice total VAT amount (BT-110) = &#931; VAT category tax amount (BT-117).</td>
+               <td>(xs:decimal(child::cbc:TaxAmount)= round((sum(cac:TaxSubtotal/xs:decimal(cbc:TaxAmount)) * 10 * 10)) div 100) or not(cac:TaxSubtotal)</td>
+            </tr>
+            <tr>
+               <td>BR-45</td>
+               <td>BR</td>
+               <td>Each VATBReakdown (BG-23) shall have a VAT category taxable amount (BT-116).</td>
+               <td>exists(cbc:TaxableAmount)</td>
+            </tr>
+            <tr>
+               <td>BR-46</td>
+               <td>BR</td>
+               <td>Each VATBReakdown (BG-23) shall have a VAT category tax amount (BT-117).</td>
+               <td>exists(cbc:TaxAmount)</td>
+            </tr>
+            <tr>
+               <td>BR-47</td>
+               <td>BR</td>
+               <td>Each VATBReakdown (BG-23) shall be defined through a VAT category code (BT-118).</td>
+               <td>exists(cac:TaxCategory/cbc:ID)</td>
+            </tr>
+            <tr>
+               <td>BR-48</td>
+               <td>BR</td>
+               <td>Each VATBReakdown (BG-23) shall have a VAT category rate (BT-119), except if the Invoice is not subject to VAT.</td>
+               <td>exists(cac:TaxCategory/cbc:Percent) or (normalize-space(cac:TaxCategory/cbc:ID)='O')</td>
+            </tr>
+            <tr>
+               <td>BR-CO-17</td>
+               <td>BR</td>
+               <td>VAT category tax amount (BT-117) = VAT category taxable amount (BT-116) x (VAT category rate (BT-119) / 100), rounded to two
+                  decimals.
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-19</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the VAT category taxable amount (BT-116) is 2.</td>
+               <td>string-length(substring-after(cbc:TaxableAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-DEC-20</td>
+               <td>BR</td>
+               <td>The allowed maximum number of decimals for the VAT category tax amount (BT-117) is 2. &nbsp; &nbsp;</td>
+               <td>string-length(substring-after(cbc:TaxAmount,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>BR-CO-09</td>
+               <td>BR</td>
+               <td>The Seller VAT identifier (BT-31), the Seller tax representative VAT identifier (BT-63) and the Buyer VAT identifier (BT-48)
+                  shall have a prefix in accordance with ISO code ISO 3166-1 alpha-2 by which the country of issue may be identified. Nevertheless,
+                  Greece may use the prefix &#8216;EL&#8217;.
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-AE-08</td>
+               <td>BR</td>
+               <td>In a VATBReakdown (BG-23) where the VAT category code (BT-118) is "Reverse charge" the VAT category taxable amount (BT-116)
+                  shall equal the sum of Invoice line net amounts (BT-131) minus the sum of Document level allowance amounts (BT-92) plus the
+                  sum of Document level charge amounts (BT-99) where the VAT category codes (BT-151, BT-95, BT-102) are &#8220;Reverse charge".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-AE-09</td>
+               <td>BR</td>
+               <td>The VAT category tax amount (BT-117) in a VATBReakdown (BG-23) where the VAT category code (BT-118) is &#8220;Reverse charge&#8221; shall
+                  be 0 (zero).
+               </td>
+               <td>../cbc:TaxAmount = 0</td>
+            </tr>
+            <tr>
+               <td>BR-AE-10</td>
+               <td>BR</td>
+               <td>A VATBReakdown (BG-23) with VAT Category code (BT-118) "Reverse charge" shall have a VAT exemption reason code (BT-121), meaning
+                  "Reverse charge" or the VAT exemption reason text (BT-120) "Reverse charge" (or the equivalent standard text in another language).
+               </td>
+               <td>exists(cbc:TaxExemptionReason) or exists(cbc:TaxExemptionReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-AE-06</td>
+               <td>BR</td>
+               <td>In a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is "Reverse charge" the
+                  Document level allowance VAT rate (BT-96) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-AE-07</td>
+               <td>BR</td>
+               <td>In a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is "Reverse charge" the Document
+                  level charge VAT rate (BT-103) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-AE-05</td>
+               <td>BR</td>
+               <td>In an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is "Reverse charge" the Invoiced item VAT rate
+                  (BT-152) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-E-08</td>
+               <td>BR</td>
+               <td>In a VATBReakdown (BG-23) where the VAT category code (BT-118) is "Exempt from VAT" the VAT category taxable amount (BT-116)
+                  shall equal the sum of Invoice line net amounts (BT-131) minus the sum of Document level allowance amounts (BT-92) plus the
+                  sum of Document level charge amounts (BT-99) where the VAT category codes (BT-151, BT-95, BT-102) are &#8220;Exempt from VAT".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-E-09</td>
+               <td>BR</td>
+               <td>The VAT category tax amount (BT-117) In a VATBReakdown (BG-23) where the VAT category code (BT-118) equals "Exempt from VAT"
+                  shall equal 0 (zero).
+               </td>
+               <td>../cbc:TaxAmount = 0</td>
+            </tr>
+            <tr>
+               <td>BR-E-10</td>
+               <td>BR</td>
+               <td>A VATBReakdown (BG-23) with VAT Category code (BT-118) "Exempt from VAT" shall have a VAT exemption reason code (BT-121) or
+                  a VAT exemption reason text (BT-120).&nbsp; &nbsp; 
+               </td>
+               <td>exists(cbc:TaxExemptionReason) or exists(cbc:TaxExemptionReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-E-06</td>
+               <td>BR</td>
+               <td>In a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is "Exempt from VAT", the
+                  Document level allowance VAT rate (BT-96) shall be 0 (zero).&nbsp; &nbsp; 
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-E-07</td>
+               <td>BR</td>
+               <td>In a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is "Exempt from VAT", the Document
+                  level charge VAT rate (BT-103) shall be 0 (zero).&nbsp; &nbsp; 
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-E-05</td>
+               <td>BR</td>
+               <td>In an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is "Exempt from VAT", the Invoiced item VAT
+                  rate (BT-152) shall be 0 (zero).&nbsp; &nbsp; 
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-G-08</td>
+               <td>BR</td>
+               <td>In a VATBReakdown (BG-23) where the VAT category code (BT-118) is "Export outside the EU" the VAT category taxable amount
+                  (BT-116) shall equal the sum of Invoice line net amounts (BT-131) minus the sum of Document level allowance amounts (BT-92)
+                  plus the sum of Document level charge amounts (BT-99) where the VAT category codes (BT-151, BT-95, BT-102) are &#8220;Export outside
+                  the EU".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-G-09</td>
+               <td>BR</td>
+               <td>The VAT category tax amount (BT-117) in a VATBReakdown (BG-23) where the VAT category code (BT-118) is &#8220;Export outside the
+                  EU&#8221; shall be 0 (zero).
+               </td>
+               <td>../cbc:TaxAmount = 0</td>
+            </tr>
+            <tr>
+               <td>BR-G-10</td>
+               <td>BR</td>
+               <td>A VATBReakdown (BG-23) with the VAT Category code (BT-118) "Export outside the EU" shall have a VAT exemption reason code
+                  (BT-121), meaning "Export outside the EU" or the VAT exemption reason text (BT-120) "Export outside the EU" (or the equivalent
+                  standard text in another language).
+               </td>
+               <td>exists(cbc:TaxExemptionReason) or exists(cbc:TaxExemptionReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-G-06</td>
+               <td>BR</td>
+               <td>In a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is "Export outside the
+                  EU" the Document level allowance VAT rate (BT-96) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-G-07</td>
+               <td>BR</td>
+               <td>In a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is "Export outside the EU" the
+                  Document level charge VAT rate (BT-103) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-G-05</td>
+               <td>BR</td>
+               <td>In an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is "Export outside the EU" the Invoiced item
+                  VAT rate (BT-152) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-IC-08</td>
+               <td>BR</td>
+               <td>In a VATBReakdown (BG-23) where the VAT category code (BT-118) is "Intra-community supply" the VAT category taxable amount
+                  (BT-116) shall equal the sum of Invoice line net amounts (BT-131) minus the sum of Document level allowance amounts (BT-92)
+                  plus the sum of Document level charge amounts (BT-99) where the VAT category codes (BT-151, BT-95, BT-102) are &#8220;Intra-community
+                  supply".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IC-09</td>
+               <td>BR</td>
+               <td>The VAT category tax amount (BT-117) in a VATBReakdown (BG-23) where the VAT category code (BT-118) is &#8220;Intra-community supply&#8221;
+                  shall be 0 (zero).
+               </td>
+               <td>../cbc:TaxAmount = 0</td>
+            </tr>
+            <tr>
+               <td>BR-IC-10</td>
+               <td>BR</td>
+               <td>A VATBReakdown (BG-23) with the VAT Category code (BT-118) "Intra-community supply" shall have a VAT exemption reason code
+                  (BT-121), meaning "Intra-community supply" or the VAT exemption reason text (BT-120) "Intra-community supply" (or the equivalent
+                  standard text in another language).
+               </td>
+               <td>exists(cbc:TaxExemptionReason) or exists(cbc:TaxExemptionReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-IC-06</td>
+               <td>BR</td>
+               <td>In a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is "Intra-community supply"
+                  the Document level allowance VAT rate (BT-96) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-IC-07</td>
+               <td>BR</td>
+               <td>In a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is "Intra-community supply"
+                  the Document level charge VAT rate (BT-103) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-IC-05</td>
+               <td>BR</td>
+               <td>In an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is "Intracommunity supply" the Invoiced item
+                  VAT rate (BT-152) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-IG-08</td>
+               <td>BR</td>
+               <td>For each different value of VAT category rate (BT-119) where the VAT category code (BT-118) is "IGIC", the VAT category taxable
+                  amount (BT-116) in a VATBReakdown (BG-23) shall equal the sum of Invoice line net amounts (BT-131) plus the sum of document
+                  level charge amounts (BT-99) minus the sum of document level allowance amounts (BT-92) where the VAT category code (BT-151,
+                  BT-102, BT-95) is &#8220;IGIC&#8221; and the VAT rate (BT-152, BT-103, BT-96) equals the VAT category rate (BT-119).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IG-09</td>
+               <td>BR</td>
+               <td>The VAT category tax amount (BT-117) in a VATBReakdown (BG-23) where VAT category code (BT-118) is "IGIC" shall equal the
+                  VAT category taxable amount (BT-116) multiplied by the VAT category rate (BT-119).
+               </td>
+               <td>xs:decimal(../cbc:TaxAmount) = round((xs:decimal(../cbc:TaxableAmount) * (xs:decimal(cbc:Percent) div 100)) * 10 * 10) div
+                  100
+               </td>
+            </tr>
+            <tr>
+               <td>BR-IG-10</td>
+               <td>BR</td>
+               <td>A VATBReakdown (BG-23) with VAT Category code (BT-118) "IGIC" shall not have a VAT exemption reason code (BT-121) or VAT exemption
+                  reason text (BT-120).&nbsp; &nbsp; 
+               </td>
+               <td>not(cbc:TaxExemptionReason) and not(cbc:TaxExemptionReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-IG-06</td>
+               <td>BR</td>
+               <td>In a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is "IGIC" the Document
+                  level allowance VAT rate (BT-96) shall be 0 (zero) or greater than zero.&nbsp; &nbsp; &nbsp; 
+               </td>
+               <td>(cbc:Percent) &gt;= 0</td>
+            </tr>
+            <tr>
+               <td>BR-IG-07</td>
+               <td>BR</td>
+               <td>In a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is "IGIC" the Document level
+                  charge VAT rate (BT-103) shall be 0 (zero) or greater than zero.
+               </td>
+               <td>(cbc:Percent) &gt;= 0</td>
+            </tr>
+            <tr>
+               <td>BR-IG-05</td>
+               <td>BR</td>
+               <td>In an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is "IGIC" the invoiced item VAT rate (BT-152)
+                  shall be 0 (zero) or greater than zero.&nbsp; &nbsp; 
+               </td>
+               <td>(cbc:Percent) &gt;= 0</td>
+            </tr>
+            <tr>
+               <td>BR-IP-08</td>
+               <td>BR</td>
+               <td>For each different value of VAT category rate (BT-119) where the VAT category code (BT-118) is "IPSI", the VAT category taxable
+                  amount (BT-116) in a VATBReakdown (BG-23) shall equal the sum of Invoice line net amounts (BT-131) plus the sum of document
+                  level charge amounts (BT-99) minus the sum of document level allowance amounts (BT-92) where the VAT category code (BT-151,
+                  BT-102, BT-95) is &#8220;IPSI&#8221; and the VAT rate (BT-152, BT-103, BT-96) equals the VAT category rate (BT-119).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-IP-09</td>
+               <td>BR</td>
+               <td>The VAT category tax amount (BT-117) in a VATBReakdown (BG-23) where VAT category code (BT-118) is "IPSI" shall equal the
+                  VAT category taxable amount (BT-116) multiplied by the VAT category rate (BT-119).
+               </td>
+               <td>xs:decimal(../cbc:TaxAmount) = round((xs:decimal(../cbc:TaxableAmount) * (xs:decimal(cbc:Percent) div 100)) * 10 * 10) div
+                  100
+               </td>
+            </tr>
+            <tr>
+               <td>BR-IP-10</td>
+               <td>BR</td>
+               <td>A VATBReakdown (BG-23) with VAT Category code (BT-118) "IPSI" shall not have a VAT exemption reason code (BT-121) or VAT exemption
+                  reason text (BT-120). &nbsp; &nbsp; 
+               </td>
+               <td>not(cbc:TaxExemptionReason) and not(cbc:TaxExemptionReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-IP-06</td>
+               <td>BR</td>
+               <td>In a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is "IPSI" the Document
+                  level allowance VAT rate (BT-96) shall be 0 (zero) or greater than zero.&nbsp; &nbsp; &nbsp; 
+               </td>
+               <td>(cbc:Percent) &gt;= 0</td>
+            </tr>
+            <tr>
+               <td>BR-IP-07</td>
+               <td>BR</td>
+               <td>In a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is "IPSI" the Document level
+                  charge VAT rate (BT-103) shall be 0 (zero) or greater than zero.
+               </td>
+               <td>(cbc:Percent) &gt;= 0</td>
+            </tr>
+            <tr>
+               <td>BR-IP-05</td>
+               <td>BR</td>
+               <td>In an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is "IPSI" the Invoiced item VAT rate (BT-152)
+                  shall be 0 (zero) or greater than zero.&nbsp; &nbsp; 
+               </td>
+               <td>(cbc:Percent) &gt;= 0</td>
+            </tr>
+            <tr>
+               <td>BR-O-08</td>
+               <td>BR</td>
+               <td>In a VATBReakdown (BG-23) where the VAT category code (BT-118) is " Not subject to VAT" the VAT category taxable amount (BT-116)
+                  shall equal the sum of Invoice line net amounts (BT-131) minus the sum of Document level allowance amounts (BT-92) plus the
+                  sum of Document level charge amounts (BT-99) where the VAT category codes (BT-151, BT-95, BT-102) are &#8220;Not subject to VAT".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-O-09</td>
+               <td>BR</td>
+               <td>The VAT category tax amount (BT-117) in a VATBReakdown (BG-23) where the VAT category code (BT-118) is &#8220;Not subject to VAT&#8221;
+                  shall be 0 (zero).
+               </td>
+               <td>../cbc:TaxAmount = 0</td>
+            </tr>
+            <tr>
+               <td>BR-O-10</td>
+               <td>BR</td>
+               <td>A VATBReakdown (BG-23) with VAT Category code (BT-118) " Not subject to VAT" shall have a VAT exemption reason code (BT-121),
+                  meaning " Not subject to VAT" or a VAT exemption reason text (BT-120) " Not subject to VAT" (or the equivalent standard text
+                  in another language).
+               </td>
+               <td>exists(cbc:TaxExemptionReason) or exists(cbc:TaxExemptionReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-O-06</td>
+               <td>BR</td>
+               <td>A Document level allowance (BG-20) where VAT category code (BT-95) is "Not subject to VAT" shall not contain a Document level
+                  allowance VAT rate (BT-96).
+               </td>
+               <td>not(cbc:Percent)</td>
+            </tr>
+            <tr>
+               <td>BR-O-07</td>
+               <td>BR</td>
+               <td>A Document level charge (BG-21) where the VAT category code (BT-102) is "Not subject to VAT" shall not contain a Document
+                  level charge VAT rate (BT-103).
+               </td>
+               <td>not(cbc:Percent)</td>
+            </tr>
+            <tr>
+               <td>BR-O-05</td>
+               <td>BR</td>
+               <td>An Invoice line (BG-25) where the VAT category code (BT-151) is "Not subject to VAT" shall not contain an Invoiced item VAT
+                  rate (BT-152).
+               </td>
+               <td>not(cbc:Percent)</td>
+            </tr>
+            <tr>
+               <td>BR-S-08</td>
+               <td>BR</td>
+               <td>For each different value of VAT category rate (BT-119) where the VAT category code (BT-118) is "Standard rated", the VAT category
+                  taxable amount (BT-116) in a VATBReakdown (BG-23) shall equal the sum of Invoice line net amounts (BT-131) plus the sum of
+                  document level charge amounts (BT-99) minus the sum of document level allowance amounts (BT-92) where the VAT category code
+                  (BT-151, BT-102, BT-95) is &#8220;Standard rated&#8221; and the VAT rate (BT-152, BT-103, BT-96) equals the VAT category rate (BT-119).
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-S-09</td>
+               <td>BR</td>
+               <td>The VAT category tax amount (BT-117) in a VATBReakdown (BG-23) where VAT category code (BT-118) is "Standard rated" shall
+                  equal the VAT category taxable amount (BT-116) multiplied by the VAT category rate (BT-119).
+               </td>
+               <td>xs:decimal(../cbc:TaxAmount) = round((xs:decimal(../cbc:TaxableAmount) * (xs:decimal(cbc:Percent) div 100)) * 10 * 10) div
+                  100
+               </td>
+            </tr>
+            <tr>
+               <td>BR-S-10</td>
+               <td>BR</td>
+               <td>A VATBReakdown (BG-23) with VAT Category code (BT-118) "Standard rate" shall not have a VAT exemption reason code (BT-121)
+                  or VAT exemption reason text (BT-120).&nbsp; &nbsp; 
+               </td>
+               <td>not(cbc:TaxExemptionReason) and not(cbc:TaxExemptionReasonCode)</td>
+            </tr>
+            <tr>
+               <td>BR-S-06</td>
+               <td>BR</td>
+               <td>In a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is "Standard rated" the
+                  Document level allowance VAT rate (BT-96) shall be greater than zero.
+               </td>
+               <td>(cbc:Percent) &gt; 0</td>
+            </tr>
+            <tr>
+               <td>BR-S-07</td>
+               <td>BR</td>
+               <td>In a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is "Standard rated" the Document
+                  level charge VAT rate (BT-103) shall be greater than zero.&nbsp; 
+               </td>
+               <td>(cbc:Percent) &gt; 0</td>
+            </tr>
+            <tr>
+               <td>BR-S-05</td>
+               <td>BR</td>
+               <td>In an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is "Standard rated" the Invoiced item VAT rate
+                  (BT-152) shall be greater than zero.&nbsp; &nbsp; 
+               </td>
+               <td>(cbc:Percent) &gt; 0</td>
+            </tr>
+            <tr>
+               <td>BR-Z-08</td>
+               <td>BR</td>
+               <td>In a VATBReakdown (BG-23) where VAT category code (BT-118) is "Zero rated" the VAT category taxable amount (BT-116) shall
+                  equal the sum of Invoice line net amount (BT-131) minus the sum of Document level allowance amounts (BT-92) plus the sum of
+                  Document level charge amounts (BT-99) where the VAT category codes (BT-151, BT-95, BT-102) are &#8220;Zero rated".
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BR-Z-09</td>
+               <td>BR</td>
+               <td>The VAT category tax amount (BT-117) in a VATBReakdown (BG-23) where VAT category code (BT-118) is "Zero rated" shall equal
+                  0 (zero).
+               </td>
+               <td>../cbc:TaxAmount = 0</td>
+            </tr>
+            <tr>
+               <td>BR-Z-10</td>
+               <td>BR</td>
+               <td>A VATBReakdown (BG-23) with VAT Category code (BT-118) "Zero rated" shall not have a VAT exemption reason code (BT-121) or
+                  VAT exemption reason text (BT-120).
+               </td>
+               <td>not((cbc:TaxExemptionReason) or (cbc:TaxExemptionReasonCode))</td>
+            </tr>
+            <tr>
+               <td>BR-Z-06</td>
+               <td>BR</td>
+               <td>In a Document level allowance (BG-20) where the Document level allowance VAT category code (BT-95) is "Zero rated" the Document
+                  level allowance VAT rate (BT-96) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-Z-07</td>
+               <td>BR</td>
+               <td>In a Document level charge (BG-21) where the Document level charge VAT category code (BT-102) is "Zero rated" the Document
+                  level charge VAT rate (BT-103) shall be 0 (zero).
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>BR-Z-05</td>
+               <td>BR</td>
+               <td>In an Invoice line (BG-25) where the Invoiced item VAT category code (BT-151) is "Zero rated" the Invoiced item VAT rate (BT-152)
+                  shall be 0 (zero).&nbsp; &nbsp; 
+               </td>
+               <td>(cbc:Percent = 0)</td>
+            </tr>
+            <tr>
+               <td>UBL-DT-01</td>
+               <td>UBL</td>
+               <td>Amounts shall be decimal up to two fraction digits</td>
+               <td>string-length(substring-after(.,'.'))&lt;=2</td>
+            </tr>
+            <tr>
+               <td>UBL-DT-06</td>
+               <td>UBL</td>
+               <td>Binary object elements shall contain the mime code attribute</td>
+               <td>(@mimeCode)</td>
+            </tr>
+            <tr>
+               <td>UBL-DT-07</td>
+               <td>UBL</td>
+               <td>Binary object elements shall contain the file name attribute</td>
+               <td>(@filename)</td>
+            </tr>
+            <tr>
+               <td>BR-NL-1</td>
+               <td>BR</td>
+               <td></td>
+               <td>contains(' 0106 0190 ', concat(' ', normalize-space(cac:PartyLegalEntity/cbc:CompanyID/@schemeID), ' '))</td>
+            </tr>
+            <tr>
+               <td>BR-NL-2</td>
+               <td>BR</td>
+               <td></td>
+               <td>(cbc:BuyerReference) or (cac:OrderReference/cbc:ID)</td>
+            </tr>
+            <tr>
+               <td>BR-NL-3</td>
+               <td>BR</td>
+               <td></td>
+               <td>cbc:StreetName and cbc:CityName and cbc:PostalZone</td>
+            </tr>
+            <tr>
+               <td>BR-NL-4</td>
+               <td>BR</td>
+               <td></td>
+               <td>cac:Country/cbc:IdentificationCode != 'NL' or ( cbc:StreetName and cbc:CityName and cbc:PostalZone)</td>
+            </tr>
+            <tr>
+               <td>BR-NL-5</td>
+               <td>BR</td>
+               <td></td>
+               <td>(cac:Country/cbc:IdentificationCode != 'NL') or (cbc:StreetName and cbc:CityName and cbc:PostalZone)</td>
+            </tr>
+            <tr>
+               <td>BR-NL-7</td>
+               <td>BR</td>
+               <td></td>
+               <td>. = 380 or . = 381 or . = 384 or . = 389</td>
+            </tr>
+            <tr>
+               <td>BR-NL-8</td>
+               <td>BR</td>
+               <td></td>
+               <td>. != 381 or /ubl:CreditNote</td>
+            </tr>
+            <tr>
+               <td>BR-NL-8</td>
+               <td>BR</td>
+               <td></td>
+               <td>. != 381 or /ubl:Invoice</td>
+            </tr>
+            <tr>
+               <td>BR-NL-9</td>
+               <td>BR</td>
+               <td></td>
+               <td>(. != 384) or /*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID</td>
+            </tr>
+            <tr>
+               <td>BR-NL-10</td>
+               <td>BR</td>
+               <td></td>
+               <td>not(//cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'NL' and cbc:CompanyID
+                  and not(contains(' 0106 0190 ', concat(' ', normalize-space(cbc:CompanyID/@schemeID), ' '))))
+               </td>
+            </tr>
+            <tr>
+               <td>BR-NL-11</td>
+               <td>BR</td>
+               <td></td>
+               <td>xs:decimal(cbc:PayableAmount) &lt;= 0.0 or (//cac:PaymentMeans)</td>
+            </tr>
+            <tr>
+               <td>BR-NL-12</td>
+               <td>BR</td>
+               <td></td>
+               <td>cbc:PaymentMeansCode = 30 or cbc:PaymentMeansCode = 48 or cbc:PaymentMeansCode = 49 or cbc:PaymentMeansCode = 57 or cbc:PaymentMeansCode
+                  = 58 or cbc:PaymentMeansCode = 59
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>
