@@ -1,0 +1,401 @@
+<html xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+      <title>Rules overview</title>
+   </head>
+   <body>
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Category</th>
+               <th>Description</th>
+               <th>Query</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>SI-INV-R000</td>
+               <td>SI</td>
+               <td>This is NOT a UBL 2.x Invoice, validation cannot continue</td>
+               <td>ubl:Invoice</td>
+            </tr>
+            <tr>
+               <td>BII2-T10-R001</td>
+               <td>BII2</td>
+               <td></td>
+               <td>cbc:CustomizationID</td>
+            </tr>
+            <tr>
+               <td>SI-V10-INV-R200</td>
+               <td>SI</td>
+               <td>This XML instance is NOT tagged as an SI-UBL 1.0 invoice; please check the CustomizationID value</td>
+               <td>contains(normalize-space(.), 'urn:www.simplerinvoicing.org:si-ubl:invoice:ver1.0.x')</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R436</td>
+               <td>SI</td>
+               <td>IF VAT = "AE" (reverse charge) THEN it MUST contain Supplier VAT id and Customer VAT</td>
+               <td>//cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID and (//cac:TaxCategory/cbc:ID) = 'AE' or not((//cac:TaxCategory/cbc:ID)
+                  = 'AE')
+               </td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R437</td>
+               <td>SI</td>
+               <td>IF VAT = "AE" (reverse charge) THEN VAT MAY NOT contain other VAT categories.</td>
+               <td>(((//cac:TaxCategory/cbc:ID) = 'AE') and not((//cac:TaxCategory/cbc:ID) != 'AE' )) or not((//cac:TaxCategory/cbc:ID) = 'AE')
+                  or not(//cac:TaxCategory)
+               </td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R438</td>
+               <td>SI</td>
+               <td>IF VAT = "AE" (reverse charge) THEN The taxable amount MUST equal the invoice total without VAT amount.</td>
+               <td>(//cbc:TaxExclusiveAmount = //cac:TaxTotal/cac:TaxSubtotal[cac:TaxCategory/cbc:ID='AE']/cbc:TaxableAmount) and (//cac:TaxCategory/cbc:ID)
+                  = 'AE' or not((//cac:TaxCategory/cbc:ID) = 'AE')
+               </td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R439</td>
+               <td>SI</td>
+               <td>IF VAT = "AE" (reverse charge) THEN VAT tax amount MUST be zero.</td>
+               <td>//cac:TaxTotal/cbc:TaxAmount = 0 and (//cac:TaxCategory/cbc:ID) = 'AE' or not((//cac:TaxCategory/cbc:ID) = 'AE')</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R429</td>
+               <td>SI</td>
+               <td>If the VAT total amount in an invoice exists it MUST contain the suppliers VAT number.</td>
+               <td>((cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount) and (cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID)
+                  or not((cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT'])))
+               </td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R445</td>
+               <td>SI</td>
+               <td>Currency Identifier MUST be in stated in the currency stated on header level.</td>
+               <td>not(//@currencyID != //cbc:DocumentCurrencyCode)</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R428</td>
+               <td>SI</td>
+               <td>If the VAT total amount in an invoice exists then an Allowances Charges amount on document level MUST have Tax category for
+                  VAT.
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R434</td>
+               <td>SI</td>
+               <td>An allowance percentage MUST NOT be negative.</td>
+               <td>not(cbc:MultiplierFactorNumeric) or number(cbc:MultiplierFactorNumeric) &gt;=0</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R443</td>
+               <td>SI</td>
+               <td>An allowance or charge amount MUST NOT be negative.</td>
+               <td>number(cbc:Amount)&gt;=0</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R430</td>
+               <td>SI</td>
+               <td>For each tax subcategory the category ID and the applicable tax percentage MUST be provided.</td>
+               <td>(parent::cac:AllowanceCharge) or (cbc:ID and cbc:Percent) or (cbc:ID = 'AE')</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R432</td>
+               <td>SI</td>
+               <td>If payee information is provided then the payee name MUST be specified.</td>
+               <td>cac:PartyName/cbc:Name</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R433</td>
+               <td>SI</td>
+               <td>If the VAT total amount in an invoice exists then each invoice line item MUST have a VAT category ID.</td>
+               <td>(//cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount and cbc:ID) or not((//cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID
+                  = 'VAT']))
+               </td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R440</td>
+               <td>SI</td>
+               <td>Total payable amount in an invoice MUST NOT be negative</td>
+               <td>number(cbc:PayableAmount) &gt;= 0</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R441</td>
+               <td>SI</td>
+               <td>If the invoice refers to a period, the period MUST have a start date.</td>
+               <td>(cbc:StartDate)</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R442</td>
+               <td>SI</td>
+               <td>If the invoice refers to a period, the period MUST have an end date.</td>
+               <td>(cbc:EndDate)</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R451</td>
+               <td>SI</td>
+               <td>Party Identifiers MUST use the PEPPOL PartyID list</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>SI-UBL-INV-R452</td>
+               <td>SI</td>
+               <td>Endpoint Identifiers MUST use the PEPPOL PartyID list.</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R011</td>
+               <td>BIIRULE</td>
+               <td>Invoice total line extension amount MUST equal the sum of the line totals</td>
+               <td>number(cbc:LineExtensionAmount) = number(round(sum(//cac:InvoiceLine/cbc:LineExtensionAmount) * 10 * 10) div 100)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R012</td>
+               <td>BIIRULE</td>
+               <td>Invoice tax exclusive amount MUST equal the sum of lines plus allowances and charges on header level.</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R013</td>
+               <td>BIIRULE</td>
+               <td>Invoice tax inclusive amount MUST equal the tax exclusive amount plus all tax total amounts and the rounding amount.</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R014</td>
+               <td>BIIRULE</td>
+               <td>Tax inclusive amount in an invoice MUST NOT be negative</td>
+               <td>number(cbc:TaxInclusiveAmount) &gt;= 0</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R015</td>
+               <td>BIIRULE</td>
+               <td>Total allowance MUST be equal to the sum of allowances at document level</td>
+               <td>(cbc:AllowanceTotalAmount) and cbc:AllowanceTotalAmount = (round(sum(/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator="false"]/cbc:Amount)
+                  * 10 * 10) div 100) or not(cbc:AllowanceTotalAmount)
+               </td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R016</td>
+               <td>BIIRULE</td>
+               <td>Total charges MUST be equal to the sum of document level charges.</td>
+               <td>(cbc:ChargeTotalAmount) and cbc:ChargeTotalAmount = (round(sum(/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator="true"]/cbc:Amount)
+                  * 10 * 10) div 100) or not(cbc:ChargeTotalAmount)
+               </td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R017</td>
+               <td>BIIRULE</td>
+               <td>Amount due is the tax inclusive amount minus what has been prepaid.</td>
+               <td>(cbc:PrepaidAmount) and (number(cbc:PayableAmount) = number(cbc:TaxInclusiveAmount - cbc:PrepaidAmount)) or cbc:PayableAmount
+                  = cbc:TaxInclusiveAmount
+               </td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R009</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST have a tax total refering to a single tax scheme</td>
+               <td>count(cac:TaxSubtotal/*/*/cbc:ID) = count(cac:TaxSubtotal/*/*/cbc:ID[. = 'VAT']) or count(cac:TaxSubtotal/*/*/cbc:ID[. = 'VAT'])
+                  = 0
+               </td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R010</td>
+               <td>BIIRULE</td>
+               <td>Each tax total MUST equal the sum of the tax subcategory amounts.</td>
+               <td>number(cbc:TaxAmount) = number(round(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10) div 100)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R046</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST specify the taxable amount per VAT subtotal.</td>
+               <td>boolean(self::node()[cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxableAmount) or (cac:TaxCategory/cac:TaxScheme/cbc:ID
+                  != 'VAT')
+               </td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R047</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST specify the tax amount per VAT subtotal.</td>
+               <td>boolean(self::node()[cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount) or (cac:TaxCategory/cac:TaxScheme/cbc:ID
+                  != 'VAT')
+               </td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R049</td>
+               <td>BIIRULE</td>
+               <td>Every tax scheme MUST be defined through an identifier.</td>
+               <td>cbc:ID</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R048</td>
+               <td>BIIRULE</td>
+               <td>Every tax category MUST be defined through an identifier.</td>
+               <td>cbc:ID</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R044</td>
+               <td>BIIRULE</td>
+               <td>When specifying payment means, the invoice MUST specify the payment means code</td>
+               <td>not(cac:PaymentMeans) or (cac:PaymentMeans/cbc:PaymentMeansCode)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R041</td>
+               <td>BIIRULE</td>
+               <td>Company identifier MUST be specified when describing a company legal entity.</td>
+               <td>(cbc:CompanyID)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R022</td>
+               <td>BIIRULE</td>
+               <td>Prices of items MUST NOT be negative.</td>
+               <td>number(.) &gt;=0</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R001</td>
+               <td>BIIRULE</td>
+               <td>An invoice period end date MUST be later or equal to an invoice period start date</td>
+               <td>(cbc:StartDate and cbc:EndDate) and (number(translate(cbc:StartDate,'-','')) &lt;= number(translate(cbc:EndDate,'-','')))</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R018</td>
+               <td>BIIRULE</td>
+               <td>Invoice line amount MUST be equal to the price amount multiplied by the quantity plus charges minus allowances at line level</td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R025</td>
+               <td>BIIRULE</td>
+               <td>Each invoice line MUST contain the product/service name</td>
+               <td>(cac:Item/cbc:Name)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R032</td>
+               <td>BIIRULE</td>
+               <td>Invoice lines MUST have a line identifier.</td>
+               <td>cbc:ID</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R050</td>
+               <td>BIIRULE</td>
+               <td>Invoice lines MUST have a line total amount.</td>
+               <td>cbc:LineExtensionAmount</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R023</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST have the date of issue.</td>
+               <td>(cbc:IssueDate)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R024</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST have an invoice number.</td>
+               <td>(cbc:ID)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R026</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST contain the full name of the supplier.</td>
+               <td>(cac:AccountingSupplierParty/cac:Party/cac:PartyName/cbc:Name)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R027</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST contain the full name of the customer.</td>
+               <td>(cac:AccountingCustomerParty/cac:Party/cac:PartyName/cbc:Name)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R028</td>
+               <td>BIIRULE</td>
+               <td>If the VAT total amount in an invoice exists then the sum of taxable amount in sub categories MUST equal the sum of invoice
+                  tax exclusive amount.
+               </td>
+               <td>Long XPath used, check the schematron source</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R029</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST have a syntax identifier.</td>
+               <td>(cbc:UBLVersionID)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R030</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST have a customization identifier.</td>
+               <td>(cbc:CustomizationID)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R031</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST have a profile identifier.</td>
+               <td>(cbc:ProfileID)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R033</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST specify at least one line item.</td>
+               <td>(cac:InvoiceLine)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R034</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST have a currency code for the document.</td>
+               <td>(cbc:DocumentCurrencyCode)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R035</td>
+               <td>BIIRULE</td>
+               <td>Any reference to an order MUST specify the order identifier.</td>
+               <td>(cac:OrderReference/cbc:ID) or not(cac:OrderReference)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R036</td>
+               <td>BIIRULE</td>
+               <td>Any reference to a contract MUST specify the contract identifier.</td>
+               <td>(cac:ContractDocumentReference/cbc:ID) or not(cac:ContractDocumentReference)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R038</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST specify the total payable amount.</td>
+               <td>(cac:LegalMonetaryTotal/cbc:PayableAmount)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R039</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST specify the total amount with taxes included.</td>
+               <td>(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R042</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST specify the total amount without taxes.</td>
+               <td>(cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R043</td>
+               <td>BIIRULE</td>
+               <td>An invoice MUST specify the sum of the line amounts.</td>
+               <td>(cac:LegalMonetaryTotal/cbc:LineExtensionAmount)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R040</td>
+               <td>BIIRULE</td>
+               <td>Country in an address MUST be specified using the country code.</td>
+               <td>(cbc:IdentificationCode)</td>
+            </tr>
+            <tr>
+               <td>BIIRULE-T10-R037</td>
+               <td>BIIRULE</td>
+               <td>Any reference to a document MUST specify the document identifier.</td>
+               <td>cbc:ID</td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>

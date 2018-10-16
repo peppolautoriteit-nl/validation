@@ -1,0 +1,39 @@
+<html xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+      <title>Rules overview</title>
+   </head>
+   <body>
+      <table>
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Category</th>
+               <th>Description</th>
+               <th>Query</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>BII2-T10-R001</td>
+               <td>BII2</td>
+               <td></td>
+               <td>cbc:CustomizationID</td>
+            </tr>
+            <tr>
+               <td>SI-V11-PO-R200</td>
+               <td>SI</td>
+               <td>This XML instance is NOT tagged as an SI-UBL order; please check the CustomizationID value</td>
+               <td>contains(normalize-space(.), 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2')</td>
+            </tr>
+            <tr>
+               <td>SI-PO-R000</td>
+               <td>SI</td>
+               <td>This is NOT a UBL 2.x Order, validation cannot continue</td>
+               <td>ubl:Order</td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>
