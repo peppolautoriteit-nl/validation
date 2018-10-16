@@ -22,7 +22,7 @@ The ready-to-use transformation stylesheets can be found in the xsl/ directory; 
 
 The schematron/ directory contains all the source schematron files, also by version. The main sch files are present in this directory, and they reference files in subdirectories per version.
 
-The documentation/ directory contains a few assorted documents, and overview of the rules per version, generated from the xsl files.
+The rule_overviews/ directory contains a few assorted documents, and overview of the rules per version, generated from the xsl files.
 
 The tools/ directory contains the tools to recreate the xsl files from the schematron files. For instance, to create a fresh SI-UBL-1.2 xsl file, you can use the command:
     ./tools/convert_linux.sh schematron/si-ubl-1.2.sch /tmp/si-ubl-1.2.xsl
