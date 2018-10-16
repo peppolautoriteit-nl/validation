@@ -6,6 +6,13 @@ Note: We have updated the convert_windows.bat file but not tested it.
 
 This repository contains all files related to validation of the simplerinvoicing XML files.
 
+If you are just looking for the latest validation artefacts in xsl form, you can find them here:
+
+* [SI-UBL Invoice all versions up to 1.2](xsl/si-ubl-inv-all.xsl)
+* [SI-UBL 1.1 Invoice](xsl/si-ubl-1.1.xsl)
+* [SI-UBL 1.2 Invoice](xsl/si-ubl-1.2.xsl)
+* [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
+
 The ready-to-use transformation stylesheets can be found in the xsl/ directory; there is a separate xsl file for each version of SI-UBL, and one big xsl-file that combines them all (si-ubl-inv-all.xsl). For SI-UBL 1.2, there is also a purchaseorder xsl.
 
 The schematron/ directory contains all the source schematron files, also by version. The main sch files are present in this directory, and they reference files in subdirectories per version.
