@@ -1,107 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?><?xar XSLT?>
 
-<!--
+<!-- 
      OVERVIEW : iso_dsdl_include.xsl
-
+     
 	    This is an inclusion preprocessor for the non-smart text inclusions
-	    of ISO DSDL. It handles
+	    of ISO DSDL. It handles 
 	    	<relax:extRef> for ISO RELAX NG
 	    	<sch:include>  for ISO Schematron and Schematron 1.n
 	    	<sch:extends>  for 2009 draft ISO Schematron
-	    	<xi:xinclude>  simple W3C XIncludes for ISO NVRL and DSRL
+	    	<xi:xinclude>  simple W3C XIncludes for ISO NVRL and DSRL 
 	    	<crdl:ref>     for draft ISO CRDL
 	    	<dtll:include> for draft ISO DTLL
 	    	<* @xlink:href> for simple W3C XLink 1.1 embedded links
-
-
+	    	
+		 
 		This should be the first in any chain of processing. It only requires
 		XSLT 1. Each kind of inclusion can be turned off (or on) on the command line.
-
+		
 		Ids in fragment identifiers or xpointers will be sought in the following
 		order:
 		    * @xml:id
 		    * id() for typed schemas (e.g. from DTD) [NOTE: XInclude does not support this]
-		    * untyped @id
-
+		    * untyped @id 
+		    
 	The proposed behaviour for the update to ISO Schematron has been implemented. If an
 	include points to an element with the same name as the parent, then that element's
-	contents will be included. This supports the merge style of inclusion.
-
+	contents will be included. This supports the merge style of inclusion.    
+	
 	When an inclusion is made, it is preceded by a PI with target DSDL_INCLUDE_START
 	and the href and closed by a PI with target DSDL_INCLUDE_START and the href. This is
-	to allow better location of problems, though only to the file level.
-
+	to allow better location of problems, though only to the file level. 
+	
 	Limitations:
 	* No rebasing: relative paths will be interpreted based on the initial document's
 	path, not the including document. (Severe limitation!)
 	* No checking for circular references
 	* Not full xpointers: only ID matching
-	* <relax:include> not implemented
-	* XInclude handling of xml:base and xml:lang not implemented
+	* <relax:include> not implemented 
+	* XInclude handling of xml:base and xml:lang not implemented   
 -->
 <!--
+Open Source Initiative OSI - The MIT License:Licensing
+[OSI Approved License]
+
+This source code was previously available under the zlib/libpng license. 
+Attribution is polite.
+
+The MIT License
+
+Copyright (c) 2008-2010 Rick Jelliffe
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<!-- 
   VERSION INFORMATION
+    2010-07-10
+    * Move to MIT license
     2010-04-21
     * Add basic syntax checks on XPaths belonging to Schematron elements only
     * Unlocalized messages are put out using xsl:message. The intent is to allow
-    * problems to be caught at compile time.
-	2009-02-25
+    * problems to be caught at compile time. 
+	2009-02-25 
 	* Update DSDL namespace to use schematron.com
-	* Tested with SAXON9, Xalan 2.7.1, IE7,
-	* IE does not like multiple variables in same template with same name: rename.
+	* Tested with SAXON9, Xalan 2.7.1, IE7, 
+	* IE does not like multiple variables in same template with same name: rename.   
 	2008-09-18
 	* Remove new behaviour for include, because it conflicts with existing usage [KH]
 	* Add extends[@href] element with that merge functionality
 	* Generate PIs to notate source of inclusions for potential better diagnostics
-
+	
 	2008-09-16
 	* Fix for XSLT1
-
+	
 	2008-08-28
 	* New behaviour for schematron includes: if the pointed to element is the same as the current,
-	include the children.
-
+	include the children. [Note: this has been removed: use sch:extends with @href.]
+	
 	2008-08-20
 	* Fix bug: in XSLT1 cannot do $document/id('x') but need to use for-each
-
+	
 	2008-08-04
-	* Add support for inclusions in old namespace
-
+	* Add support for inclusions in old namespace  
+	
 	2008-08-03
 	* Fix wrong param name include-relaxng & include-crdl (KH, PH)
 	* Allow inclusion of XSLT and XHTML (KH)
 	* Fix inclusion of fragments (KH)
-
+	
 	2008-07-25
 	* Add selectable input parameter
-
-	2008-07-24
+	
+	2008-07-24  
 	* RJ New
 -->
-<!--
-	LEGAL INFORMATION
 
-	Copyright (c) 2008 Rick Jelliffe
-
-	This software is provided 'as-is', without any express or implied warranty.
-	In no event will the authors be held liable for any damages arising from
-	the use of this software.
-
-	Permission is granted to anyone to use this software for any purpose,
-	including commercial applications, and to alter it and redistribute it freely,
-	subject to the following restrictions:
-
-	1. The origin of this software must not be misrepresented; you must not claim
-	that you wrote the original software. If you use this software in a product,
-	an acknowledgment in the product documentation would be appreciated but is
-	not required.
-
-	2. Altered source versions must be plainly marked as such, and must not be
-	misrepresented as being the original software.
-
-	3. This notice may not be removed or altered from any source distribution.
--->
-<xslt:stylesheet version="2.0"
+<xslt:stylesheet version="1.0"
 	xmlns:xslt="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:iso="http://purl.oclc.org/dsdl/schematron"
@@ -114,9 +124,9 @@
 	xmlns:dsdl="http://www.schematron.com/namespace/dsdl"
 	xmlns:relax="http://relaxng.org/ns/structure/1.0"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
-
-
-     xmlns:sch-check="http://www.schematron.com/namespace/sch-check"
+	
+	
+     xmlns:sch-check="http://www.schematron.com/namespace/sch-check" 
 	>
 	<!-- Note: The URL for the dsdl namespace is not official -->
 
@@ -128,11 +138,11 @@
 	<xsl:param name="include-relaxng">true</xsl:param>
 	<xsl:param name="include-xlink">true</xsl:param>
 
-
+   
     <!-- ========================================================== -->
     <!-- Output and process contents, check Schematron XPaths too   -->
     <!-- ========================================================== -->
-
+    
 	<xsl:template match="/">
 		<xsl:apply-templates select="." mode="dsdl:go" />
 	</xsl:template>
@@ -144,68 +154,68 @@
           <xsl:with-param name="string" select=" @context "  />
           <xsl:with-param name="subject" select=" 'Bad rule: ' "  />
         </xsl:call-template>
-
+        
 		<xslt:copy>
 			<xslt:copy-of select="@*" />
 			<xslt:apply-templates mode="dsdl:go" />
 		</xslt:copy>
 	</xslt:template>
-
+	
 	<xslt:template match="iso:assert[@test]"  mode="dsdl:go">
 	  <xsl:call-template name="sch-check:xpath-wf-message">
           <xsl:with-param name="string" select=" @test "  />
           <xsl:with-param name="subject" select=" 'Bad assert: ' "  />
         </xsl:call-template>
-
+        
 		<xslt:copy>
 			<xslt:copy-of select="@*" />
 			<xslt:apply-templates mode="dsdl:go" />
 		</xslt:copy>
 	</xslt:template>
-
+	
 	<xslt:template match="iso:report[@test]"  mode="dsdl:go">
 	  <xsl:call-template name="sch-check:xpath-wf-message">
           <xsl:with-param name="string" select=" @test "  />
           <xsl:with-param name="subject" select=" 'Bad report: ' "  />
         </xsl:call-template>
-
+        
 		<xslt:copy>
 			<xslt:copy-of select="@*" />
 			<xslt:apply-templates mode="dsdl:go" />
 		</xslt:copy>
 	</xslt:template>
-
+	
 	<xslt:template match="iso:let[@value]"  mode="dsdl:go">
 	  <xsl:call-template name="sch-check:xpath-wf-message">
           <xsl:with-param name="string" select=" @value "  />
           <xsl:with-param name="subject" select=" 'Bad let: ' "  />
         </xsl:call-template>
-
+        
 		<xslt:copy>
 			<xslt:copy-of select="@*" />
 			<xslt:apply-templates mode="dsdl:go" />
 		</xslt:copy>
 	</xslt:template>
-
-
+	
+	
 		<xslt:template match="iso:value-of[@select]" mode="dsdl:go">
 	  <xsl:call-template name="sch-check:xpath-wf-message">
           <xsl:with-param name="string" select=" @select "  />
           <xsl:with-param name="subject" select=" 'Bad value-of: ' "  />
         </xsl:call-template>
-
+        
 		<xslt:copy>
 			<xslt:copy-of select="@*" />
 			<xslt:apply-templates mode="dsdl:go" />
 		</xslt:copy>
 	</xslt:template>
-
+	
 		<xslt:template match="iso:name[@path]" mode="dsdl:go">
 	  <xsl:call-template name="sch-check:xpath-wf-message">
           <xsl:with-param name="string" select=" @select "  />
           <xsl:with-param name="subject" select=" 'Bad name element: ' "  />
         </xsl:call-template>
-
+        
 		<xslt:copy>
 			<xslt:copy-of select="@*" />
 			<xslt:apply-templates mode="dsdl:go" />
@@ -281,8 +291,8 @@
 						<!-- use a for-each so that the id() function works correctly on the external document -->
 						<xsl:for-each select="$theDocument_1">
 							<xsl:variable name="theFragment_1"
-								select="$theDocument_1//*[@xml:id= $fragment-id ]
-                  |  id( $fragment-id)
+								select="$theDocument_1//*[@xml:id= $fragment-id ]        
+                  |  id( $fragment-id)          
               | $theDocument_1//*[@id= $fragment-id ]" />
 							<xsl:if test="not($theFragment_1)">
 								<xsl:message terminate="no">
@@ -370,7 +380,7 @@
 					<xslt:when
 						test="string-length( $document-uri ) = 0">
 						<xslt:apply-templates mode="dsdl:go"
-							select="//iso:*[@xml:id= $fragment-id ]
+							select="//iso:*[@xml:id= $fragment-id ] 
               	 |id( $fragment-id)
               	 | //iso:*[@id= $fragment-id ]" />
 					</xslt:when>
@@ -379,12 +389,12 @@
 					<!-- There are three cases for includes with fragment:
 						0) No href file or no matching id - error!
 						1) REMOVED
-
+						
 						2) The linked-to element is sch:schema however the parent of the include
 						is not a schema. In this case, it is an error. (Actually, it should
 						be an error for other kinds of containment problems, but we won't
 						check for them in this version.)
-
+						
 						3) Otherwise, include the pointed-to element
 					-->
 
@@ -458,14 +468,14 @@
 
 						<!-- There are three cases for includes:
 							0) No text specified- error!
-
+							
 							1) REMOVED
-
+							
 							2) The linked-to element is sch:schema however the parent of the include
 							is not a schema. In this case, it is an error. (Actually, it should
 							be an error for other kinds of containment problems, but we won't
 							check for them in this version.)
-
+							
 							3) Otherwise, include the pointed-to element
 						-->
 						<xsl:choose>
@@ -489,7 +499,7 @@
 								</xsl:message>
 							</xsl:when>
 
-							<!-- If this were XLST 2, we could use
+							<!-- If this were XLST 2, we could use  
 								if ($theFragment) then $theFragment else $theContainedFragments
 								here (thanks to KN)
 							-->
@@ -546,7 +556,7 @@
 					<xslt:when
 						test="string-length( $document-uri ) = 0">
 						<xslt:apply-templates mode="dsdl:go"
-							select="//iso:*[@xml:id= $fragment-id ]/*
+							select="//iso:*[@xml:id= $fragment-id ]/* 
               	 |id( $fragment-id)/*
               	 | //iso:*[@id= $fragment-id ]/*" />
 					</xslt:when>
@@ -555,9 +565,9 @@
 					<!-- There are three cases for includes with fragment:
 						0) No href file or no matching id - error!
 						1) REMOVED
-
+						
 						2) REMOVED
-
+						
 						3) Otherwise, include the pointed-to element
 					-->
 
@@ -625,11 +635,11 @@
 
 						<!-- There are three cases for includes:
 							0) No text specified- error!
-
+							
 							1) REMOVED
-
+							
 							2) REMOVED
-
+							
 							3) Otherwise, include the pointed-to element
 						-->
 						<xsl:choose>
@@ -646,7 +656,7 @@
 
 							<!-- case 2 removed -->
 
-							<!-- If this were XLST 2, we could use
+							<!-- If this were XLST 2, we could use  
 								if ($theFragment) then $theFragment else $theContainedFragments
 								here (thanks to KN)
 							-->
@@ -706,7 +716,7 @@
 					<xslt:when
 						test="string-length( $document-uri ) = 0">
 						<xslt:apply-templates mode="dsdl:go"
-							select="//schold:*[@xml:id= $fragment-id ]
+							select="//schold:*[@xml:id= $fragment-id ] 
               	 |id( $fragment-id)
               	 | //schold:*[@id= $fragment-id ]" />
 					</xslt:when>
@@ -776,7 +786,7 @@
 								<xsl:value-of select="@href" />
 							</xsl:message>
 						</xsl:if>
-						<!-- If this were XLST 2, we could use
+						<!-- If this were XLST 2, we could use  
 							if ($theFragment) then $theFragment else $theContainedFragments
 							here (thanks to KN)
 						-->
@@ -839,7 +849,7 @@
 					<xslt:when
 						test="string-length( $document-uri ) = 0">
 						<xslt:apply-templates mode="dsdl:go"
-							select="//*[@xml:id= $fragment-id ] | id( $fragment-id)
+							select="//*[@xml:id= $fragment-id ] | id( $fragment-id) 
               	| //*[@id= $fragment-id ]" />
 					</xslt:when>
 
@@ -857,7 +867,7 @@
 						<xsl:for-each select="$theDocument_1">
 							<xsl:variable name="theFragment_1"
 								select="$theDocument_1//*[@xml:id= $fragment-id ]
-               | id( $fragment-id )
+               | id( $fragment-id ) 
                | $theDocument_1//*[@id= $fragment-id ]" />
 							<xsl:if test="not($theFragment_1)">
 								<xsl:message terminate="no">
@@ -1070,7 +1080,7 @@
 							select="document( @href,/ )" />
 						<xsl:variable name="theFragment_1"
 							select="$theDocument_1//*[@xml:id= current()/@xpointer  ]
-
+             
               | $theDocument_1//*[@id= current()/@xpointer  ]" />
 						<!-- removed
 							| $theDocument_1/id( @xpointer)
@@ -1088,7 +1098,7 @@
 									<xsl:variable name="theFragment_2"
 										select="$theDocument_2//*[@xml:id= current()/xi:fallback[1]/xi:include/@xpointer  ]
               				| $theDocument_2//*[@id= current()/xi:fallback[1]/xi:include/@xpointer  ]" />
-									<!-- removed
+									<!-- removed 
 										| $theDocument_2/id( xi:fallback[1]/xi:include/@xpointer)
 										because it id() would need rebasing in XSLT1 and that would mess up use of current()
 									-->
@@ -1181,7 +1191,7 @@
 					<xslt:when
 						test="string-length( $document-uri ) = 0">
 						<xslt:apply-templates mode="dsdl:go"
-							select="//*[@xml:id= $fragment-id ] | id( $fragment-id)
+							select="//*[@xml:id= $fragment-id ] | id( $fragment-id) 
               	| //*[@id= $fragment-id ]" />
 					</xslt:when>
 
@@ -1199,7 +1209,7 @@
 						<xsl:for-each select="$theDocument_1">
 							<xsl:variable name="theFragment_1"
 								select="$theDocument_1//*[@xml:id= $fragment-id ]
-               | id( $fragment-id )
+               | id( $fragment-id ) 
                | $theDocument_1//*[@id= $fragment-id ]" />
 							<xsl:if test="not($theFragment_1)">
 								<xsl:message terminate="no">
@@ -1258,63 +1268,64 @@
           <xsl:with-param name="string" select=" $string "  />
         </xsl:call-template>
 	   </xsl:variable>
-
+	   
 	   <xsl:if test="string-length($xpath-wf-result) > 0">
 	      <xsl:message><xsl:value-of select="$subject"/><xsl:value-of select="$xpath-wf-result" /></xsl:message>
 	   </xsl:if>
   </xsl:template>
-
+ 
 <!-- XPATH WELL FORMED -->
-
+ 
 <xsl:template name="sch-check:xpath-wf" >
   <xsl:param name="string" />
    <!-- This does some minimal checks to see if a string is well-formed XPath.
-   It checks
-      1) String is not empty,
+   It checks 
+      1) String is not empty, 
       2) equal number of open and close parens
       3) equal number of left and right square brackets
+      4) if there is a predicate open immediately following a step separator
    It does not check balancing. It does not check inside string literals in XPaths.
-
+   
    If there is no error, empty content is returned. If there is an error, it is given
    as an error message. This is not localized yet.
-   -->
-
-
+   --> 
+   
+   
    <xsl:variable name="stripped-contents">
-   <xsl:call-template name="sch-check:strip-strings" >
+   <xsl:call-template name="sch-check:strip-strings" >  
             <xsl:with-param name="string" select=" $string " />
             <xsl:with-param name="mode" select="  0" />
    </xsl:call-template>
    </xsl:variable>
-
-
+   
+      
    <xsl:variable name="paren-result">
-   <xsl:call-template name="sch-check:test-paren" >
+   <xsl:call-template name="sch-check:test-paren" >  
             <xsl:with-param name="string" select="$stripped-contents" />
             <xsl:with-param name="count" select="  0" />
    </xsl:call-template>
    </xsl:variable>
-
-
+    
+   
    <xsl:variable name="sqb-result">
-   <xsl:call-template name="sch-check:test-sqb" >
+   <xsl:call-template name="sch-check:test-sqb" >  
             <xsl:with-param name="string" select="$stripped-contents" />
             <xsl:with-param name="count" select="  0" />
    </xsl:call-template>
    </xsl:variable>
-
-
+    
+   
    <xsl:choose>
       <xsl:when test="string-length( normalize-space($string)) = 0"
       >XPath error. No XPath.</xsl:when>
          <xsl:when test="contains( $stripped-contents, '/[' )"
       >XPath error. Missing location step. Suggestion: remove '/' before '['.
       <xsl:value-of select=" normalize-space($string)"/></xsl:when>
-      <!-- not implemented yet
-      <xsl:when test=" count () mod 2 = 1"
+      <!-- not implemented yet 
+      <xsl:when test=" count () mod 2 = 1" 
       >XPath syntax error. Odd number of apostrophe characters. Suggestion: check string termination and delimiting.
       <xsl:value-of select=" normalize-space($string)"/></xsl:when>
-      <xsl:when test=" count ( ) mod 2 = 1"
+      <xsl:when test=" count ( ) mod 2 = 1" 
       >XPath syntax error. Odd number of quote characters. Suggestion: check string termination and delimiting.
       <xsl:value-of select=" normalize-space($string)"/></xsl:when>
       -->
@@ -1324,7 +1335,7 @@
       <xsl:when test=" $paren-result &lt; 0 "
       >XPath syntax error. Extra close parenthesis. Suggestion: remove ')'.
       <xsl:value-of select=" normalize-space($string)"/></xsl:when>
-
+     
       <xsl:when test=" $sqb-result > 0 "
       >XPath syntax error. Unclosed left square bracket. Suggestion: add ']'.
       <xsl:value-of select=" normalize-space($string)"/></xsl:when>
@@ -1332,43 +1343,43 @@
       >XPath syntax error. Extra right square bracket. Suggestion: remove ']'.
       <xsl:value-of select=" normalize-space($string)"/></xsl:when>
 
-  </xsl:choose>
-
-
-
-</xsl:template>
+  </xsl:choose>       
+ 
+ 
+ 
+</xsl:template> 
 
 
 <!--  STRIP XPATH STRINGS -->
 <xsl:template name="sch-check:strip-strings">
   <xsl:param name="string" />
   <xsl:param name="mode" />
-
-  <!--
-    mode 0 =  outside string
-    mode 1 = in double quote string
+  
+  <!-- 
+    mode 0 =  outside string 
+    mode 1 = in double quote string 
     mode 2 = in single quote string
   -->
   <xsl:choose>
      <xsl:when test=" string-length( $string) = 0" />
      <xsl:when test="$mode = 1 ">
-      <xsl:choose>
-
-
+      <xsl:choose> 
+          
+          
            <xsl:when test="starts-with( $string, '&quot;&quot;') " >
-
+       
            	<xsl:call-template name="sch-check:strip-strings">
             	<xsl:with-param name="string" select="  substring ( $string, 3 )"/>
             	<xsl:with-param name="mode" select=" $mode" />
          	</xsl:call-template>
-           </xsl:when>
+           </xsl:when> 
            <xsl:when test="starts-with( $string, '&quot;') " >
            	<xsl:call-template name="sch-check:strip-strings">
             	<xsl:with-param name="string" select="  substring ( $string, 2 )"/>
             	<xsl:with-param name="mode" select=" 0 " />
          	</xsl:call-template>
-           </xsl:when>
-
+           </xsl:when>  
+            
            <xsl:otherwise>
          	<xsl:call-template name="sch-check:strip-strings">
             	<xsl:with-param name="string" select="  substring ( $string, 2 )"/>
@@ -1377,17 +1388,17 @@
          </xsl:otherwise>
          </xsl:choose>
      </xsl:when>
-
+     
      <xsl:when test="$mode = 2 ">
-      <xsl:choose>
-
+      <xsl:choose> 
+     
           <!-- doubled double quote or double apos is an escape  -->
           <xsl:when test="starts-with( $string, &quot;''&quot;) " >
            	<xsl:call-template name="sch-check:strip-strings">
             	<xsl:with-param name="string" select="  substring ( $string, 3 )"/>
             	<xsl:with-param name="mode" select=" $mode" />
          	</xsl:call-template>
-           </xsl:when>
+           </xsl:when>   
            <xsl:when test="starts-with( $string, &quot;'&quot; )" >
            	<xsl:call-template name="sch-check:strip-strings">
             	<xsl:with-param name="string" select="  substring ( $string, 2 )"/>
@@ -1402,7 +1413,7 @@
          </xsl:otherwise>
          </xsl:choose>
      </xsl:when>
-
+     
      <xsl:otherwise> <!-- mode = 0 -->
          <xsl:choose>
            <xsl:when test="starts-with( $string, '&quot;')" >
@@ -1410,8 +1421,8 @@
             	<xsl:with-param name="string" select="  substring ( $string, 2 )"/>
             	<xsl:with-param name="mode" select=" 1 " />
          	</xsl:call-template>
-           </xsl:when>
-
+           </xsl:when> 
+     
            <xsl:when test="starts-with( $string, &quot;'&quot; )" >
            	<xsl:call-template name="sch-check:strip-strings">
             	<xsl:with-param name="string" select="  substring ( $string, 2 )"/>
@@ -1421,7 +1432,7 @@
            <xsl:otherwise>
          	  <xsl:value-of select="substring( $string, 1, 1)" />
          	  <xsl:call-template name="sch-check:strip-strings">
-
+         	 
             	<xsl:with-param name="string" select="  substring ( $string, 2 )"/>
             	<xsl:with-param name="mode" select=" $mode " />
          	</xsl:call-template>
@@ -1429,15 +1440,15 @@
          </xsl:choose>
      </xsl:otherwise>
   </xsl:choose>
-
-
-</xsl:template>
-
+  
+  
+</xsl:template>  
+ 
  <!--  COUNT THE NUMBER OF UNMATCHED PARENTHESES -->
  <!-- Limitation: Does not check balancing. -->
-
+ 
 <xsl:template name="sch-check:test-paren">
-  <xsl:param name="string" />
+  <xsl:param name="string" /> 
   <xsl:param name="count"  />
 
   <xsl:choose>
@@ -1462,7 +1473,7 @@
             <xsl:with-param name="count" select=" $count " />
          </xsl:call-template>
     </xsl:otherwise>
-  </xsl:choose>
+  </xsl:choose>            
 
 
 </xsl:template>
@@ -1471,7 +1482,7 @@
  <!--  COUNT THE NUMBER OF SQUARE BRACKETS -->
  <!-- Limitation: Does not check balancing. -->
 <xsl:template name="sch-check:test-sqb">
-  <xsl:param name="string" />
+  <xsl:param name="string" /> 
   <xsl:param name="count"  />
 
   <xsl:choose>
@@ -1496,7 +1507,7 @@
             <xsl:with-param name="count" select=" $count " />
          </xsl:call-template>
     </xsl:otherwise>
-  </xsl:choose>
+  </xsl:choose>            
 
 
 </xsl:template>
