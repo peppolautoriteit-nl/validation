@@ -39,3 +39,8 @@ We have provided a release candidate for SI-UBL 2.0. This version is based on th
 Since this is based on EN-16931, there are major differences between SI-UBL 1.2 and SI-UBL 2.0. For more information about the new rules, see https://www.stpe.nl/media/stpe.nl-gebruiksinstructie-basisfactuur-v1.0.pdf
 
 The release candidate schematron can be found [here](schematron/si-ubl-2.0-RC1.sch) and the generated xsl [here](xsl/si-ubl-2.0-RC1.xsl)
+
+Test Files
+==========
+
+We have a number of test documents available in a separate repository, it can be found [here](https://github.com/SimplerInvoicing/testset)
