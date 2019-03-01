@@ -1,0 +1,18 @@
+
+2019-03-01:
+- Updated the SI-UBL-1.2 PEPPOL and BII rules to the fall 2018 release.
+- Removed the 'all versions' schematron file; versions are now done separately
+- Fixed a few old issues in SI-UBL-1.1 validation:
+  * Backported a fix from SI-UBL-1.2: The check for SI-INV-V11-R453 (missing BillingReference) was wrong
+  * Backported a fix from later PEPPOL releases for BII2-T10-R032: The check was in the wrong context
+  * Backported a fix from later PEPPOL releases for BII2-T10-R058: The check was in the wrong context
+
+(older changes may be found in the git log)
+
+
+2018-10-17:
+- Added release candidate 1 of SI-UBL 2.0
+
+2018-10-16:
+- Restructured repository layout
+

@@ -1,23 +1,19 @@
 <!-- Schematron rules generated automatically. -->
 <!--
-    2016 - SIDN Labs changes for Simplerinvoicing
-    - Added version check
-    - Renamed id
+    2018 - Changes for Simplerinvoicing
+    - Changed the identifier to something unique
     - Removed rules: EUGEN-T10-R022 EUGEN-T10-R026 EUGEN-T10-R036
                      EUGEN-T10-R038 EUGEN-T10-R035 EUGEN-T10-R037
                      EUGEN-T10-R030
 -->
+
 <!-- Abstract rules for T10 -->
 <!-- (2009). Invinet Sistemes -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="PEPPOL12-T10">
-    <!-- Version check -->
-    <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]">
-        <assert test="true()" />
-    </rule>
-    <!-- end of version check -->
   <rule context="$Allowance_Charge">
     <assert test="$EUGEN-T10-R012" flag="fatal" id="EUGEN-T10-R012">[EUGEN-T10-R012]-An allowance percentage MUST NOT be negative.</assert>
     <!--<assert test="$EUGEN-T10-R022" flag="fatal" id="EUGEN-T10-R022">[EUGEN-T10-R022]-An allowance or charge amount MUST NOT be negative.</assert>-->
+    <assert test="$EUGEN-T10-R052" flag="fatal" id="EUGEN-T10-R052">[EUGEN-T10-R052]-Document level amounts cannot have more than 2 decimals</assert>
   </rule>
   <rule context="$Allowance_Charge_Reason_Code">
     <assert test="$EUGEN-T10-R029" flag="fatal" id="EUGEN-T10-R029">[EUGEN-T10-R029]-An allowance charge reason code MUST have a list identifier attribute 'UNCL4465'.</assert>
@@ -49,9 +45,14 @@
   </rule>
   <rule context="$Invoice">
     <assert test="$EUGEN-T10-R044" flag="fatal" id="EUGEN-T10-R044">[EUGEN-T10-R044]-If the tax currency code is different from the document currency code, the tax exchange rate MUST be provided</assert>
+    <assert test="$EUGEN-T10-R047" flag="warning" id="EUGEN-T10-R047">[EUGEN-T10-R047]- An invoice should not contain empty elements</assert>
+    <assert test="$EUGEN-T10-R053" flag="fatal" id="EUGEN-T10-R053">[EUGEN-T10-R053]- An invoice must have an Invoice type code</assert>
   </rule>
   <rule context="$Invoice_Type_Code">
     <assert test="$EUGEN-T10-R025" flag="fatal" id="EUGEN-T10-R025">[EUGEN-T10-R025]-An invoice type code MUST have a list identifier attribute 'UNCL1001'.</assert>
+  </rule>
+  <rule context="$Party_Legal_Entity">
+    <assert test="$EUGEN-T10-R054" flag="warning" id="EUGEN-T10-R054">[EUGEN-T10-R054]-A party legal entity company identifier SHOULD have a scheme identifier attribute.</assert>
   </rule>
   <rule context="$Party_Identifier">
     <assert test="$EUGEN-T10-R024" flag="fatal" id="EUGEN-T10-R024">[EUGEN-T10-R024]-A party identifier MUST have a scheme identifier attribute.</assert>
@@ -79,15 +80,25 @@
   </rule>
   <rule context="$Tax_Total">
     <assert test="$EUGEN-T10-R043" flag="fatal" id="EUGEN-T10-R043">[EUGEN-T10-R043]-The total tax amount MUST equal the sum of tax amounts per category.</assert>
+    <assert test="$EUGEN-T10-R049" flag="fatal" id="EUGEN-T10-R049">[EUGEN-T10-R049]- Total tax amount cannot have more than 2 decimals.</assert>
   </rule>
-  
-<!--
-<rule context="$Unit_Code">
-    <assert test="$EUGEN-T10-R030" flag="fatal" id="EUGEN-T10-R030">[EUGEN-T10-R030]-A unit code attribute MUST have a unit code list identifier attribute 'UNECERec20'.</assert>
-  </rule>
--->
-  <rule context="$VAT_category">
+  <rule context="$Tax_Subtotal">
+    <assert test="$EUGEN-T10-R050" flag="fatal" id="EUGEN-T10-R050">[EUGEN-T10-R050]- Tax subtotal amounts cannot have more than 2 decimals.</assert>
+    <assert test="$EUGEN-T10-R051" flag="fatal" id="EUGEN-T10-R051">[EUGEN-T10-R051]-Document level amounts cannot have more than 2 decimals</assert>
     <assert test="$EUGEN-T10-R042" flag="fatal" id="EUGEN-T10-R042">[EUGEN-T10-R042]-The tax amount per category MUST be the taxable amount multiplied by the category percentage.</assert>
     <assert test="$EUGEN-T10-R046" flag="fatal" id="EUGEN-T10-R046">[EUGEN-T10-R046]-If the tax currency code is different from the document currency code, each tax subtotal has to include the tax amount in both currencies</assert>
+
+  </rule>
+  <!--
+  <rule context="$Unit_Code">
+    <assert test="$EUGEN-T10-R030" flag="fatal" id="EUGEN-T10-R030">[EUGEN-T10-R030]-A unit code attribute MUST have a unit code list identifier attribute 'UNECERec20'.</assert>
+  </rule>
+  -->
+  <rule context="$Total_Amount">
+    <assert test="$EUGEN-T10-R048" flag="fatal" id="EUGEN-T10-R048">[EUGEN-T10-R048]-Document level amounts cannot have more than 2 decimals</assert>
+  </rule>
+
+  <rule context="$Invoice_Line">
+    <assert test="$EUGEN-T10-R055" flag="fatal" id="EUGEN-T10-R055">[EUGEN-T10-R055]-Each invoice line MUST have an invoice line item name</assert>
   </rule>
 </pattern>

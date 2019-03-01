@@ -1,4 +1,8 @@
 <!-- Abstract rules for T10 -->
+<!-- Simplerinvoicing changes:
+  * moved context of BII2-T10-R032 and BII2-T10-R058 (these have been fixed in later PEPPOL releases, so this does not
+    need to be ported in later versions of SI-UBL)
+-->
 <!-- (2009). Invinet Sistemes -->
 <!-- 2014 - Innopay changes for Simplerinvoicing
 The following rules have been removed BII2-T10-R034 BII2-T10-R046 BII2-T10-R045 -->
@@ -34,6 +38,7 @@ The following rules have been removed BII2-T10-R034 BII2-T10-R046 BII2-T10-R045 
     <assert test="$BII2-T10-R049" flag="fatal">[BII2-T10-R049]-The invoice total without VAT MUST be equal to the VAT category taxable amount if the VAT category code is reverse charge</assert>
     <assert test="$BII2-T10-R050" flag="fatal">[BII2-T10-R050]-The VAT category tax amount MUST be zero  if the VAT category code is reverse charge (since there is only one VAT category allowed it follows that the invoice tax total for reverse charge invoices is zero)</assert>
     <assert test="$BII2-T10-R048" flag="fatal">[BII2-T10-R048]-An invoice with a VAT category code of reverse charge MUST NOT contain other VAT categories.</assert>
+    <assert test="$BII2-T10-R058" flag="fatal">[BII2-T10-R058]-Invoice total without VAT MUST be equal to the sum of VAT category taxable amounts</assert>
   </rule>
   <rule context="$Invoice_Line">
     <assert test="$BII2-T10-R017" flag="fatal">[BII2-T10-R017]-Each invoice line MUST have an invoice line identifier</assert>
@@ -41,9 +46,13 @@ The following rules have been removed BII2-T10-R034 BII2-T10-R046 BII2-T10-R045 
     <assert test="$BII2-T10-R019" flag="fatal">[BII2-T10-R019]-Each invoice line MUST have a quantity unit of measure</assert>
     <assert test="$BII2-T10-R020" flag="fatal">[BII2-T10-R020]-Each invoice line MUST have an invoice line net amount</assert>
     <assert test="$BII2-T10-R021" flag="fatal">[BII2-T10-R021]-Each invoice line MUST have an invoice line item name and/or the invoice line item identifier</assert>
-    <assert test="$BII2-T10-R032" flag="fatal">[BII2-T10-R032]-A scheme identifier for the invoice line item registered identifier MUST be provided if invoice line item registered identifiers are used to identify a product.(e.g. GTIN)</assert>
+    <!--MOVED TO CORRECT CONTEXT<assert test="$BII2-T10-R032" flag="fatal">[BII2-T10-R032]-A scheme identifier for the invoice line item registered identifier MUST be provided if invoice line item registered identifiers are used to identify a product.(e.g. GTIN)</assert>-->
     <!--<assert test="$BII2-T10-R034" flag="fatal">[BII2-T10-R034]-Invoice line item net price MUST NOT be negative</assert>-->
     <!--<assert test="$BII2-T10-R046" flag="fatal">[BII2-T10-R046]-Each invoice line MUST be categorized with the invoice line VAT category if the invoice has a VAT total amount </assert>-->
+  </rule>
+  <!-- Added by SimplerInvoicing, this is fixed in later PEPPOL releases -->
+  <rule context="cac:Item">
+    <assert test="$BII2-T10-R032" flag="fatal">[BII2-T10-R032]-A scheme identifier for the invoice line item registered identifier MUST be provided if invoice line item registered identifiers are used to identify a product.(e.g. GTIN)</assert>
   </rule>
   <rule context="cac:Item/cac:CommodityClassification">
       <assert test="$BII2-T10-R033" flag="fatal">[BII2-T10-R033]-A scheme identifier for a invoice line item commodity classification MUST be provided if invoice line item commodity classification are used to classify an invoice line item (e.g. CPV or UNSPSC)</assert>
@@ -66,7 +75,7 @@ The following rules have been removed BII2-T10-R034 BII2-T10-R046 BII2-T10-R045 
     <assert test="$BII2-T10-R054" flag="fatal">[BII2-T10-R054]-The sum of allowances at document level MUST be equal to the sum of document level allowance amounts</assert>
     <assert test="$BII2-T10-R055" flag="fatal">[BII2-T10-R055]-The sum of charges at document level MUST be equal to the sum of document level charge amounts</assert>
     <assert test="$BII2-T10-R056" flag="fatal">[BII2-T10-R056]-Amount due for payment MUST be equal to the invoice total amount with VAT minus the paid amounts</assert>
-    <assert test="$BII2-T10-R058" flag="fatal">[BII2-T10-R058]-Invoice total without VAT MUST be equal to the sum of VAT category taxable amounts</assert>
+    <!-- (Simplerinvoicing)moved to correct context <assert test="$BII2-T10-R058" flag="fatal">[BII2-T10-R058]-Invoice total without VAT MUST be equal to the sum of VAT category taxable amounts</assert>-->
   </rule>
   <rule context="$VAT_category">
     <assert test="$BII2-T10-R027" flag="fatal">[BII2-T10-R027]-Each VAT category details MUST have a VAT category taxable amount</assert>
