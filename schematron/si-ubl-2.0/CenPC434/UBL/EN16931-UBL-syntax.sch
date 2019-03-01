@@ -30,15 +30,15 @@
   <param name="UBL-SR-09" value="(count(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) &lt;= 1)"/>
   <param name="UBL-SR-10" value="(count(cac:AccountingSupplierParty/cac:Party/cac:PartyName/cbc:Name) &lt;= 1)"/>
   <param name="UBL-SR-11" value="(count(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) &lt;= 1)"/>
-  <param name="UBL-SR-12" value="(count(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID) &lt;= 1)"/>
-  <param name="UBL-SR-13" value="(count(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID!='VAT']/cbc:ID) &lt;= 1)"/>
+  <param name="UBL-SR-12" value="(count(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/upper-case(cbc:ID)='VAT']/cbc:CompanyID) &lt;= 1)"/>
+  <param name="UBL-SR-13" value="(count(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/upper-case(cbc:ID)!='VAT']/cbc:ID) &lt;= 1)"/>
   <param name="UBL-SR-14" value="(count(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm) &lt;= 1)"/>
   <param name="UBL-SR-15" value="(count(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) &lt;= 1)"/>
   <param name="UBL-SR-16" value="(count(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID) &lt;= 1)"/>
   <param name="UBL-SR-17" value="(count(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) &lt;= 1)"/>
-  <param name="UBL-SR-18" value="(count(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID) &lt;= 1)"/>
+  <param name="UBL-SR-18" value="(count(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/upper-case(cbc:ID)='VAT']/cbc:CompanyID) &lt;= 1)"/>
   <param name="UBL-SR-19" value="(count(cac:PartyName/cbc:Name) &lt;= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))"/>
-  <param name="UBL-SR-20" value="(count(cac:PartyIdentification/cbc:ID) &lt;= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))"/>
+  <param name="UBL-SR-20" value="(count(cac:PartyIdentification/cbc:ID[upper-case(@schemeID) != 'SEPA']) &lt;= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))"/>
   <param name="UBL-SR-21" value="(count(cac:PartyLegalEntity/cbc:CompanyID) &lt;= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))"/>
   <param name="UBL-SR-22" value="(count(cac:Party/cac:PartyName/cbc:Name) &lt;= 1)"/>
   <param name="UBL-SR-23" value="(count(cac:Party/cac:PartyTaxScheme/cbc:CompanyID) &lt;= 1)"/>
@@ -47,7 +47,7 @@
   <param name="UBL-SR-26" value="(count(cbc:PaymentID) &lt;= 1)"/>
   <param name="UBL-SR-27" value="(count(cbc:InstructionNote) &lt;= 1)"/>
   <param name="UBL-SR-28" value="(count(cac:PaymentMandate/cbc:ID) &lt;= 1)"/>
-  <param name="UBL-SR-29" value="(count(cac:PayeeParty/cac:PartyIdentification/cbc:ID) &lt;= 1)"/>
+  <param name="UBL-SR-29" value="(count(//cac:PartyIdentification/cbc:ID[upper-case(@schemeID) = 'SEPA']) &lt;= 1)"/>
   <param name="UBL-SR-30" value="(count(cbc:AllowanceChargeReason) &lt;= 1)"/>
   <param name="UBL-SR-31" value="(count(cbc:AllowanceChargeReason) &lt;= 1)"/>
   <param name="UBL-SR-32" value="(count(cac:TaxCategory/cbc:TaxExemptionReason) &lt;= 1)"/>
@@ -59,6 +59,9 @@
   <param name="UBL-SR-38" value="(count(cac:Item/cac:ClassifiedTaxCategory/cbc:TaxExemptionReason) &lt;= 1)"/>
   <param name="UBL-SR-39" value="(count(cac:ProjectReference/cbc:ID) &lt;= 1)"/>
   <param name="UBL-SR-40" value="(count(cac:AccountingCustomerParty/cac:Party/cac:PartyName/cbc:Name) &lt;= 1)"/>
+  <param name="UBL-SR-41" value="((cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='SEPA'] and not(cac:PayeeParty/cac:PartyIdentification/cbc:ID[@schemeID='SEPA'])) or (not(cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='SEPA']) and cac:PayeeParty/cac:PartyIdentification/cbc:ID[@schemeID='SEPA']) or (not(cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='SEPA']) and not(cac:PayeeParty/cac:PartyIdentification/cbc:ID[@schemeID='SEPA'])))"/>
+  <param name="UBL-SR-42" value="(count(cac:PartyTaxScheme) &lt;= 2)"/>
+  <param name="UBL-SR-43" value="((cbc:DocumentTypeCode='130') or (not(cbc:ID/@scheme) and not(cbc:DocumentTypeCode)))"/>
   <param name="UBL-DT-01" value="string-length(substring-after(.,'.'))&lt;=2"/>
   <param name="UBL-DT-06" value="(@mimeCode)"/>
   <param name="UBL-DT-07" value="(@filename)"/>
@@ -501,7 +504,6 @@
   <param name="UBL-CR-420" value="not(cac:PaymentMeans/cac:CardAccount/cbc:CV2ID)"/>
   <param name="UBL-CR-421" value="not(cac:PaymentMeans/cac:CardAccount/cbc:CardChipCode)"/>
   <param name="UBL-CR-422" value="not(cac:PaymentMeans/cac:CardAccount/cbc:ChipApplicationID)"/>
-  <param name="UBL-CR-423" value="not(cac:PaymentMeans/cac:PayerFinancialAccount)"/>
   <param name="UBL-CR-424" value="not(cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:AliasName)"/>
   <param name="UBL-CR-425" value="not(cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:AccountTypeCode)"/>
   <param name="UBL-CR-426" value="not(cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:AccountFormatCode)"/>
@@ -743,4 +745,5 @@
   <param name="Percent_data_type" value="//*[ends-with(name(), 'Rate')]"/>
   <param name="Code_data_type" value="//*[ends-with(name(), 'Code')]"/>
   <param name="Binary_object_data_type" value="//*[ends-with(name(), 'BinaryObject')]"/>
+  <param name="Accounting_supplier_party" value="cac:AccountingSupplierParty/cac:Party"/>
 </pattern>
