@@ -24,11 +24,11 @@
     <rule context="/" flag="fatal">
         <assert test="ubl:Invoice" flag="fatal">[SI-INV-R000]-This is NOT a UBL 2.x Invoice, validation cannot continue</assert>
     </rule>
-    
+
     <rule context="ubl:Invoice" flag="fatal">
         <assert test="cbc:UBLVersionID='2.1'" flag="fatal">[SI-V12-INV-R001]-Each invoice MUST be specified as a UBL 2.1 document</assert>
         <assert test="cbc:InvoiceTypeCode" flag="fatal">[SI-V12-INV-R002]-Each invoice MUST have an InvoiceTypeCode declaration</assert>
-        <assert test="cbc:InvoiceTypeCode!='384' or cac:BillingReference" flag="fatal">[SI-V11-INV-R453]-For corrective invoices a billing reference MUST be set</assert>
+        <assert test="cbc:InvoiceTypeCode!='384' or cac:BillingReference" flag="fatal">[SI-V12-INV-R453]-For corrective invoices a billing reference MUST be set</assert>
         <assert test="cbc:CustomizationID" flag="fatal">[BII2-T10-R001] An invoice MUST have a customization identifier</assert>
     </rule>
     <rule context="cbc:CompanyID" flag="fatal">
