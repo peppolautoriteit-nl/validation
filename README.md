@@ -12,7 +12,7 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 * [SI-UBL 1.1 Invoice](xsl/si-ubl-1.1.xsl)
 * [SI-UBL 1.2 Invoice](xsl/si-ubl-1.2.xsl)
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
-* [SI-UBL 2.0 Invoice and CreditNote (Release Candidate 1)](xsl/si-ubl-2.0-RC1.xsl)
+* [SI-UBL 2.0 Invoice and CreditNote](xsl/si-ubl-2.0.xsl)
 
 Note that we are considering removing the 'all-versions' schematron and xsl in the near future.
 
@@ -31,14 +31,14 @@ The tools/ directory contains the tools to recreate the xsl files from the schem
 The build_all_linux.sh script rebuilds all generated files in this repository, based on the schematron files.
 
 
-SI-UBL 2.0 RC1
-==============
+SI-UBL 2.0
+==========
 
-We have provided a release candidate for SI-UBL 2.0. This version is based on the European Norm (EN-16931) and the NLCIUS Dutch country-specific rules.
+This is the version of SI-UBL that is based on the NLCIUS, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
 
 Since this is based on EN-16931, there are major differences between SI-UBL 1.2 and SI-UBL 2.0. For more information about the new rules, see https://www.stpe.nl/media/stpe.nl-gebruiksinstructie-basisfactuur-v1.0.pdf
 
-The release candidate schematron can be found [here](schematron/si-ubl-2.0-RC1.sch) and the generated xsl [here](xsl/si-ubl-2.0-RC1.xsl)
+The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated xsl [here](xsl/si-ubl-2.0.xsl)
 
 Test Files
 ==========
