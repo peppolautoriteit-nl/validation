@@ -40,6 +40,8 @@ Since this is based on EN-16931, there are major differences between SI-UBL 1.2 
 
 The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated xsl [here](xsl/si-ubl-2.0.xsl)
 
+This schematron definition is based on the CenPC434 schematron, which can be found at https://github.com/CenPC434/validation . The commit that was included at the time of the release of SI-UBL-2.0 was https://github.com/CenPC434/validation/commits/c750263a17d8c8cfef63e8c184140a74c1f512cc .
+
 Test Files
 ==========
 
