@@ -14,7 +14,7 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
 * [SI-UBL 2.0 Invoice and CreditNote](xsl/si-ubl-2.0.xsl)
 
-Note that we are considering removing the 'all-versions' schematron and xsl in the near future.
+Note that we have removed the 'all-versions' schematron.
 
 Directory overview
 ==================
