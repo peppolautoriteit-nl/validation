@@ -1,5 +1,9 @@
+2019-05-06:
+- Fixed the check for SI-UBL 1.2 /ubl:Invoice/cac:InvoiceLine/cac:Item/cac:OriginCountry/cbc:IdentificationCode/@listID, which should be ISO3166-1:Alpha2 (the checked value was 3166-1:Alpha2, without the ISO).
+
 2019-03-15:
 - Release of SI-UBL-2.0 artefacts
+- Tagged release 2.0
 
 2019-03-01:
 - Updated the SI-UBL-1.2 PEPPOL and BII rules to the fall 2018 release.

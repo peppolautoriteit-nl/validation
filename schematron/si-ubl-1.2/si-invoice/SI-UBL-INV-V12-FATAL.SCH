@@ -13,8 +13,7 @@
     <!-- end of warning for new version -->
     <!-- End of version check -->
     <!-- End backwards compatibiltiy statement -->
-
- <!-- must be si 1.0 to 1.2 -->
+    <!-- must be si 1.0 to 1.2 -->
     <rule context="cbc:CustomizationID">
         <assert test="contains(normalize-space(.), 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.1') or
                       contains(normalize-space(.), 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2') or
@@ -82,7 +81,7 @@
         <assert test="cbc:Name" flag="fatal">[SI-V12-INV-R020]-An item on an invoiceline MUST have a name</assert>
     </rule>
     <rule context="cac:OriginCountry/cbc:IdentificationCode" flag="fatal">
-        <assert test="@listID='3166-1:Alpha2'" flag="fatal">[SI-V12-INV-R021]-A country identification code MUST have a list identifier attribute 'ISO3166-1:Alpha2'</assert>
+        <assert test="@listID='ISO3166-1:Alpha2'" flag="fatal">[SI-V12-INV-R021]-A country identification code MUST have a list identifier attribute 'ISO3166-1:Alpha2'</assert>
     </rule>
     <rule context="cac:AdditionalItemProperty" flag="fatal">
         <assert test="cbc:Value and cbc:Name" flag="fatal">[SI-V12-INV-R022]-An additional item property MUST have a name and a value</assert>

@@ -7094,9 +7094,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="@listID='3166-1:Alpha2'"/>
+         <xsl:when test="@listID='ISO3166-1:Alpha2'"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="@listID='3166-1:Alpha2'">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="@listID='ISO3166-1:Alpha2'">
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
