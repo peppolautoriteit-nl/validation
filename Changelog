@@ -1,5 +1,16 @@
+
+PLANNED FOR RELEASE 2.0.1
+=========================
+
+2019-05-07:
+- SI-UBL 2.0: Fix in check for rule BR-NL-10: cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID is mandatory if sender and receiver are from the Netherlands. It already checked whether the schemeID was 0106 or 0190 but the test also passed if the element was not present.
+
 2019-05-06:
 - Fixed the check for SI-UBL 1.2 /ubl:Invoice/cac:InvoiceLine/cac:Item/cac:OriginCountry/cbc:IdentificationCode/@listID, which should be ISO3166-1:Alpha2 (the checked value was 3166-1:Alpha2, without the ISO).
+
+
+RELEASE 2.0
+===========
 
 2019-03-15:
 - Release of SI-UBL-2.0 artefacts
