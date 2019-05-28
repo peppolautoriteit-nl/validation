@@ -2,6 +2,9 @@
 PLANNED FOR RELEASE 2.0.1
 =========================
 
+2019-05-28:
+- Rewrote the rule for BR-NL-1: As the rule was, it resulted in an XLST error on a document with multiple AccountingSupplierParty/PartyLegalEntity fields. Such documents should result in either a warning UBL-SR-09 or UBL-SR-11, not a total failure. The fix is slightly more extensive, since we do still need to check whether at least one value is either '0106' or '0190'.
+
 2019-05-07:
 - SI-UBL 2.0: Fix in check for rule BR-NL-10: cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID is mandatory if sender and receiver are from the Netherlands. It already checked whether the schemeID was 0106 or 0190 but the test also passed if the element was not present.
 
