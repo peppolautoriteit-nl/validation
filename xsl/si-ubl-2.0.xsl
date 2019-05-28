@@ -15971,10 +15971,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="contains(' 0106 0190 ', concat(' ', normalize-space(cac:PartyLegalEntity/cbc:CompanyID/@schemeID), ' '))"/>
+         <xsl:when test="contains(concat(' ', string-join(cac:PartyLegalEntity/cbc:CompanyID/@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(cac:PartyLegalEntity/cbc:CompanyID/@schemeID, ' '), ' '), ' 0190 ')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="contains(' 0106 0190 ', concat(' ', normalize-space(cac:PartyLegalEntity/cbc:CompanyID/@schemeID), ' '))">
+                                test="contains(concat(' ', string-join(cac:PartyLegalEntity/cbc:CompanyID/@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(cac:PartyLegalEntity/cbc:CompanyID/@schemeID, ' '), ' '), ' 0190 ')">
                <xsl:attribute name="id">BR-NL-1</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">

@@ -25,7 +25,7 @@
 
 
   <rule context="cac:AccountingSupplierParty/cac:Party[$s]">
-    <assert id="BR-NL-1" test="contains(' 0106 0190 ', concat(' ', normalize-space(cac:PartyLegalEntity/cbc:CompanyID/@schemeID), ' '))" flag="fatal">[BR-NL-1] For suppliers in the Netherlands the supplier MUST provide either a KVK or OIN number for its legal entity identifier (cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID with schemeID 0106 or 0190)</assert>
+    <assert id="BR-NL-1" test="contains(concat(' ', string-join(cac:PartyLegalEntity/cbc:CompanyID/@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(cac:PartyLegalEntity/cbc:CompanyID/@schemeID, ' '), ' '), ' 0190 ')" flag="fatal">[BR-NL-1] For suppliers in the Netherlands the supplier MUST provide either a KVK or OIN number for its legal entity identifier (cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID with schemeID 0106 or 0190)</assert>
   </rule>
   <rule context="/*[$s]">
     <assert id="BR-NL-2" test="(cbc:BuyerReference) or (cac:OrderReference/cbc:ID)" flag="fatal">[BR-NL-2] For suppliers in the Netherlands, the invoice MUST contain either the buyer reference (cbc:BuyerReference) or the order reference (cac:OrderReference/cbc:ID)</assert>
