@@ -1,6 +1,6 @@
 
-PLANNED FOR RELEASE 2.0.1
-=========================
+RELEASE 2.0.1
+=============
 
 2019-06-03:
 - Updated the CenPC434 UBL rules from release 1.1.0 to release 1.2.1 (from https://github.com/CenPC434/validation/, commit c750263a to commit 20159a3a), see https://github.com/CenPC434/validation/issues?q=is%3Aissue+is%3Aclosed+milestone%3Av1.2 and https://github.com/CenPC434
