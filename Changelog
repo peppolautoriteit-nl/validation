@@ -1,4 +1,11 @@
 
+Scheduled for release 2.0.2
+---------------------------
+
+2019-08-30:
+- Fixed the context for rules BR-S-08 and BR-Z-08 to only check on the document level.
+
+
 RELEASE 2.0.1
 =============
 
