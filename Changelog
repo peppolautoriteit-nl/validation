@@ -5,6 +5,9 @@ Scheduled for release 2.0.2
 2019-08-30:
 - Fixed the context for rules BR-S-08 and BR-Z-08 to only check on the document level.
 
+2019-12-09:
+- Applied the same context rule fixes for VATE, VATAE, and all other VAT types.
+- Updated the CEN validation artefacts, from commit 20159a3a to 3cb9fda3. This includes a fixed check to allow for UBLVersionID (which is now allowed, as long as it is 2.1).
 
 RELEASE 2.0.1
 =============
