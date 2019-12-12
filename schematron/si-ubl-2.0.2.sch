@@ -7,7 +7,7 @@
     xmlns="http://purl.oclc.org/dsdl/schematron"
     queryBinding="xslt2">
     <!--
-        Release 2.0 alpha
+        Release 2.0.2
         Author: Jelte Jansen (SIDN)
         Email: support@simplerinvoicing.org
         Changes since 1.1.1:
