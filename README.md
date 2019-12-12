@@ -12,7 +12,7 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 * [SI-UBL 1.1 Invoice](xsl/si-ubl-1.1.xsl)
 * [SI-UBL 1.2 Invoice](xsl/si-ubl-1.2.xsl)
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
-* [SI-UBL 2.0 Invoice and CreditNote (2.0.1)](xsl/si-ubl-2.0.1.xsl)
+* [SI-UBL 2.0 Invoice and CreditNote (2.0.2)](xsl/si-ubl-2.0.2.xsl)
 
 Note that we have removed the 'all-versions' schematron.
 
@@ -31,16 +31,16 @@ The tools/ directory contains the tools to recreate the xsl files from the schem
 The build_all_linux.sh script rebuilds all generated files in this repository, based on the schematron files.
 
 
-SI-UBL 2.0.1
+SI-UBL 2.0.2
 ============
 
 This is the version of SI-UBL that is based on the NLCIUS, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
 
 Since this is based on EN-16931, there are major differences between SI-UBL 1.2 and SI-UBL 2.0. For more information about the new rules, see https://www.stpe.nl/media/stpe.nl-gebruiksinstructie-basisfactuur-v1.0.pdf
 
-The schematron can be found [here](schematron/si-ubl-2.0.1.sch) and the generated xsl [here](xsl/si-ubl-2.0.1.xsl)
+The schematron can be found [here](schematron/si-ubl-2.0.2.sch) and the generated xsl [here](xsl/si-ubl-2.0.2.xsl)
 
-This schematron definition is based on the CenPC434 schematron, which can be found at https://github.com/CenPC434/validation . The commit that was included at the time of the release of SI-UBL-2.0.1 was https://github.com/CenPC434/validation/commits/20159a3a9fdf7700f355ff45fd3e104ce4b54d66 (tag validation-1.2.1).
+This schematron definition is based on the CenPC434 schematron, which can be found at https://github.com/CenPC434/validation . The commit that was included at the time of the release of SI-UBL-2.0.2 was https://github.com/CenPC434/validation/commits/3cb9fda3, with one additional proposed fix, shown in https://github.com/tjeb/eInvoicing-EN16931/commit/88f9f0a42344ae38d65b2fcc5a1adabd24a2badc
 
 Test Files
 ==========
