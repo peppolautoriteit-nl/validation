@@ -1,19 +1,40 @@
 
-Scheduled for release 2.0.3
----------------------------
+--------------------------
+Scheduled for next release
+--------------------------
 
-No changes scheduled yet
+SI-UBL 1.2:
+- Added new ISO6523 ICD Codes:
+    AU:ABN (0151)
+    CH:UIDB (0183)
+    DE:LID (9958)
+    DK:ERST (0198)
+    EE:CC (0191)
+    IS:KTNR (0196)
+    LEI (0199)
+    LT:LEC (0200)
+    NAL (0130)
+    NL:OINO (0190)
+    NO:ORG (0192)
+    NO:ORGNR (9908)
+    SG:UEN (0195)
+    UBLBE (0193)
 
-RELEASE 2.0.2
-=============
+
+------------------
+Published releases
+------------------
+
+SI-UBL 2.0 RELEASE 2.0.2 (2019-12-12)
+=====================================
 
 - Fixed the context for rules BR-S-08 and BR-Z-08 to only check on the document level.
 - Applied the same context rule fixes for VATE, VATAE, and all other VAT types.
 - Updated the CEN validation artefacts, from commit 20159a3a to 3cb9fda3. This includes a fixed check to allow for UBLVersionID (which is now allowed, as long as it is 2.1).
 
 
-RELEASE 2.0.1
-=============
+SI-UBL 2.0 RELEASE 2.0.1 (2019-08-02)
+=====================================
 
 2019-06-03:
 - Updated the CenPC434 UBL rules from release 1.1.0 to release 1.2.1 (from https://github.com/CenPC434/validation/, commit c750263a to commit 20159a3a), see https://github.com/CenPC434/validation/issues?q=is%3Aissue+is%3Aclosed+milestone%3Av1.2 and https://github.com/CenPC434

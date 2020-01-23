@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" queryBinding="xslt" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--
+        Release 1.2.1
+        Date: 2020-01-23
+        Author: Jelte Jansen (Ionite / headON / Simplerinvoicing)
+        Changes since 1.2:
+        - Added new ISO6523 ICD Codes:
+            AU:ABN (0151)
+            CH:UIDB (0183)
+            DE:LID (9958)
+            DK:ERST (0198)
+            EE:CC (0191)
+            IS:KTNR (0196)
+            LEI (0199)
+            LT:LEC (0200)
+            NAL (0130)
+            NL:OINO (0190)
+            NO:ORG (0192)
+            NO:ORGNR (9908)
+            SG:UEN (0195)
+            UBLBE (0193)
+
         Release 1.2
         Author: Rik Ribbers, Jelte Jansen (SIDN)
         Email: support@simplerinvoicing.org
