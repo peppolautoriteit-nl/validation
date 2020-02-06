@@ -55,9 +55,9 @@
             <assert id="BR-GA-6" test="count(cbc:ID[text() = ../cac:PaymentTerms/cbc:PaymentMeansID[text()]]) = 1" flag="fatal">The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</assert>
         </rule>
 
-        <!-- BR-GA-7 There MUST be a Payment Means identifier (NL-GA-04) with a value equal to ‘GACCOUNT’ -->
+        <!-- BR-GA-7 There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT' -->
         <rule context="/ubl:Invoice">
-            <assert id="BR-GA-7" test="count(cac:PaymentMeans/cbc:ID[text()=‘GACCOUNT’]) = 1" flag="fatal">There MUST be a Payment Means identifier (NL-GA-04) with a value equal to ‘GACCOUNT’</assert>
+            <assert id="BR-GA-7" test="count(cac:PaymentMeans/cbc:ID[text()='GACCOUNT']) = 1" flag="fatal">There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT'</assert>
         </rule>
     </pattern>
 </schema>
