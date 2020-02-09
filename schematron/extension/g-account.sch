@@ -24,19 +24,15 @@
             </assert>
         </rule>
 
-        <!-- BR-GA-1 The number of Payment Terms (NL-GA-01) in each invoice MUST be two. -->
         <rule context="/ubl:Invoice">
+            <!-- BR-GA-1 The number of Payment Terms (NL-GA-01) in each invoice MUST be two. -->
             <assert id="BR-GA-1" test="count(cac:PaymentTerms) = 2" flag="fatal">The number of Payment Terms (NL-GA-01) in each invoice MUST be two.</assert>
-        </rule>
-
-        <!-- BR-GA-2 The number of Payment Instructions (BG-16) in each invoice MUST be two. -->
-        <rule context="/ubl:Invoice">
+            <!-- BR-GA-2 The number of Payment Instructions (BG-16) in each invoice MUST be two. -->
             <assert id="BR-GA-2" test="count(cac:PaymentMeans) = 2" flag="fatal">The number of Payment Instructions (BG-16) in each invoice MUST be two.</assert>
-        </rule>
-
-        <!-- BR-GA-3 Sum of Amount due for payment (BT-115) = ∑ Payment Amount (NL-GA-03) -->
-        <rule context="/ubl:Invoice">
+            <!-- BR-GA-3 Sum of Amount due for payment (BT-115) = ∑ Payment Amount (NL-GA-03) -->
             <assert id="BR-GA-3" test="cac:LegalMonetaryTotal/xs:decimal(cbc:PayableAmount) = sum(cac:PaymentTerms/xs:decimal(cbc:Amount))" flag="fatal">Sum of Amount due for payment (BT-115) = ∑ Payment Amount (NL-GA-03)</assert>
+            <!-- BR-GA-7 There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT' -->
+            <assert id="BR-GA-7" test="count(cac:PaymentMeans/cbc:ID[text()='GACCOUNT']) = 1" flag="fatal">There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT'</assert>
         </rule>
 
         <!-- BR-GA-4 Each Payment Terms (NL-GA-01) MUST include a Payment Means reference (NL-GA-02) -->
@@ -56,9 +52,5 @@
             <assert id="BR-GA-6" test=". = $payment-means-ids">The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</assert>
         </rule>
 
-        <!-- BR-GA-7 There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT' -->
-        <rule context="/ubl:Invoice">
-            <assert id="BR-GA-7" test="count(cac:PaymentMeans/cbc:ID[text()='GACCOUNT']) = 1" flag="fatal">There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT'</assert>
-        </rule>
     </pattern>
 </schema>
