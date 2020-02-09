@@ -14,7 +14,7 @@
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
     <ns prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
-    
+
     <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="false" id="g-account-extension">
 
         <!-- BR-GA-0 (not formally defined in the specification -->
