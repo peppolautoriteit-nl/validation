@@ -50,9 +50,10 @@
         </rule>
 
         <!-- BR-GA-6 The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04) -->
-        <!-- TODO: fix rule, because it is not yet working -->
-        <rule context="/ubl:Invoice/cac:PaymentMeans">
-            <assert id="BR-GA-6" test="count(/ubl:Invoice/cac:PaymentTerms/cbc:PaymentMeansID[text() = ./cbc:ID/text()]) = 1" flag="fatal">The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</assert>
+        <!-- See https://dh.obdurodon.org/schematron-skyrim.xhtml for explenation of rule setup -->
+        <let name="payment-means-ids" value="/ubl:Invoice/cac:PaymentMeans/cbc:ID/text()"/>
+        <rule context="/ubl:Invoice/cac:PaymentTerms/cbc:PaymentMeansID">
+            <assert id="BR-GA-6" test=". = $payment-means-ids">The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</assert>
         </rule>
 
         <!-- BR-GA-7 There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT' -->
