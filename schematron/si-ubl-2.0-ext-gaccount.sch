@@ -1,8 +1,15 @@
+
 <!--
      These G-account extension rules are based on the specification in
      https://stpe.nl/media/Dutch%20national%20EN%2016931%20extension%20-%20G-account%20version%201.0.pdf
 
      These additional rules are generally only for adding on top of the SI-UBL 2.0 / NLCIUS
+     
+     version 1.0
+     
+     Authors:
+     Michiel Stornebrink
+     Jelte Jansen
 -->
 <schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" 
     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" 
@@ -15,6 +22,14 @@
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
     <ns prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
 
+    <!-- additional prefixes for EN-16931 -->
+    <ns prefix="ext" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"/>
+    <ns prefix="qdt" uri="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDataTypes-2"/>
+    <ns prefix="udt" uri="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2"/>
+    <ns prefix="cn" uri="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"/>
+    <ns prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
+
+    <!-- G-Account specific rules -->
     <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="false" id="g-account-extension">
 
         <!-- BR-GA-0 (not formally defined in the specification -->
@@ -53,4 +68,17 @@
         </rule>
 
     </pattern>
+    
+    <!-- include the rules for SI-UBL 2.0 -->
+    <include href="si-ubl-2.0/si-ubl-2.0-nlcius.sch"/>
+
+    <!-- EN-16931 -->
+    <include href="si-ubl-2.0/CenPC434/abstract/EN16931-model.sch"/>
+    <include href="si-ubl-2.0/CenPC434/abstract/EN16931-syntax.sch"/>
+
+    <include href="si-ubl-2.0/CenPC434/codelist/EN16931-UBL-codes.sch"/>
+
+    <include href="si-ubl-2.0/CenPC434/UBL/EN16931-UBL-model.sch"/>
+    <include href="si-ubl-2.0-ext-gaccount/EN16931-UBL-syntax-modified.sch"/>
+
 </schema>
