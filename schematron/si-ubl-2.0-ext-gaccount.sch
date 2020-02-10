@@ -4,17 +4,17 @@
      https://stpe.nl/media/Dutch%20national%20EN%2016931%20extension%20-%20G-account%20version%201.0.pdf
 
      These additional rules are generally only for adding on top of the SI-UBL 2.0 / NLCIUS
-     
+
      version 1.0
-     
+
      Authors:
      Michiel Stornebrink
      Jelte Jansen
 -->
-<schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" 
-    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" 
-    xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" 
-    xmlns:cn="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" 
+<schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+    xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+    xmlns:cn="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
     xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
@@ -68,7 +68,7 @@
         </rule>
 
     </pattern>
-    
+
     <!-- include the rules for SI-UBL 2.0 -->
     <include href="si-ubl-2.0/si-ubl-2.0-nlcius.sch"/>
 
@@ -79,6 +79,6 @@
     <include href="si-ubl-2.0/CenPC434/codelist/EN16931-UBL-codes.sch"/>
 
     <include href="si-ubl-2.0/CenPC434/UBL/EN16931-UBL-model.sch"/>
-    <include href="si-ubl-2.0-ext-gaccount/EN16931-UBL-syntax-modified.sch"/>
+    <include href="si-ubl-2.0-ext-gaccount/EN16931-syntax-modified.sch"/>
 
 </schema>
