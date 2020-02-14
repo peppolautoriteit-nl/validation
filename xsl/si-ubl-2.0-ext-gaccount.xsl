@@ -268,7 +268,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>The number of Payment Terms (NL-GA-01) in each invoice MUST be two.</svrl:text>
+               <svrl:text>[BR-GA-1] The number of Payment Terms (NL-GA-01) in each invoice MUST be two.</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -284,7 +284,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>The number of Payment Instructions (BG-16) in each invoice MUST be two.</svrl:text>
+               <svrl:text>[BR-GA-2] The number of Payment Instructions (BG-16) in each invoice MUST be two.</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -300,7 +300,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>Sum of Amount due for payment (BT-115) = ∑ Payment Amount (NL-GA-03)</svrl:text>
+               <svrl:text>[BR-GA-3] Sum of Amount due for payment (BT-115) = ∑ Payment Amount (NL-GA-03)</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -316,7 +316,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT'</svrl:text>
+               <svrl:text>[BR-GA-7] There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT'</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -339,7 +339,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>Each Payment Terms (NL-GA-01) MUST include a Payment Means reference (NL-GA-02)</svrl:text>
+               <svrl:text>[BR-GA-4] Each Payment Terms (NL-GA-01) MUST include a Payment Means reference (NL-GA-02)</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -361,7 +361,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>Each Payment Instructions (BG-16) MUST include a Payment Means identifier (NL-GA-04)</svrl:text>
+               <svrl:text>[BR-GA-5] Each Payment Instructions (BG-16) MUST include a Payment Means identifier (NL-GA-04)</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -386,7 +386,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</svrl:text>
+               <svrl:text>[BR-GA-6] The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>

@@ -42,30 +42,30 @@
 
         <rule context="/ubl:Invoice">
             <!-- BR-GA-1 The number of Payment Terms (NL-GA-01) in each invoice MUST be two. -->
-            <assert id="BR-GA-1" test="count(cac:PaymentTerms) = 2" flag="fatal">The number of Payment Terms (NL-GA-01) in each invoice MUST be two.</assert>
+            <assert id="BR-GA-1" test="count(cac:PaymentTerms) = 2" flag="fatal">[BR-GA-1] The number of Payment Terms (NL-GA-01) in each invoice MUST be two.</assert>
             <!-- BR-GA-2 The number of Payment Instructions (BG-16) in each invoice MUST be two. -->
-            <assert id="BR-GA-2" test="count(cac:PaymentMeans) = 2" flag="fatal">The number of Payment Instructions (BG-16) in each invoice MUST be two.</assert>
+            <assert id="BR-GA-2" test="count(cac:PaymentMeans) = 2" flag="fatal">[BR-GA-2] The number of Payment Instructions (BG-16) in each invoice MUST be two.</assert>
             <!-- BR-GA-3 Sum of Amount due for payment (BT-115) = ∑ Payment Amount (NL-GA-03) -->
-            <assert id="BR-GA-3" test="cac:LegalMonetaryTotal/xs:decimal(cbc:PayableAmount) = sum(cac:PaymentTerms/xs:decimal(cbc:Amount))" flag="fatal">Sum of Amount due for payment (BT-115) = ∑ Payment Amount (NL-GA-03)</assert>
+            <assert id="BR-GA-3" test="cac:LegalMonetaryTotal/xs:decimal(cbc:PayableAmount) = sum(cac:PaymentTerms/xs:decimal(cbc:Amount))" flag="fatal">[BR-GA-3] Sum of Amount due for payment (BT-115) = ∑ Payment Amount (NL-GA-03)</assert>
             <!-- BR-GA-7 There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT' -->
-            <assert id="BR-GA-7" test="count(cac:PaymentMeans/cbc:ID[text()='GACCOUNT']) = 1" flag="fatal">There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT'</assert>
+            <assert id="BR-GA-7" test="count(cac:PaymentMeans/cbc:ID[text()='GACCOUNT']) = 1" flag="fatal">[BR-GA-7] There MUST be a Payment Means identifier (NL-GA-04) with a value equal to 'GACCOUNT'</assert>
         </rule>
 
         <!-- BR-GA-4 Each Payment Terms (NL-GA-01) MUST include a Payment Means reference (NL-GA-02) -->
         <rule context="/ubl:Invoice/cac:PaymentTerms">
-            <assert id="BR-GA-4" test="count(cbc:PaymentMeansID) = 1" flag="fatal">Each Payment Terms (NL-GA-01) MUST include a Payment Means reference (NL-GA-02)</assert>
+            <assert id="BR-GA-4" test="count(cbc:PaymentMeansID) = 1" flag="fatal">[BR-GA-4] Each Payment Terms (NL-GA-01) MUST include a Payment Means reference (NL-GA-02)</assert>
         </rule>
 
         <!-- BR-GA-5 Each Payment Instructions (BG-16) MUST include a Payment Means identifier (NL-GA-04) -->
         <rule context="/ubl:Invoice/cac:PaymentMeans">
-            <assert id="BR-GA-5" test="count(cbc:ID) = 1" flag="fatal">Each Payment Instructions (BG-16) MUST include a Payment Means identifier (NL-GA-04)</assert>
+            <assert id="BR-GA-5" test="count(cbc:ID) = 1" flag="fatal">[BR-GA-5] Each Payment Instructions (BG-16) MUST include a Payment Means identifier (NL-GA-04)</assert>
         </rule>
 
         <!-- BR-GA-6 The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04) -->
         <!-- See https://dh.obdurodon.org/schematron-skyrim.xhtml for explenation of rule setup -->
         <let name="payment-means-ids" value="/ubl:Invoice/cac:PaymentMeans/cbc:ID/text()"/>
         <rule context="/ubl:Invoice/cac:PaymentTerms/cbc:PaymentMeansID">
-            <assert id="BR-GA-6" test=". = $payment-means-ids">The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</assert>
+            <assert id="BR-GA-6" test=". = $payment-means-ids">[BR-GA-6] The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</assert>
         </rule>
 
     </pattern>
@@ -80,6 +80,7 @@
     <include href="si-ubl-2.0/CenPC434/codelist/EN16931-UBL-codes.sch"/>
 
     <include href="si-ubl-2.0/CenPC434/UBL/EN16931-UBL-model.sch"/>
+    <!-- Modified version of the syntax, to allow for multiple PaymentMeans and PaymentTerms -->
     <include href="si-ubl-2.0-ext-gaccount/EN16931-syntax-modified.sch"/>
 
 </schema>
