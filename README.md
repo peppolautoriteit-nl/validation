@@ -13,8 +13,18 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 * [SI-UBL 1.2 Invoice](xsl/si-ubl-1.2.xsl)
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
 * [SI-UBL 2.0 Invoice and CreditNote (2.0.2)](xsl/si-ubl-2.0.2.xsl)
+* [SI-UBL 2.0 G-Account extention (1.0)](xsl/si-ubl-2.0-ext-gaccount.xsl)
 
 Note that we have removed the 'all-versions' schematron.
+
+Versioning
+==========
+
+Since this repository contains multiple versioned validation sets, the versioning of the repository through it tags is separate from the versions of the validation sets themselves.
+
+Versioning of the validation artefacts uses the major.minor.bugfix approach; Major and minor versions are updated if the specification itself changes, bugfixes are only updates of the validation artefacts when issues are found.
+
+The repository uses a single version by date approach; any time one or more validation sets are updated into a release, the repository version changes to the current date, e.g. 2020-02-14. See the Changelog file for the mapping of repository releases and validation set releases. The links above always refer to the latest version of each set.
 
 Directory overview
 ==================

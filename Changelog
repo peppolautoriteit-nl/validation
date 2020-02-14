@@ -3,8 +3,14 @@
 Scheduled for next release
 --------------------------
 
-SI-UBL 1.2:
-- Added new ISO6523 ICD Codes:
+- Added validation artefacts for the SI-UBL 2.0 g-account extension.
+- Updated SI-UBL 1.2 to version 1.2.1
+
+
+SI-UBL 1.2 Release 1.2.1
+------------------------
+
+- Added support for new ISO6523 ICD Codes:
     AU:ABN (0151)
     CH:UIDB (0183)
     DE:LID (9958)
@@ -25,16 +31,28 @@ SI-UBL 1.2:
 Published releases
 ------------------
 
+REPOSITORY RELEASE 2019-12-12
+=============================
+
+- Updated SI-UBL 2.0 to version 2.0.2
+
+
 SI-UBL 2.0 RELEASE 2.0.2 (2019-12-12)
-=====================================
+-------------------------------------
 
 - Fixed the context for rules BR-S-08 and BR-Z-08 to only check on the document level.
 - Applied the same context rule fixes for VATE, VATAE, and all other VAT types.
 - Updated the CEN validation artefacts, from commit 20159a3a to 3cb9fda3. This includes a fixed check to allow for UBLVersionID (which is now allowed, as long as it is 2.1).
 
 
+REPOSITORY RELEASE 2019-08-02
+=============================
+
+- Updated SI-UBL 2.0 to version 2.0.1
+
+
 SI-UBL 2.0 RELEASE 2.0.1 (2019-08-02)
-=====================================
+-------------------------------------
 
 2019-06-03:
 - Updated the CenPC434 UBL rules from release 1.1.0 to release 1.2.1 (from https://github.com/CenPC434/validation/, commit c750263a to commit 20159a3a), see https://github.com/CenPC434/validation/issues?q=is%3Aissue+is%3Aclosed+milestone%3Av1.2 and https://github.com/CenPC434
@@ -49,12 +67,11 @@ SI-UBL 2.0 RELEASE 2.0.1 (2019-08-02)
 - Fixed the check for SI-UBL 1.2 /ubl:Invoice/cac:InvoiceLine/cac:Item/cac:OriginCountry/cbc:IdentificationCode/@listID, which should be ISO3166-1:Alpha2 (the checked value was 3166-1:Alpha2, without the ISO).
 
 
-RELEASE 2.0
-===========
+REPOSITORY RELEASE 2019-03-15
+=============================
 
 2019-03-15:
 - Release of SI-UBL-2.0 artefacts
-- Tagged release 2.0
 
 2019-03-01:
 - Updated the SI-UBL-1.2 PEPPOL and BII rules to the fall 2018 release.
