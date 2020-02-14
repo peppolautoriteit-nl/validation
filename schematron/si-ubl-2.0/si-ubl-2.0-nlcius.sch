@@ -6,7 +6,7 @@
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="syntax">
   <!-- A few definitions to make later statements more readable -->
   <!-- These rules are generally only for SI-UBL 2.0 / NLCIUS -->
-  <let name="customizationID" value="/*/cbc:CustomizationID" />
+  <let name="customizationID" value="normalize-space(/*/cbc:CustomizationID)" />
   <let name="is_SI-UBL-2.0" value="$customizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0'" />
   <!-- A number of rules only apply when the supplier is in the Netherlands -->
   <let name="supplierCountry" value="if (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode) then upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) else 'XX'" />

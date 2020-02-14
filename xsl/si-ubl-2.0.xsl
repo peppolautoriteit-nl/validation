@@ -16542,7 +16542,7 @@
    </xsl:template>
 
    <!--PATTERN UBL-syntax-->
-   <xsl:variable name="customizationID" select="/*/cbc:CustomizationID"/>
+   <xsl:variable name="customizationID" select="normalize-space(/*/cbc:CustomizationID)"/>
    <xsl:variable name="is_SI-UBL-2.0"
                  select="$customizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0'"/>
    <xsl:variable name="supplierCountry"

@@ -7,11 +7,10 @@
     xmlns="http://purl.oclc.org/dsdl/schematron"
     queryBinding="xslt2">
     <!--
-        Release 2.0.2
+        Release 2.0.3
         Author: Jelte Jansen (SIDN)
         Email: support@simplerinvoicing.org
-        Changes since 1.1.1:
-        - Full rework based on EN/CEN PC 434/SI-UBL 2.0 (wip)
+        For changes, see Changelog file in repository root
 
     -->
     <title>PC434-NL-specific Validation</title>
