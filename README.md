@@ -13,7 +13,7 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 * [SI-UBL 1.2 Invoice](xsl/si-ubl-1.2.xsl)
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
 * [SI-UBL 2.0 Invoice and CreditNote (2.0.2)](xsl/si-ubl-2.0.2.xsl)
-* [SI-UBL 2.0 G-Account extention (1.0)](xsl/si-ubl-2.0-ext-gaccount.xsl)
+* [SI-UBL 2.0 G-Account extension (1.0)](xsl/si-ubl-2.0-ext-gaccount.xsl)
 
 Note that we have removed the 'all-versions' schematron.
 
