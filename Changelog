@@ -3,13 +3,28 @@
 Scheduled for next release
 --------------------------
 
+Nothing planned yet.
+
+
+==========================
+=   Published releases   =
+==========================
+
+REPOSITORY RELEASE 2020-02-14
+=============================
+
 - Added validation artefacts for the SI-UBL 2.0 g-account extension
-- Updated SI-UBL 2.0
+- Updated SI-UBL 2.0.3
 - Updated SI-UBL 1.2 to version 1.2.1
 - For consistency, SI-UBL 2.0 .sch and .xsl files no longer contain the bugfix release number (this is present in the file itself)
 
-SI-UBL 2.0
-----------
+SI-UBL 2.0 g-account extension
+------------------------------
+
+- Initial release
+
+SI-UBL 2.0 release 2.0.3
+------------------------
 
 - Fixed issue #24: using whitespace before or after the CustomizationID would disable SI-UBL 2.0 rule validation
 
@@ -32,15 +47,10 @@ SI-UBL 1.2 Release 1.2.1
     SG:UEN (0195)
     UBLBE (0193)
 
-SI-UBL 2.0 g-account extension
-------------------------------
 
-- Initial release
-
-
-------------------
-Published releases
-------------------
+======================
+= Published releases =
+======================
 
 REPOSITORY RELEASE 2019-12-12
 =============================
