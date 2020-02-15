@@ -235,8 +235,8 @@
             <xsl:attribute name="document">
                <xsl:value-of select="document-uri(/)"/>
             </xsl:attribute>
-            <xsl:attribute name="id">UBL-syntax</xsl:attribute>
-            <xsl:attribute name="name">UBL-syntax</xsl:attribute>
+            <xsl:attribute name="id">nlcius</xsl:attribute>
+            <xsl:attribute name="name">nlcius</xsl:attribute>
             <xsl:apply-templates/>
          </svrl:active-pattern>
          <xsl:apply-templates select="/" mode="M14"/>
@@ -16541,14 +16541,17 @@
       <xsl:apply-templates select="@*|*" mode="M13"/>
    </xsl:template>
 
-   <!--PATTERN UBL-syntax-->
+   <!--PATTERN nlcius-->
    <xsl:variable name="customizationID" select="normalize-space(/*/cbc:CustomizationID)"/>
    <xsl:variable name="is_SI-UBL-2.0"
                  select="$customizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0'"/>
+   <xsl:variable name="is_SI-UBL-2.0-ext-gaccount"
+                 select="$customizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0#conformant#urn:fdc:nen.nl:gaccount:v1.0'"/>
    <xsl:variable name="supplierCountry"
                  select="if (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode) then upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) else 'XX'"/>
    <xsl:variable name="supplierIsNL" select="$supplierCountry = 'NL'"/>
-   <xsl:variable name="s" select="$supplierIsNL and $is_SI-UBL-2.0"/>
+   <xsl:variable name="s"
+                 select="$supplierIsNL and ($is_SI-UBL-2.0 or $is_SI-UBL-2.0-ext-gaccount)"/>
 
 	  <!--RULE -->
    <xsl:template match="cac:AccountingSupplierParty/cac:Party[$s]"
