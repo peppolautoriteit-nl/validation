@@ -3,7 +3,10 @@
 Scheduled for next release
 --------------------------
 
-Nothing planned yet.
+SI-UBL 1.2
+----------
+
+Changed DIGST to DK:DIGST in the list of supported ICD codes. It appears this value was set wrong in the PEPPOL BIS v2 codes version 3.5
 
 
 ==========================

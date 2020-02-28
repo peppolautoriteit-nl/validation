@@ -22,6 +22,8 @@ Version 0.3
             NO:ORGNR (9908)
             SG:UEN (0195)
             UBLBE (0193)
+
+      Update 2020-02-28: Updated the ISO6523 ICD code DIGST (0184) to DK:DIGST
 -->
   <rule context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns001:ver2.0:extended:urn:www.peppol.eu:bis:peppol3a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]">
     <assert test="true()" />
@@ -40,11 +42,11 @@ Version 0.3
 </rule>
 
 <rule context="cbc:EndpointID//@schemeID" flag="fatal">
-  <assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' AD:VAT AL:VAT AT:GOV AT:KUR AT:VAT AU:ABN BA:VAT BE:CBE BE:VAT BG:VAT CH:UIDB CH:VAT CY:VAT CZ:VAT DE:LID DE:VAT DIGST DK:CPR DK:CVR DK:ERST DK:P DK:SE DK:VANS DUNS EE:CC EE:VAT ES:VAT EU:REID FI:OVT FR:SIRENE FR:SIRET FR:VAT GB:VAT GLN GR:VAT HR:VAT HU:VAT IBAN IE:VAT IS:KT IS:KTNR IT:CF IT:FTI IT:IPA IT:SECETI IT:SIA IT:VAT LEI LI:VAT LT:LEC LT:VAT LU:VAT LV:VAT MC:VAT ME:VAT MK:VAT MT:VAT NAL NL:ION NL:KVK NL:OIN NL:OINO NL:VAT NO:ORG NO:ORGNR NO:VAT PL:VAT PT:VAT RO:VAT RS:VAT SE:ORGNR SE:VAT SG:UEN SI:VAT SK:VAT SM:VAT TR:VAT UBLBE VA:VAT ZZZ ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="OP-T01-R004">[OP-T01-R004]-An Enpoint Identifier Scheme identifier MUST be from the list of PEPPOL Party Identifiers described in the "PEPPOL Policy for using Identifiers".</assert>
+  <assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' AD:VAT AL:VAT AT:GOV AT:KUR AT:VAT AU:ABN BA:VAT BE:CBE BE:VAT BG:VAT CH:UIDB CH:VAT CY:VAT CZ:VAT DE:LID DE:VAT DK:DIGST DK:CPR DK:CVR DK:ERST DK:P DK:SE DK:VANS DUNS EE:CC EE:VAT ES:VAT EU:REID FI:OVT FR:SIRENE FR:SIRET FR:VAT GB:VAT GLN GR:VAT HR:VAT HU:VAT IBAN IE:VAT IS:KT IS:KTNR IT:CF IT:FTI IT:IPA IT:SECETI IT:SIA IT:VAT LEI LI:VAT LT:LEC LT:VAT LU:VAT LV:VAT MC:VAT ME:VAT MK:VAT MT:VAT NAL NL:ION NL:KVK NL:OIN NL:OINO NL:VAT NO:ORG NO:ORGNR NO:VAT PL:VAT PT:VAT RO:VAT RS:VAT SE:ORGNR SE:VAT SG:UEN SI:VAT SK:VAT SM:VAT TR:VAT UBLBE VA:VAT ZZZ ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="OP-T01-R004">[OP-T01-R004]-An Enpoint Identifier Scheme identifier MUST be from the list of PEPPOL Party Identifiers described in the "PEPPOL Policy for using Identifiers".</assert>
 </rule>
 
 <rule context="cac:PartyIdentification/cbc:ID//@schemeID" flag="fatal">
-  <assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' AD:VAT AL:VAT AT:GOV AT:KUR AT:VAT AU:ABN BA:VAT BE:CBE BE:VAT BG:VAT CH:UIDB CH:VAT CY:VAT CZ:VAT DE:LID DE:VAT DIGST DK:CPR DK:CVR DK:ERST DK:P DK:SE DK:VANS DUNS EE:CC EE:VAT ES:VAT EU:REID FI:OVT FR:SIRENE FR:SIRET FR:VAT GB:VAT GLN GR:VAT HR:VAT HU:VAT IBAN IE:VAT IS:KT IS:KTNR IT:CF IT:FTI IT:IPA IT:SECETI IT:SIA IT:VAT LEI LI:VAT LT:LEC LT:VAT LU:VAT LV:VAT MC:VAT ME:VAT MK:VAT MT:VAT NAL NL:ION NL:KVK NL:OIN NL:OINO NL:VAT NO:ORG NO:ORGNR NO:VAT PL:VAT PT:VAT RO:VAT RS:VAT SE:ORGNR SE:VAT SG:UEN SI:VAT SK:VAT SM:VAT TR:VAT UBLBE VA:VAT ZZZ ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="OP-T01-R005">[OP-T01-R005]-An Party Identifier Scheme identifier MUST be from the list of PEPPOL Party Identifiers described in the "PEPPOL Policy for using Identifiers".</assert>
+  <assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' AD:VAT AL:VAT AT:GOV AT:KUR AT:VAT AU:ABN BA:VAT BE:CBE BE:VAT BG:VAT CH:UIDB CH:VAT CY:VAT CZ:VAT DE:LID DE:VAT DK:DIGST DK:CPR DK:CVR DK:ERST DK:P DK:SE DK:VANS DUNS EE:CC EE:VAT ES:VAT EU:REID FI:OVT FR:SIRENE FR:SIRET FR:VAT GB:VAT GLN GR:VAT HR:VAT HU:VAT IBAN IE:VAT IS:KT IS:KTNR IT:CF IT:FTI IT:IPA IT:SECETI IT:SIA IT:VAT LEI LI:VAT LT:LEC LT:VAT LU:VAT LV:VAT MC:VAT ME:VAT MK:VAT MT:VAT NAL NL:ION NL:KVK NL:OIN NL:OINO NL:VAT NO:ORG NO:ORGNR NO:VAT PL:VAT PT:VAT RO:VAT RS:VAT SE:ORGNR SE:VAT SG:UEN SI:VAT SK:VAT SM:VAT TR:VAT UBLBE VA:VAT ZZZ ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="OP-T01-R005">[OP-T01-R005]-An Party Identifier Scheme identifier MUST be from the list of PEPPOL Party Identifiers described in the "PEPPOL Policy for using Identifiers".</assert>
 </rule>
 
 <rule context="cac:Country//cbc:IdentificationCode" flag="fatal">
