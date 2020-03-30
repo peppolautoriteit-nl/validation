@@ -2,6 +2,13 @@
 <schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" queryBinding="xslt" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--
         Release 1.2.1
+        Date: 2020-03-30
+        Author: Jelte Jansen (Ionite / headON / Simplerinvoicing)
+        Changes since 1.2.1:
+        - Fixed ISO6523 ICD code value for DK:DIGST
+
+
+        Release 1.2.1
         Date: 2020-01-23
         Author: Jelte Jansen (Ionite / headON / Simplerinvoicing)
         Changes since 1.2:

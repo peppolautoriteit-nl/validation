@@ -11,7 +11,6 @@
         Author: Jelte Jansen (SIDN)
         Email: support@simplerinvoicing.org
         For changes, see Changelog file in repository root
-
     -->
     <title>PC434-NL-specific Validation</title>
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
