@@ -173,4 +173,9 @@
   <rule context="cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReasonCode[$s]">
     <assert id="BR-NL-35" test="false" flag="warning">[BR-NL-35] The use of a tax exemption reason code (cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReasonCode) is not recommended</assert>
   </rule>
+
+  <rule context="//*[not(*) and not(normalize-space())]">
+    <assert id="SI-UBL-2" test="false()" flag="warning">Document should not contain empty elements.</assert>
+  </rule>
+
 </pattern>
