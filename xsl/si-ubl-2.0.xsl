@@ -16550,12 +16550,13 @@
    <xsl:variable name="supplierCountry"
                  select="if (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode) then upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) else 'XX'"/>
    <xsl:variable name="supplierIsNL" select="$supplierCountry = 'NL'"/>
+   <xsl:variable name="si" select="($is_SI-UBL-2.0 or $is_SI-UBL-2.0-ext-gaccount)"/>
    <xsl:variable name="s"
                  select="$supplierIsNL and ($is_SI-UBL-2.0 or $is_SI-UBL-2.0-ext-gaccount)"/>
 
 	  <!--RULE -->
    <xsl:template match="cac:AccountingSupplierParty/cac:Party[$s]"
-                 priority="1032"
+                 priority="1033"
                  mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:AccountingSupplierParty/cac:Party[$s]"/>
@@ -16579,7 +16580,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="/*[$s]" priority="1031" mode="M14">
+   <xsl:template match="/*[$s]" priority="1032" mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*[$s]"/>
 
 		    <!--ASSERT -->
@@ -16602,7 +16603,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$s]"
-                 priority="1030"
+                 priority="1031"
                  mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$s]"/>
@@ -16627,7 +16628,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$s]"
-                 priority="1029"
+                 priority="1030"
                  mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$s]"/>
@@ -16652,7 +16653,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cac:TaxRepresentativeParty/cac:PostalAddress[$s]"
-                 priority="1028"
+                 priority="1029"
                  mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:TaxRepresentativeParty/cac:PostalAddress[$s]"/>
@@ -16676,7 +16677,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:InvoiceTypeCode[$s]" priority="1027" mode="M14">
+   <xsl:template match="cbc:InvoiceTypeCode[$s]" priority="1028" mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cbc:InvoiceTypeCode[$s]"/>
 
@@ -16747,7 +16748,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity[$s]"
-                 priority="1026"
+                 priority="1027"
                  mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity[$s]"/>
@@ -16771,7 +16772,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:LegalMonetaryTotal[$s]" priority="1025" mode="M14">
+   <xsl:template match="cac:LegalMonetaryTotal[$s]" priority="1026" mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:LegalMonetaryTotal[$s]"/>
 
@@ -16794,7 +16795,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:PaymentMeans[$s]" priority="1024" mode="M14">
+   <xsl:template match="cac:PaymentMeans[$s]" priority="1025" mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PaymentMeans[$s]"/>
 
 		    <!--ASSERT -->
@@ -16825,6 +16826,31 @@
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
                <svrl:text>[BR-NL-31] The use of a payment service provider identifier (cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) is not recommended for SEPA payments (cac:PaymentMeans/cbc:PaymentMeansCode = 58 or 59)</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M14"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="cac:OrderLineReference/cbc:LineID[$si]"
+                 priority="1024"
+                 mode="M14">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="cac:OrderLineReference/cbc:LineID[$si]"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="exists(/*/cac:OrderReference/cbc:ID)"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="exists(/*/cac:OrderReference/cbc:ID)">
+               <xsl:attribute name="id">BR-NL-13</xsl:attribute>
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[BR-NL-13] If an order line reference (BT-132) is used, there must be an order reference on the document level (BT-13)</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>

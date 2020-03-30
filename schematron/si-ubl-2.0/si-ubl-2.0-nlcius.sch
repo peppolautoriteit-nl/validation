@@ -20,6 +20,7 @@
        1. '$si' for any supplier
        2. '$sinl' for suppliers in the netherlands
   -->
+  <let name="si" value="($is_SI-UBL-2.0 or $is_SI-UBL-2.0-ext-gaccount)" />
   <let name="s" value="$supplierIsNL and ($is_SI-UBL-2.0 or $is_SI-UBL-2.0-ext-gaccount)" />
 
 
@@ -87,6 +88,13 @@
     <!-- should move BR-NL-32 to its own context too, then add BR-NL-34 there -->
 
   </rule>
+
+  <!-- //Invoice/cac:OrderReference/cbc:ID -->
+  <rule context="cac:OrderLineReference/cbc:LineID[$si]">
+    <assert id="BR-NL-13" test="exists(/*/cac:OrderReference/cbc:ID)" flag="fatal">[BR-NL-13] If an order line reference (BT-132) is used, there must be an order reference on the document level (BT-13)</assert>
+  </rule>
+
+
   <!--
        Recommendations specific for NL
        Invoices that fail these rules result in warnings, but should not be rejected
