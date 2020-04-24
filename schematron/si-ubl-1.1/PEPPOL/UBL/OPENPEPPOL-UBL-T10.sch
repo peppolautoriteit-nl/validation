@@ -35,7 +35,7 @@
  
     <param name="EUGEN-T10-R043" value="(number(child::cbc:TaxAmount)= round(number(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10)) div 100) "/> 
   -->
-  <param name="EUGEN-T10-R043" value="(round(xs:decimal(child::cbc:TaxAmount) * 10 * 10) div 100= round(xs:decimal(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10)) div 100) "/> 
+  <param name="EUGEN-T10-R043" value="(round(child::cbc:TaxAmount * 10 * 10) div 100= round(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10) div 100) "/> 
   
   <param name="EUGEN-T10-R044" value="not(/ubl:Invoice/cbc:TaxCurrencyCode) or (string(/ubl:Invoice/cbc:TaxCurrencyCode) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)) or (/ubl:Invoice/cac:TaxExchangeRate)"/>
   <param name="EUGEN-T10-R045" value="(cbc:CalculationRate) and (cbc:MathematicOperatorCode)"/>
