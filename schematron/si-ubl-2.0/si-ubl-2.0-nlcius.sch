@@ -107,7 +107,7 @@
     <assert id="BR-NL-21" test="false" flag="warning">[BR-NL-21] The use of a tax point date code (cac:InvoicePeriod/cbc:DescriptionCode) is not recommended, and its value will be ignored</assert>
   </rule>
   <!-- BR-NL-22 skipped, since there does not appear to be an equivalent for BT-21 in UBL 2.1 (cbc:Note is freeform) -->
-  <!-- BT-NL-23 skipped, since a ProfileID is actually necessary for automatic lookups in the
+  <!-- BR-NL-23 skipped, since a ProfileID is actually necessary for automatic lookups in the
        PEPPOL infrastructure -->
   <rule context="cac:BillingReference/cac:InvoiceDocumentReference/cbc:IssueDate[$s]">
     <assert id="BR-NL-24" test="false" flag="warning">[BR-NL-24] The use of a preceding invoice issue date (cac:BillingReference/cac:InvoiceDocumentReference/cbc:IssueDate) is not recommended</assert>
