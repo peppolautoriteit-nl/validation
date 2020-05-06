@@ -36,7 +36,7 @@
         <!-- BR-GA-0 (not formally defined in the specification -->
         <rule context="//cbc:CustomizationID">
             <assert id="BR-GA-0" test="normalize-space(.) = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0#conformant#urn:fdc:nen.nl:gaccount:v1.0'" flag="fatal">
-            When using the G-account extension, the CustomizationID must specify this.
+            [BR-GA-0] When using the G-account extension, the CustomizationID must specify this.
             </assert>
         </rule>
 

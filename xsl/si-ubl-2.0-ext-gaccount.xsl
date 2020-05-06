@@ -254,7 +254,7 @@
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
                <svrl:text>
-            When using the G-account extension, the CustomizationID must specify this.
+            [BR-GA-0] When using the G-account extension, the CustomizationID must specify this.
             </svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
