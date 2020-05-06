@@ -961,10 +961,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cbc:TaxInclusiveAmount) or ((cbc:PayableRoundingAmount) and (  (round(xs:decimal(cbc:TaxInclusiveAmount) * 10 * 10) div 100) = (round((xs:decimal(cbc:TaxExclusiveAmount) + xs:decimal(sum(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount)) + xs:decimal(cbc:PayableRoundingAmount)) *10 * 10) div 100))) or ((cbc:TaxInclusiveAmount) and (round(xs:decimal(cbc:TaxInclusiveAmount) * 10 * 10) div 100) = round(( xs:decimal(cbc:TaxExclusiveAmount) + xs:decimal(sum(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount))) * 10 * 10) div 100)"/>
+         <xsl:when test="not(cbc:TaxInclusiveAmount) or ((cbc:PayableRoundingAmount) and (  (round(cbc:TaxInclusiveAmount * 10 * 10) div 100) = (round((cbc:TaxExclusiveAmount + sum(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount) + cbc:PayableRoundingAmount) *10 * 10) div 100))) or ((cbc:TaxInclusiveAmount) and (round(cbc:TaxInclusiveAmount * 10 * 10) div 100) = round(( cbc:TaxExclusiveAmount + sum(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount)) * 10 * 10) div 100)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cbc:TaxInclusiveAmount) or ((cbc:PayableRoundingAmount) and ( (round(xs:decimal(cbc:TaxInclusiveAmount) * 10 * 10) div 100) = (round((xs:decimal(cbc:TaxExclusiveAmount) + xs:decimal(sum(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount)) + xs:decimal(cbc:PayableRoundingAmount)) *10 * 10) div 100))) or ((cbc:TaxInclusiveAmount) and (round(xs:decimal(cbc:TaxInclusiveAmount) * 10 * 10) div 100) = round(( xs:decimal(cbc:TaxExclusiveAmount) + xs:decimal(sum(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount))) * 10 * 10) div 100)">
+                                test="not(cbc:TaxInclusiveAmount) or ((cbc:PayableRoundingAmount) and ( (round(cbc:TaxInclusiveAmount * 10 * 10) div 100) = (round((cbc:TaxExclusiveAmount + sum(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount) + cbc:PayableRoundingAmount) *10 * 10) div 100))) or ((cbc:TaxInclusiveAmount) and (round(cbc:TaxInclusiveAmount * 10 * 10) div 100) = round(( cbc:TaxExclusiveAmount + sum(/ubl:Invoice/cac:TaxTotal/cbc:TaxAmount)) * 10 * 10) div 100)">
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
@@ -1709,10 +1709,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(round(xs:decimal(child::cbc:TaxAmount) * 10 * 10) div 100= round(xs:decimal(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10)) div 100) "/>
+         <xsl:when test="(round(child::cbc:TaxAmount * 10 * 10) div 100= round(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10) div 100) "/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="(round(xs:decimal(child::cbc:TaxAmount) * 10 * 10) div 100= round(xs:decimal(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10)) div 100)">
+                                test="(round(child::cbc:TaxAmount * 10 * 10) div 100= round(sum(cac:TaxSubtotal/cbc:TaxAmount) * 10 * 10) div 100)">
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
