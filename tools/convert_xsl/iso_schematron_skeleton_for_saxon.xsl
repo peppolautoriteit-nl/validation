@@ -2298,7 +2298,7 @@ which require a preprocess.
 	<xhtml:p id="sch-message-36b">" has been referenced but is not declared</xhtml:p>
 	<xhtml:p id="sch-message-37a">Using the XSLT namespace with a prefix other than "xsl" in Schematron rules is not supported in this processor:</xhtml:p>
     <xhtml:p id="sch-message-37b" />
-    <xhtml:p id="sch-message-38a">Error: unrecognized element in ISO Schematron namespace: check spelling and capitalization</xhtml:p>
+    <xhtml:p id="sch-message-38a">Error!!: unrecognized element in ISO Schematron namespace: check spelling and capitalization</xhtml:p>
 	<xhtml:p id="sch-message-38b" />
 	<xhtml:p id="sch-message-39a">Warning: unrecognized element </xhtml:p>
 	<xhtml:p id="sch-message-39b" />

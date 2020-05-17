@@ -424,7 +424,8 @@ THE SOFTWARE.
   </xsl:choose>
 </xsl:param>
 
-<xsl:param name="allow-foreign">false</xsl:param>
+<!--<xsl:param name="allow-foreign">false</xsl:param>-->
+<xsl:param name="allow-foreign">true</xsl:param>
 
 <xsl:param name="message-newline">true</xsl:param>
 
@@ -1586,7 +1587,7 @@ THE SOFTWARE.
 	<xsl:template match="iso:*"  priority="-2">
 	   <xsl:message>
 			<xsl:text>Error: unrecognized element in ISO Schematron namespace: check spelling
-			and capitalization</xsl:text>
+			and capitalization: </xsl:text>
 			<xsl:value-of select="name(.)"/>
 		</xsl:message>
 	</xsl:template>

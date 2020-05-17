@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?><pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="CodesT10">
+<?xml version="1.0" encoding="ISO-8859-1"?><pattern xmlns="http://purl.oclc.org/dsdl/schematron" id="BIICodesT10">
 <!--
   This implementation supports genericode code lists with no instance
   meta data.
