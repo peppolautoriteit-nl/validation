@@ -105,4 +105,7 @@
         <assert test="not(cbc:MultiplierFactorNumeric) or number(cbc:MultiplierFactorNumeric) &gt;=0" flag="fatal">[SI-V12-INV-R028]-An allowance percentage MUST NOT be negative.</assert>
         <assert test="(cbc:MultiplierFactorNumeric and cbc:BaseAmount) or (not(cbc:MultiplierFactorNumeric) and not(cbc:BaseAmount)) " flag="fatal">[SI-V12-INV-R029]-In allowances, both or none of numeric factor and base amount MUST be provided</assert>
     </rule>
+    <rule context="cac:Item/cac:ClassifiedTaxCategory">
+        <assert test="cbc:ID" flag="fatal">[SI-V12-INV-R030] An Item ClassifiedTaxCategory must have an ID value</assert>
+    </rule>
 </pattern>
