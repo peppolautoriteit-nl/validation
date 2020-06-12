@@ -3,7 +3,17 @@
 Scheduled for next release
 --------------------------
 
-No pending changes
+SI-UBL 2.0:
+- Fixed a typo in the rule BR-NL-23 (https://github.com/SimplerInvoicing/validation/issues/29)
+- Changed the ubl: prefix to the wildcard * in the workaround for the CenPC issue (see https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/212)
+
+SI-UBL 2.0 g-account extension:
+- Added the prefix [BR-GA-0] to the output of the corresponding rule (https://github.com/SimplerInvoicing/validation/issues/25)
+
+SI-UBL 1.2:
+- Correctly mark the schema element as XSLT2
+- Renamed the BII pattern to avoid conflicts
+- Added a check for the existence of cbc:ID in cac:Item/cac:ClassifiedTaxCategory. The cardinality of cbc:ID here is 1..1, but this was not checked.
 
 
 ==========================
