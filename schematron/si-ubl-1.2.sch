@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--
+        Upcoming release:
+        - Correctly mark the schema element as XSLT2
+        - Renamed the BII pattern to avoid conflicts
+        - Added a check for the existence of cbc:ID in cac:Item/cac:ClassifiedTaxCategory. The cardinality of cbc:ID here is 1..1, but this was not checked.
+        - The same for cac:TaxRepresentativeParty/cac:PartyTaxScheme
+    
         Release 1.2.1
         Date: 2020-03-30
         Author: Jelte Jansen (Ionite / headON / Simplerinvoicing)

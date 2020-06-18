@@ -6594,7 +6594,7 @@
 
 	  <!--RULE -->
    <xsl:template match="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"
-                 priority="1028"
+                 priority="1029"
                  mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="node()[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))] | @*[not(contains(//cbc:CustomizationID, 'urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol4a:ver2.0:extended:urn:www.simplerinvoicing.org:si:si-ubl:ver1.2'))]"/>
@@ -6615,7 +6615,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:CustomizationID" priority="1027" mode="M7">
+   <xsl:template match="cbc:CustomizationID" priority="1028" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:CustomizationID"/>
 
 		    <!--ASSERT -->
@@ -6636,7 +6636,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="/" priority="1026" mode="M7">
+   <xsl:template match="/" priority="1027" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/"/>
 
 		    <!--ASSERT -->
@@ -6656,7 +6656,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="ubl:Invoice" priority="1025" mode="M7">
+   <xsl:template match="ubl:Invoice" priority="1026" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl:Invoice"/>
 
 		    <!--ASSERT -->
@@ -6719,7 +6719,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:CompanyID" priority="1024" mode="M7">
+   <xsl:template match="cbc:CompanyID" priority="1025" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:CompanyID"/>
 
 		    <!--ASSERT -->
@@ -6739,7 +6739,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:ExternalReference" priority="1023" mode="M7">
+   <xsl:template match="cac:ExternalReference" priority="1024" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:ExternalReference"/>
 
 		    <!--ASSERT -->
@@ -6760,7 +6760,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:Country | cac:OriginCountry" priority="1022" mode="M7">
+   <xsl:template match="cac:Country | cac:OriginCountry" priority="1023" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:Country | cac:OriginCountry"/>
 
@@ -6781,7 +6781,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:TaxScheme" priority="1021" mode="M7">
+   <xsl:template match="cac:TaxScheme" priority="1022" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxScheme"/>
 
 		    <!--ASSERT -->
@@ -6802,7 +6802,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:PartyLegalEntity" priority="1020" mode="M7">
+   <xsl:template match="cac:PartyLegalEntity" priority="1021" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PartyLegalEntity"/>
 
 		    <!--ASSERT -->
@@ -6822,7 +6822,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:DeliveryTerms" priority="1019" mode="M7">
+   <xsl:template match="cac:DeliveryTerms" priority="1020" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:DeliveryTerms"/>
 
 		    <!--ASSERT -->
@@ -6843,7 +6843,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:PrimaryAccountNumberID" priority="1018" mode="M7">
+   <xsl:template match="cbc:PrimaryAccountNumberID" priority="1019" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cbc:PrimaryAccountNumberID"/>
 
@@ -6865,7 +6865,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:NetworkID" priority="1017" mode="M7">
+   <xsl:template match="cbc:NetworkID" priority="1018" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:NetworkID"/>
 
 		    <!--ASSERT -->
@@ -6886,7 +6886,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:PayeeFinancialAccount" priority="1016" mode="M7">
+   <xsl:template match="cac:PayeeFinancialAccount" priority="1017" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:PayeeFinancialAccount"/>
 
@@ -6908,7 +6908,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cbc:ID[parent::cac:PayeeFinancialAccount]"
-                 priority="1015"
+                 priority="1016"
                  mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cbc:ID[parent::cac:PayeeFinancialAccount]"/>
@@ -6931,7 +6931,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:FinancialInstitution" priority="1014" mode="M7">
+   <xsl:template match="cac:FinancialInstitution" priority="1015" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:FinancialInstitution"/>
 
@@ -6953,7 +6953,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cbc:ID[parent::cac:FinancialInstitution]"
-                 priority="1013"
+                 priority="1014"
                  mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cbc:ID[parent::cac:FinancialInstitution]"/>
@@ -6976,7 +6976,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:TaxCategory" priority="1012" mode="M7">
+   <xsl:template match="cac:TaxCategory" priority="1013" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory"/>
 
 		    <!--ASSERT -->
@@ -7011,7 +7011,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:MathematicOperatorCode" priority="1011" mode="M7">
+   <xsl:template match="cbc:MathematicOperatorCode" priority="1012" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cbc:MathematicOperatorCode"/>
 
@@ -7033,7 +7033,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:LegalMonetaryTotal" priority="1010" mode="M7">
+   <xsl:template match="cac:LegalMonetaryTotal" priority="1011" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:LegalMonetaryTotal"/>
 
@@ -7070,7 +7070,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:Item" priority="1009" mode="M7">
+   <xsl:template match="cac:Item" priority="1010" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:Item"/>
 
 		    <!--ASSERT -->
@@ -7091,7 +7091,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cac:OriginCountry/cbc:IdentificationCode"
-                 priority="1008"
+                 priority="1009"
                  mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:OriginCountry/cbc:IdentificationCode"/>
@@ -7114,7 +7114,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:AdditionalItemProperty" priority="1007" mode="M7">
+   <xsl:template match="cac:AdditionalItemProperty" priority="1008" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:AdditionalItemProperty"/>
 
@@ -7135,7 +7135,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:InvoiceLine" priority="1006" mode="M7">
+   <xsl:template match="cac:InvoiceLine" priority="1007" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine"/>
 
 		    <!--ASSERT -->
@@ -7155,7 +7155,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="ubl:Invoice/cac:PayeeParty" priority="1005" mode="M7">
+   <xsl:template match="ubl:Invoice/cac:PayeeParty" priority="1006" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ubl:Invoice/cac:PayeeParty"/>
 
@@ -7177,7 +7177,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cbc:TransactionCurrencyTaxAmount/@currencyID[/ubl:Invoice/cbc:TaxCurrencyCode]"
-                 priority="1004"
+                 priority="1005"
                  mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cbc:TransactionCurrencyTaxAmount/@currencyID[/ubl:Invoice/cbc:TaxCurrencyCode]"/>
@@ -7200,7 +7200,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:*/@currencyID" priority="1003" mode="M7">
+   <xsl:template match="cbc:*/@currencyID" priority="1004" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:*/@currencyID"/>
 
 		    <!--ASSERT -->
@@ -7222,7 +7222,7 @@
 
 	  <!--RULE -->
    <xsl:template match="ubl:Invoice/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount"
-                 priority="1002"
+                 priority="1003"
                  mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ubl:Invoice/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount"/>
@@ -7245,7 +7245,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:AllowanceCharge" priority="1001" mode="M7">
+   <xsl:template match="cac:AllowanceCharge" priority="1002" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge"/>
 
 		    <!--ASSERT -->
@@ -7282,7 +7282,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cac:Item/cac:ClassifiedTaxCategory"
-                 priority="1000"
+                 priority="1001"
                  mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:Item/cac:ClassifiedTaxCategory"/>
@@ -7296,7 +7296,28 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[SI-V12-INV-R030] An Item ClassifiedTaxCategory must have an ID value</svrl:text>
+               <svrl:text>[SI-V12-INV-R030] An Item ClassifiedTaxCategory MUST have an ID value</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M7"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="cac:TaxRepresentativeParty" priority="1000" mode="M7">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="cac:TaxRepresentativeParty"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="cac:PartyTaxScheme"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PartyTaxScheme">
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[SI-V12-INV-R031] A TaxRepresentativeParty MUST have a PartyTaxScheme section</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>

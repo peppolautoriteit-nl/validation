@@ -14,7 +14,7 @@ SI-UBL 1.2:
 - Correctly mark the schema element as XSLT2
 - Renamed the BII pattern to avoid conflicts
 - Added a check for the existence of cbc:ID in cac:Item/cac:ClassifiedTaxCategory. The cardinality of cbc:ID here is 1..1, but this was not checked.
-
+- Added a check for the existence of cac:PartyTaxScheme in cac:TaxRepresentativeParty. The cardinality of cac:PartyTaxScheme is 1..1, but this was not checked.
 
 ==========================
 =   Published releases   =
