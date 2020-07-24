@@ -37,6 +37,22 @@ The tools/ directory contains the tools to recreate the xsl files from the schem
 
 The build_all_linux.sh script rebuilds all generated files in this repository, based on the schematron files.
 
+Schematron File overview
+========================
+
+The schematron/ directory contains a number of files and subdirectories. The files in the directory itself are the main schematron files for the different document formats and versions. The subdirectories contain supporting files, which are included by the main top-level schematron files. For instance, the main directory contains the validation schematron file for SI-UBL 2.0, called 'si-ubl-2.0.sch'. This files includes several files from the si-ubl-2.0/ subdirectory, such as 'si-ubl-2.0-nlcius.sch' (which contains the specific rules from the NLCIUS, and nothing else), and several files from si-ubl-2.0/CenPC434, which contain the general rules from the European Norm for core invoices, EN-16931.
+
+The schematron files can be used directly by any software that supports it, or they can be used to (re)create the XSL files.
+
+This is the list of schematron files included in this repository:
+
+- [schematron/si-ubl-2.0.sch](schematron/si-ubl-2.0.sch) SI-UBL 2.0, Invoice and CreditNote. This implements all the rules of EN-16931 and NLCIUS. See [https://stpe.nl/documenten/](https://stpe.nl/documenten/) for more information (in Dutch).
+- [schematron/si-ubl-2.0-ext-gaccount.sch](schematron/si-ubl-2.0-ext-gaccount.sch) This is the g-account extension on the NLCIUS, to be used in g-account scenarios, where part of the amount to be payed is to be payed to a separate blocked account. See [https://stpe.nl/documenten/](https://stpe.nl/documenten/) for more information (in Dutch).
+- [schematron/si-ubl-1.2.sch](schematron/si-ubl-1.2.sch) SI-UBL 1.2, Invoice. The previous and now optional version of SI-UBL. This does not support the rules of the NLCIUS.
+- [schematron/si-ubl-1.2-purchaseorder.sch](schematron/si-ubl-1.2-purchaseorder.sch) SI-UBL 1.2, Purchase orders. The previous and now optional version of SI-UBL.
+- [schematron/si-ubl-1.1.sch](schematron/si-ubl-1.1.sch) SI-UBL 1.1. This version is out of support, but kept for historic purposes.
+- [schematron/si-ubl-1.0.sch](schematron/si-ubl-1.0.sch) SI-UBL 1.1. This version is out of support, but kept for historic purposes.
+
 
 SI-UBL 2.0.3
 ============
