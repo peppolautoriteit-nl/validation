@@ -40,7 +40,9 @@ The build_all_linux.sh script rebuilds all generated files in this repository, b
 Schematron File overview
 ========================
 
-The schematron/ directory contains a number of files and subdirectories. The files in the directory itself are the main schematron files for the different document formats and versions. The subdirectories contain supporting files, which are included by the main top-level schematron files. For instance, the main directory contains the validation schematron file for SI-UBL 2.0, called 'si-ubl-2.0.sch'. This files includes several files from the si-ubl-2.0/ subdirectory, such as 'si-ubl-2.0-nlcius.sch' (which contains the specific rules from the NLCIUS, and nothing else), and several files from si-ubl-2.0/CenPC434, which contain the general rules from the European Norm for core invoices, EN-16931.
+The schematron/ directory contains a number of files and subdirectories. The files in the directory itself are the main schematron files for the different document formats and versions. The subdirectories contain supporting files, which are included by the main top-level schematron files; these only contain parts of the specification, and are generally not intended for individual use.
+
+For instance, the main directory contains the validation schematron file for SI-UBL 2.0, called 'si-ubl-2.0.sch'. This file includes several files from the si-ubl-2.0/ subdirectory, such as 'si-ubl-2.0-nlcius.sch' (which contains the specific rules from the NLCIUS, and nothing else), and several files from si-ubl-2.0/CenPC434 (which contain the general rules from the European Norm for core invoices, EN-16931).
 
 The schematron files can be used directly by any software that supports it, or they can be used to (re)create the XSL files.
 
