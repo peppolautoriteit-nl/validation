@@ -53,7 +53,7 @@ This is the list of schematron files included in this repository:
 - [schematron/si-ubl-1.2.sch](schematron/si-ubl-1.2.sch) SI-UBL 1.2, Invoice. The previous and now optional version of SI-UBL. This does not support the rules of the NLCIUS.
 - [schematron/si-ubl-1.2-purchaseorder.sch](schematron/si-ubl-1.2-purchaseorder.sch) SI-UBL 1.2, Purchase orders. The previous and now optional version of SI-UBL.
 - [schematron/si-ubl-1.1.sch](schematron/si-ubl-1.1.sch) SI-UBL 1.1. This version is out of support, but kept for historic purposes.
-- [schematron/si-ubl-1.0.sch](schematron/si-ubl-1.0.sch) SI-UBL 1.1. This version is out of support, but kept for historic purposes.
+- [schematron/si-ubl-1.0.sch](schematron/si-ubl-1.0.sch) SI-UBL 1.0. This version is out of support, but kept for historic purposes.
 
 
 SI-UBL 2.0.3
