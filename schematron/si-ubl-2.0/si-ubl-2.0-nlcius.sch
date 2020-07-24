@@ -48,15 +48,15 @@
   </rule>
   <!-- BR-NL-6 is not specified; BR-NL-7 and BR-NL-8 are specified below -->
   <rule context="cbc:InvoiceTypeCode[$s]">
-    <assert id="BR-NL-7" test=". = 380 or
-                    . = 381 or
-                    . = 384 or
-                    . = 389" flag="fatal">[BR-NL-7] The invoice type code (cbc:InvoiceTypeCode) MUST have one of the following values: 380, 381, 384, 389</assert>
-    <assert id="BR-NL-8" test=". != 381 or
+    <assert id="BR-NL-7" test=". = '380' or
+                    . = '381' or
+                    . = '384' or
+                    . = '389'" flag="fatal">[BR-NL-7] The invoice type code (cbc:InvoiceTypeCode) MUST have one of the following values: 380, 381, 384, 389</assert>
+    <assert id="BR-NL-8" test=". != '381' or
                     /ubl:CreditNote" flag="fatal">[BR-NL-8] If the invoice type code (cbc:InvoiceTypeCode) is 381, the document MUST use the CreditNote scheme</assert>
-    <assert id="BR-NL-8" test=". != 381 or
+    <assert id="BR-NL-8" test=". != '381' or
                     /ubl:Invoice" flag="fatal">[BR-NL-8] If the invoice type code (cbc:InvoiceTypeCode) is 380, 384 or 389, the document MUST use the Invoice scheme</assert>
-    <assert id="BR-NL-9" test="(. != 384) or
+    <assert id="BR-NL-9" test="(. != '384') or
                     /*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" flag="fatal">[BR-NL-9] For suppliers in the Netherlands, if the document is a corrective invoice (cbc:InvoiceTypeCode = 384), the document MUST contain an invoice reference (cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID)</assert>
   </rule>
   <rule context="cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity[$s]">

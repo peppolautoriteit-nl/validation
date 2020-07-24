@@ -16827,10 +16827,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test=". = 380 or                     . = 381 or                     . = 384 or                     . = 389"/>
+         <xsl:when test=". = '380' or                     . = '381' or                     . = '384' or                     . = '389'"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test=". = 380 or . = 381 or . = 384 or . = 389">
+                                test=". = '380' or . = '381' or . = '384' or . = '389'">
                <xsl:attribute name="id">BR-NL-7</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -16843,10 +16843,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test=". != 381 or                     /ubl:CreditNote"/>
+         <xsl:when test=". != '381' or                     /ubl:CreditNote"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test=". != 381 or /ubl:CreditNote">
+                                test=". != '381' or /ubl:CreditNote">
                <xsl:attribute name="id">BR-NL-8</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -16859,9 +16859,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test=". != 381 or                     /ubl:Invoice"/>
+         <xsl:when test=". != '381' or                     /ubl:Invoice"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test=". != 381 or /ubl:Invoice">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test=". != '381' or /ubl:Invoice">
                <xsl:attribute name="id">BR-NL-8</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -16874,10 +16875,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(. != 384) or                     /*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID"/>
+         <xsl:when test="(. != '384') or                     /*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="(. != 384) or /*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID">
+                                test="(. != '384') or /*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID">
                <xsl:attribute name="id">BR-NL-9</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
