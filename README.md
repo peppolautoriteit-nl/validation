@@ -66,7 +66,9 @@ Since this is based on EN-16931, there are major differences between SI-UBL 1.2 
 
 The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated xsl [here](xsl/si-ubl-2.0.xsl)
 
-This schematron definition is based on the CenPC434 schematron, which can be found at https://github.com/CenPC434/validation . The commit that was included at the time of the release of SI-UBL-2.0.3 was https://github.com/CenPC434/validation/commits/fa4c0abb1 (tag validation-1.3.1), with one additional proposed fix, shown in https://github.com/tjeb/eInvoicing-EN16931/commit/5e5e39ffe39f64d0496c717f6c471365d5d7cc4c
+This schematron definition is based on the CenPC434 schematron, which can be found at https://github.com/CenPC434/validation .
+
+The commit that was included at the time of the release of SI-UBL-2.0.3 was https://github.com/CenPC434/validation/commits/b6762416 (tag validation-1.3.2), with one additional proposed fix, shown in https://github.com/tjeb/eInvoicing-EN16931/commit/dd021e64b079aa772c5383da087c7f94baefc71d
 
 NLCIUS-CII 1.0.3.0
 ==================

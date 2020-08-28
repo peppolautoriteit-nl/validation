@@ -6,6 +6,7 @@ Scheduled for next release
 SI-UBL 2.0:
 - Fixed a typo in the rule BR-NL-23 (https://github.com/SimplerInvoicing/validation/issues/29)
 - Changed the ubl: prefix to the wildcard * in the workaround for the CenPC issue (see https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/212)
+- Updated the underlying CEN PC434 validation files to version 1.3.2 (still with our additional fix, which has not been fixed upstream yet)
 
 SI-UBL 2.0 g-account extension:
 - Added the prefix [BR-GA-0] to the output of the corresponding rule (https://github.com/SimplerInvoicing/validation/issues/25)
