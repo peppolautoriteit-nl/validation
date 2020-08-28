@@ -27,7 +27,7 @@
     <ns prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
 
     <!-- basic version-independent checks -->
-    <include href="general/SI-UBL-PO-GENERAL.SCH" />
+    <include href="si-ubl-1.2/si-po/SI-UBL-PO-GENERAL.SCH" />
 
 
     <!-- SimplerInvoicing Version 1.2 -->
