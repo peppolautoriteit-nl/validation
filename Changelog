@@ -16,6 +16,9 @@ SI-UBL 1.2:
 - Added a check for the existence of cbc:ID in cac:Item/cac:ClassifiedTaxCategory. The cardinality of cbc:ID here is 1..1, but this was not checked.
 - Added a check for the existence of cac:PartyTaxScheme in cac:TaxRepresentativeParty. The cardinality of cac:PartyTaxScheme is 1..1, but this was not checked.
 
+NLCIUS-CII 1.0.3.0:
+- Added the validation files for NLCIUS mapped to UN/CEFACT CII D16B
+
 ==========================
 =   Published releases   =
 ==========================

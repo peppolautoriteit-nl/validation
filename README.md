@@ -11,8 +11,8 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
 * [SI-UBL 2.0 Invoice and CreditNote (2.0.3)](xsl/si-ubl-2.0.xsl)
 * [SI-UBL 2.0 G-Account extension (1.0)](xsl/si-ubl-2.0-ext-gaccount.xsl)
+* [NLCIUS UN/CEFACT CII (1.0.3.0)](xsl/nlcius-cii-1.0.xsl)
 
-Note that we have removed the 'all-versions' schematron.
 
 Versioning
 ==========
@@ -48,8 +48,9 @@ The schematron files can be used directly by any software that supports it, or t
 
 This is the list of schematron files included in this repository:
 
-- [schematron/si-ubl-2.0.sch](schematron/si-ubl-2.0.sch) SI-UBL 2.0, Invoice and CreditNote. This implements all the rules of EN-16931 and NLCIUS. See [https://stpe.nl/documenten/](https://stpe.nl/documenten/) for more information (in Dutch).
+- [schematron/si-ubl-2.0.sch](schematron/si-ubl-2.0.sch) SI-UBL 2.0, Invoice and CreditNote. This implements all the rules of EN-16931 and NLCIUS for UBL. See [https://stpe.nl/documenten/](https://stpe.nl/documenten/) for more information (in Dutch).
 - [schematron/si-ubl-2.0-ext-gaccount.sch](schematron/si-ubl-2.0-ext-gaccount.sch) This is the g-account extension on the NLCIUS, to be used in g-account scenarios, where part of the amount to be payed is to be payed to a separate blocked account. See [https://stpe.nl/documenten/](https://stpe.nl/documenten/) for more information (in Dutch).
+- [schematron/nlcius-cii-1.0.sch](schematron/nlcius-cii-1.0.sch) NLCIUS CII Invoice. This is the UN/CEFACT CII D16B mapping that implements the rules of EN-16931 and NLCIUS.
 - [schematron/si-ubl-1.2.sch](schematron/si-ubl-1.2.sch) SI-UBL 1.2, Invoice. The previous and now optional version of SI-UBL. This does not support the rules of the NLCIUS.
 - [schematron/si-ubl-1.2-purchaseorder.sch](schematron/si-ubl-1.2-purchaseorder.sch) SI-UBL 1.2, Purchase orders. The previous and now optional version of SI-UBL.
 - [schematron/si-ubl-1.1.sch](schematron/si-ubl-1.1.sch) SI-UBL 1.1. This version is out of support, but kept for historic purposes.
@@ -66,6 +67,19 @@ Since this is based on EN-16931, there are major differences between SI-UBL 1.2 
 The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated xsl [here](xsl/si-ubl-2.0.xsl)
 
 This schematron definition is based on the CenPC434 schematron, which can be found at https://github.com/CenPC434/validation . The commit that was included at the time of the release of SI-UBL-2.0.3 was https://github.com/CenPC434/validation/commits/fa4c0abb1 (tag validation-1.3.1), with one additional proposed fix, shown in https://github.com/tjeb/eInvoicing-EN16931/commit/5e5e39ffe39f64d0496c717f6c471365d5d7cc4c
+
+NLCIUS-CII 1.0.3.0
+==================
+
+This implements the same base rules from NLCIUS, but for the document format UN/CEFACT CII D16B.
+
+The validation includes all the rules as implemented by the CEN PC434 group, with additional checks for the NLCIUS rules.
+
+The CEN rules are based on https://github.com/ConnectingEurope/eInvoicing-EN16931
+commit b6762416a714fa78633af72966f130bddbeee568
+(tag validation-1.3.2)
+
+
 
 Test Files
 ==========
