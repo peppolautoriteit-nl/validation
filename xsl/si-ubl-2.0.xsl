@@ -3485,9 +3485,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="../cbc:TaxAmount = 0"/>
+         <xsl:when test="xs:decimal(../cbc:TaxAmount) = 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="../cbc:TaxAmount = 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="xs:decimal(../cbc:TaxAmount) = 0">
                <xsl:attribute name="id">BR-AE-09</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3525,9 +3526,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-AE-06</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3549,9 +3551,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-AE-07</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3573,9 +3576,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-AE-05</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3613,9 +3617,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="../cbc:TaxAmount = 0"/>
+         <xsl:when test="xs:decimal(../cbc:TaxAmount) = 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="../cbc:TaxAmount = 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="xs:decimal(../cbc:TaxAmount) = 0">
                <xsl:attribute name="id">BR-E-09</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3653,9 +3658,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-E-06</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3677,9 +3683,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-E-07</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3701,9 +3708,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-E-05</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3741,9 +3749,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="../cbc:TaxAmount = 0"/>
+         <xsl:when test="xs:decimal(../cbc:TaxAmount) = 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="../cbc:TaxAmount = 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="xs:decimal(../cbc:TaxAmount) = 0">
                <xsl:attribute name="id">BR-G-09</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3781,9 +3790,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-G-06</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3805,9 +3815,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-G-07</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3829,9 +3840,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-G-05</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3869,9 +3881,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="../cbc:TaxAmount = 0"/>
+         <xsl:when test="xs:decimal(../cbc:TaxAmount) = 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="../cbc:TaxAmount = 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="xs:decimal(../cbc:TaxAmount) = 0">
                <xsl:attribute name="id">BR-IC-09</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3909,9 +3922,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-IC-06</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3933,9 +3947,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-IC-07</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3957,9 +3972,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-IC-05</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4255,9 +4271,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="../cbc:TaxAmount = 0"/>
+         <xsl:when test="xs:decimal(../cbc:TaxAmount) = 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="../cbc:TaxAmount = 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="xs:decimal(../cbc:TaxAmount) = 0">
                <xsl:attribute name="id">BR-O-09</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4512,9 +4529,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="../cbc:TaxAmount = 0"/>
+         <xsl:when test="xs:decimal(../cbc:TaxAmount) = 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="../cbc:TaxAmount = 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="xs:decimal(../cbc:TaxAmount) = 0">
                <xsl:attribute name="id">BR-Z-09</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4552,9 +4570,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-Z-06</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4576,9 +4595,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-Z-07</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4600,9 +4620,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(cbc:Percent = 0)"/>
+         <xsl:when test="(xs:decimal(cbc:Percent) = 0)"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(cbc:Percent = 0)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(xs:decimal(cbc:Percent) = 0)">
                <xsl:attribute name="id">BR-Z-05</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -16821,9 +16842,11 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:InvoiceTypeCode[$s]" priority="1029" mode="M14">
+   <xsl:template match="cbc:InvoiceTypeCode[$s]|cbc:CreditNoteTypeCode[$s]"
+                 priority="1029"
+                 mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="cbc:InvoiceTypeCode[$s]"/>
+                       context="cbc:InvoiceTypeCode[$s]|cbc:CreditNoteTypeCode[$s]"/>
 
 		    <!--ASSERT -->
       <xsl:choose>
@@ -16836,7 +16859,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[BR-NL-7] The invoice type code (cbc:InvoiceTypeCode) MUST have one of the following values: 380, 381, 384, 389</svrl:text>
+               <svrl:text>[BR-NL-7] The invoice or credit note type code (cbc:InvoiceTypeCode/cbc:CreditNoteTypeCode) MUST have one of the following values: 380, 381, 384, 389</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -16868,7 +16891,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[BR-NL-8] If the invoice type code (cbc:InvoiceTypeCode) is 380, 384 or 389, the document MUST use the Invoice scheme</svrl:text>
+               <svrl:text>[BR-NL-8] If the credit note type code (cbc:CreditNoteTypeCode) is 380, 384 or 389, the document MUST use the Invoice scheme</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>

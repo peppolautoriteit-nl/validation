@@ -74,13 +74,12 @@
     <include href="si-ubl-2.0/si-ubl-2.0-nlcius.sch"/>
 
     <!-- EN-16931 -->
+    <!-- Modified version of the syntax, to allow for multiple PaymentMeans and PaymentTerms -->
     <include href="si-ubl-2.0/CenPC434/abstract/EN16931-model.sch"/>
-    <include href="si-ubl-2.0/CenPC434/abstract/EN16931-syntax.sch"/>
+    <include href="si-ubl-2.0-ext-gaccount/EN16931-syntax-modified.sch"/>
 
     <include href="si-ubl-2.0/CenPC434/codelist/EN16931-UBL-codes.sch"/>
 
     <include href="si-ubl-2.0/CenPC434/UBL/EN16931-UBL-model.sch"/>
-    <!-- Modified version of the syntax, to allow for multiple PaymentMeans and PaymentTerms -->
-    <include href="si-ubl-2.0-ext-gaccount/EN16931-syntax-modified.sch"/>
-
+    <include href="si-ubl-2.0/CenPC434/UBL/EN16931-UBL-syntax.sch"/>
 </schema>
