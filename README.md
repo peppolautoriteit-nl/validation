@@ -7,11 +7,11 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 
 * [SI-UBL Invoice all versions up to 1.2](xsl/si-ubl-inv-all.xsl)
 * [SI-UBL 1.1 Invoice](xsl/si-ubl-1.1.xsl)
-* [SI-UBL 1.2 Invoice](xsl/si-ubl-1.2.xsl)
+* [SI-UBL 1.2 Invoice (1.2.3)](xsl/si-ubl-1.2.xsl)
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
-* [SI-UBL 2.0 Invoice and CreditNote (2.0.3)](xsl/si-ubl-2.0.xsl)
-* [SI-UBL 2.0 G-Account extension (1.0)](xsl/si-ubl-2.0-ext-gaccount.xsl)
-* [NLCIUS UN/CEFACT CII (1.0.3.0)](xsl/nlcius-cii-1.0.xsl)
+* [SI-UBL 2.0 Invoice and CreditNote (2.0.3.1)](xsl/si-ubl-2.0.xsl)
+* [SI-UBL 2.0 G-Account extension (1.0.1)](xsl/si-ubl-2.0-ext-gaccount.xsl)
+* [NLCIUS UN/CEFACT CII (1.0.3)](xsl/nlcius-cii-1.0.xsl)
 
 
 Versioning
@@ -19,9 +19,9 @@ Versioning
 
 Since this repository contains multiple versioned validation sets, the versioning of the repository through it tags is separate from the versions of the validation sets themselves.
 
-Versioning of the validation artefacts uses the major.minor.bugfix approach; Major and minor versions are updated if the specification itself changes, bugfixes are only updates of the validation artefacts when issues are found.
+Versioning of the validation artefacts use 4 numbers: major.minor.bugfix.release; Major, minor and bugfix releases are the version numbers taken from the specification files, where major numbers are incremented on backwards-incompatible changes, minor numbers are incremented on significant but backwards compatible changes, and bugfix numbers are incremented on small changes and clarifications. The release number itself is incremented for bugfixes and changes on the validation files themselves, if the specification has not been updated since the last release. If the release version is 0, it is omitted.
 
-The repository uses a single version by date approach; any time one or more validation sets are updated into a release, the repository version changes to the current date, e.g. 2020-02-14. See the Changelog file for the mapping of repository releases and validation set releases. The links above always refer to the latest version of each set.
+Release tags in the repository itself use a single version by date approach; any time one or more validation sets are updated into a release, the repository version changes to the current date, e.g. 2020-02-14. See the Changelog file for the mapping of repository releases and validation set releases. The links above always refer to the latest version of each set.
 
 Directory overview
 ==================
@@ -57,10 +57,10 @@ This is the list of schematron files included in this repository:
 - [schematron/si-ubl-1.0.sch](schematron/si-ubl-1.0.sch) SI-UBL 1.0. This version is out of support, but kept for historic purposes.
 
 
-SI-UBL 2.0.3
-============
+SI-UBL 2.0.3.1
+==============
 
-This is the version of SI-UBL that is based on the NLCIUS, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
+This is the version of SI-UBL that is based on the NLCIUS 2.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
 
 Since this is based on EN-16931, there are major differences between SI-UBL 1.2 and SI-UBL 2.0. For more information about the new rules, see https://www.stpe.nl/media/stpe.nl-gebruiksinstructie-basisfactuur-v1.0.pdf
 
@@ -72,8 +72,8 @@ The commit that was included at the time of the release of SI-UBL-2.0.3 was http
 
 The related pull requests for these fixes upstream are https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/226 and https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/227
 
-NLCIUS-CII 1.0.3.0
-==================
+NLCIUS-CII 1.0.3
+================
 
 This implements the same base rules from NLCIUS, but for the document format UN/CEFACT CII D16B.
 

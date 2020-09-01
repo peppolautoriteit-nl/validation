@@ -6,7 +6,7 @@
      The rules include SI-UBL 2.0.2, as well as a modified version of the CenPC-434, to allow for multiple
      PaymentMeans and PaymentTerms elements.
 
-     version 1.0
+     version 1.0.1
 
      Authors:
      Michiel Stornebrink
@@ -18,6 +18,7 @@
     xmlns:cn="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
     xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
+    <title>SI-UBL G-Account extension validation, version 1.0.1</title>
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>

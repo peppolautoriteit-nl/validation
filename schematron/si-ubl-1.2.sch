@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--
-        Upcoming release:
+        Release 1.2.3
+        Date: 2020-09-01
+        Author: Jelte Jansen (Ionite / headON / Simplerinvoicing)
         - Correctly mark the schema element as XSLT2
         - Renamed the BII pattern to avoid conflicts
         - Added a check for the existence of cbc:ID in cac:Item/cac:ClassifiedTaxCategory. The cardinality of cbc:ID here is 1..1, but this was not checked.
         - The same for cac:TaxRepresentativeParty/cac:PartyTaxScheme
-    
-        Release 1.2.1
+
+        Release 1.2.2
         Date: 2020-03-30
         Author: Jelte Jansen (Ionite / headON / Simplerinvoicing)
         Changes since 1.2.1:
@@ -51,7 +53,7 @@
         Release 1.1
         Author: M.P. Diepstra (Innopay)
     -->
-    <title>Simplerinvoicing invoice v1.2 bound to UBL 2.1 and OPENPEPPOL v2</title>
+    <title>Simplerinvoicing invoice v1.2 bound to UBL 2.1 and OPENPEPPOL v2, version 1.2.3</title>
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>

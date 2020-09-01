@@ -171,7 +171,7 @@
    <!--SCHEMA SETUP-->
    <xsl:template match="/">
       <svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                              title="PC434-NL-specific Validation"
+                              title="SI-UBL 2.0 validation, version 2.0.3.1"
                               schemaVersion="">
          <xsl:comment>
             <xsl:value-of select="$archiveDirParameter"/>   
@@ -244,7 +244,7 @@
    </xsl:template>
 
    <!--SCHEMATRON PATTERNS-->
-   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">PC434-NL-specific Validation</svrl:text>
+   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">SI-UBL 2.0 validation, version 2.0.3.1</svrl:text>
 
    <!--PATTERN SI-UBL-VERSION-->
 
@@ -16866,10 +16866,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test=". != '381' or                     /ubl:CreditNote"/>
+         <xsl:when test="(. != '381') or /cn:CreditNote"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test=". != '381' or /ubl:CreditNote">
+                                test="(. != '381') or /cn:CreditNote">
                <xsl:attribute name="id">BR-NL-8</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -16882,10 +16882,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test=". != '381' or                     /ubl:Invoice"/>
+         <xsl:when test="(. = '381') or /ubl:Invoice"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test=". != '381' or /ubl:Invoice">
+                                test="(. = '381') or /ubl:Invoice">
                <xsl:attribute name="id">BR-NL-8</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
