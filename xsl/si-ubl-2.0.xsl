@@ -295,10 +295,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="contains(normalize-space(.), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0')"/>
+         <xsl:when test="starts-with(normalize-space(.), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="contains(normalize-space(.), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0')">
+                                test="starts-with(normalize-space(.), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0')">
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
@@ -16709,9 +16709,9 @@
    <!--PATTERN nlcius-->
    <xsl:variable name="customizationID" select="normalize-space(/*/cbc:CustomizationID)"/>
    <xsl:variable name="is_SI-UBL-2.0"
-                 select="$customizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0'"/>
+                 select="contains($customizationID, '#compliant#urn:fdc:nen.nl:nlcius:v1.0')"/>
    <xsl:variable name="is_SI-UBL-2.0-ext-gaccount"
-                 select="$customizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0#conformant#urn:fdc:nen.nl:gaccount:v1.0'"/>
+                 select="contains($customizationID, '#conformant#urn:fdc:nen.nl:gaccount:v1.0')"/>
    <xsl:variable name="supplierCountry"
                  select="if (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode) then upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) else 'XX'"/>
    <xsl:variable name="supplierIsNL" select="$supplierCountry = 'NL'"/>

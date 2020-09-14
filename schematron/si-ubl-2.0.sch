@@ -35,7 +35,7 @@
         </rule>
         <!-- must be si 2.0 -->
         <rule context="cbc:CustomizationID">
-            <assert test="contains(normalize-space(.), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0')" flag="fatal">[SI-V20-INV-R000]-This XML instance is NOT tagged as an SI-UBL 2.0 invoice or credit note; please check the CustomizationID value</assert>
+            <assert test="starts-with(normalize-space(.), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0')" flag="fatal">[SI-V20-INV-R000]-This XML instance is NOT tagged as an SI-UBL 2.0 invoice or credit note; please check the CustomizationID value</assert>
         </rule>
         <rule context="/" flag="fatal">
             <assert test="ubl:Invoice or cn:CreditNote" flag="fatal">[SI-INV-R000]-This is not an SI-UBL 2.0 Invoice or CreditNote, validation cannot continue</assert>
