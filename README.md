@@ -1,7 +1,7 @@
 validation
 ==========
 
-This repository contains all files related to validation of the simplerinvoicing XML files.
+This repository contains all files related to validation of the SI-UBL and NLCIUS XML files.
 
 If you are just looking for the latest validation artefacts in xsl form, you can find them here:
 
