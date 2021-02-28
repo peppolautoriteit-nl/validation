@@ -73,16 +73,15 @@
     <assert id="BR-NL-11" test="xs:decimal(cbc:PayableAmount) &lt;= 0.0 or (//cac:PaymentMeans)" flag="fatal">[BR-NL-11] For suppliers in the Netherlands, the supplier MUST provide a means of payment (cac:PaymentMeans) if the payment is from customer to supplier</assert>
   </rule>
   <rule context="cac:PaymentMeans[$s]">
-    <assert id="BR-NL-12" test="cbc:PaymentMeansCode = 30 or
-              cbc:PaymentMeansCode = 48 or
-              cbc:PaymentMeansCode = 49 or
-              cbc:PaymentMeansCode = 57 or
-              cbc:PaymentMeansCode = 58 or
-              cbc:PaymentMeansCode = 59" flag="fatal">[BR-NL-12] For suppliers in the Netherlands, the payment means code (cac:PaymentMeans/cbc:PaymentMeansCode) MUST be one of 30, 48, 49, 57, 58 or 59</assert>
+    <assert id="BR-NL-12" test="normalize-space(cbc:PaymentMeansCode) = '30' or
+              normalize-space(cbc:PaymentMeansCode) = '48' or
+              normalize-space(cbc:PaymentMeansCode) = '49' or
+              normalize-space(cbc:PaymentMeansCode) = '57' or
+              normalize-space(cbc:PaymentMeansCode) = '58' or
+              normalize-space(cbc:PaymentMeansCode) = '59'" flag="fatal">[BR-NL-12] For suppliers in the Netherlands, the payment means code (cac:PaymentMeans/cbc:PaymentMeansCode) MUST be one of 30, 48, 49, 57, 58 or 59</assert>
 
     <!-- check if payment means code is 58 or 59 -->
-    <!-- NOTE: this should be tested well... -->
-    <assert id="BR-NL-31" test="not((cbc:PaymentMeansCode = 58 or cbc:PaymentMeansCode = 59)) or not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID)" flag="warning">[BR-NL-31] The use of a payment service provider identifier (cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) is not recommended for SEPA payments (cac:PaymentMeans/cbc:PaymentMeansCode = 58 or 59)</assert>
+    <assert id="BR-NL-31" test="not((normalize-space(cbc:PaymentMeansCode) = '58' or normalize-space(cbc:PaymentMeansCode) = '59')) or not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID)" flag="warning">[BR-NL-31] The use of a payment service provider identifier (cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) is not recommended for SEPA payments (cac:PaymentMeans/cbc:PaymentMeansCode = 58 or 59)</assert>
     <!-- should move BR-NL-32 to its own context too, then add BR-NL-34 there -->
 
   </rule>

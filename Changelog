@@ -3,7 +3,7 @@
 Scheduled for next release
 --------------------------
 
-No changes yet
+- Fixed an issue with PaymentMeansCode rules (BR-NL-12 and BR-NL-31); they are now treated as strings instead of integers (https://github.com/peppolautoriteit-nl/validation/issues/34)
 
 
 ==========================
