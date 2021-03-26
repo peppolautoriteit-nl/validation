@@ -679,10 +679,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="cbc:PaymentMeansCode = 30 or               cbc:PaymentMeansCode = 48 or               cbc:PaymentMeansCode = 49 or               cbc:PaymentMeansCode = 57 or               cbc:PaymentMeansCode = 58 or               cbc:PaymentMeansCode = 59"/>
+         <xsl:when test="normalize-space(cbc:PaymentMeansCode) = '30' or               normalize-space(cbc:PaymentMeansCode) = '48' or               normalize-space(cbc:PaymentMeansCode) = '49' or               normalize-space(cbc:PaymentMeansCode) = '57' or               normalize-space(cbc:PaymentMeansCode) = '58' or               normalize-space(cbc:PaymentMeansCode) = '59'"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="cbc:PaymentMeansCode = 30 or cbc:PaymentMeansCode = 48 or cbc:PaymentMeansCode = 49 or cbc:PaymentMeansCode = 57 or cbc:PaymentMeansCode = 58 or cbc:PaymentMeansCode = 59">
+                                test="normalize-space(cbc:PaymentMeansCode) = '30' or normalize-space(cbc:PaymentMeansCode) = '48' or normalize-space(cbc:PaymentMeansCode) = '49' or normalize-space(cbc:PaymentMeansCode) = '57' or normalize-space(cbc:PaymentMeansCode) = '58' or normalize-space(cbc:PaymentMeansCode) = '59'">
                <xsl:attribute name="id">BR-NL-12</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -695,10 +695,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cbc:PaymentMeansCode = 58 or cbc:PaymentMeansCode = 59)) or not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID)"/>
+         <xsl:when test="not((normalize-space(cbc:PaymentMeansCode) = '58' or normalize-space(cbc:PaymentMeansCode) = '59')) or not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cbc:PaymentMeansCode = 58 or cbc:PaymentMeansCode = 59)) or not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID)">
+                                test="not((normalize-space(cbc:PaymentMeansCode) = '58' or normalize-space(cbc:PaymentMeansCode) = '59')) or not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID)">
                <xsl:attribute name="id">BR-NL-31</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
