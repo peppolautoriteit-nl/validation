@@ -1,7 +1,7 @@
 <!--
     These are the NLCIUS-specific validation rules for UN/CEFACT CII D16B documents
 
-    Release 1.0.3.0
+    Release 1.0.3.1
 
     Authors:
     - Wouter van den Berg (TNO)
@@ -10,11 +10,7 @@
     Additional changes written by
     - Jelte Jansen (Simplerinvoicing) 
     
-    Changelog:
-    
-    1.0.3:
-        - initial import
-
+    Changelog: see Changelog file in repository root
 
     Licensed under the European Union Public License (EUPL) version 1.2
 -->

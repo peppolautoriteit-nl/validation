@@ -5,7 +5,7 @@
      The validation rules include the validation files from CEN, validating EN-16931,
      as published on https://github.com/ConnectingEurope/eInvoicing-EN16931
      
-     Release 1.0.3
+     Release 1.0.3.1
      
      Authors:
      - Wouter van den Berg (TNO)
@@ -14,10 +14,7 @@
      Additional changes by
      - Jelte Jansen (Simplerinvoicing) 
      
-     Changelog:
-     
-     1.0.3:
-     - initial import
+     Changelog: see Changelog file in repository root
 -->
 <schema
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"

@@ -198,9 +198,9 @@
 	<param name="CII-SR-166" value="not(ram:ShipFromTradeParty)"/>
 	<param name="CII-SR-167" value="not(ram:ActualDespatchSupplyChainEvent)"/>
 	<param name="CII-SR-168" value="not(ram:ActualPickUpSupplyChainEvent)"/>
-	<param name="CII-SR-169" value="not(ram:ActualReceiptSupplyChainEvent)"/>
+	<param name="CII-SR-169" value="not(ram:RequestedDeliverySupplyChainEvent)"/>
 	<param name="CII-SR-170" value="not(ram:ActualDeliverySupplyChainEvent)"/>
-	<param name="CII-SR-171" value="not(ram:RequestedQuantity)"/>
+	<param name="CII-SR-171" value="not(ram:ActualReceiptSupplyChainEvent)"/>
 	<param name="CII-SR-172" value="not(ram:AdditionalReferencedDocument)"/>
 	<param name="CII-SR-173" value="not(ram:DespatchAdviceReferencedDocument)"/>
 	<param name="CII-SR-174" value="not(ram:ReceivingAdviceReferencedDocument)"/>
@@ -613,10 +613,13 @@
 	<param name="CII-DT-094" value="not(ram:BuildingNumber)"/>
 	<param name="CII-DT-095" value="not(ram:DepartmentName)"/>
 	<param name="CII-DT-096" value="not(ram:AdditionalStreetName)"/>
+	<!-- DateTimeString -->
+	<param name="CII-DT-097" value="matches(.,'(\d{8})')"/>
 	
     <!-- Sections -->
     
   <param name="Invoice_line " value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem"/>
+  <param name="AssociatedDocumentLineDocument " value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument"/>	
   <param name="Invoice " value="/rsm:CrossIndustryInvoice"/>
   <param name="Document_Context " value="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext"/>
   <param name="DocumentContextParameter " value="//*[ends-with(name(), 'DocumentContextParameter')]"/>
@@ -644,4 +647,5 @@
   <param name="ApplicableHeaderTradeDelivery " value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeDelivery"/>
 	<param name="ApplicableHeaderTradeSettlement " value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement"/>    
 	<param name="SpecifiedTradeSettlementHeaderMonetarySummation " value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation"/>          
+	<param name="DateTimeString " value="//udt:DateTimeString[@format = '102']"/>
 </pattern>
