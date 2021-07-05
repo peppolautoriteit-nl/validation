@@ -68,9 +68,16 @@ The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated 
 
 This schematron definition is based on the CenPC434 schematron, which can be found at https://github.com/CenPC434/validation .
 
-The commit that was included at the time of the release of SI-UBL-2.0.3 was https://github.com/CenPC434/validation/commits/b6762416 (tag validation-1.3.2), with two additional proposed fixes, shown in https://github.com/tjeb/eInvoicing-EN16931/commit/dd021e64b079aa772c5383da087c7f94baefc71d and https://github.com/tjeb/eInvoicing-EN16931/commit/71df26a862e59fc7136e7cb78574d6486cd58a97
+The commit that was included at the time of the release of SI-UBL-2.0.3 was https://github.com/CenPC434/validation/commits/18530d4f
+(tag validation-1.3.6)
 
-The related pull requests for these fixes upstream are https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/226 and https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/227
+There is one additional modification in the CenPC 434 rules for BR-CO-15:
+the check was changed to only consider cac:TaxTotal/cbc:TaxAmount on the
+document level, not every instance of this field. This is to accomodate for
+extensions that also use cac:TaxTotal/cbc:TaxAmount in other places.
+
+See https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/257 for
+more information.
 
 NLCIUS-CII 1.0.3
 ================
