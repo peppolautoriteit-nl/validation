@@ -9,8 +9,8 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 * [SI-UBL 1.1 Invoice](xsl/si-ubl-1.1.xsl)
 * [SI-UBL 1.2 Invoice (1.2.3)](xsl/si-ubl-1.2.xsl)
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
-* [SI-UBL 2.0 Invoice and CreditNote (2.0.3.1)](xsl/si-ubl-2.0.xsl)
-* [SI-UBL 2.0 G-Account extension (1.0.1)](xsl/si-ubl-2.0-ext-gaccount.xsl)
+* [SI-UBL 2.0 Invoice and CreditNote (2.0.3.2)](xsl/si-ubl-2.0.xsl)
+* [SI-UBL 2.0 G-Account extension (1.0.2)](xsl/si-ubl-2.0-ext-gaccount.xsl)
 * [NLCIUS UN/CEFACT CII (1.0.3.1)](xsl/nlcius-cii-1.0.xsl)
 
 
@@ -57,7 +57,7 @@ This is the list of schematron files included in this repository:
 - [schematron/si-ubl-1.0.sch](schematron/si-ubl-1.0.sch) SI-UBL 1.0. This version is out of support, but kept for historic purposes.
 
 
-SI-UBL 2.0.3.1
+SI-UBL 2.0.3.2
 ==============
 
 This is the version of SI-UBL that is based on the NLCIUS 2.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
@@ -68,7 +68,7 @@ The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated 
 
 This schematron definition is based on the CenPC434 schematron, which can be found at https://github.com/CenPC434/validation .
 
-The commit that was included at the time of the release of SI-UBL-2.0.3 was https://github.com/CenPC434/validation/commits/18530d4f
+The commit that was included at the time of the release of SI-UBL-2.0.3.2 was https://github.com/CenPC434/validation/commits/18530d4f
 (tag validation-1.3.6)
 
 There is one additional modification in the CenPC 434 rules for BR-CO-15:
@@ -79,8 +79,8 @@ extensions that also use cac:TaxTotal/cbc:TaxAmount in other places.
 See https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/257 for
 more information.
 
-NLCIUS-CII 1.0.3
-================
+NLCIUS-CII 1.0.3.1
+==================
 
 This implements the same base rules from NLCIUS, but for the document format UN/CEFACT CII D16B.
 

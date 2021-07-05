@@ -171,7 +171,7 @@
    <!--SCHEMA SETUP-->
    <xsl:template match="/">
       <svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                              title="SI-UBL G-Account extension validation, version 1.0.1"
+                              title="SI-UBL G-Account extension validation, version 1.0.2"
                               schemaVersion="">
          <xsl:comment>
             <xsl:value-of select="$archiveDirParameter"/>   
@@ -244,7 +244,7 @@
    </xsl:template>
 
    <!--SCHEMATRON PATTERNS-->
-   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">SI-UBL G-Account extension validation, version 1.0.1</svrl:text>
+   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">SI-UBL G-Account extension validation, version 1.0.2</svrl:text>
 
    <!--PATTERN g-account-extension-->
 

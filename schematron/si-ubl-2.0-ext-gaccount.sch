@@ -3,10 +3,10 @@
      These G-account extension rules are based on the specification in
      https://stpe.nl/media/Dutch%20national%20EN%2016931%20extension%20-%20G-account%20version%201.0.pdf
 
-     The rules include SI-UBL 2.0.2, as well as a modified version of the CenPC-434, to allow for multiple
+     The rules include SI-UBL 2.0.3.2, as well as a modified version of the CenPC-434, to allow for multiple
      PaymentMeans and PaymentTerms elements.
 
-     version 1.0.1
+     version 1.0.2
 
      Authors:
      Michiel Stornebrink
@@ -18,7 +18,7 @@
     xmlns:cn="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
     xmlns="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
-    <title>SI-UBL G-Account extension validation, version 1.0.1</title>
+    <title>SI-UBL G-Account extension validation, version 1.0.2</title>
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
