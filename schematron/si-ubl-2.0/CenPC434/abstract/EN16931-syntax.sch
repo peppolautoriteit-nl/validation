@@ -3,9 +3,7 @@
     Licensed under European Union Public Licence (EUPL) version 1.2.
 
 -->
-<!-- Schematron rules generated automatically by Validex Generator Midran ltd -->
 <!-- Abstract rules for syntax -->
-<!-- Timestamp: 2016-12-01 22:31:03 +0100 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="syntax">
   <rule context="$Accounting_supplier_party">
     <assert test="$UBL-SR-42" flag="fatal" id="UBL-SR-42">[UBL-SR-42]-Party tax scheme shall occur maximum twice in accounting supplier party</assert>
@@ -735,7 +733,6 @@
     <assert test="$UBL-SR-03" flag="fatal" id="UBL-SR-03">[UBL-SR-03]-Despatch advice identifier shall occur maximum once</assert>
     <assert test="$UBL-SR-04" flag="fatal" id="UBL-SR-04">[UBL-SR-04]-Invoice object identifier shall occur maximum once</assert>
     <assert test="$UBL-SR-05" flag="fatal" id="UBL-SR-05">[UBL-SR-05]-Payment terms shall occur maximum once</assert>
-    <assert test="$UBL-SR-06" flag="fatal" id="UBL-SR-06">[UBL-SR-06]-Preceding invoice reference shall occur maximum once</assert>
     <assert test="$UBL-SR-08" flag="fatal" id="UBL-SR-08">[UBL-SR-08]-Invoice period shall occur maximum once</assert>
     <assert test="$UBL-SR-09" flag="fatal" id="UBL-SR-09">[UBL-SR-09]-Seller name shall occur maximum once</assert>
     <assert test="$UBL-SR-10" flag="fatal" id="UBL-SR-10">[UBL-SR-10]-Seller trader name shall occur maximum once</assert>
@@ -762,7 +759,6 @@
     <assert test="$UBL-SR-35" flag="fatal" id="UBL-SR-35">[UBL-SR-35]-Referenced purchase order line identifier shall occur maximum once</assert>
     <assert test="$UBL-SR-36" flag="fatal" id="UBL-SR-36">[UBL-SR-36]-Invoice line period shall occur maximum once</assert>
     <assert test="$UBL-SR-37" flag="fatal" id="UBL-SR-37">[UBL-SR-37]-Item price discount shall occur maximum once</assert>
-    <assert test="$UBL-SR-38" flag="fatal" id="UBL-SR-38">[UBL-SR-38]-Invoiced item VAT exemption reason text shall occur maximum once</assert>
     <assert test="$UBL-SR-48" flag="fatal" id="UBL-SR-48">[UBL-SR-48]-Invoice lines shall have one and only one classified tax category.</assert>
     <assert test="$UBL-SR-50" flag="fatal" id="UBL-SR-50">[UBL-SR-50]-Item description shall occur maximum once</assert>
   </rule>
@@ -777,6 +773,7 @@
     <assert test="$UBL-SR-28" flag="fatal" id="UBL-SR-28">[UBL-SR-28]-Mandate reference identifier shall occur maximum once</assert>
   </rule>
   <rule context="$Preceding_Invoice">
+    <assert test="$UBL-SR-06" flag="fatal" id="UBL-SR-06">[UBL-SR-06]-Preceding invoice reference shall occur maximum once</assert>
     <assert test="$UBL-SR-07" flag="fatal" id="UBL-SR-07">[UBL-SR-07]-If there is a preceding invoice reference, the preceding invoice number shall be present</assert>
   </rule>
   <rule context="$Tax_Representative">

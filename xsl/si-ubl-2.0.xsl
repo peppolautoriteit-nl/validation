@@ -171,7 +171,7 @@
    <!--SCHEMA SETUP-->
    <xsl:template match="/">
       <svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                              title="SI-UBL 2.0 validation, version 2.0.3.2"
+                              title="SI-UBL 2.0 validation, version 2.0.3.3"
                               schemaVersion="">
          <xsl:comment>
             <xsl:value-of select="$archiveDirParameter"/>   
@@ -244,7 +244,7 @@
    </xsl:template>
 
    <!--SCHEMATRON PATTERNS-->
-   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">SI-UBL 2.0 validation, version 2.0.3.2</svrl:text>
+   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">SI-UBL 2.0 validation, version 2.0.3.3</svrl:text>
 
    <!--PATTERN SI-UBL-VERSION-->
 
@@ -5239,10 +5239,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:OrderReference/cbc:DocumentReference)"/>
+         <xsl:when test="not(cac:OrderReference/cac:DocumentReference)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:OrderReference/cbc:DocumentReference)">
+                                test="not(cac:OrderReference/cac:DocumentReference)">
                <xsl:attribute name="id">UBL-CR-022</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -5335,10 +5335,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:Xpath)"/>
+         <xsl:when test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:XPath)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:Xpath)">
+                                test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:XPath)">
                <xsl:attribute name="id">UBL-CR-028</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -5703,10 +5703,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:DespatchDocumentReference/cbc:Xpath)"/>
+         <xsl:when test="not(cac:DespatchDocumentReference/cbc:XPath)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:DespatchDocumentReference/cbc:Xpath)">
+                                test="not(cac:DespatchDocumentReference/cbc:XPath)">
                <xsl:attribute name="id">UBL-CR-051</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -5959,10 +5959,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:ReceiptDocumentReference/cbc:Xpath)"/>
+         <xsl:when test="not(cac:ReceiptDocumentReference/cbc:XPath)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:ReceiptDocumentReference/cbc:Xpath)">
+                                test="not(cac:ReceiptDocumentReference/cbc:XPath)">
                <xsl:attribute name="id">UBL-CR-067</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -6231,10 +6231,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:OriginatorDocumentReference/cbc:Xpath)"/>
+         <xsl:when test="not(cac:OriginatorDocumentReference/cbc:XPath)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:OriginatorDocumentReference/cbc:Xpath)">
+                                test="not(cac:OriginatorDocumentReference/cbc:XPath)">
                <xsl:attribute name="id">UBL-CR-084</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -6487,10 +6487,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:ContractDocumentReference/cbc:Xpath)"/>
+         <xsl:when test="not(cac:ContractDocumentReference/cbc:XPath)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:ContractDocumentReference/cbc:Xpath)">
+                                test="not(cac:ContractDocumentReference/cbc:XPath)">
                <xsl:attribute name="id">UBL-CR-100</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -6727,10 +6727,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:AdditionalDocumentReference/cbc:Xpath)"/>
+         <xsl:when test="not(cac:AdditionalDocumentReference/cbc:XPath)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:AdditionalDocumentReference/cbc:Xpath)">
+                                test="not(cac:AdditionalDocumentReference/cbc:XPath)">
                <xsl:attribute name="id">UBL-CR-115</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -7798,10 +7798,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)"/>
+         <xsl:when test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)">
+                                test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)">
                <xsl:attribute name="id">UBL-CR-183</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -8822,10 +8822,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)"/>
+         <xsl:when test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)">
+                                test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)">
                <xsl:attribute name="id">UBL-CR-247</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -9382,10 +9382,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporationStockAmount)"/>
+         <xsl:when test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporateStockAmount)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporationStockAmount)">
+                                test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporateStockAmount)">
                <xsl:attribute name="id">UBL-CR-282</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -10597,10 +10597,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidationPeriod)"/>
+         <xsl:when test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidityPeriod)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidationPeriod)">
+                                test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidityPeriod)">
                <xsl:attribute name="id">UBL-CR-358</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -11013,10 +11013,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:Delivery/cac:PromisedDeliveryPeriod)"/>
+         <xsl:when test="not(cac:Delivery/cac:EstimatedDeliveryPeriod)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:Delivery/cac:PromisedDeliveryPeriod)">
+                                test="not(cac:Delivery/cac:EstimatedDeliveryPeriod)">
                <xsl:attribute name="id">UBL-CR-384</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -11492,10 +11492,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:PaymentMeans/cbc:InstructionID)"/>
+         <xsl:when test="not(cac:PaymentMeans/cbc:InstructionNote)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:PaymentMeans/cbc:InstructionID)">
+                                test="not(cac:PaymentMeans/cbc:InstructionNote)">
                <xsl:attribute name="id">UBL-CR-414</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -11572,10 +11572,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssuerNumberID)"/>
+         <xsl:when test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssueNumberID)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssuerNumberID)">
+                                test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssueNumberID)">
                <xsl:attribute name="id">UBL-CR-419</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -13042,10 +13042,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)"/>
+         <xsl:when test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)">
+                                test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)">
                <xsl:attribute name="id">UBL-CR-512</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -13442,10 +13442,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:Xpath)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:XPath)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:Xpath)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:XPath)">
                <xsl:attribute name="id">UBL-CR-538</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -13986,10 +13986,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BareCodeSymbologyID)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarecodeSymbologyID)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BareCodeSymbologyID)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarecodeSymbologyID)">
                <xsl:attribute name="id">UBL-CR-572</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14066,10 +14066,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BareCodeSymbologyID)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarecodeSymbologyID)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BareCodeSymbologyID)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarecodeSymbologyID)">
                <xsl:attribute name="id">UBL-CR-577</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14162,10 +14162,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BareCodeSymbologyID)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarecodeSymbologyID)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BareCodeSymbologyID)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarecodeSymbologyID)">
                <xsl:attribute name="id">UBL-CR-583</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14546,10 +14546,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)">
                <xsl:attribute name="id">UBL-CR-607</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14834,10 +14834,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceChangeReason)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceChangeReason)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceChangeReason)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceChangeReason)">
                <xsl:attribute name="id">UBL-CR-625</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14850,10 +14850,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceTypeCode)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceTypeCode)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceTypeCode)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceTypeCode)">
                <xsl:attribute name="id">UBL-CR-626</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14866,10 +14866,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceType)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceType)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceType)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceType)">
                <xsl:attribute name="id">UBL-CR-627</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14882,10 +14882,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)">
                <xsl:attribute name="id">UBL-CR-628</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14898,10 +14898,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:ValidityPeriod)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:ValidityPeriod)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:ValidityPeriod)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:ValidityPeriod)">
                <xsl:attribute name="id">UBL-CR-629</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14914,10 +14914,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceList)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceList)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceList)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceList)">
                <xsl:attribute name="id">UBL-CR-630</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14930,10 +14930,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)">
                <xsl:attribute name="id">UBL-CR-631</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14946,10 +14946,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:ID)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:ID)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:ID)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:ID)">
                <xsl:attribute name="id">UBL-CR-632</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14962,10 +14962,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)">
                <xsl:attribute name="id">UBL-CR-633</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14978,10 +14978,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)">
                <xsl:attribute name="id">UBL-CR-634</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -14994,10 +14994,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)">
                <xsl:attribute name="id">UBL-CR-635</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -15010,10 +15010,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)">
                <xsl:attribute name="id">UBL-CR-636</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -15026,10 +15026,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)">
                <xsl:attribute name="id">UBL-CR-637</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -15042,10 +15042,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)">
                <xsl:attribute name="id">UBL-CR-638</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -15058,10 +15058,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)">
                <xsl:attribute name="id">UBL-CR-639</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -15074,10 +15074,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)">
                <xsl:attribute name="id">UBL-CR-640</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -15090,10 +15090,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxCategory)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxCategory)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxCategory)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxCategory)">
                <xsl:attribute name="id">UBL-CR-641</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -15106,10 +15106,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxTotal)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxTotal)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxTotal)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxTotal)">
                <xsl:attribute name="id">UBL-CR-642</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -15122,10 +15122,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)">
                <xsl:attribute name="id">UBL-CR-643</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -15138,10 +15138,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:PricingExchangeRate)"/>
+         <xsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:PricingExchangeRate)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:PricingExchangeRate)">
+                                test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:PricingExchangeRate)">
                <xsl:attribute name="id">UBL-CR-644</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
@@ -16128,22 +16128,6 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(count(cac:InvoiceDocumentReference) &lt;= 1)"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="(count(cac:InvoiceDocumentReference) &lt;= 1)">
-               <xsl:attribute name="id">UBL-SR-06</xsl:attribute>
-               <xsl:attribute name="flag">fatal</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>[UBL-SR-06]-Preceding invoice reference shall occur maximum once</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-      <xsl:choose>
          <xsl:when test="(count(cac:InvoicePeriod) &lt;= 1)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
@@ -16536,22 +16520,6 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(count(cac:Item/cac:ClassifiedTaxCategory/cbc:TaxExemptionReason) &lt;= 1)"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="(count(cac:Item/cac:ClassifiedTaxCategory/cbc:TaxExemptionReason) &lt;= 1)">
-               <xsl:attribute name="id">UBL-SR-38</xsl:attribute>
-               <xsl:attribute name="flag">fatal</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>[UBL-SR-38]-Invoiced item VAT exemption reason text shall occur maximum once</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-      <xsl:choose>
          <xsl:when test="count(cac:Item/cac:ClassifiedTaxCategory) = 1"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
@@ -16660,10 +16628,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(count(cbc:InstructionNote) &lt;= 1)"/>
+         <xsl:when test="(count(cbc:PaymentMeansCode) &lt;= 1)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="(count(cbc:InstructionNote) &lt;= 1)">
+                                test="(count(cbc:PaymentMeansCode) &lt;= 1)">
                <xsl:attribute name="id">UBL-SR-27</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -16695,6 +16663,22 @@
 	  <!--RULE -->
    <xsl:template match="cac:BillingReference" priority="1002" mode="M13">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:BillingReference"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="(count(cac:InvoiceDocumentReference) &lt;= 1)"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(count(cac:InvoiceDocumentReference) &lt;= 1)">
+               <xsl:attribute name="id">UBL-SR-06</xsl:attribute>
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[UBL-SR-06]-Preceding invoice reference shall occur maximum once</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
 
 		    <!--ASSERT -->
       <xsl:choose>

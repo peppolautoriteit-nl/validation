@@ -1,7 +1,7 @@
 <!--
     These are the NLCIUS-specific validation rules for UN/CEFACT CII D16B documents
 
-    Release 1.0.3.1
+    Release 1.0.3.2
 
     Authors:
     - Wouter van den Berg (TNO)
