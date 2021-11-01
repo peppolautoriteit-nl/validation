@@ -60,7 +60,7 @@ This is the list of schematron files included in this repository:
 SI-UBL 2.0.3.3
 ==============
 
-This is the version of SI-UBL that is based on the NLCIUS 2.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
+This is the version of SI-UBL that is based on the NLCIUS 1.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
 
 Since this is based on EN-16931, there are major differences between SI-UBL 1.2 and SI-UBL 2.0. For more information about the new rules, see https://www.stpe.nl/media/stpe.nl-gebruiksinstructie-basisfactuur-v1.0.pdf
 
