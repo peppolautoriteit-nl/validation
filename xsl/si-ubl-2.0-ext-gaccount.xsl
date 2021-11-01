@@ -17080,22 +17080,6 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(count(cac:InvoiceDocumentReference) &lt;= 1)"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="(count(cac:InvoiceDocumentReference) &lt;= 1)">
-               <xsl:attribute name="id">UBL-SR-06</xsl:attribute>
-               <xsl:attribute name="flag">fatal</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>[UBL-SR-06]-Preceding invoice reference shall occur maximum once</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-      <xsl:choose>
          <xsl:when test="(count(cac:InvoicePeriod) &lt;= 1)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
@@ -17488,21 +17472,6 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="$UBL-SR-38"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="$UBL-SR-38">
-               <xsl:attribute name="id">UBL-SR-38</xsl:attribute>
-               <xsl:attribute name="flag">fatal</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>[UBL-SR-38]-Invoiced item VAT exemption reason text shall occur maximum once</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-      <xsl:choose>
          <xsl:when test="count(cac:Item/cac:ClassifiedTaxCategory) = 1"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
@@ -17646,6 +17615,22 @@
 	  <!--RULE -->
    <xsl:template match="cac:BillingReference" priority="1002" mode="M14">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:BillingReference"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="(count(cac:InvoiceDocumentReference) &lt;= 1)"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="(count(cac:InvoiceDocumentReference) &lt;= 1)">
+               <xsl:attribute name="id">UBL-SR-06</xsl:attribute>
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[UBL-SR-06]-Preceding invoice reference shall occur maximum once</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
 
 		    <!--ASSERT -->
       <xsl:choose>
