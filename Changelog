@@ -3,8 +3,11 @@
 Scheduled for next release
 --------------------------
 
-Nothing as of yet.
 
+- Updated SI-UBL 2.0 (NLCIUS) g-acount extension to X.Y.Z
+
+SI-UBL 2.0 g-account extension X.Y.Z:
+- Made the CustomizationID a bit more lenient, so that other documents that are compliant to both NLCIUS and the g-account extension can use this validation as well. They MUST have a customizationID that starts with 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0' AND contains '#conformant#urn:fdc:nen.nl:gaccount:v1.0'
 
 ==========================
 =   Published releases   =

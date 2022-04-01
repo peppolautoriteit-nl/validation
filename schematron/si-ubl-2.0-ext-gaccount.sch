@@ -36,8 +36,8 @@
 
         <!-- BR-GA-0 (not formally defined in the specification -->
         <rule context="//cbc:CustomizationID">
-            <assert id="BR-GA-0" test="normalize-space(.) = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0#conformant#urn:fdc:nen.nl:gaccount:v1.0'" flag="fatal">
-            [BR-GA-0] When using the G-account extension, the CustomizationID must specify this.
+            <assert test="starts-with(normalize-space(.), 'urn:cen.eu:en16931:2017#compliant#urn:fdc:nen.nl:nlcius:v1.0')" flag="fatal">[SI-V20-INV-R000]-This XML instance is NOT tagged as an SI-UBL 2.0 invoice or credit note; please check the CustomizationID value</assert>
+            <assert id="BR-GA-0" test="contains(., '#conformant#urn:fdc:nen.nl:gaccount:v1.0')" flag="fatal">[BR-GA-0] When using the G-account extension, the CustomizationID must specify this.
             </assert>
         </rule>
 
