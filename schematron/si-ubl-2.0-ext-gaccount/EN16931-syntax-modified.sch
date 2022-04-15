@@ -2,7 +2,7 @@
 
     Licensed under European Union Public Licence (EUPL) version 1.2.
 
-    Current version based on https://github.com/CenPC434/validation, commit dff17025786b75d74dbd5a021cde0f39213694c9 (release 1.3.7)
+    Current version based on https://github.com/CenPC434/validation, commit 0cabbbf6714c707f360a525381c6acd8887b769b (release 1.3.8)
     
     Original file: ubl/schematron/abstract/EN16931-syntax.sch
     
@@ -521,7 +521,7 @@
     <assert test="$UBL-CR-484" flag="warning" id="UBL-CR-484">[UBL-CR-484]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme Name</assert>
     <assert test="$UBL-CR-485" flag="warning" id="UBL-CR-485">[UBL-CR-485]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme TaxTypeCode</assert>
     <assert test="$UBL-CR-486" flag="warning" id="UBL-CR-486">[UBL-CR-486]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme CurrencyCode</assert>
-    <assert test="$UBL-CR-487" flag="warning" id="UBL-CR-487">[UBL-CR-487]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme JurisdiccionRegionAddress</assert>
+    <assert test="$UBL-CR-487" flag="warning" id="UBL-CR-487">[UBL-CR-487]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme JurisdictionRegionAddress</assert>
     <assert test="$UBL-CR-488" flag="warning" id="UBL-CR-488">[UBL-CR-488]-A UBL invoice should not include the AllowanceCharge TaxTotal</assert>
     <assert test="$UBL-CR-489" flag="warning" id="UBL-CR-489">[UBL-CR-489]-A UBL invoice should not include the AllowanceCharge PaymentMeans</assert>
     <assert test="$UBL-CR-490" flag="warning" id="UBL-CR-490">[UBL-CR-490]-A UBL invoice should not include the TaxExchangeRate</assert>
@@ -546,7 +546,7 @@
     <assert test="$UBL-CR-509" flag="warning" id="UBL-CR-509">[UBL-CR-509]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme Name</assert>
     <assert test="$UBL-CR-510" flag="warning" id="UBL-CR-510">[UBL-CR-510]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme TaxTypeCode</assert>
     <assert test="$UBL-CR-511" flag="warning" id="UBL-CR-511">[UBL-CR-511]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme CurrencyCode</assert>
-    <assert test="$UBL-CR-512" flag="warning" id="UBL-CR-512">[UBL-CR-512]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme JurisdiccionRegionAddress</assert>
+    <assert test="$UBL-CR-512" flag="warning" id="UBL-CR-512">[UBL-CR-512]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme JurisdictionRegionAddress</assert>
     <assert test="$UBL-CR-513" flag="warning" id="UBL-CR-513">[UBL-CR-513]-A UBL invoice should not include the WithholdingTaxTotal</assert>
     <assert test="$UBL-CR-514" flag="warning" id="UBL-CR-514">[UBL-CR-514]-A UBL invoice should not include the LegalMonetaryTotal PayableAlternativeAmount</assert>
     <assert test="$UBL-CR-515" flag="warning" id="UBL-CR-515">[UBL-CR-515]-A UBL invoice should not include the InvoiceLine UUID</assert>
@@ -640,7 +640,7 @@
     <assert test="$UBL-CR-604" flag="warning" id="UBL-CR-604">[UBL-CR-604]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme Name</assert>
     <assert test="$UBL-CR-605" flag="warning" id="UBL-CR-605">[UBL-CR-605]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme TaxTypeCode</assert>
     <assert test="$UBL-CR-606" flag="warning" id="UBL-CR-606">[UBL-CR-606]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme CurrencyCode</assert>
-    <assert test="$UBL-CR-607" flag="warning" id="UBL-CR-607">[UBL-CR-607]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme JurisdiccionRegionAddress</assert>
+    <assert test="$UBL-CR-607" flag="warning" id="UBL-CR-607">[UBL-CR-607]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme JurisdictionRegionAddress</assert>
     <assert test="$UBL-CR-608" flag="warning" id="UBL-CR-608">[UBL-CR-608]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty ID</assert>
     <assert test="$UBL-CR-609" flag="warning" id="UBL-CR-609">[UBL-CR-609]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty NameCode</assert>
     <assert test="$UBL-CR-610" flag="warning" id="UBL-CR-610">[UBL-CR-610]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty TestMethod</assert>
@@ -698,7 +698,7 @@
     <assert test="$UBL-CR-662" flag="warning" id="UBL-CR-662">[UBL-CR-662]-A UBL invoice should not include the AllowanceChargeReasonCode listID</assert>
     <assert test="$UBL-CR-663" flag="warning" id="UBL-CR-663">[UBL-CR-663]-A UBL invoice should not include the unitCodeListID</assert>
     <assert test="$UBL-CR-664" flag="warning" id="UBL-CR-664">[UBL-CR-664]-A UBL invoice should not include the FinancialInstitutionBranch FinancialInstitution</assert>
-    <assert test="$UBL-CR-665" flag="warning" id="UBL-CR-665">[UBL-CR-665]-A UBL invoice should not include the AdditionalDocumentReference ID schemeID unless the ID equals '130'</assert>
+    <assert test="$UBL-CR-665" flag="warning" id="UBL-CR-665">[UBL-CR-665]-A UBL invoice should not include the AdditionalDocumentReference ID schemeID unless the DocumentTypeCode equals '130'</assert>
     <assert test="$UBL-CR-666" flag="fatal" id="UBL-CR-666">[UBL-CR-666]-A UBL invoice shall not include an AdditionalDocumentReference simultaneously referring an Invoice Object Identifier and an Attachment</assert>
     <assert test="$UBL-CR-667" flag="warning" id="UBL-CR-667">[UBL-CR-667]-A UBL invoice should not include a Buyer Item Identification schemeID</assert>
     <assert test="$UBL-CR-668" flag="warning" id="UBL-CR-668">[UBL-CR-668]-A UBL invoice should not include a Sellers Item Identification schemeID</assert>
@@ -714,6 +714,8 @@
     <assert test="$UBL-CR-678" flag="warning" id="UBL-CR-678">[UBL-CR-678]-A UBL invoice should not include the TaxCategory/ID schemeID</assert>
     <assert test="$UBL-CR-679" flag="warning" id="UBL-CR-679">[UBL-CR-679]-A UBL invoice should not include the ClassifiedTaxCategory/ID schemeID</assert>
     <assert test="$UBL-CR-680" flag="warning" id="UBL-CR-680">[UBL-CR-680]-A UBL invoice should not include the PaymentMeans/PayerFinancialAccount</assert>
+    <assert test="$UBL-CR-681" flag="warning" id="UBL-CR-681">[UBL-CR-681]-A UBL invoice should not include the PaymentMeans InstructionNote</assert>
+    <assert test="$UBL-CR-682" flag="warning" id="UBL-CR-682">[UBL-CR-682]-A UBL invoice should not include the Delivery DeliveryAddress</assert>
     
     <assert test="$UBL-DT-08" flag="warning" id="UBL-DT-08">[UBL-DT-08]-Scheme name attribute should not be present</assert>
     <assert test="$UBL-DT-09" flag="warning" id="UBL-DT-09">[UBL-DT-09]-Scheme agency name attribute should not be present</assert>
@@ -756,7 +758,7 @@
     <assert test="$UBL-SR-29" flag="fatal" id="UBL-SR-29">[UBL-SR-29]-Bank creditor reference shall occur maximum once</assert>
     <assert test="$UBL-SR-39" flag="fatal" id="UBL-SR-39">[UBL-SR-39]-Project reference shall occur maximum once.</assert>
     <assert test="$UBL-SR-40" flag="fatal" id="UBL-SR-40">[UBL-SR-40]-Buyer trade name shall occur maximum once</assert>
-    <assert test="$UBL-SR-44" flag="fatal" id="UBL-SR-44">[UBL-SR-44]-Payment ID shall occur maximum once</assert>
+    <assert test="$UBL-SR-44" flag="fatal" id="UBL-SR-44">[UBL-SR-44]-An Invoice may only have one unique PaymentID, but the PaymentID may be used for multiple PaymentMeans</assert>
     <assert test="$UBL-SR-45" flag="fatal" id="UBL-SR-45">[UBL-SR-45]-Due Date shall occur maximum once</assert>    
     <assert test="$UBL-SR-46" flag="fatal" id="UBL-SR-46">[UBL-SR-46]-Payment means text shall occur maximum once</assert>
     <assert test="$UBL-SR-47" flag="fatal" id="UBL-SR-47">[UBL-SR-47]-When there are more than one payment means code, they shall be equal</assert>

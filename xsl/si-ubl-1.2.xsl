@@ -7200,29 +7200,8 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cbc:*/@currencyID" priority="1004" mode="M7">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:*/@currencyID"/>
-
-		    <!--ASSERT -->
-      <xsl:choose>
-         <xsl:when test="string(.) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)"/>
-         <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="string(.) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)">
-               <xsl:attribute name="flag">fatal</xsl:attribute>
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>[SI-V12-INV-R026]-Currency Identifier MUST be stated in the currency as defined on header level</svrl:text>
-            </svrl:failed-assert>
-         </xsl:otherwise>
-      </xsl:choose>
-      <xsl:apply-templates select="@*|*" mode="M7"/>
-   </xsl:template>
-
-	  <!--RULE -->
    <xsl:template match="ubl:Invoice/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount"
-                 priority="1003"
+                 priority="1004"
                  mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ubl:Invoice/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount"/>
@@ -7241,11 +7220,26 @@
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="string(@currencyID) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="string(@currencyID) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)">
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[SI-V12-INV-R026]-Currency Identifier MUST be stated in the currency as defined on header level</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
       <xsl:apply-templates select="@*|*" mode="M7"/>
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:AllowanceCharge" priority="1002" mode="M7">
+   <xsl:template match="cac:AllowanceCharge" priority="1003" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge"/>
 
 		    <!--ASSERT -->
@@ -7282,7 +7276,7 @@
 
 	  <!--RULE -->
    <xsl:template match="cac:Item/cac:ClassifiedTaxCategory"
-                 priority="1001"
+                 priority="1002"
                  mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:Item/cac:ClassifiedTaxCategory"/>
@@ -7304,7 +7298,7 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:TaxRepresentativeParty" priority="1000" mode="M7">
+   <xsl:template match="cac:TaxRepresentativeParty" priority="1001" mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="cac:TaxRepresentativeParty"/>
 
@@ -7318,6 +7312,30 @@
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
                <svrl:text>[SI-V12-INV-R031] A TaxRepresentativeParty MUST have a PartyTaxScheme section</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M7"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="cbc:Amount[@currencyID]|                    cbc:TaxAmount[@currencyID]|                    cbc:TaxableAmount[@currencyID]|                    cbc:LineExtensionAmount[@currencyID]|                    cbc:PriceAmount[@currencyID]|                    cbc:BaseAmount[@currencyID]|                    cac:LegalMonetaryTotal/cbc:*[@currencyID]                   "
+                 priority="1000"
+                 mode="M7">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="cbc:Amount[@currencyID]|                    cbc:TaxAmount[@currencyID]|                    cbc:TaxableAmount[@currencyID]|                    cbc:LineExtensionAmount[@currencyID]|                    cbc:PriceAmount[@currencyID]|                    cbc:BaseAmount[@currencyID]|                    cac:LegalMonetaryTotal/cbc:*[@currencyID]                   "/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="string(@currencyID) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="string(@currencyID) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)">
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[SI-V12-INV-R026]-Currency Identifier MUST be stated in the currency as defined on header level</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>

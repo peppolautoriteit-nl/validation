@@ -7,11 +7,11 @@
     xmlns="http://purl.oclc.org/dsdl/schematron"
     queryBinding="xslt2">
     <!--
-        Release 2.0.3.3
+        Release 2.0.3.4
         Author: Jelte Jansen
         For changes, see Changelog file in repository root
     -->
-    <title>SI-UBL 2.0 validation, version 2.0.3.3</title>
+    <title>SI-UBL 2.0 validation, version 2.0.3.4</title>
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>

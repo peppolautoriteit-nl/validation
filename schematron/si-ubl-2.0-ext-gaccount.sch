@@ -3,10 +3,10 @@
      These G-account extension rules are based on the specification in
      https://stpe.nl/media/Dutch%20national%20EN%2016931%20extension%20-%20G-account%20version%201.0.pdf
 
-     The rules include SI-UBL 2.0.3.3, as well as a modified version of the CenPC-434, to allow for multiple
+     The rules include SI-UBL 2.0.3.4, as well as a modified version of the CenPC-434, to allow for multiple
      PaymentMeans and PaymentTerms elements.
 
-     version 1.0.3
+     version 1.0.4
 
      Authors:
      Michiel Stornebrink
