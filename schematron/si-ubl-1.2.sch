@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" queryBinding="xslt2" xmlns="http://purl.oclc.org/dsdl/schematron">
     <!--
+	Release 1.2.4
+	Date: 2022-05-01
+        - Updated the way currencyID values are checked, as some validator implementations are unable to handle the way they were implemented. See https://github.com/peppolautoriteit-nl/validation/issues/37 for more information.
+
         Release 1.2.3
         Date: 2020-09-01
         Author: Jelte Jansen (Ionite / headON / Simplerinvoicing)
