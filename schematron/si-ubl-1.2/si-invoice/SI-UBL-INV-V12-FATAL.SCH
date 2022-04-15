@@ -95,11 +95,17 @@
     <rule context="cbc:TransactionCurrencyTaxAmount/@currencyID[/ubl:Invoice/cbc:TaxCurrencyCode]" flag="fatal">
         <assert test="/ubl:Invoice/cbc:TaxCurrencyCode and string(.) = string(/ubl:Invoice/cbc:TaxCurrencyCode)" flag="fatal">[SI-V12-INV-R025]-Transaction currency tax amounts MUST be in the local currency and equal to the tax currency defined on the header level</assert>
     </rule>
+    <!--
+        SI-V12-INV-R026 has been moved to the end, as it must come after any rule
+        that shares context. Rules that share context must themselves include the
+        check of R026 (if they have a currencyID)
     <rule context="cbc:*/@currencyID" flag="fatal">
         <assert test="string(.) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)" flag="fatal">[SI-V12-INV-R026]-Currency Identifier MUST be stated in the currency as defined on header level</assert>
     </rule>
+    -->
     <rule context="ubl:Invoice/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID = 'VAT']/cbc:TaxAmount" flag="fatal">
         <assert test="not(/ubl:Invoice/cac:InvoiceLine/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID != 'VAT'])" flag="fatal">[SI-V12-INV-R027]-If the VAT total amount in an invoice exists then each invoice line item MUST have a VAT category ID.</assert>
+        <assert test="string(@currencyID) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)" flag="fatal">[SI-V12-INV-R026]-Currency Identifier MUST be stated in the currency as defined on header level</assert>
     </rule>
     <rule context="cac:AllowanceCharge" flag="fatal">
         <assert test="not(cbc:MultiplierFactorNumeric) or number(cbc:MultiplierFactorNumeric) &gt;=0" flag="fatal">[SI-V12-INV-R028]-An allowance percentage MUST NOT be negative.</assert>
@@ -110,5 +116,15 @@
     </rule>
     <rule context="cac:TaxRepresentativeParty">
         <assert test="cac:PartyTaxScheme" flag="fatal">[SI-V12-INV-R031] A TaxRepresentativeParty MUST have a PartyTaxScheme section</assert>
+    </rule>
+    <rule context="cbc:Amount[@currencyID]|
+                   cbc:TaxAmount[@currencyID]|
+                   cbc:TaxableAmount[@currencyID]|
+                   cbc:LineExtensionAmount[@currencyID]|
+                   cbc:PriceAmount[@currencyID]|
+                   cbc:BaseAmount[@currencyID]|
+                   cac:LegalMonetaryTotal/cbc:*[@currencyID]
+                  ">
+        <assert test="string(@currencyID) = string(/ubl:Invoice/cbc:DocumentCurrencyCode)" flag="fatal">[SI-V12-INV-R026]-Currency Identifier MUST be stated in the currency as defined on header level</assert>
     </rule>
 </pattern>
