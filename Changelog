@@ -3,7 +3,15 @@
 Scheduled for next release
 --------------------------
 
-PLANNED RELEASE FOR 2022-05-01
+No changes planned yet.
+
+==========================
+=   Published releases   =
+==========================
+
+
+REPOSITORY RELEASE 2021-05-01 (Spring 2022 release)
+===================================================
 
 - Updated SI-UBL 2.0 (NLCIUS) to 2.0.3.4
 - Updated SI-UBL 2.0 (NLCIUS) g-acount extension to 1.0.4
@@ -23,9 +31,7 @@ NLCIUS-CII 1.0.3.3:
 SI-UBL 1.2.3:
 - Updated the way currencyID values are checked, as some validator implementations are unable to handle the way they were implemented. See https://github.com/peppolautoriteit-nl/validation/issues/37 for more information.
 
-==========================
-=   Published releases   =
-==========================
+
 
 REPOSITORY RELEASE 2021-11-01 (Fall 2021 release)
 =================================================
