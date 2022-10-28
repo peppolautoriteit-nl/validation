@@ -1905,10 +1905,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:ID) != ''"/>
+         <xsl:when test="normalize-space(string-join(cbc:ID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:ID) != ''">
+                                test="normalize-space(string-join(cbc:ID)) != ''">
                <xsl:attribute name="id">BR-52</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1979,10 +1979,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:Country/cbc:IdentificationCode) != ''"/>
+         <xsl:when test="normalize-space(string-join(cac:Country/cbc:IdentificationCode)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:Country/cbc:IdentificationCode) != ''">
+                                test="normalize-space(string-join(cac:Country/cbc:IdentificationCode)) != ''">
                <xsl:attribute name="id">BR-11</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2567,10 +2567,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:CustomizationID) != ''"/>
+         <xsl:when test="normalize-space(string-join(cbc:CustomizationID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:CustomizationID) != ''">
+                                test="normalize-space(string-join(cbc:CustomizationID)) != ''">
                <xsl:attribute name="id">BR-01</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2583,10 +2583,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:ID) != ''"/>
+         <xsl:when test="normalize-space(string-join(cbc:ID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:ID) != ''">
+                                test="normalize-space(string-join(cbc:ID)) != ''">
                <xsl:attribute name="id">BR-02</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2599,10 +2599,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:IssueDate) != ''"/>
+         <xsl:when test="normalize-space(string-join(cbc:IssueDate)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:IssueDate) != ''">
+                                test="normalize-space(string-join(cbc:IssueDate)) != ''">
                <xsl:attribute name="id">BR-03</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2615,10 +2615,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:InvoiceTypeCode) != '' or normalize-space(cbc:CreditNoteTypeCode) !=''"/>
+         <xsl:when test="normalize-space(string-join(cbc:InvoiceTypeCode)) != '' or normalize-space(cbc:CreditNoteTypeCode) !=''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:InvoiceTypeCode) != '' or normalize-space(cbc:CreditNoteTypeCode) !=''">
+                                test="normalize-space(string-join(cbc:InvoiceTypeCode)) != '' or normalize-space(cbc:CreditNoteTypeCode) !=''">
                <xsl:attribute name="id">BR-04</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2631,10 +2631,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:DocumentCurrencyCode) != ''"/>
+         <xsl:when test="normalize-space(string-join(cbc:DocumentCurrencyCode)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:DocumentCurrencyCode) != ''">
+                                test="normalize-space(string-join(cbc:DocumentCurrencyCode)) != ''">
                <xsl:attribute name="id">BR-05</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2647,10 +2647,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) != ''"/>
+         <xsl:when test="normalize-space(string-join(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) != ''">
+                                test="normalize-space(string-join(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName)) != ''">
                <xsl:attribute name="id">BR-06</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2663,10 +2663,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) != ''"/>
+         <xsl:when test="normalize-space(string-join(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) != ''">
+                                test="normalize-space(string-join(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName)) != ''">
                <xsl:attribute name="id">BR-07</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3568,10 +3568,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:ID) != ''"/>
+         <xsl:when test="normalize-space(string-join(cbc:ID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:ID) != ''">
+                                test="normalize-space(string-join(cbc:ID)) != ''">
                <xsl:attribute name="id">BR-21</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3632,10 +3632,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:Item/cbc:Name) != ''"/>
+         <xsl:when test="normalize-space(string-join(cac:Item/cbc:Name)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:Item/cbc:Name) != ''">
+                                test="normalize-space(string-join(cac:Item/cbc:Name)) != ''">
                <xsl:attribute name="id">BR-25</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4140,10 +4140,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:ID) != ''"/>
+         <xsl:when test="normalize-space(string-join(cbc:ID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:ID) != ''">
+                                test="normalize-space(string-join(cbc:ID)) != ''">
                <xsl:attribute name="id">BR-50</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4272,10 +4272,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:Country/cbc:IdentificationCode) != ''"/>
+         <xsl:when test="normalize-space(string-join(cac:Country/cbc:IdentificationCode)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:Country/cbc:IdentificationCode) != ''">
+                                test="normalize-space(string-join(cac:Country/cbc:IdentificationCode)) != ''">
                <xsl:attribute name="id">BR-09</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4295,10 +4295,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:PartyName/cbc:Name) != ''"/>
+         <xsl:when test="normalize-space(string-join(string-join(cac:PartyName/cbc:Name))) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:PartyName/cbc:Name) != ''">
+                                test="normalize-space(string-join(string-join(cac:PartyName/cbc:Name))) != ''">
                <xsl:attribute name="id">BR-18</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4352,10 +4352,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:Country/cbc:IdentificationCode) != ''"/>
+         <xsl:when test="normalize-space(string-join(cac:Country/cbc:IdentificationCode)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:Country/cbc:IdentificationCode) != ''">
+                                test="normalize-space(string-join(cac:Country/cbc:IdentificationCode)) != ''">
                <xsl:attribute name="id">BR-20</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">

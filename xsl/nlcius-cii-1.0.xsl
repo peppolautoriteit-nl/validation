@@ -242,10 +242,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(ram:IssuerAssignedID) != ''"/>
+         <xsl:when test="normalize-space(string-join(ram:IssuerAssignedID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(ram:IssuerAssignedID) != ''">
+                                test="normalize-space(string-join(ram:IssuerAssignedID)) != ''">
                <xsl:attribute name="id">BR-52</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -333,10 +333,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(ram:ShipToTradeParty/ram:PostalTradeAddress and normalize-space(ram:ShipToTradeParty/ram:PostalTradeAddress/ram:CountryID) != '') or not (ram:ShipToTradeParty/ram:PostalTradeAddress)"/>
+         <xsl:when test="(ram:ShipToTradeParty/ram:PostalTradeAddress and normalize-space(string-join(ram:ShipToTradeParty/ram:PostalTradeAddress/ram:CountryID)) != '') or not (ram:ShipToTradeParty/ram:PostalTradeAddress)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="(ram:ShipToTradeParty/ram:PostalTradeAddress and normalize-space(ram:ShipToTradeParty/ram:PostalTradeAddress/ram:CountryID) != '') or not (ram:ShipToTradeParty/ram:PostalTradeAddress)">
+                                test="(ram:ShipToTradeParty/ram:PostalTradeAddress and normalize-space(string-join(ram:ShipToTradeParty/ram:PostalTradeAddress/ram:CountryID)) != '') or not (ram:ShipToTradeParty/ram:PostalTradeAddress)">
                <xsl:attribute name="id">BR-57</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -920,10 +920,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID) != ''"/>
+         <xsl:when test="normalize-space(string-join(rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID) != ''">
+                                test="normalize-space(string-join(rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID)) != ''">
                <xsl:attribute name="id">BR-01</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -936,10 +936,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:ExchangedDocument/ram:ID) != ''"/>
+         <xsl:when test="normalize-space(string-join(rsm:ExchangedDocument/ram:ID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:ExchangedDocument/ram:ID) != ''">
+                                test="normalize-space(string-join(rsm:ExchangedDocument/ram:ID)) != ''">
                <xsl:attribute name="id">BR-02</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -952,10 +952,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:ExchangedDocument/ram:IssueDateTime/udt:DateTimeString[@format='102']) != ''"/>
+         <xsl:when test="normalize-space(string-join(rsm:ExchangedDocument/ram:IssueDateTime/udt:DateTimeString[@format='102'])) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:ExchangedDocument/ram:IssueDateTime/udt:DateTimeString[@format='102']) != ''">
+                                test="normalize-space(string-join(rsm:ExchangedDocument/ram:IssueDateTime/udt:DateTimeString[@format='102'])) != ''">
                <xsl:attribute name="id">BR-03</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -968,10 +968,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:ExchangedDocument/ram:TypeCode) != ''"/>
+         <xsl:when test="normalize-space(string-join(rsm:ExchangedDocument/ram:TypeCode)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:ExchangedDocument/ram:TypeCode) != ''">
+                                test="normalize-space(string-join(rsm:ExchangedDocument/ram:TypeCode)) != ''">
                <xsl:attribute name="id">BR-04</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -984,10 +984,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode) != ''"/>
+         <xsl:when test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode) != ''">
+                                test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode)) != ''">
                <xsl:attribute name="id">BR-05</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1000,10 +1000,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:Name) != ''"/>
+         <xsl:when test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:Name)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:Name) != ''">
+                                test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:Name)) != ''">
                <xsl:attribute name="id">BR-06</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1016,10 +1016,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:Name) != ''"/>
+         <xsl:when test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:Name)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:Name) != ''">
+                                test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:Name)) != ''">
                <xsl:attribute name="id">BR-07</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1048,10 +1048,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID) != ''"/>
+         <xsl:when test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID) != ''">
+                                test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountryID)) != ''">
                <xsl:attribute name="id">BR-09</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1080,10 +1080,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountryID) != ''"/>
+         <xsl:when test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountryID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountryID) != ''">
+                                test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountryID)) != ''">
                <xsl:attribute name="id">BR-11</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1112,10 +1112,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication/ram:URIID/@schemeID) != '' or not (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication)"/>
+         <xsl:when test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication/ram:URIID/@schemeID) != '' or not (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication))"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication/ram:URIID/@schemeID) != '' or not (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication)">
+                                test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication/ram:URIID/@schemeID) != '' or not (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:URIUniversalCommunication))">
                <xsl:attribute name="id">BR-62</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1128,10 +1128,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:URIUniversalCommunication/ram:URIID/@schemeID) != '' or not (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:URIUniversalCommunication)"/>
+         <xsl:when test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:URIUniversalCommunication/ram:URIID/@schemeID)) != '' or not (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:URIUniversalCommunication)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:URIUniversalCommunication/ram:URIID/@schemeID) != '' or not (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:URIUniversalCommunication)">
+                                test="normalize-space(string-join(rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:URIUniversalCommunication/ram:URIID/@schemeID)) != '' or not (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:BuyerTradeParty/ram:URIUniversalCommunication)">
                <xsl:attribute name="id">BR-63</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1361,10 +1361,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(ram:AssociatedDocumentLineDocument/ram:LineID) != ''"/>
+         <xsl:when test="normalize-space(string-join(ram:AssociatedDocumentLineDocument/ram:LineID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(ram:AssociatedDocumentLineDocument/ram:LineID) != ''">
+                                test="normalize-space(string-join(ram:AssociatedDocumentLineDocument/ram:LineID)) != ''">
                <xsl:attribute name="id">BR-21</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1425,10 +1425,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(ram:SpecifiedTradeProduct/ram:Name) != ''"/>
+         <xsl:when test="normalize-space(string-join(ram:SpecifiedTradeProduct/ram:Name)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(ram:SpecifiedTradeProduct/ram:Name) != ''">
+                                test="normalize-space(string-join(ram:SpecifiedTradeProduct/ram:Name)) != ''">
                <xsl:attribute name="id">BR-25</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1489,10 +1489,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(ram:SpecifiedTradeProduct/ram:GlobalID/@schemeID) != '' or not (ram:SpecifiedTradeProduct/ram:GlobalID)"/>
+         <xsl:when test="normalize-space(string-join(ram:SpecifiedTradeProduct/ram:GlobalID/@schemeID)) != '' or not (ram:SpecifiedTradeProduct/ram:GlobalID)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(ram:SpecifiedTradeProduct/ram:GlobalID/@schemeID) != '' or not (ram:SpecifiedTradeProduct/ram:GlobalID)">
+                                test="normalize-space(string-join(ram:SpecifiedTradeProduct/ram:GlobalID/@schemeID)) != '' or not (ram:SpecifiedTradeProduct/ram:GlobalID)">
                <xsl:attribute name="id">BR-64</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1505,10 +1505,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listID) != '' or not (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification)"/>
+         <xsl:when test="normalize-space(string-join(ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listID)) != '' or not (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listID) != '' or not (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification)">
+                                test="normalize-space(string-join(ram:SpecifiedTradeProduct/ram:DesignatedProductClassification/ram:ClassCode/@listID)) != '' or not (ram:SpecifiedTradeProduct/ram:DesignatedProductClassification)">
                <xsl:attribute name="id">BR-65</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1953,10 +1953,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(ram:IssuerAssignedID) != ''"/>
+         <xsl:when test="normalize-space(string-join(ram:IssuerAssignedID)) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(ram:IssuerAssignedID) != ''">
+                                test="normalize-space(string-join(ram:IssuerAssignedID)) != ''">
                <xsl:attribute name="id">BR-55</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2047,10 +2047,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(ram:SpecifiedTaxRegistration/ram:ID[@schemeID='VA']) != ''"/>
+         <xsl:when test="normalize-space(string-join(ram:SpecifiedTaxRegistration/ram:ID[@schemeID='VA'])) != ''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(ram:SpecifiedTaxRegistration/ram:ID[@schemeID='VA']) != ''">
+                                test="normalize-space(string-join(ram:SpecifiedTaxRegistration/ram:ID[@schemeID='VA'])) != ''">
                <xsl:attribute name="id">BR-56</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
