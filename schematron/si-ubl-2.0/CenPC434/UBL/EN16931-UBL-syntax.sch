@@ -53,6 +53,8 @@
   <param name="UBL-SR-48" value="count(cac:Item/cac:ClassifiedTaxCategory) = 1"/>
   <param name="UBL-SR-49" value="(count(cac:InvoicePeriod/cbc:DescriptionCode) &lt;=1)"/>
   <param name="UBL-SR-50" value="count(cac:Item/cbc:Description) &lt;= 1"/>
+  <param name="UBL-SR-51" value="count(cbc:Line) = 1"/>
+  <param name="UBL-SR-52" value="count(cac:DocumentReference) &lt;= 1"/>
   
   <param name="UBL-DT-01" value="string-length(substring-after(.,'.'))&lt;=2"/>
   <param name="UBL-DT-06" value="(@mimeCode)"/>
@@ -562,7 +564,7 @@
   <param name="UBL-CR-484" value="not(cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cbc:Name)"/>
   <param name="UBL-CR-485" value="not(cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode)"/>
   <param name="UBL-CR-486" value="not(cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cbc:CurrencyCode)"/>
-  <param name="UBL-CR-487" value="not(cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)"/>
+  <param name="UBL-CR-487" value="not(cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)"/>
   <param name="UBL-CR-488" value="not(cac:AllowanceCharge/cac:TaxTotal)"/>
   <param name="UBL-CR-489" value="not(cac:AllowanceCharge/cac:PaymentMeans)"/>
   <param name="UBL-CR-490" value="not(cac:TaxExchangeRate)"/>
@@ -777,4 +779,5 @@
   <param name="Code_data_type" value="//*[ends-with(name(), 'Code')]"/>
   <param name="Binary_object_data_type" value="//*[ends-with(name(), 'BinaryObject')]"/>
   <param name="Accounting_supplier_party" value="cac:AccountingSupplierParty/cac:Party"/>
+  <param name="AddressLine" value="//cac:AddressLine"/>
 </pattern>

@@ -2,17 +2,21 @@
 
     Licensed under European Union Public Licence (EUPL) version 1.2.
 
-    Current version based on https://github.com/CenPC434/validation, commit 0cabbbf6714c707f360a525381c6acd8887b769b (release 1.3.8)
-    
+    Current version based on https://github.com/ConnectingEurope/eInvoicing-EN16931, commit 8343580d7689835b63c5184054cfb2891b7ee7aa (release 1.3.9)
+
     Original file: ubl/schematron/abstract/EN16931-syntax.sch
-    
+
     Modifications:
     - removed rule UBL-CR-411
     - removed rule UBL-CR-453
     - removed rule UBL-CR-459
+
 -->
 <!-- Abstract rules for syntax -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="syntax">
+  <rule context="$AddressLine">
+    <assert test="$UBL-SR-51" flag="fatal" id="UBL-SR-51">[UBL-SR-51]-An address can only have one third line.</assert>
+  </rule>
   <rule context="$Accounting_supplier_party">
     <assert test="$UBL-SR-42" flag="fatal" id="UBL-SR-42">[UBL-SR-42]-Party tax scheme shall occur maximum twice in accounting supplier party</assert>
   </rule>
@@ -771,6 +775,7 @@
     <assert test="$UBL-SR-37" flag="fatal" id="UBL-SR-37">[UBL-SR-37]-Item price discount shall occur maximum once</assert>
     <assert test="$UBL-SR-48" flag="fatal" id="UBL-SR-48">[UBL-SR-48]-Invoice lines shall have one and only one classified tax category.</assert>
     <assert test="$UBL-SR-50" flag="fatal" id="UBL-SR-50">[UBL-SR-50]-Item description shall occur maximum once</assert>
+    <assert test="$UBL-SR-52" flag="fatal" id="UBL-SR-52">[UBL-SR-52]-Document reference shall occur maximum once</assert>
   </rule>
   <rule context="$Payee">
     <assert test="$UBL-SR-19" flag="fatal" id="UBL-SR-19">[UBL-SR-19]-Payee name shall occur maximum once, if the Payee is different from the Seller</assert>
