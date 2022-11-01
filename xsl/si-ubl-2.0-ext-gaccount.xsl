@@ -1850,10 +1850,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="((not(contains(normalize-space(@schemeID), ' ')) and contains(' 0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0147 0151 0170 0183 0184 0188 0190 0191 0192 0193 0194 0195 0196 0198 0199 0200 0201 0202 0203 0204 0205 0208 0209 0210 0211 0212 0213 0215 0216 0217 0218 0219 0220 9901 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9955 9957 9959 AN AQ AS AU EM ', concat(' ', normalize-space(@schemeID), ' '))))"/>
+         <xsl:when test="((not(contains(normalize-space(@schemeID), ' ')) and contains(' 0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0147 0151 0170 0183 0184 0188 0190 0191 0192 0193 0194 0195 0196 0198 0199 0200 0201 0202 0203 0204 0205 0208 0209 0210 0211 0212 0213 0215 0216 0218 0219 0220 9901 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9955 9957 9959 AN AQ AS AU EM ', concat(' ', normalize-space(@schemeID), ' '))))"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="((not(contains(normalize-space(@schemeID), ' ')) and contains(' 0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0147 0151 0170 0183 0184 0188 0190 0191 0192 0193 0194 0195 0196 0198 0199 0200 0201 0202 0203 0204 0205 0208 0209 0210 0211 0212 0213 0215 0216 0217 0218 0219 0220 9901 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9955 9957 9959 AN AQ AS AU EM ', concat(' ', normalize-space(@schemeID), ' '))))">
+                                test="((not(contains(normalize-space(@schemeID), ' ')) and contains(' 0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0147 0151 0170 0183 0184 0188 0190 0191 0192 0193 0194 0195 0196 0198 0199 0200 0201 0202 0203 0204 0205 0208 0209 0210 0211 0212 0213 0215 0216 0218 0219 0220 9901 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9955 9957 9959 AN AQ AS AU EM ', concat(' ', normalize-space(@schemeID), ' '))))">
                <xsl:attribute name="id">BR-CL-25</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1905,10 +1905,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:ID) != ''"/>
+         <xsl:when test="every $node in (cbc:ID) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:ID) != ''">
+                                test="every $node in (cbc:ID) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-52</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -1979,10 +1979,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:Country/cbc:IdentificationCode) != ''"/>
+         <xsl:when test="every $node in (cac:Country/cbc:IdentificationCode) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:Country/cbc:IdentificationCode) != ''">
+                                test="every $node in (cac:Country/cbc:IdentificationCode) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-11</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2567,10 +2567,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:CustomizationID) != ''"/>
+         <xsl:when test="every $node in (cbc:CustomizationID) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:CustomizationID) != ''">
+                                test="every $node in (cbc:CustomizationID) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-01</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2583,10 +2583,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:ID) != ''"/>
+         <xsl:when test="every $node in (cbc:ID) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:ID) != ''">
+                                test="every $node in (cbc:ID) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-02</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2599,10 +2599,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:IssueDate) != ''"/>
+         <xsl:when test="every $node in (cbc:IssueDate) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:IssueDate) != ''">
+                                test="every $node in (cbc:IssueDate) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-03</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2615,10 +2615,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:InvoiceTypeCode) != '' or normalize-space(cbc:CreditNoteTypeCode) !=''"/>
+         <xsl:when test="every $node in (cbc:InvoiceTypeCode) satisfies (normalize-space($node) != '') or normalize-space(cbc:CreditNoteTypeCode) !=''"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:InvoiceTypeCode) != '' or normalize-space(cbc:CreditNoteTypeCode) !=''">
+                                test="every $node in (cbc:InvoiceTypeCode) satisfies (normalize-space($node) != '') or normalize-space(cbc:CreditNoteTypeCode) !=''">
                <xsl:attribute name="id">BR-04</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2631,10 +2631,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:DocumentCurrencyCode) != ''"/>
+         <xsl:when test="every $node in (cbc:DocumentCurrencyCode) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:DocumentCurrencyCode) != ''">
+                                test="every $node in (cbc:DocumentCurrencyCode) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-05</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2647,10 +2647,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) != ''"/>
+         <xsl:when test="every $node in (cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) != ''">
+                                test="every $node in (cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-06</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -2663,10 +2663,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) != ''"/>
+         <xsl:when test="every $node in (cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) != ''">
+                                test="every $node in (cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-07</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3568,10 +3568,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:ID) != ''"/>
+         <xsl:when test="every $node in (cbc:ID) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:ID) != ''">
+                                test="every $node in (cbc:ID) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-21</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -3632,10 +3632,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:Item/cbc:Name) != ''"/>
+         <xsl:when test="every $node in (cac:Item/cbc:Name) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:Item/cbc:Name) != ''">
+                                test="every $node in (cac:Item/cbc:Name) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-25</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4140,10 +4140,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cbc:ID) != ''"/>
+         <xsl:when test="every $node in (cbc:ID) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cbc:ID) != ''">
+                                test="every $node in (cbc:ID) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-50</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4272,10 +4272,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:Country/cbc:IdentificationCode) != ''"/>
+         <xsl:when test="every $node in (cac:Country/cbc:IdentificationCode) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:Country/cbc:IdentificationCode) != ''">
+                                test="every $node in (cac:Country/cbc:IdentificationCode) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-09</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4295,10 +4295,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:PartyName/cbc:Name) != ''"/>
+         <xsl:when test="every $node in (string-join(cac:PartyName/cbc:Name)) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:PartyName/cbc:Name) != ''">
+                                test="every $node in (string-join(cac:PartyName/cbc:Name)) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-18</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -4352,10 +4352,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="normalize-space(cac:Country/cbc:IdentificationCode) != ''"/>
+         <xsl:when test="every $node in (cac:Country/cbc:IdentificationCode) satisfies (normalize-space($node) != '')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="normalize-space(cac:Country/cbc:IdentificationCode) != ''">
+                                test="every $node in (cac:Country/cbc:IdentificationCode) satisfies (normalize-space($node) != '')">
                <xsl:attribute name="id">BR-20</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
