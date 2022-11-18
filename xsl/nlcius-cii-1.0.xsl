@@ -13491,10 +13491,10 @@
 
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="xs:decimal(./ram:DuePayableAmount) &gt;= 0.0 or (../ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode)"/>
+         <xsl:when test="xs:decimal(./ram:DuePayableAmount) &lt;= 0.0 or (/*/rsm:ExchangedDocument/ram:TypeCode[$si] = 381) or (../ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="xs:decimal(./ram:DuePayableAmount) &gt;= 0.0 or (../ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode)">
+                                test="xs:decimal(./ram:DuePayableAmount) &lt;= 0.0 or (/*/rsm:ExchangedDocument/ram:TypeCode[$si] = 381) or (../ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode)">
                <xsl:attribute name="id">BR-NL-11</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">

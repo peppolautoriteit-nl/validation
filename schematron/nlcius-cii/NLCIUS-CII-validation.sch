@@ -88,7 +88,7 @@
     </rule>
 
     <rule context="ram:SpecifiedTradeSettlementHeaderMonetarySummation[$s]" id="BR-NL-11">
-        <assert id="BR-NL-11" test="xs:decimal(./ram:DuePayableAmount) &gt;= 0.0 or (../ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode)" flag="fatal">[BR-NL-11] For suppliers in the Netherlands, the supplier MUST provide a means of payment (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans) if the payment is from customer to supplier</assert>
+        <assert id="BR-NL-11" test="xs:decimal(./ram:DuePayableAmount) &lt;= 0.0 or (/*/rsm:ExchangedDocument/ram:TypeCode[$si] = 381) or (../ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode)" flag="fatal">[BR-NL-11] For suppliers in the Netherlands, the supplier MUST provide a means of payment (rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementPaymentMeans) if the payment is from customer to supplier</assert>
     </rule>
 
     <rule context="ram:SpecifiedTradeSettlementPaymentMeans[$s]" id="BR-NL-12">
