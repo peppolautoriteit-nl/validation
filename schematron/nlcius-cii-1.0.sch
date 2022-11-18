@@ -5,7 +5,7 @@
      The validation rules include the validation files from CEN, validating EN-16931,
      as published on https://github.com/ConnectingEurope/eInvoicing-EN16931
      
-     Release 1.0.3.3
+     Release 1.0.3.4
      
      Authors:
      - Wouter van den Berg (TNO)

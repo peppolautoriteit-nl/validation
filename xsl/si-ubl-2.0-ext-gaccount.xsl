@@ -665,9 +665,11 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="cac:LegalMonetaryTotal[$s]" priority="1027" mode="M11">
+   <xsl:template match="/ubl:Invoice/cac:LegalMonetaryTotal[$s]"
+                 priority="1027"
+                 mode="M11">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="cac:LegalMonetaryTotal[$s]"/>
+                       context="/ubl:Invoice/cac:LegalMonetaryTotal[$s]"/>
 
 		    <!--ASSERT -->
       <xsl:choose>
