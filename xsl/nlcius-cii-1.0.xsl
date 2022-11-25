@@ -169,7 +169,7 @@
    <!--SCHEMA SETUP-->
    <xsl:template match="/">
       <svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                              title="NLCIUS-CII validation, version 1.0.3.2"
+                              title="NLCIUS-CII validation, version 1.0.3.4"
                               schemaVersion="">
          <xsl:comment>
             <xsl:value-of select="$archiveDirParameter"/>   
@@ -228,7 +228,7 @@
    </xsl:template>
 
    <!--SCHEMATRON PATTERNS-->
-   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">NLCIUS-CII validation, version 1.0.3.2</svrl:text>
+   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">NLCIUS-CII validation, version 1.0.3.4</svrl:text>
 
    <!--PATTERN EN16931-CII-Model-->
 

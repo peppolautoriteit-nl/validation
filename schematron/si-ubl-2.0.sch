@@ -7,7 +7,7 @@
     xmlns="http://purl.oclc.org/dsdl/schematron"
     queryBinding="xslt2">
     <!--
-        Release 2.0.3.5
+        Version 2.0.3.5
         Author: Jelte Jansen
         For changes, see Changelog file in repository root
     -->
