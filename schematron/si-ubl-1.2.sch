@@ -57,7 +57,7 @@
         Release 1.1
         Author: M.P. Diepstra (Innopay)
     -->
-    <title>Simplerinvoicing invoice v1.2 bound to UBL 2.1 and OPENPEPPOL v2, version 1.2.3</title>
+    <title>Simplerinvoicing invoice v1.2 bound to UBL 2.1 and OPENPEPPOL v2, version 1.2.4</title>
     <ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
     <ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
     <ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
