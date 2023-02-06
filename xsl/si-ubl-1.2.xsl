@@ -167,7 +167,7 @@
    <!--SCHEMA SETUP-->
    <xsl:template match="/">
       <svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                              title="Simplerinvoicing invoice v1.2 bound to UBL 2.1 and OPENPEPPOL v2, version 1.2.3"
+                              title="Simplerinvoicing invoice v1.2 bound to UBL 2.1 and OPENPEPPOL v2, version 1.2.4"
                               schemaVersion="">
          <xsl:comment>
             <xsl:value-of select="$archiveDirParameter"/>   
@@ -258,7 +258,7 @@
    </xsl:template>
 
    <!--SCHEMATRON PATTERNS-->
-   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">Simplerinvoicing invoice v1.2 bound to UBL 2.1 and OPENPEPPOL v2, version 1.2.3</svrl:text>
+   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">Simplerinvoicing invoice v1.2 bound to UBL 2.1 and OPENPEPPOL v2, version 1.2.4</svrl:text>
 
    <!--PATTERN SI-UBL-VERSIONS-->
 
