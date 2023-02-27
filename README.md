@@ -62,7 +62,7 @@ SI-UBL 2.0.3.5
 
 This is the version of SI-UBL that is based on the NLCIUS 1.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
 
-Since this is based on EN-16931, there are major differences between SI-UBL 1.2 and SI-UBL 2.0. For more information about the new rules, see https://www.stpe.nl/media/stpe.nl-gebruiksinstructie-basisfactuur-v1.0.pdf
+Since this is based on EN-16931, there are major differences between SI-UBL 1.2 and SI-UBL 2.0. For more information about the new rules, see https://stpe.semantic-treehouse.nl/api/v1/uploads/FileObject_1585636341_00183857/E-Factureren%20-%20Gebruiksinstructie%20voor%20de%20basisfactuur%20v1.0.3.pdf
 
 The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated xsl [here](xsl/si-ubl-2.0.xsl)
 
