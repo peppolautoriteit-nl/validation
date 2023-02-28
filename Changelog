@@ -3,7 +3,13 @@
 Scheduled for next release
 --------------------------
 
-No changes as of yet.
+SI-UBL 2.0.3.X:
+- Fixed an issue introduced in 2.0.3.5. This version contained an 
+  additional change in checks for empty values for a number rules. This 
+  change added a check for whitespace-only as well, but contained an 
+  issue where the entire check was skipped if the checked XML element 
+  is not present. This issue has been fixed in this version, by 
+  explicitely checking both existence and white-space aware emptiness.
 
 ==========================
 =   Published releases   =
