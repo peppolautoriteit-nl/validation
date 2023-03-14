@@ -9,9 +9,9 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 * [SI-UBL 1.1 Invoice](xsl/si-ubl-1.1.xsl)
 * [SI-UBL 1.2 Invoice (1.2.4)](xsl/si-ubl-1.2.xsl)
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
-* [SI-UBL 2.0 Invoice and CreditNote (2.0.3.5)](xsl/si-ubl-2.0.xsl)
-* [SI-UBL 2.0 G-Account extension (1.0.5)](xsl/si-ubl-2.0-ext-gaccount.xsl)
-* [NLCIUS UN/CEFACT CII (1.0.3.4)](xsl/nlcius-cii-1.0.xsl)
+* [SI-UBL 2.0 Invoice and CreditNote (2.0.3.6)](xsl/si-ubl-2.0.xsl)
+* [SI-UBL 2.0 G-Account extension (1.0.6)](xsl/si-ubl-2.0-ext-gaccount.xsl)
+* [NLCIUS UN/CEFACT CII (1.0.3.5)](xsl/nlcius-cii-1.0.xsl)
 
 
 Versioning
@@ -57,7 +57,7 @@ This is the list of schematron files included in this repository:
 - [schematron/si-ubl-1.0.sch](schematron/si-ubl-1.0.sch) SI-UBL 1.0. This version is out of support, but kept for historic purposes.
 
 
-SI-UBL 2.0.3.5
+SI-UBL 2.0.3.6
 ==============
 
 This is the version of SI-UBL that is based on the NLCIUS 1.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
@@ -72,7 +72,7 @@ commit 8343580d7689835b63c5184054cfb2891b7ee7aa
 tag validation-1.3.9
 
 
-NLCIUS-CII 1.0.3.4
+NLCIUS-CII 1.0.3.5
 ==================
 
 This implements the same base rules from NLCIUS, but for the document format UN/CEFACT CII D16B.

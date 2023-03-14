@@ -3,17 +3,31 @@
 Scheduled for next release
 --------------------------
 
-SI-UBL 2.0.3.X:
-- Fixed an issue introduced in 2.0.3.5. This version contained an 
-  additional change in checks for empty values for a number rules. This 
-  change added a check for whitespace-only as well, but contained an 
-  issue where the entire check was skipped if the checked XML element 
-  is not present. This issue has been fixed in this version, by 
-  explicitely checking both existence and white-space aware emptiness.
+No changes scheduled yet
 
 ==========================
 =   Published releases   =
 ==========================
+
+HOTFIX RELEASE 2023-03-14
+=========================
+
+*This is a hotfix release that fixes an issue that was introduced in the November release*
+
+This updated release can be deployed immediately, but will be mandatory as of 2023-03-27.
+
+- Updated SI-UBL 2.0 (NLCIUS) to 2.0.3.6
+- Updated SI-UBL 2.0 (NLCIUS) g-account extension to 1.0.6
+- Updated NLCIUS-CII to 1.0.3.5
+
+The november release introduced a new method to validate non-emptiness of a
+number of fields, no longer accepting fields that contained only
+white-space. However, a bug in this new check resulted in a number of
+mandatory elements that were now no longer checked for existence (in
+schematron). This made it possible to create documents that passed
+validation though they were non-compliant to EN-16931. This update resolves
+that issue.
+
 
 REPOSITORY RELEASE 2022-11-18 (November 2022 release)
 =====================================================
@@ -21,8 +35,8 @@ REPOSITORY RELEASE 2022-11-18 (November 2022 release)
 *This release will go into effect on February 6, 2023*. Until that time, the current release (2022-05-01) is still the active version.
 
 - Updated SI-UBL 2.0 (NLCIUS) to 2.0.3.5
-- Updates SI-UBL 2.0 (NLCIUS) g-account extension to 1.0.5
-- Updates NLCIUS-CII to 1.0.3.4
+- Updated SI-UBL 2.0 (NLCIUS) g-account extension to 1.0.5
+- Updated NLCIUS-CII to 1.0.3.4
 
 SI-UBL 2.0.3.5:
 - Updated the CenPC 434 rules for SI-UBL to release 1.3.9 (from 1.3.8). For the full changelog of these changes, see https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.9
