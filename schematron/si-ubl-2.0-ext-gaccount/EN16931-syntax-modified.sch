@@ -2,7 +2,7 @@
 
     Licensed under European Union Public Licence (EUPL) version 1.2.
 
-    Current version based on https://github.com/ConnectingEurope/eInvoicing-EN16931, commit 8343580d7689835b63c5184054cfb2891b7ee7aa (release 1.3.9)
+    Current version based on https://github.com/ConnectingEurope/eInvoicing-EN16931, commit d94c022f597a9fdf2db3c5001f6cb27935ea619e (release 1.3.10)
 
     Original file: ubl/schematron/abstract/EN16931-syntax.sch
 

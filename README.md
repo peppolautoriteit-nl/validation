@@ -68,8 +68,10 @@ The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated 
 
 This schematron definition is based on the CenPC434 schematron, which can be found at:
 https://github.com/ConnectingEurope/eInvoicing-EN16931
-commit 8343580d7689835b63c5184054cfb2891b7ee7aa
-tag validation-1.3.9
+commit d94c022f597a9fdf2db3c5001f6cb27935ea619e
+tag validation-1.3.10
+
+And include the currently proposed fix from PR 333: https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/333
 
 
 NLCIUS-CII 1.0.3.5
@@ -81,8 +83,10 @@ The validation includes all the rules as implemented by the CEN PC434 group, wit
 
 This schematron definition is based on the CenPC434 schematron, which can be found at:
 https://github.com/ConnectingEurope/eInvoicing-EN16931
-commit 8343580d7689835b63c5184054cfb2891b7ee7aa
-(tag validation-1.3.9)
+commit d94c022f597a9fdf2db3c5001f6cb27935ea619e
+tag validation-1.3.10
+
+And include the currently proposed fix from PR 333: https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/333
 
 
 
