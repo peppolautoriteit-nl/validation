@@ -53,7 +53,7 @@
   <param name="UBL-SR-48" value="count(cac:Item/cac:ClassifiedTaxCategory) = 1"/>
   <param name="UBL-SR-49" value="(count(cac:InvoicePeriod/cbc:DescriptionCode) &lt;=1)"/>
   <param name="UBL-SR-50" value="count(cac:Item/cbc:Description) &lt;= 1"/>
-  <param name="UBL-SR-51" value="count(cbc:Line) = 1"/>
+  <param name="UBL-SR-51" value="not(cac:AddressLine) or count(cac:AddressLine) = 1"/>
   <param name="UBL-SR-52" value="count(cac:DocumentReference) &lt;= 1"/>
   
   <param name="UBL-DT-01" value="string-length(substring-after(.,'.'))&lt;=2"/>
@@ -648,18 +648,18 @@
   <param name="UBL-CR-569" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cbc:BrandName)"/>
   <param name="UBL-CR-570" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cbc:ModelName)"/>
   <param name="UBL-CR-571" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:ExtendedID)"/>
-  <param name="UBL-CR-572" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarecodeSymbologyID)"/>
+  <param name="UBL-CR-572" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarcodeSymbologyID)"/>
   <param name="UBL-CR-573" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cac:PhysicalAttribute)"/>
   <param name="UBL-CR-574" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cac:MeasurementDimension)"/>
   <param name="UBL-CR-575" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cac:IssuerParty)"/>
   <param name="UBL-CR-576" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:ExtendedID)"/>
-  <param name="UBL-CR-577" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarecodeSymbologyID)"/>
+  <param name="UBL-CR-577" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarcodeSymbologyID)"/>
   <param name="UBL-CR-578" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cac:PhysicalAttribute)"/>
   <param name="UBL-CR-579" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cac:MeasurementDimension)"/>
   <param name="UBL-CR-580" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cac:IssuerParty)"/>
   <param name="UBL-CR-581" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ManufacturersItemIdentification)"/>
   <param name="UBL-CR-582" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:ExtendedID)"/>
-  <param name="UBL-CR-583" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarecodeSymbologyID)"/>
+  <param name="UBL-CR-583" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarcodeSymbologyID)"/>
   <param name="UBL-CR-584" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cac:PhysicalAttribute)"/>
   <param name="UBL-CR-585" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cac:MeasurementDimension)"/>
   <param name="UBL-CR-586" value="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cac:IssuerParty)"/>
@@ -779,5 +779,5 @@
   <param name="Code_data_type" value="//*[ends-with(name(), 'Code')]"/>
   <param name="Binary_object_data_type" value="//*[ends-with(name(), 'BinaryObject')]"/>
   <param name="Accounting_supplier_party" value="cac:AccountingSupplierParty/cac:Party"/>
-  <param name="AddressLine" value="//cac:AddressLine"/>
+  <param name="AddressLine" value="//cac:PostalAddress | //cac:RegistrationAddress | cac:DeliveryAddress"/>
 </pattern>

@@ -397,7 +397,7 @@
     <assert test="$UBL-CR-355" flag="warning" id="UBL-CR-355">[UBL-CR-355]-A UBL invoice should not include the Delivery DeliveryLocation LocationTypeCode</assert>
     <assert test="$UBL-CR-356" flag="warning" id="UBL-CR-356">[UBL-CR-356]-A UBL invoice should not include the Delivery DeliveryLocation InformationURI</assert>
     <assert test="$UBL-CR-357" flag="warning" id="UBL-CR-357">[UBL-CR-357]-A UBL invoice should not include the Delivery DeliveryLocation Name</assert>
-    <assert test="$UBL-CR-358" flag="warning" id="UBL-CR-358">[UBL-CR-358]-A UBL invoice should not include the Delivery DeliveryLocation ValidationPeriod</assert>
+    <assert test="$UBL-CR-358" flag="warning" id="UBL-CR-358">[UBL-CR-358]-A UBL invoice should not include the Delivery DeliveryLocation ValidityPeriod</assert>
     <assert test="$UBL-CR-359" flag="warning" id="UBL-CR-359">[UBL-CR-359]-A UBL invoice should not include the Delivery DeliveryLocation Address ID</assert>
     <assert test="$UBL-CR-360" flag="warning" id="UBL-CR-360">[UBL-CR-360]-A UBL invoice should not include the Delivery DeliveryLocation Address AddressTypeCode</assert>
     <assert test="$UBL-CR-361" flag="warning" id="UBL-CR-361">[UBL-CR-361]-A UBL invoice should not include the Delivery DeliveryLocation Address AddressFormatCode</assert>
@@ -423,7 +423,7 @@
     <assert test="$UBL-CR-381" flag="warning" id="UBL-CR-381">[UBL-CR-381]-A UBL invoice should not include the Delivery DeliveryLocation LocationCoordinate</assert>
     <assert test="$UBL-CR-382" flag="warning" id="UBL-CR-382">[UBL-CR-382]-A UBL invoice should not include the Delivery AlternativeDeliveryLocation</assert>
     <assert test="$UBL-CR-383" flag="warning" id="UBL-CR-383">[UBL-CR-383]-A UBL invoice should not include the Delivery RequestedDeliveryPeriod</assert>
-    <assert test="$UBL-CR-384" flag="warning" id="UBL-CR-384">[UBL-CR-384]-A UBL invoice should not include the Delivery PromisedDeliveryPeriod</assert>
+    <assert test="$UBL-CR-384" flag="warning" id="UBL-CR-384">[UBL-CR-384]-A UBL invoice should not include the Delivery EstimatedDeliveryPeriod</assert>
     <assert test="$UBL-CR-385" flag="warning" id="UBL-CR-385">[UBL-CR-385]-A UBL invoice should not include the Delivery CarrierParty</assert>
     <assert test="$UBL-CR-386" flag="warning" id="UBL-CR-386">[UBL-CR-386]-A UBL invoice should not include the DeliveryParty MarkCareIndicator</assert>
     <assert test="$UBL-CR-387" flag="warning" id="UBL-CR-387">[UBL-CR-387]-A UBL invoice should not include the DeliveryParty MarkAttentionIndicator</assert>
@@ -458,7 +458,7 @@
     <assert test="$UBL-CR-416" flag="warning" id="UBL-CR-416">[UBL-CR-416]-A UBL invoice should not include the PaymentMeans CardAccount ValidityStartDate</assert>
     <assert test="$UBL-CR-417" flag="warning" id="UBL-CR-417">[UBL-CR-417]-A UBL invoice should not include the PaymentMeans CardAccount ExpiryDate</assert>
     <assert test="$UBL-CR-418" flag="warning" id="UBL-CR-418">[UBL-CR-418]-A UBL invoice should not include the PaymentMeans CardAccount IssuerID</assert>
-    <assert test="$UBL-CR-419" flag="warning" id="UBL-CR-419">[UBL-CR-419]-A UBL invoice should not include the PaymentMeans CardAccount IssuerNumberID</assert>
+    <assert test="$UBL-CR-419" flag="warning" id="UBL-CR-419">[UBL-CR-419]-A UBL invoice should not include the PaymentMeans CardAccount IssueNumberID</assert>
     <assert test="$UBL-CR-420" flag="warning" id="UBL-CR-420">[UBL-CR-420]-A UBL invoice should not include the PaymentMeans CardAccount CV2ID</assert>
     <assert test="$UBL-CR-421" flag="warning" id="UBL-CR-421">[UBL-CR-421]-A UBL invoice should not include the PaymentMeans CardAccount CardChipCode</assert>
     <assert test="$UBL-CR-422" flag="warning" id="UBL-CR-422">[UBL-CR-422]-A UBL invoice should not include the PaymentMeans CardAccount ChipApplicationID</assert>
