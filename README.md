@@ -9,9 +9,9 @@ If you are just looking for the latest validation artefacts in xsl form, you can
 * [SI-UBL 1.1 Invoice](xsl/si-ubl-1.1.xsl)
 * [SI-UBL 1.2 Invoice (1.2.4)](xsl/si-ubl-1.2.xsl)
 * [SI-UBL 1.2 Purchase Order](xsl/si-ubl-1.2-purchaseorder.xsl)
-* [SI-UBL 2.0 Invoice and CreditNote (2.0.3.6)](xsl/si-ubl-2.0.xsl)
-* [SI-UBL 2.0 G-Account extension (1.0.6)](xsl/si-ubl-2.0-ext-gaccount.xsl)
-* [NLCIUS UN/CEFACT CII (1.0.3.5)](xsl/nlcius-cii-1.0.xsl)
+* [SI-UBL 2.0 Invoice and CreditNote (2.0.3.7)](xsl/si-ubl-2.0.xsl)
+* [SI-UBL 2.0 G-Account extension (1.0.7)](xsl/si-ubl-2.0-ext-gaccount.xsl)
+* [NLCIUS UN/CEFACT CII (1.0.3.6)](xsl/nlcius-cii-1.0.xsl)
 
 
 Versioning
@@ -57,10 +57,10 @@ This is the list of schematron files included in this repository:
 - [schematron/si-ubl-1.0.sch](schematron/si-ubl-1.0.sch) SI-UBL 1.0. This version is out of support, but kept for historic purposes.
 
 
-SI-UBL 2.0.3.6
+SI-UBL 2.0.3.7
 ==============
 
-This is the version of SI-UBL that is based on the NLCIUS 1.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
+This is the version of SI-UBL that is based on NLCIUS 1.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
 
 Since this is based on EN-16931, there are major differences between SI-UBL 1.2 and SI-UBL 2.0. For more information about the new rules, see https://stpe.semantic-treehouse.nl/api/v1/uploads/FileObject_1585636341_00183857/E-Factureren%20-%20Gebruiksinstructie%20voor%20de%20basisfactuur%20v1.0.3.pdf
 
@@ -71,10 +71,10 @@ https://github.com/ConnectingEurope/eInvoicing-EN16931
 commit d94c022f597a9fdf2db3c5001f6cb27935ea619e
 tag validation-1.3.10
 
-And include the currently proposed fix from PR 333: https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/333
+It also includes the currently proposed fix from PR 333: https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/333
 
 
-NLCIUS-CII 1.0.3.5
+NLCIUS-CII 1.0.3.6
 ==================
 
 This implements the same base rules from NLCIUS, but for the document format UN/CEFACT CII D16B.
@@ -86,7 +86,7 @@ https://github.com/ConnectingEurope/eInvoicing-EN16931
 commit d94c022f597a9fdf2db3c5001f6cb27935ea619e
 tag validation-1.3.10
 
-And include the currently proposed fix from PR 333: https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/333
+It also includes the currently proposed fix from PR 333: https://github.com/ConnectingEurope/eInvoicing-EN16931/pull/333
 
 
 
