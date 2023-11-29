@@ -5,8 +5,6 @@
      The validation rules include the validation files from CEN, validating EN-16931,
      as published on https://github.com/ConnectingEurope/eInvoicing-EN16931
      
-     version 1.0.3.6
-     
      Authors:
      - Wouter van den Berg (TNO)
      - Robin de Veer (TNO)
@@ -21,7 +19,7 @@
     xmlns="http://purl.oclc.org/dsdl/schematron"
     queryBinding="xslt2"
 >
-  <title>NLCIUS-CII validation, version 1.0.3.6</title>
+  <title>NLCIUS-CII validation, version 1.0.3.7</title>
   <ns prefix="ccts" uri="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2" />
   <ns prefix="qdt" uri="urn:un:unece:uncefact:data:standard:QualifiedDataType:100" />
   <ns prefix="ram" uri="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" />
