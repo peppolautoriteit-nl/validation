@@ -5,9 +5,9 @@ This repository contains all files related to validation of the SI-UBL and NLCIU
 
 If you are just looking for the latest validation artefacts in xsl form, you can find them here:
 
-* [SI-UBL 2.0 Invoice and CreditNote (2.0.3.8)](xsl/si-ubl-2.0.xsl)
-* [SI-UBL 2.0 G-Account extension (1.0.8)](xsl/si-ubl-2.0-ext-gaccount.xsl)
-* [NLCIUS UN/CEFACT CII (1.0.3.7)](xsl/nlcius-cii-1.0.xsl)
+* [SI-UBL 2.0 Invoice and CreditNote (2.0.3.9)](xsl/si-ubl-2.0.xsl)
+* [SI-UBL 2.0 G-Account extension (1.0.9)](xsl/si-ubl-2.0-ext-gaccount.xsl)
+* [NLCIUS UN/CEFACT CII (1.0.3.8)](xsl/nlcius-cii-1.0.xsl)
 
 For historical purpose, the following formats are also supplied:
 
@@ -59,7 +59,7 @@ This is the list of schematron files included in this repository:
 - [schematron/si-ubl-1.0.sch](schematron/si-ubl-1.0.sch) SI-UBL 1.0. This version is out of support, but kept for historic purposes.
 
 
-SI-UBL 2.0.3.8
+SI-UBL 2.0.3.9
 ==============
 
 This is the version of SI-UBL that is based on the NLCIUS 1.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
@@ -70,10 +70,17 @@ The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated 
 
 This schematron definition is based on the CenPC434 schematron, which can be found at:
 https://github.com/ConnectingEurope/eInvoicing-EN16931
-tag validation-1.3.11
+tag validation-1.3.12
+
+SI-UBL G-Account extension 1.0.9
+================================
+
+This is an extension on the European Norm, which adds a second set of payment information, intended for direct payment to Dutch G-Accounts.
+
+Apart from that, it follows the NLCIUS.
 
 
-NLCIUS-CII 1.0.3.7
+NLCIUS-CII 1.0.3.8
 ==================
 
 This implements the same base rules from NLCIUS, but for the document format UN/CEFACT CII D16B.
@@ -82,7 +89,7 @@ The validation includes all the rules as implemented by the CEN PC434 group, wit
 
 This schematron definition is based on the CenPC434 schematron, which can be found at:
 https://github.com/ConnectingEurope/eInvoicing-EN16931
-tag validation-1.3.11
+tag validation-1.3.12
 
 
 

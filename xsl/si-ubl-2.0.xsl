@@ -171,7 +171,7 @@
    <!--SCHEMA SETUP-->
    <xsl:template match="/">
       <svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                              title="SI-UBL 2.0 validation, version 2.0.3.8"
+                              title="SI-UBL 2.0 validation, version 2.0.3.9"
                               schemaVersion="">
          <xsl:comment>
             <xsl:value-of select="$archiveDirParameter"/>   
@@ -244,7 +244,7 @@
    </xsl:template>
 
    <!--SCHEMATRON PATTERNS-->
-   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">SI-UBL 2.0 validation, version 2.0.3.8</svrl:text>
+   <svrl:text xmlns:svrl="http://purl.oclc.org/dsdl/svrl">SI-UBL 2.0 validation, version 2.0.3.9</svrl:text>
 
    <!--PATTERN SI-UBL-VERSION-->
 
