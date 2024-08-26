@@ -3,6 +3,25 @@
 Scheduled for next release
 --------------------------
 
+Intermediate Release to re-align version numbering for the NLCIUS G-Account extension.
+
+- The G-Account extension's versioning has been realigned to conform to 
+the standard used in SI-UBL 2.0 and NLCIUS-CII, where the first three 
+numbers in the version correspond to the version of the specification, 
+and the fourth number corresponds with the version of the schematron 
+validation files. Therefore, version 1.0.9 will be renumbered to 
+1.0.2.9. This appears as a version downgrade, but we think potential 
+confusion from that is a smaller issue than the current misalignment 
+between the specification version and the schematron version. To reduce
+potential confusion, the version will contain 4 numbers from now on.
+
+There were no other changes in this release, and it is not mandatory to 
+update your software at this time. We do advise to update to further 
+reduce potential confusion when the next (mandatory) version will be 
+released in the future.
+
+
+
 
 ==========================
 =   Published releases   =
