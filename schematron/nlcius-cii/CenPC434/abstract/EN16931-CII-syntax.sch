@@ -160,7 +160,6 @@
 		<assert test="$CII-SR-129" flag="warning" id="CII-SR-129">[CII-SR-129] - TypeCode should not be present</assert>
 		<assert test="$CII-SR-130" flag="warning" id="CII-SR-130">[CII-SR-130] - CategoryTradeTax should not be present</assert>
 		<assert test="$CII-SR-131" flag="warning" id="CII-SR-131">[CII-SR-131] - ActualTradeCurrencyExchange should not be present</assert>
-		<assert test="$CII-SR-440" flag="fatal" id="CII-SR-440">[CII-SR-440] - ActualAmount should exist maximum once</assert>
 
 		<assert test="$CII-SR-445" flag="warning" id="CII-SR-445">[CII-SR-445] - IncludedTradeTax should not be present</assert>
 		<assert test="$CII-SR-132" flag="warning" id="CII-SR-132">[CII-SR-132] - ValiditySpecifiedPeriod should not be present</assert>
@@ -188,6 +187,9 @@
 		<assert test="$CII-SR-150" flag="warning" id="CII-SR-150">[CII-SR-150] - IncludedSpecifiedMarketplace should not be present</assert>
 		<assert test="$CII-SR-447" flag="warning" id="CII-SR-447">[CII-SR-447] - UltimateCustomerOrderReferencedDocument should not be present</assert>
 
+	</rule>
+	<rule context="$AppliedTradeAllowanceCharge">
+		<assert test="$CII-SR-440" flag="fatal" id="CII-SR-440">[CII-SR-440] - ActualAmount should exist maximum once</assert>
 	</rule>
 	<rule context="$SpecifiedLineTradeDelivery">
 		<assert test="$CII-SR-151" flag="warning" id="CII-SR-151">[CII-SR-151] - RequestedQuantity should not be present</assert>
@@ -373,8 +375,8 @@
 		<assert test="$CII-SR-456" flag="fatal" id="CII-SR-456">[CII-SR-456] - DefinedTradeContact of BuyerTradeParty shall exist maximum once</assert>
 		<assert test="$CII-SR-457" flag="warning" id="CII-SR-457">[CII-SR-457] - IssuerAssignedID with TypeCode 50 should exist maximum once</assert>
 		<assert test="$CII-SR-458" flag="warning" id="CII-SR-458">[CII-SR-458] - IssuerAssignedID with TypeCode 130 should exist maximum once</assert>
-		<assert test="$CII-SR-459" flag="warning" id="CII-SR-459">[CII-SR-459] - SellerTradeParty URIUniversalCommunication should exist maximum once</assert>
-		<assert test="$CII-SR-460" flag="warning" id="CII-SR-460">[CII-SR-460] - BuyerTradeParty URIUniversalCommunication should exist maximum once</assert>
+		<assert test="$CII-SR-459" flag="fatal" id="CII-SR-459">[CII-SR-459] - SellerTradeParty URIUniversalCommunication should exist maximum once</assert>
+		<assert test="$CII-SR-460" flag="fatal" id="CII-SR-460">[CII-SR-460] - BuyerTradeParty URIUniversalCommunication should exist maximum once</assert>
 	</rule>
 	<rule context="$ApplicableHeaderTradeDelivery">
 		<assert test="$CII-SR-308" flag="warning" id="CII-SR-308">[CII-SR-308] - RelatedSupplyChainConsignment should not be present</assert>
@@ -540,6 +542,11 @@
 		<assert test="$CII-SR-005" flag="warning" id="CII-SR-05">[CII-SR-005] - SpecifiedDocumentVersion should not be present</assert>
 	</rule>
 	<rule context="$IDTypeNoAttributes">
+    <!-- Rules DT-001 to DT-004 need to be copied here to take effect -->
+    <assert test="$CII-DT-001" flag="fatal" id="CII-DT-001">[CII-DT-001] - schemeName should not be present</assert>
+    <assert test="$CII-DT-002" flag="fatal" id="CII-DT-002">[CII-DT-002] - schemeAgencyName should not be present</assert>
+    <assert test="$CII-DT-003" flag="fatal" id="CII-DT-003">[CII-DT-003] - schemeDataURI should not be present</assert>
+    <assert test="$CII-DT-004" flag="fatal" id="CII-DT-004">[CII-DT-004] - schemeURI should not be present</assert>
 		<assert test="$CII-DT-005" flag="fatal" id="CII-DT-005">[CII-DT-005] - schemeID should not be present</assert>
 		<assert test="$CII-DT-006" flag="fatal" id="CII-DT-006">[CII-DT-006] - schemeAgencyID should not be present</assert>
 		<assert test="$CII-DT-007" flag="fatal" id="CII-DT-007">[CII-DT-007] - schemeVersionID should not be present</assert>
