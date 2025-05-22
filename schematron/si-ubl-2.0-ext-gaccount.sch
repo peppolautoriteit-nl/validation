@@ -66,7 +66,7 @@
         <!-- See https://dh.obdurodon.org/schematron-skyrim.xhtml for explenation of rule setup -->
         <let name="payment-means-ids" value="/ubl:Invoice/cac:PaymentMeans/cbc:ID/text()"/>
         <rule context="/ubl:Invoice/cac:PaymentTerms/cbc:PaymentMeansID">
-            <assert id="BR-GA-6" test=". = $payment-means-ids">[BR-GA-6] The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</assert>
+            <assert id="BR-GA-6" test=". = $payment-means-ids" flag="fatal">[BR-GA-6] The value of each Payment Means reference (NL-GA-02) MUST correspond with one and only one Payment means identifier (NL-GA-04)</assert>
         </rule>
 
     </pattern>
