@@ -26,7 +26,7 @@
   <param name="UBL-SR-19" value="(count(cac:PartyName/cbc:Name) &lt;= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))"/>
   <param name="UBL-SR-20" value="(count(cac:PartyIdentification/cbc:ID[upper-case(@schemeID) != 'SEPA']) &lt;= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))"/>
   <param name="UBL-SR-21" value="(count(cac:PartyLegalEntity/cbc:CompanyID) &lt;= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))"/>
-  <param name="UBL-SR-22" value="(count(cac:Party/cac:PartyName/cbc:Name) &lt;= 1)"/>
+  <param name="UBL-SR-22" value="(count(cac:PartyName/cbc:Name) &lt;= 1)"/>
   <param name="UBL-SR-23" value="(count(cac:Party/cac:PartyTaxScheme/cbc:CompanyID) &lt;= 1)"/>
   <param name="UBL-SR-24" value="(count(cac:Delivery) &lt;= 1)"/>
   <param name="UBL-SR-25" value="(count(cac:DeliveryParty/cac:PartyName/cbc:Name) &lt;= 1)"/>
@@ -55,7 +55,7 @@
   <param name="UBL-SR-50" value="count(cac:Item/cbc:Description) &lt;= 1"/>
   <param name="UBL-SR-51" value="not(cac:AddressLine) or count(cac:AddressLine) = 1"/>
   <param name="UBL-SR-52" value="count(cac:DocumentReference) &lt;= 1"/>
-  
+  <param name="UBL-SR-53" value="exists(cac:TaxScheme/cbc:ID) and exists(cbc:CompanyID)"/>
   <param name="UBL-DT-01" value="string-length(substring-after(.,'.'))&lt;=2"/>
   <param name="UBL-DT-06" value="(@mimeCode)"/>
   <param name="UBL-DT-07" value="(@filename)"/>
@@ -761,6 +761,7 @@
   <param name="UBL-CR-682" value="not(cac:Delivery/cac:DeliveryAddress)"/>
   
   <param name="Invoice_line" value="cac:InvoiceLine | cac:CreditNoteLine"/>
+  <param name="PartyTaxScheme" value="cac:PartyTaxScheme"/>
   <param name="Preceding_Invoice" value="cac:BillingReference"/>
   <param name="Payee" value="cac:PayeeParty"/>
   <param name="Tax_Representative" value="cac:TaxRepresentativeParty"/>
