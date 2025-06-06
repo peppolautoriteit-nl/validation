@@ -3,7 +3,8 @@
 Scheduled for next release
 --------------------------
 
-Nothing planned yet.
+NLCIUS-CII
+- Fixed an error in the underlying EN-16931 rule for BR-CO-27, which resulted in an incorrect generated xsl file.
 
 ==========================
 =   Published releases   =
