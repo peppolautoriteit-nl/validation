@@ -1962,9 +1962,11 @@
    </xsl:template>
 
 	  <!--RULE -->
-   <xsl:template match="$Credit_Payment_instructions" priority="1042" mode="M7">
+   <xsl:template match="//ram:SpecifiedTradeSettlementPaymentMeans[some $code in tokenize('49 59', '\s')  satisfies normalize-space(ram:TypeCode) = $code]"
+                 priority="1042"
+                 mode="M7">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="$Credit_Payment_instructions"/>
+                       context="//ram:SpecifiedTradeSettlementPaymentMeans[some $code in tokenize('49 59', '\s')  satisfies normalize-space(ram:TypeCode) = $code]"/>
 
 		    <!--ASSERT -->
       <xsl:choose>
