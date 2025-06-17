@@ -19,7 +19,7 @@
     xmlns="http://purl.oclc.org/dsdl/schematron"
     queryBinding="xslt2"
 >
-  <title>NLCIUS-CII validation, version 1.0.3.10</title>
+  <title>NLCIUS-CII validation, version 1.0.3.11</title>
   <ns prefix="ccts" uri="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2" />
   <ns prefix="qdt" uri="urn:un:unece:uncefact:data:standard:QualifiedDataType:100" />
   <ns prefix="ram" uri="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100" />

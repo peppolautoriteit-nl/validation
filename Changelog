@@ -3,12 +3,22 @@
 Scheduled for next release
 --------------------------
 
-NLCIUS-CII
-- Fixed an error in the underlying EN-16931 rule for BR-CO-27, which resulted in an incorrect generated xsl file.
+No scheduled changes yet
 
 ==========================
 =   Published releases   =
 ==========================
+
+REPOSITORY RELEASE 2025-06-16 - May 2025 update, hotfix for NLCIUS-CII
+
+_This release will be in effect as of August 25, 2025_
+
+NLCIUS-CII
+- Fixed an error in the underlying EN-16931 rule for BR-CO-27, which resulted in an incorrect generated xsl file.
+- Updated NLCIUS-CII to 1.0.3.11
+
+SI-UBL 2.0 (NLCIUS) and the g-account extension remain at the same versions as the original release on 2025-05-22 (2.0.3.11 and 1.0.2.11)
+
 
 REPOSITORY RELEASE 2025-05-22 (May 2025 release)
 
