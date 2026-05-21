@@ -7,7 +7,7 @@
 <!-- Abstract rules for binding CII to EN16931 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="EN16931-CII">
 	<rule context="$Specified_Trade_Settlement_PaymentMeans">
-		<assert test="$CII-SR-464" flag="warning" id="CII-SR-464">[CII-SR-464] - Only one BT-86 element is allowed on an invoice.</assert>
+		<assert test="$CII-SR-464" flag="warning" id="CII-SR-464">[CII-SR-464] - PayerSpecifiedDebtorFincancialInstitution shall not be used.</assert>
 	</rule>	
 	<rule context="$Document_Context">
 		<assert test="$CII-SR-001" flag="warning" id="CII-SR-001">[CII-SR-001] - SpecifiedTransactionID should not be present</assert>
@@ -193,6 +193,9 @@
 	</rule>
 	<rule context="$SpecifiedTradeAllowanceCharge">
 		<assert test="$CII-SR-463" flag="fatal" id="CII-SR-463">[CII-SR-463]-Each Specified Trade Allowance Charge (BG-20)(BG-21) shall contain a Charge Indicator.</assert>
+		<assert test="$CII-SR-471" flag="fatal" id="CII-SR-471">[CII-SR-471]-Each Specified Trade Allowance Charge (BG-20)(BG-21) shall contain a VAT category code (BT-95).</assert>		
+		<assert test="$CII-SR-472" flag="fatal" id="CII-SR-472">[CII-SR-472]-Each Specified Trade Allowance Charge (BG-20)(BG-21) should contain a VAT rate (BT-96).</assert>
+		<assert test="$CII-SR-473" flag="fatal" id="CII-SR-473">[CII-SR-473] - ActualAmount should exist maximum once</assert>
 	</rule> 
 	<rule context="$AppliedTradeAllowanceCharge">
 		<assert test="$CII-SR-440" flag="fatal" id="CII-SR-440">[CII-SR-440] - ActualAmount should exist maximum once</assert>
@@ -273,7 +276,7 @@
 		<assert test="$CII-SR-219" flag="warning" id="CII-SR-219">[CII-SR-219] - SalesSpecifiedTradeAccountingAccount should not be present</assert>
 		<assert test="$CII-SR-220" flag="warning" id="CII-SR-220">[CII-SR-220] - SpecifiedTradeSettlementFinancialCard should not be present</assert>
 		<assert test="$CII-SR-454" flag="warning" id="CII-SR-454">[CII-SR-454] - Only one ApplicableTradeTax should be present</assert>
-		
+		<assert test="$CII-SR-474" flag="warning" id="CII-SR-474">[CII-SR-474] - An invoice line shall not contain more than one AdditionalReferencedDocument with TypeCode 130.</assert>		
   </rule>		
 	<rule context="$ApplicableHeaderTradeAgreement ">
 		<assert test="$CII-SR-442" flag="warning" id="CII-SR-442">[CII-SR-442] - Reference should not be present</assert>
@@ -385,6 +388,8 @@
 		<assert test="$CII-SR-460" flag="fatal" id="CII-SR-460">[CII-SR-460] - BuyerTradeParty URIUniversalCommunication should exist maximum once</assert>
 		<assert test="$CII-SR-465" flag="warning" id="CII-SR-465">[CII-SR-465] - Only one BT-41 element is allowed on an invoice.</assert>
 		<assert test="$CII-SR-466" flag="warning" id="CII-SR-466">[CII-SR-466] - Only one BT-56 element is allowed on an invoice.</assert>
+		<assert test="$CII-SR-475" flag="warning" id="CII-SR-475">[CII-SR-475] - Only one AdditionalReferencedDocument Name BT-123 is allowed with TypeCode 916.</assert>		
+		<assert test="$CII-SR-476" flag="warning" id="CII-SR-476">[CII-SR-476] - Only one AdditionalReferencedDocument AttachmentBinaryObject BT-125 is allowed with TypeCode 916.</assert>		
 	</rule>
 	<rule context="$ApplicableHeaderTradeDelivery">
 		<assert test="$CII-SR-308" flag="warning" id="CII-SR-308">[CII-SR-308] - RelatedSupplyChainConsignment should not be present</assert>
@@ -525,6 +530,7 @@
 		<assert test="$CII-SR-453" flag="warning" id="CII-SR-453">[CII-SR-453] - Only one SpecifiedTradePaymentTerms Description should be present</assert>
 		<assert test="$CII-SR-461" flag="fatal" id="CII-SR-461">[CII-SR-461] - Only one TaxPointDate shall be present</assert>		
 		<assert test="$CII-SR-462" flag="fatal" id="CII-SR-462">[CII-SR-462] - Only one DueDateTypeCode shall be present</assert>		
+		<assert test="$CII-SR-470" flag="fatal" id="CII-SR-470">[CII-SR-470] - Either the IBAN or a Proprietary ID (BT-84) shall be used.</assert>
 	</rule>
 	<rule context="$SpecifiedTradeSettlementHeaderMonetarySummation">
 
@@ -538,12 +544,33 @@
 		<assert test="$CII-SR-418" flag="warning" id="CII-SR-418">[CII-SR-418] - GrossLineTotalAmount should not be present</assert>
 		<assert test="$CII-SR-419" flag="warning" id="CII-SR-419">[CII-SR-419] - NetLineTotalAmount should not be present</assert>
 		<assert test="$CII-SR-420" flag="warning" id="CII-SR-420">[CII-SR-420] - NetIncludingTaxesLineTotalAmount should not be present</assert>
+		<assert test="$CII-SR-477" flag="fatal" id="CII-SR-477">[CII-SR-477] - LineTotalAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-478" flag="fatal" id="CII-SR-478">[CII-SR-478] - ChargeTotalAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-479" flag="fatal" id="CII-SR-479">[CII-SR-479] - AllowanceTotalAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-480" flag="fatal" id="CII-SR-480">[CII-SR-480] - TaxBasisTotalAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-481" flag="fatal" id="CII-SR-481">[CII-SR-481] - RoundingAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-482" flag="fatal" id="CII-SR-482">[CII-SR-482] - GrandTotalAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-483" flag="fatal" id="CII-SR-483">[CII-SR-483] - InformationAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-484" flag="fatal" id="CII-SR-484">[CII-SR-484] - TotalPrepaidAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-485" flag="fatal" id="CII-SR-485">[CII-SR-485] - TotalDiscountAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-486" flag="fatal" id="CII-SR-486">[CII-SR-486] - TotalAllowanceChargeAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-487" flag="fatal" id="CII-SR-487">[CII-SR-487] - DuePayableAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-488" flag="fatal" id="CII-SR-488">[CII-SR-488] - RetailValueExcludingTaxInformationAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-489" flag="fatal" id="CII-SR-489">[CII-SR-489] - TotalDepositFeeInformationAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-490" flag="fatal" id="CII-SR-490">[CII-SR-490] - ProductValueExcludingTobaccoTaxInformationAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-491" flag="fatal" id="CII-SR-491">[CII-SR-491] - TotalRetailValueInformationAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-492" flag="fatal" id="CII-SR-492">[CII-SR-492] - GrossLineTotalAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-493" flag="fatal" id="CII-SR-493">[CII-SR-493] - NetLineTotalAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
+		<assert test="$CII-SR-494" flag="fatal" id="CII-SR-494">[CII-SR-494] - NetIncludingTaxesLineTotalAmount shall occur at most once in SpecifiedTradeSettlementHeaderMonetarySummation.</assert>
 	</rule>
 	<rule context="$Invoice">
 		<assert test="$CII-DT-013" flag="fatal" id="CII-DT-013">[CII-DT-013] - languageID should not be present</assert>
 		<assert test="$CII-DT-014" flag="fatal" id="CII-DT-014">[CII-DT-014] - languageLocaleID should not be present</assert>
 
 		<assert test="$CII-SR-438" flag="warning" id="CII-SR-438">[CII-SR-438] - ValuationBreakdownStatement should not be present</assert>
+		<assert test="$CII-SR-467" flag="fatal" id="CII-SR-467">[CII-SR-467] - All Payment means type codes (BT-81) shall have the same value across all SpecifiedTradeSettlementPaymentMeans.</assert>
+		<assert test="$CII-SR-468" flag="fatal" id="CII-SR-468">[CII-SR-468] - All Payment means texts (BT-82) shall have the same value across all SpecifiedTradeSettlementPaymentMeans.</assert>
+		<assert test="$CII-SR-469" flag="fatal" id="CII-SR-469">[CII-SR-469] - Payment reference (BT-83) shall occur at most once in the document.</assert>
 	</rule>
 	<rule context="$DocumentContextParameter">
 		<assert test="$CII-SR-004" flag="warning" id="CII-SR-04">[CII-SR-004] - Value should not be present</assert>

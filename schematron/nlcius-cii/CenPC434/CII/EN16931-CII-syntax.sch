@@ -54,6 +54,7 @@
 	<param name="CII-SR-043" value="not(ram:IncludedNote/ram:Subject)"/>
 	<param name="CII-SR-044" value="not(ram:IncludedNote/ram:ContentCode)"/>
 	<param name="CII-SR-221" value="not(ram:IncludedSubordinateTradeLineItem)"/>
+	
 	<!-- Product information -->
 	<param name="CII-SR-045" value="not(ram:ID)"/>
 	<param name="CII-SR-046" value="not(ram:GlobalID) or (ram:GlobalID/@schemeID)"/>
@@ -203,12 +204,18 @@
 	<param name="CII-SR-149" value="not(ram:ItemBuyerTradeParty)"/>
 	<param name="CII-SR-150" value="not(ram:IncludedSpecifiedMarketplace)"/>
 	<param name="CII-SR-447" value="not(ram:UltimateCustomerOrderReferencedDocument)"/>
-	<param name="CII-SR-464" value="(ram:PayeeSpecifiedCreditorFinancialInstitution or ram:PayerSpecifiedDebtorFinancialInstitution) or (not(ram:PayeeSpecifiedCreditorFinancialInstitution) and not(ram:PayerSpecifiedDebtorFinancialInstitution))"/>
+	<param name="CII-SR-464" value="not(ram:PayerSpecifiedDebtorFinancialInstitution)"/>
 
 	<!-- AppliedTradeAllowanceCharge -->
 	<param name="CII-SR-440"
 		value="count(ram:ActualAmount) &lt;= 1"/>
+
 	
+	<!-- SpecifiedTradeAllowanceCharge -->
+	
+	<param name="CII-SR-471" value="count(ram:RateApplicablePercent) &lt;= 1"/>
+	<param name="CII-SR-472" value="count(ram:CategoryTradeTax) &lt;= 1"/>
+	<param name="CII-SR-473" value="count(ram:ActualAmount) &lt;= 1"/>
 	
 	<!-- SpecifiedLineTradeDelivery -->
 	<param name="CII-SR-151" value="not(ram:RequestedQuantity)"/>
@@ -304,6 +311,8 @@
 	<param name="CII-SR-219" value="not(ram:SalesSpecifiedTradeAccountingAccount)"/>
 	<param name="CII-SR-220" value="not(ram:SpecifiedTradeSettlementFinancialCard)"/>
 	<param name="CII-SR-454" value="count(ram:ApplicableTradeTax) = 1"/>
+	<param name="CII-SR-474" value="count(ram:AdditionalReferencedDocument[normalize-space(ram:TypeCode) = '130']) &lt;= 1"/>
+	
 	
 	<!-- ApplicableHeaderTradeAgreement -->
 	<param name="CII-SR-442" value="not(ram:Reference)"/>
@@ -457,6 +466,10 @@
 	<param name="CII-SR-456" value="( count(ram:BuyerTradeParty/ram:DefinedTradeContact)  &lt;= 1)"/>
 	<param name="CII-SR-457" value="( count(ram:AdditionalReferencedDocument[ram:TypeCode='50'])  &lt;= 1)"/>
 	<param name="CII-SR-458" value="( count(ram:AdditionalReferencedDocument[ram:TypeCode='130'])  &lt;= 1)"/>
+	<param name="CII-SR-470" value="count(ram:SpecifiedTradeSettlementPaymentMeans[(normalize-space(ram:TypeCode) = '30' or normalize-space(ram:TypeCode) = '58') and not(ram:PayeePartyCreditorFinancialAccount/ram:IBANID or ram:PayeePartyCreditorFinancialAccount/ram:ProprietaryID)]) = 0"/>
+	<param name="CII-SR-475" value="count(ram:AdditionalReferencedDocument[normalize-space(ram:TypeCode) = '916']/ram:Name) &lt;= 1"/>
+	<param name="CII-SR-476" value="count(ram:AdditionalReferencedDocument[normalize-space(ram:TypeCode) = '916']/ram:AttachmentBinaryObject) &lt;= 1"/>
+	
 	<!-- ApplicableHeaderTradeDelivery -->
 	<param name="CII-SR-308" value="not(ram:RelatedSupplyChainConsignment)"/>
 	<param name="CII-SR-309" value="not(ram:ShipToTradeParty/ram:RoleCode)"/>
@@ -637,6 +650,10 @@
 	<param name="CII-SR-462" value="count(//ram:ApplicableTradeTax/ram:DueDateTypeCode) = 0 or count(distinct-values(//ram:ApplicableTradeTax/ram:DueDateTypeCode)) = 1"/>
 	<param name="CII-SR-465" value="not(ram:SellerTradeParty/ram:DefinedTradeContact/ram:PersonName and ram:SellerTradeParty/ram:DefinedTradeContact/ram:DepartmentName)"/>
 	<param name="CII-SR-466" value="not(ram:BuyerTradeParty/ram:DefinedTradeContact/ram:PersonName and ram:BuyerTradeParty/ram:DefinedTradeContact/ram:DepartmentName)"/>
+	<param name="CII-SR-467" value="count(//ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode[normalize-space(.) != normalize-space((//ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode)[1])]) = 0"/>
+	<param name="CII-SR-468" value="count(//ram:SpecifiedTradeSettlementPaymentMeans/ram:Information[normalize-space(.) != normalize-space((//ram:SpecifiedTradeSettlementPaymentMeans/ram:Information)[1])]) = 0"/>	
+	<param name="CII-SR-469" value="count(//ram:ApplicableHeaderTradeSettlement/ram:PaymentReference) &lt;= 1"/>
+	
 	
 	<!-- Invoice -->
 	<param name="CII-SR-438" value="not(ram:ValuationBreakdownStatement)"/>
@@ -654,8 +671,24 @@
 	<param name="CII-SR-419" value="not(ram:NetLineTotalAmount)"/>
 	<param name="CII-SR-420" value="not(ram:NetIncludingTaxesLineTotalAmount)"/>
 	<param name="CII-SR-463" value="(ram:ChargeIndicator)"/>
-	
-
+	<param name="CII-SR-477" value="count(ram:LineTotalAmount) &lt;= 1"/>
+	<param name="CII-SR-478" value="count(ram:ChargeTotalAmount) &lt;= 1"/>
+	<param name="CII-SR-479" value="count(ram:AllowanceTotalAmount) &lt;= 1"/>
+	<param name="CII-SR-480" value="count(ram:TaxBasisTotalAmount) &lt;= 1"/>
+	<param name="CII-SR-481" value="count(ram:RoundingAmount) &lt;= 1"/>
+	<param name="CII-SR-482" value="count(ram:GrandTotalAmount) &lt;= 1"/>
+	<param name="CII-SR-483" value="count(ram:InformationAmount) &lt;= 1"/>
+	<param name="CII-SR-484" value="count(ram:TotalPrepaidAmount) &lt;= 1"/>
+	<param name="CII-SR-485" value="count(ram:TotalDiscountAmount) &lt;= 1"/>
+	<param name="CII-SR-486" value="count(ram:TotalAllowanceChargeAmount) &lt;= 1"/>
+	<param name="CII-SR-487" value="count(ram:DuePayableAmount) &lt;= 1"/>
+	<param name="CII-SR-488" value="count(ram:RetailValueExcludingTaxInformationAmount) &lt;= 1"/>
+	<param name="CII-SR-489" value="count(ram:TotalDepositFeeInformationAmount) &lt;= 1"/>
+	<param name="CII-SR-490" value="count(ram:ProductValueExcludingTobaccoTaxInformationAmount) &lt;= 1"/>
+	<param name="CII-SR-491" value="count(ram:TotalRetailValueInformationAmount) &lt;= 1"/>
+	<param name="CII-SR-492" value="count(ram:GrossLineTotalAmount) &lt;= 1"/>
+	<param name="CII-SR-493" value="count(ram:NetLineTotalAmount) &lt;= 1"/>
+	<param name="CII-SR-494" value="count(ram:NetIncludingTaxesLineTotalAmount) &lt;= 1"/>
 	<!-- ID Type -->
 	<param name="CII-DT-001" value="not(@schemeName)"/>
 	<param name="CII-DT-002" value="not(@schemeAgencyName)"/>
