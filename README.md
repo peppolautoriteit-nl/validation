@@ -96,4 +96,4 @@ tag validation-1.3.16
 Test Files
 ==========
 
-We have a number of test documents available in a separate repository, it can be found [here](https://github.com/SimplerInvoicing/testset)
+We have a number of test documents available in a separate repository, it can be found [here](https://github.com/peppolautoriteit-nl/testset)
