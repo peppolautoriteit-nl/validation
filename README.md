@@ -50,8 +50,8 @@ The schematron files can be used directly by any software that supports it, or t
 
 This is the list of schematron files included in this repository:
 
-- [schematron/si-ubl-2.0.sch](schematron/si-ubl-2.0.sch) SI-UBL 2.0, Invoice and CreditNote. This implements all the rules of EN-16931 and NLCIUS for UBL. See [https://stpe.nl/documenten/](https://stpe.nl/documenten/) for more information (in Dutch).
-- [schematron/si-ubl-2.0-ext-gaccount.sch](schematron/si-ubl-2.0-ext-gaccount.sch) This is the g-account extension on the NLCIUS, to be used in g-account scenarios, where part of the amount to be payed is to be payed to a separate blocked account. See [https://stpe.nl/documenten/](https://stpe.nl/documenten/) for more information (in Dutch).
+- [schematron/si-ubl-2.0.sch](schematron/si-ubl-2.0.sch) SI-UBL 2.0, Invoice and CreditNote. This implements all the rules of EN-16931 and NLCIUS for UBL. See [stpe.nl](https://stpe.nl/) and [STPE Semantic-treehouse](https://stpe.semantic-treehouse.nl/) for more information (in Dutch).
+- [schematron/si-ubl-2.0-ext-gaccount.sch](schematron/si-ubl-2.0-ext-gaccount.sch) This is the g-account extension on the NLCIUS, to be used in g-account scenarios, where part of the amount to be payed is to be payed to a separate blocked account. See [stpe.nl](https://stpe.nl/) and [STPE Semantic-treehouse](https://stpe.semantic-treehouse.nl/) for more information (in Dutch).
 - [schematron/nlcius-cii-1.0.sch](schematron/nlcius-cii-1.0.sch) NLCIUS CII Invoice. This is the UN/CEFACT CII D16B mapping that implements the rules of EN-16931 and NLCIUS.
 - [schematron/si-ubl-1.2.sch](schematron/si-ubl-1.2.sch) SI-UBL 1.2, Invoice. The previous and now optional version of SI-UBL. This does not support the rules of the NLCIUS.
 - [schematron/si-ubl-1.2-purchaseorder.sch](schematron/si-ubl-1.2-purchaseorder.sch) SI-UBL 1.2, Purchase orders. The previous and now optional version of SI-UBL.
