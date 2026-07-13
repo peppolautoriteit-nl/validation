@@ -35,7 +35,7 @@ The `schematron/` directory contains all the source schematron files, also by ve
 The `rule_overviews/` directory contains a few assorted documents, and overview of the rules per version, generated from the xsl files.
 
 The `tools/` directory contains the tools to recreate the xsl files from the schematron files. For instance, to create a fresh SI-UBL-2.0 xsl file, you can use the command:
-    ./tools/convert_linux.sh schematron/si-ubl-2.0.sch /tmp/si-ubl-1.2.xsl
+    ./tools/convert_linux.sh schematron/si-ubl-2.0.sch /tmp/si-ubl-2.0.xsl
 
 The `build_all_linux.sh` script rebuilds all generated files in this repository, based on the schematron files. This will overwrite the files in the `xsl/` directory.
 
@@ -53,8 +53,8 @@ This is the list of schematron files included in this repository:
 - [schematron/si-ubl-2.0.sch](schematron/si-ubl-2.0.sch) SI-UBL 2.0, Invoice and CreditNote. This implements all the rules of EN-16931 and NLCIUS for UBL. See [stpe.nl](https://stpe.nl/) and [STPE Semantic-treehouse](https://stpe.semantic-treehouse.nl/) for more information (in Dutch).
 - [schematron/si-ubl-2.0-ext-gaccount.sch](schematron/si-ubl-2.0-ext-gaccount.sch) This is the g-account extension on the NLCIUS, to be used in g-account scenarios, where part of the amount to be payed is to be payed to a separate blocked account. See [stpe.nl](https://stpe.nl/) and [STPE Semantic-treehouse](https://stpe.semantic-treehouse.nl/) for more information (in Dutch).
 - [schematron/nlcius-cii-1.0.sch](schematron/nlcius-cii-1.0.sch) NLCIUS CII Invoice. This is the UN/CEFACT CII D16B mapping that implements the rules of EN-16931 and NLCIUS.
-- [schematron/si-ubl-1.2.sch](schematron/si-ubl-1.2.sch) SI-UBL 1.2, Invoice. The previous and now optional version of SI-UBL. This does not support the rules of the NLCIUS.
-- [schematron/si-ubl-1.2-purchaseorder.sch](schematron/si-ubl-1.2-purchaseorder.sch) SI-UBL 1.2, Purchase orders. The previous and now optional version of SI-UBL.
+- [schematron/si-ubl-1.2.sch](schematron/si-ubl-1.2.sch) SI-UBL 1.2, Invoice. This version is out of support, but kept for historic purposes. This version does not support the rules of the NLCIUS.
+- [schematron/si-ubl-1.2-purchaseorder.sch](schematron/si-ubl-1.2-purchaseorder.sch) SI-UBL 1.2, Purchase orders. This version is out of support, but kept for historic purposes.
 - [schematron/si-ubl-1.1.sch](schematron/si-ubl-1.1.sch) SI-UBL 1.1. This version is out of support, but kept for historic purposes.
 - [schematron/si-ubl-1.0.sch](schematron/si-ubl-1.0.sch) SI-UBL 1.0. This version is out of support, but kept for historic purposes.
 
@@ -64,7 +64,7 @@ SI-UBL 2.0.3.13
 
 This is the version of SI-UBL that is based on the NLCIUS 1.0.3, which is a CIUS on the European Norm (EN-16931) and adds Dutch country-specific rules.
 
-Since this is based on EN-16931, there are major differences between SI-UBL 1.2 and SI-UBL 2.0. For more information about the new rules, see https://stpe.semantic-treehouse.nl/api/v1/uploads/FileObject_1585636341_00183857/E-Factureren%20-%20Gebruiksinstructie%20voor%20de%20basisfactuur%20v1.0.3.pdf
+For more information about NLCIUS (the semantic model) and SI-UBL (the XML mapping of NLCIUS on UBL), see https://stpe.semantic-treehouse.nl/api/v1/uploads/FileObject_1585636341_00183857/E-Factureren%20-%20Gebruiksinstructie%20voor%20de%20basisfactuur%20v1.0.3.pdf
 
 The schematron can be found [here](schematron/si-ubl-2.0.sch) and the generated xsl [here](xsl/si-ubl-2.0.xsl)
 
