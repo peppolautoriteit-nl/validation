@@ -14029,7 +14029,7 @@
 
 	  <!--RULE BR-NL-1-->
    <xsl:template match="ram:SellerTradeParty/ram:SpecifiedLegalOrganization[$s]"
-                 priority="1033"
+                 priority="1038"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SellerTradeParty/ram:SpecifiedLegalOrganization[$s]"
@@ -14055,7 +14055,7 @@
 
 	  <!--RULE BR-NL-2-->
    <xsl:template match="ram:ApplicableHeaderTradeAgreement[$s]"
-                 priority="1032"
+                 priority="1037"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:ApplicableHeaderTradeAgreement[$s]"
@@ -14081,7 +14081,7 @@
 
 	  <!--RULE BR-NL-3-->
    <xsl:template match="ram:SellerTradeParty/ram:PostalTradeAddress[$s]"
-                 priority="1031"
+                 priority="1036"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SellerTradeParty/ram:PostalTradeAddress[$s]"
@@ -14107,7 +14107,7 @@
 
 	  <!--RULE BR-NL-4-->
    <xsl:template match="ram:BuyerTradeParty/ram:PostalTradeAddress[$s]"
-                 priority="1030"
+                 priority="1035"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:BuyerTradeParty/ram:PostalTradeAddress[$s]"
@@ -14133,7 +14133,7 @@
 
 	  <!--RULE BR-NL-5-->
    <xsl:template match="ram:SellerTaxRepresentativeTradeParty/ram:PostalTradeAddress[$s]"
-                 priority="1029"
+                 priority="1034"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SellerTaxRepresentativeTradeParty/ram:PostalTradeAddress[$s]"
@@ -14159,7 +14159,7 @@
 
 	  <!--RULE BR-NL-7-->
    <xsl:template match="/*/rsm:ExchangedDocument/ram:TypeCode[$si]"
-                 priority="1028"
+                 priority="1033"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="/*/rsm:ExchangedDocument/ram:TypeCode[$si]"
@@ -14185,7 +14185,7 @@
 
 	  <!--RULE BR-NL-9-->
    <xsl:template match="/*/rsm:ExchangedDocument/ram:TypeCode[$si]"
-                 priority="1027"
+                 priority="1032"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="/*/rsm:ExchangedDocument/ram:TypeCode[$si]"
@@ -14210,7 +14210,7 @@
    </xsl:template>
 
 	  <!--RULE BR-NL-10-->
-   <xsl:template match="ram:BuyerTradeParty[$s]" priority="1026" mode="M10">
+   <xsl:template match="ram:BuyerTradeParty[$s]" priority="1031" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:BuyerTradeParty[$s]"
                        id="BR-NL-10"/>
@@ -14235,7 +14235,7 @@
 
 	  <!--RULE BR-NL-11-->
    <xsl:template match="ram:SpecifiedTradeSettlementHeaderMonetarySummation[$s]"
-                 priority="1025"
+                 priority="1030"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SpecifiedTradeSettlementHeaderMonetarySummation[$s]"
@@ -14261,7 +14261,7 @@
 
 	  <!--RULE BR-NL-12-->
    <xsl:template match="ram:SpecifiedTradeSettlementPaymentMeans[$s]"
-                 priority="1024"
+                 priority="1029"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SpecifiedTradeSettlementPaymentMeans[$s]"
@@ -14287,7 +14287,7 @@
 
 	  <!--RULE BR-NL-31-->
    <xsl:template match="ram:SpecifiedTradeSettlementPaymentMeans[$s]"
-                 priority="1023"
+                 priority="1028"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SpecifiedTradeSettlementPaymentMeans[$s]"
@@ -14313,7 +14313,7 @@
 
 	  <!--RULE BR-NL-13-->
    <xsl:template match="ram:BuyerOrderReferencedDocument/ram:LineID[$si]"
-                 priority="1022"
+                 priority="1027"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:BuyerOrderReferencedDocument/ram:LineID[$si]"
@@ -14338,7 +14338,7 @@
    </xsl:template>
 
 	  <!--RULE BR-NL-19-->
-   <xsl:template match="ram:TaxCurrencyCode[$s]" priority="1021" mode="M10">
+   <xsl:template match="ram:TaxCurrencyCode[$s]" priority="1026" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:TaxCurrencyCode[$s]"
                        id="BR-NL-19"/>
@@ -14362,7 +14362,7 @@
 
 	  <!--RULE BR-NL-20-->
    <xsl:template match="ram:TaxPointDate/udt:DateString[$s]"
-                 priority="1020"
+                 priority="1025"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:TaxPointDate/udt:DateString[$s]"
@@ -14386,7 +14386,7 @@
    </xsl:template>
 
 	  <!--RULE BR-NL-21-->
-   <xsl:template match="ram:DueDateTypeCode[$s]" priority="1019" mode="M10">
+   <xsl:template match="ram:DueDateTypeCode[$s]" priority="1024" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:DueDateTypeCode[$s]"
                        id="BR-NL-21"/>
@@ -14409,7 +14409,7 @@
    </xsl:template>
 
 	  <!--RULE BR-NL-22-->
-   <xsl:template match="ram:SubjectCode[$s]" priority="1018" mode="M10">
+   <xsl:template match="ram:SubjectCode[$s]" priority="1023" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SubjectCode[$s]"
                        id="BR-NL-22"/>
@@ -14433,7 +14433,7 @@
 
 	  <!--RULE BR-NL-23-->
    <xsl:template match="ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID[$s]"
-                 priority="1017"
+                 priority="1022"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:BusinessProcessSpecifiedDocumentContextParameter/ram:ID[$s]"
@@ -14458,7 +14458,7 @@
 
 	  <!--RULE BR-NL-24-->
    <xsl:template match="ram:InvoiceReferencedDocument/ram:FormattedIssueDateTime/qdt:DateTimeString[$s]"
-                 priority="1016"
+                 priority="1021"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:InvoiceReferencedDocument/ram:FormattedIssueDateTime/qdt:DateTimeString[$s]"
@@ -14483,7 +14483,7 @@
 
 	  <!--RULE BR-NL-25-->
    <xsl:template match="ram:SellerTradeParty/ram:SpecifiedTaxRegistration[$s]"
-                 priority="1015"
+                 priority="1020"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SellerTradeParty/ram:SpecifiedTaxRegistration[$s]"
@@ -14509,7 +14509,7 @@
 
 	  <!--RULE BR-NL-26-->
    <xsl:template match="ram:SellerTradeParty/ram:Description[$s]"
-                 priority="1014"
+                 priority="1019"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SellerTradeParty/ram:Description[$s]"
@@ -14534,7 +14534,7 @@
 
 	  <!--RULE BR-NL-27-1-->
    <xsl:template match="ram:SellerTradeParty/ram:PostalTradeAddress/ram:LineThree[$s]"
-                 priority="1013"
+                 priority="1018"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SellerTradeParty/ram:PostalTradeAddress/ram:LineThree[$s]"
@@ -14559,7 +14559,7 @@
 
 	  <!--RULE BR-NL-27-2-->
    <xsl:template match="ram:BuyerTradeParty/ram:PostalTradeAddress/ram:LineThree[$s]"
-                 priority="1012"
+                 priority="1017"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:BuyerTradeParty/ram:PostalTradeAddress/ram:LineThree[$s]"
@@ -14584,7 +14584,7 @@
 
 	  <!--RULE BR-NL-27-3-->
    <xsl:template match="ram:SellerTaxRepresentativeTradeParty/ram:PostalTradeAddress/ram:LineThree[$s]"
-                 priority="1011"
+                 priority="1016"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SellerTaxRepresentativeTradeParty/ram:PostalTradeAddress/ram:LineThree[$s]"
@@ -14609,7 +14609,7 @@
 
 	  <!--RULE BR-NL-27-4-->
    <xsl:template match="ram:ShipToTradeParty/ram:PostalTradeAddress/ram:LineThree[$s]"
-                 priority="1010"
+                 priority="1015"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:ShipToTradeParty/ram:PostalTradeAddress/ram:LineThree[$s]"
@@ -14634,7 +14634,7 @@
 
 	  <!--RULE BR-NL-28-1-->
    <xsl:template match="ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountrySubDivisionName[$s]"
-                 priority="1009"
+                 priority="1014"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SellerTradeParty/ram:PostalTradeAddress/ram:CountrySubDivisionName[$s]"
@@ -14659,7 +14659,7 @@
 
 	  <!--RULE BR-NL-28-2-->
    <xsl:template match="ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountrySubDivisionName[$s]"
-                 priority="1008"
+                 priority="1013"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:BuyerTradeParty/ram:PostalTradeAddress/ram:CountrySubDivisionName[$s]"
@@ -14684,7 +14684,7 @@
 
 	  <!--RULE BR-NL-28-3-->
    <xsl:template match="ram:SellerTaxRepresentativeTradeParty/ram:PostalTradeAddress/ram:CountrySubDivisionName[$s]"
-                 priority="1007"
+                 priority="1012"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SellerTaxRepresentativeTradeParty/ram:PostalTradeAddress/ram:CountrySubDivisionName[$s]"
@@ -14709,7 +14709,7 @@
 
 	  <!--RULE BR-NL-28-4-->
    <xsl:template match="ram:ShipToTradeParty/ram:PostalTradeAddress/ram:CountrySubDivisionName[$s]"
-                 priority="1006"
+                 priority="1011"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:ShipToTradeParty/ram:PostalTradeAddress/ram:CountrySubDivisionName[$s]"
@@ -14734,7 +14734,7 @@
 
 	  <!--RULE BR-NL-29-->
    <xsl:template match="ram:SpecifiedTradeSettlementPaymentMeans/ram:Information[$s]"
-                 priority="1005"
+                 priority="1010"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SpecifiedTradeSettlementPaymentMeans/ram:Information[$s]"
@@ -14759,7 +14759,7 @@
 
 	  <!--RULE BR-NL-30-->
    <xsl:template match="ram:PayeePartyCreditorFinancialAccount/ram:AccountName[$s]"
-                 priority="1004"
+                 priority="1009"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:PayeePartyCreditorFinancialAccount/ram:AccountName[$s]"
@@ -14784,7 +14784,7 @@
 
 	  <!--RULE BR-NL-32-and-34-->
    <xsl:template match="ram:SpecifiedTradeAllowanceCharge/ram:ReasonCode[$s]"
-                 priority="1003"
+                 priority="1008"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SpecifiedTradeAllowanceCharge/ram:ReasonCode[$s]"
@@ -14809,7 +14809,7 @@
 
 	  <!--RULE BR-NL-33-->
    <xsl:template match="ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[$s]"
-                 priority="1002"
+                 priority="1007"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[$s]"
@@ -14835,7 +14835,7 @@
 
 	  <!--RULE BR-NL-35-->
    <xsl:template match="ram:ApplicableTradeTax/ram:ExemptionReasonCode[$s]"
-                 priority="1001"
+                 priority="1006"
                  mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
                        context="ram:ApplicableTradeTax/ram:ExemptionReasonCode[$s]"
@@ -14852,6 +14852,131 @@
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
                <svrl:text>[BR-NL-35] The use of a tax exemption reason code (/*/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:ExemptionReasonCode) is not recommended</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M10"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="ram:URIID[@schemeID = '0106'] | ram:ID[@schemeID = '0106'] | ram:GlobalID[@schemeID = '0106']"
+                 priority="1005"
+                 mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="ram:URIID[@schemeID = '0106'] | ram:ID[@schemeID = '0106'] | ram:GlobalID[@schemeID = '0106']"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="matches(normalize-space(), '^[0-9]{8}$')"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="matches(normalize-space(), '^[0-9]{8}$')">
+               <xsl:attribute name="id">BR-NL-36</xsl:attribute>
+               <xsl:attribute name="flag">warning</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[BR-NL-36]-Dutch Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M10"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="ram:URIID[@schemeID = '0190'] | ram:ID[@schemeID = '0190'] | ram:GlobalID[@schemeID = '0190']"
+                 priority="1004"
+                 mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="ram:URIID[@schemeID = '0190'] | ram:ID[@schemeID = '0190'] | ram:GlobalID[@schemeID = '0190']"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="matches(normalize-space(), '^[0-9]{20}$')"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="matches(normalize-space(), '^[0-9]{20}$')">
+               <xsl:attribute name="id">BR-NL-37</xsl:attribute>
+               <xsl:attribute name="flag">warning</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[BR-NL-37]-Dutch organization identification numbers (0190) MUST be stated in the correct format (12345678901234567890).</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M10"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="ram:URIID[@schemeID = '9944'] | ram:ID[@schemeID = '9944'] | ram:GlobalID[@schemeID = '9944']"
+                 priority="1003"
+                 mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="ram:URIID[@schemeID = '9944'] | ram:ID[@schemeID = '9944'] | ram:GlobalID[@schemeID = '9944']"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')">
+               <xsl:attribute name="id">BR-NL-38-1</xsl:attribute>
+               <xsl:attribute name="flag">warning</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[BR-NL-38-1]-Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M10"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(normalize-space(.), 'NL')]"
+                 priority="1002"
+                 mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="ram:SpecifiedTaxRegistration[ram:ID/@schemeID = 'VA'][starts-with(normalize-space(.), 'NL')]"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')">
+               <xsl:attribute name="id">BR-NL-38-2</xsl:attribute>
+               <xsl:attribute name="flag">warning</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[BR-NL-38-2]-Dutch VAT numbers MUST have the format (NL123456789B12).</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M10"/>
+   </xsl:template>
+
+	  <!--RULE -->
+   <xsl:template match="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217']"
+                 priority="1001"
+                 mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                       context="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217']"/>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="matches(normalize-space(), '^[0-9]{12}$')"/>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                                test="matches(normalize-space(), '^[0-9]{12}$')">
+               <xsl:attribute name="id">BR-NL-39</xsl:attribute>
+               <xsl:attribute name="flag">warning</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[BR-NL-39]-Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (123456789012).</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>

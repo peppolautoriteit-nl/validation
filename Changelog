@@ -3,7 +3,13 @@
 Scheduled for next release
 --------------------------
 
-No scheduled changes yet
+- Added format validation for KVK, OIN, NL:VAT, and KVK Establishment numbers. This validation regards the general format only:
+  * BR-NL-36: A KVK number must be 8 digits
+  * BR-NL-37: An OIN number must be 20 digits
+  * BR-NL-38-1 and BR-NL-38-2: A Dutch VAT number must have the form 'NL<9 digits>B<2 digits>'
+  * BR-NL-39: A KVK establishment number must be 12 digits.
+  This rule is enforced for all elements there the ICD scheme is used (EndpointID, PartyIdentification and PartyLegalEntity/CompanyID), as well as for TaxScheme/CompanyID if the TaxScheme is VAT and the ID starts with 'NL'.
+  For this version, these rules are added as warnings, but they will be changed to errors in a future release.
 
 ==========================
 =   Published releases   =

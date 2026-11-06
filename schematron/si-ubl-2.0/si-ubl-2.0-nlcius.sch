@@ -172,6 +172,27 @@
   <rule context="cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReasonCode[$s]">
     <assert id="BR-NL-35" test="false" flag="warning">[BR-NL-35] The use of a tax exemption reason code (cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReasonCode) is not recommended</assert>
   </rule>
+  
+  <!-- Identifier format checks for KVK, OIN, NL:VAT, and KVK Establishment numbers -->
+  <rule context="cbc:EndpointID[@schemeID = '0106'] | cac:PartyIdentification/cbc:ID[@schemeID = '0106'] | cbc:CompanyID[@schemeID = '0106']">
+    <assert id="BR-NL-36" test="matches(normalize-space(), '^[0-9]{8}$')" flag="warning">[BR-NL-36]-Dutch Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</assert>
+  </rule>
+  <rule context="cbc:EndpointID[@schemeID = '0190'] | cac:PartyIdentification/cbc:ID[@schemeID = '0190'] | cbc:CompanyID[@schemeID = '0190']">
+    <assert id="BR-NL-37" test="matches(normalize-space(), '^[0-9]{20}$')" flag="warning">[BR-NL-37]-Dutch organization identification numbers (0190) MUST be stated in the correct format (12345678901234567890).</assert>
+  </rule>
+  <rule context="cbc:EndpointID[@schemeID = '9944'] | cac:PartyIdentification/cbc:ID[@schemeID = '9944'] | cbc:CompanyID[@schemeID = '9944']">
+    <assert id="BR-NL-38-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')" flag="warning">[BR-NL-38-1]-Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).</assert>
+  </rule>
+  <!-- If main VAT number starts with NL, validate that too -->
+  <rule context="cac:PartyTaxScheme
+                 [normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']
+                 /cbc:CompanyID
+                 [starts-with(normalize-space(.), 'NL')]">
+  <assert id="BR-NL-38-2" test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')" flag="warning">[BR-NL-38-2]-Dutch VAT numbers MUST have the format (NL123456789B12).</assert>
+  </rule>
+  <rule context="cbc:EndpointID[@schemeID = '0217'] | cac:PartyIdentification/cbc:ID[@schemeID = '0217'] | cbc:CompanyID[@schemeID = '0217']">
+    <assert id="BR-NL-39" test="matches(normalize-space(), '^[0-9]{12}$')" flag="warning">[BR-NL-39]-Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (123456789012).</assert>
+  </rule>
 
   <rule context="//*[not(*) and not(normalize-space())]">
     <assert id="SI-UBL-2" test="false()" flag="warning">Document should not contain empty elements.</assert>

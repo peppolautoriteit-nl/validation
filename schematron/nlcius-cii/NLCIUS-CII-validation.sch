@@ -184,6 +184,21 @@
         <assert id="BR-NL-35" test="false" flag="warning">[BR-NL-35] The use of a tax exemption reason code (/*/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:ExemptionReasonCode) is not recommended</assert>
     </rule>
 
+	<rule context="ram:URIID[@schemeID = '0106'] | ram:ID[@schemeID = '0106'] | ram:GlobalID[@schemeID = '0106']">
+      <assert id="BR-NL-36" test="matches(normalize-space(), '^[0-9]{8}$')" flag="warning">[BR-NL-36]-Dutch Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).</assert>
+    </rule>
+	<rule context="ram:URIID[@schemeID = '0190'] | ram:ID[@schemeID = '0190'] | ram:GlobalID[@schemeID = '0190']">
+      <assert id="BR-NL-37" test="matches(normalize-space(), '^[0-9]{20}$')" flag="warning">[BR-NL-37]-Dutch organization identification numbers (0190) MUST be stated in the correct format (12345678901234567890).</assert>
+    </rule>
+	<rule context="ram:URIID[@schemeID = '9944'] | ram:ID[@schemeID = '9944'] | ram:GlobalID[@schemeID = '9944']">
+      <assert id="BR-NL-38-1" test="matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')" flag="warning">[BR-NL-38-1]-Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).</assert>
+    </rule>
+    <rule context="ram:SpecifiedTaxRegistration/ram:ID[@schemeID = 'VA'][starts-with(normalize-space(.), 'NL')]">
+      <assert id="BR-NL-38-2" test="matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')" flag="warning">[BR-NL-38-2]-Dutch VAT numbers MUST have the format (NL123456789B12).</assert>
+    </rule>
+	<rule context="ram:URIID[@schemeID = '0217'] | ram:ID[@schemeID = '0217'] | ram:GlobalID[@schemeID = '0217']">
+      <assert id="BR-NL-39" test="matches(normalize-space(), '^[0-9]{12}$')" flag="warning">[BR-NL-39]-Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (123456789012).</assert>
+    </rule>
 
 
     <rule context="//*[not(*) and not(normalize-space())]" id="empty-element-check">
