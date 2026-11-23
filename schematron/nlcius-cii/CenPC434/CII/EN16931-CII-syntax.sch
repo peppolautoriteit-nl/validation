@@ -213,7 +213,6 @@
 	
 	<!-- SpecifiedTradeAllowanceCharge -->
 	
-	<param name="CII-SR-471" value="count(ram:RateApplicablePercent) &lt;= 1"/>
 	<param name="CII-SR-472" value="count(ram:CategoryTradeTax) &lt;= 1"/>
 	<param name="CII-SR-473" value="count(ram:ActualAmount) &lt;= 1"/>
 	
@@ -467,8 +466,8 @@
 	<param name="CII-SR-457" value="( count(ram:AdditionalReferencedDocument[ram:TypeCode='50'])  &lt;= 1)"/>
 	<param name="CII-SR-458" value="( count(ram:AdditionalReferencedDocument[ram:TypeCode='130'])  &lt;= 1)"/>
 	<param name="CII-SR-470" value="count(ram:SpecifiedTradeSettlementPaymentMeans[(normalize-space(ram:TypeCode) = '30' or normalize-space(ram:TypeCode) = '58') and not(ram:PayeePartyCreditorFinancialAccount/ram:IBANID or ram:PayeePartyCreditorFinancialAccount/ram:ProprietaryID)]) = 0"/>
-	<param name="CII-SR-475" value="count(ram:AdditionalReferencedDocument[normalize-space(ram:TypeCode) = '916']/ram:Name) &lt;= 1"/>
-	<param name="CII-SR-476" value="count(ram:AdditionalReferencedDocument[normalize-space(ram:TypeCode) = '916']/ram:AttachmentBinaryObject) &lt;= 1"/>
+	<param name="CII-SR-475" value="normalize-space(ram:TypeCode) != '916' or count(ram:Name) &lt;= 1"/>
+	<param name="CII-SR-476" value="normalize-space(ram:TypeCode) != '916' or count(ram:AttachmentBinaryObject) &lt;= 1"/>
 	
 	<!-- ApplicableHeaderTradeDelivery -->
 	<param name="CII-SR-308" value="not(ram:RelatedSupplyChainConsignment)"/>
@@ -510,8 +509,7 @@
 	<param name="CII-SR-336" value="not(ram:ConsumptionReportReferencedDocument)"/>
 	<param name="CII-SR-337" value="not(ram:PreviousDeliverySupplyChainEvent)"/>
 	<param name="CII-SR-338" value="not(ram:PackingListReferencedDocument)"/>
-	<param name="CII-SR-449"
-		value="(not(ram:ShipToTradeParty/ram:ID) and ram:ShipToTradeParty/ram:GlobalID) or (ram:ShipToTradeParty/ram:ID and not(ram:ShipToTradeParty/ram:GlobalID)) or (not(ram:ShipToTradeParty/ram:ID) and not(ram:ShipToTradeParty/ram:GlobalID))"/>
+	<param name="CII-SR-449" value="(not(ram:ShipToTradeParty/ram:ID) and ram:ShipToTradeParty/ram:GlobalID) or (ram:ShipToTradeParty/ram:ID and not(ram:ShipToTradeParty/ram:GlobalID)) or (not(ram:ShipToTradeParty/ram:ID) and not(ram:ShipToTradeParty/ram:GlobalID))"/>
 
 	<!--  ApplicableHeaderTradeSettlement -->
 	<param name="CII-SR-339" value="not(ram:DuePayableAmount)"/>
@@ -653,11 +651,13 @@
 	<param name="CII-SR-467" value="count(//ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode[normalize-space(.) != normalize-space((//ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode)[1])]) = 0"/>
 	<param name="CII-SR-468" value="count(//ram:SpecifiedTradeSettlementPaymentMeans/ram:Information[normalize-space(.) != normalize-space((//ram:SpecifiedTradeSettlementPaymentMeans/ram:Information)[1])]) = 0"/>	
 	<param name="CII-SR-469" value="count(//ram:ApplicableHeaderTradeSettlement/ram:PaymentReference) &lt;= 1"/>
-	
+	<param name="CII-SR-497" value="count(ram:SpecifiedTradePaymentTerms/ram:DirectDebitMandateID) &lt;= 1"/>
 	
 	<!-- Invoice -->
 	<param name="CII-SR-438" value="not(ram:ValuationBreakdownStatement)"/>
-
+	<param name="CII-SR-495" value="count(//ram:SpecifiedTradeSettlementPaymentMeans/ram:ApplicableTradeSettlementFinancialCard) &lt;= 1"/>
+	<param name="CII-SR-496" value="count(//ram:SpecifiedTradeSettlementPaymentMeans/ram:PayerPartyDebtorFinancialAccount) &lt;= 1"/>	
+	
 	<!-- SpecifiedTradeSettlementHeaderMonetarySummation -->
 
 	<param name="CII-SR-411" value="not(ram:InformationAmount)"/>
@@ -809,12 +809,14 @@
 	<param name="CII-DT-095" value="not(ram:DepartmentName)"/>
 	<param name="CII-DT-096" value="not(ram:AdditionalStreetName)"/>
 	<!-- DateTimeString -->
-	<param name="CII-DT-097"
-		value="matches(.,'^\s*(\d{4})(1[0-2]|0[1-9]){1}(3[01]|[12][0-9]|0[1-9]){1}\s*$')"/>
+	<param name="CII-DT-097" value="matches(.,'^\s*(\d{4})(1[0-2]|0[1-9]){1}(3[01]|[12][0-9]|0[1-9]){1}\s*$')"/>
+	<param name="CII-DT-105" value="exists(@mimeCode)"/>	
+	<param name="CII-DT-106" value="exists(@filename)"/>
+	
 
 	<!-- Sections -->
 
-	<param name="Invoice_line" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem"/>
+	<param name="AttachmentBinaryObject" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:AdditionalReferencedDocument/ram:AttachmentBinaryObject"/><param name="AdditionalReferencedDocument" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:AdditionalReferencedDocument"/>	<param name="Invoice_line" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument"/>
 	<param name="AssociatedDocumentLineDocument" value="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument"/>
 	<param name="Invoice" value="/rsm:CrossIndustryInvoice"/>
 	<param name="Document_Context" value="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext"/>

@@ -29,7 +29,7 @@
   <param name="UBL-SR-22" value="(count(cac:PartyName/cbc:Name) &lt;= 1)"/>
   <param name="UBL-SR-23" value="(count(cac:PartyTaxScheme/cbc:CompanyID) &lt;= 1)"/>
   <param name="UBL-SR-24" value="(count(cac:Delivery) &lt;= 1)"/>
-  <param name="UBL-SR-25" value="(count(cac:DeliveryParty/cac:PartyName/cbc:Name) &lt;= 1)"/>
+  <param name="UBL-SR-25" value="not(cac:DeliveryParty) or count(cac:DeliveryParty/cac:PartyName/cbc:Name) = 1"/>
   <param name="UBL-SR-26" value="(count(cbc:PaymentID) &lt;= 1)"/>
   <param name="UBL-SR-27" value="(count(cbc:PaymentMeansCode) &lt;= 1)"/>
   <param name="UBL-SR-28" value="(count(cac:PaymentMandate/cbc:ID) &lt;= 1)"/>
@@ -46,7 +46,7 @@
   <param name="UBL-SR-40" value="(count(cac:AccountingCustomerParty/cac:Party/cac:PartyName/cbc:Name) &lt;= 1)"/>
   <param name="UBL-SR-42" value="(count(cac:PartyTaxScheme) &lt;= 2)"/>
   <param name="UBL-SR-43" value="((cbc:DocumentTypeCode='130') or ((local-name(/*) = 'CreditNote') and (cbc:DocumentTypeCode='50')) or (not(cbc:ID/@schemeID) and not(cbc:DocumentTypeCode)))"/>
-  <param name="UBL-SR-44" value="count(//cbc:PaymentID[not(preceding::cbc:PaymentID/. = .)]) &lt;= 1"/>
+  <param name="UBL-SR-44" value="count(distinct-values(//cbc:PaymentID)) &lt;= 1"/>
   <param name="UBL-SR-45" value="(count(cac:PaymentMeans/cbc:PaymentDueDate) &lt;=1)"/>
   <param name="UBL-SR-46" value="(count(cac:PaymentMeans/cbc:PaymentMeansCode/@name) &lt;=1)"/>
   <param name="UBL-SR-47" value="count(//cbc:PaymentMeansCode[not(preceding::cbc:PaymentMeansCode/. = .)]) &lt;= 1"/>
@@ -59,6 +59,9 @@
   <param name="UBL-SR-54" value="count(cac:PaymentMeans/cac:CardAccount) &lt;= 1"/>
   <param name="UBL-SR-55" value="count(cac:PaymentMeans/cac:PaymentMandate) &lt;= 1"/>
   <param name="UBL-SR-56" value="count(cac:OriginatorDocumentReference/cbc:ID) &lt;= 1"/>
+  <param name="UBL-SR-57" value="count(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity) &lt;= 1 and count(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity) &lt;= 1 and count(cac:PayeeParty/cac:PartyLegalEntity) &lt;= 1 and count(cac:TaxRepresentativeParty/cac:PartyLegalEntity) &lt;= 1"/>
+  <param name="UBL-SR-58" value="not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch) or count(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 1"/>
+  <param name="UBL-SR-59" value="not(cac:PayeeFinancialAccount) or count(cac:PayeeFinancialAccount/cbc:ID) = 1"/>
   <param name="UBL-DT-01" value="string-length(substring-after(.,'.'))&lt;=2"/>
   <param name="UBL-DT-06" value="(@mimeCode)"/>
   <param name="UBL-DT-07" value="(@filename)"/>

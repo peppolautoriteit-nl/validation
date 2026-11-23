@@ -711,7 +711,7 @@
     <assert test="$UBL-CR-671" flag="warning" id="UBL-CR-671">[UBL-CR-671]-A UBL invoice should not include a Price Allowance Multiplier Factor</assert>
     <assert test="$UBL-CR-672" flag="warning" id="UBL-CR-672">[UBL-CR-672]-A UBL credit note should not include the CreditNoteTypeCode listID</assert>
     <assert test="$UBL-CR-673" flag="fatal" id="UBL-CR-673">[UBL-CR-673]-A UBL invoice shall not include an AdditionalDocumentReference simultaneously referring an Invoice Object Identifier and an Document Description</assert>
-    <assert test="$UBL-CR-674" flag="warning" id="UBL-CR-674">[UBL-CR-674]-A UBL invoice should not include the PrimaryAccountNumber schemeID</assert>
+    <assert test="$UBL-CR-674" flag="warning" id="UBL-CR-674">[UBL-CR-674]-A UBL invoice should not include the PrimaryAccountNumberID schemeID</assert>
     <assert test="$UBL-CR-675" flag="warning" id="UBL-CR-675">[UBL-CR-675]-A UBL invoice should not include the NetworkID schemeID</assert>
     <assert test="$UBL-CR-676" flag="warning" id="UBL-CR-676">[UBL-CR-676]-A UBL invoice should not include the PaymentMandate/ID schemeID</assert>
     <assert test="$UBL-CR-677" flag="warning" id="UBL-CR-677">[UBL-CR-677]-A UBL invoice should not include the PayerFinancialAccount/ID schemeID</assert>
@@ -770,6 +770,7 @@
     <assert test="$UBL-SR-54" flag="fatal" id="UBL-SR-54">[UBL-SR-54]-An Invoice shall contain maximum one Payment Card account (BG-18).</assert>
     <assert test="$UBL-SR-55" flag="fatal" id="UBL-SR-55">[UBL-SR-55]-An Invoice shall contain maximum one Payment Mandate (BG-19).</assert>    
     <assert test="$UBL-SR-56" flag="fatal" id="UBL-SR-56">[UBL-SR-56]-An Invoice shall contain maximum one Originator document reference identifier (BT-17).</assert>
+    <assert test="$UBL-SR-57" flag="fatal" id="UBL-SR-57">[UBL-SR-57]-PartyLegalEntity shall occur maximum once within a Party.</assert>
   </rule>
   <rule context="$Invoice_line">
     <assert test="$UBL-SR-34" flag="fatal" id="UBL-SR-34">[UBL-SR-34]-Invoice line note shall occur maximum once</assert>
@@ -789,6 +790,8 @@
     <assert test="$UBL-SR-26" flag="fatal" id="UBL-SR-26">[UBL-SR-26]-Payment reference shall occur maximum once</assert>
     <assert test="$UBL-SR-27" flag="fatal" id="UBL-SR-27">[UBL-SR-27]-Payment means text shall occur maximum once</assert>
     <assert test="$UBL-SR-28" flag="fatal" id="UBL-SR-28">[UBL-SR-28]-Mandate reference identifier shall occur maximum once</assert>
+    <assert test="$UBL-SR-58" flag="fatal" id="UBL-SR-58">[UBL-SR-58]-A Financial Institution Branch shall contain exactly one Payment service provider identifier (BT-86).</assert>
+    <assert test="$UBL-SR-59" flag="fatal" id="UBL-SR-59">[UBL-SR-59]-A Financial Institution Branch shall contain exactly one Payment account identifier (BT-84).</assert>
   </rule>
   <rule context="$Preceding_Invoice">
     <assert test="$UBL-SR-06" flag="fatal" id="UBL-SR-06">[UBL-SR-06]-Preceding invoice reference shall occur maximum once</assert>

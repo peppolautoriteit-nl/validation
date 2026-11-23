@@ -7,7 +7,7 @@
 <!-- Abstract rules for binding CII to EN16931 -->
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron" abstract="true" id="EN16931-CII">
 	<rule context="$Specified_Trade_Settlement_PaymentMeans">
-		<assert test="$CII-SR-464" flag="warning" id="CII-SR-464">[CII-SR-464] - PayerSpecifiedDebtorFincancialInstitution shall not be used.</assert>
+		<assert test="$CII-SR-464" flag="warning" id="CII-SR-464">[CII-SR-464] - PayerSpecifiedDebtorFincancialInstitution should not be used.</assert>
 	</rule>	
 	<rule context="$Document_Context">
 		<assert test="$CII-SR-001" flag="warning" id="CII-SR-001">[CII-SR-001] - SpecifiedTransactionID should not be present</assert>
@@ -51,7 +51,6 @@
 		<assert test="$CII-SR-036" flag="warning" id="CII-SR-036">[CII-SR-036] - ParentLineID should not be present</assert>
 		<assert test="$CII-SR-037" flag="warning" id="CII-SR-037">[CII-SR-037] - LineStatusCode should not be present</assert>
 		<assert test="$CII-SR-038" flag="warning" id="CII-SR-038">[CII-SR-038] - LineStatusReasonCode should not be present</assert>
-
 		<assert test="$CII-SR-221" flag="warning" id="CII-SR-221">[CII-SR-221] - IncludedSubordinateTradeLineItem should not be present</assert>
 	</rule>
 	<rule context="$AssociatedDocumentLineDocument">
@@ -193,12 +192,15 @@
 	</rule>
 	<rule context="$SpecifiedTradeAllowanceCharge">
 		<assert test="$CII-SR-463" flag="fatal" id="CII-SR-463">[CII-SR-463]-Each Specified Trade Allowance Charge (BG-20)(BG-21) shall contain a Charge Indicator.</assert>
-		<assert test="$CII-SR-471" flag="fatal" id="CII-SR-471">[CII-SR-471]-Each Specified Trade Allowance Charge (BG-20)(BG-21) shall contain a VAT category code (BT-95).</assert>		
-		<assert test="$CII-SR-472" flag="fatal" id="CII-SR-472">[CII-SR-472]-Each Specified Trade Allowance Charge (BG-20)(BG-21) should contain a VAT rate (BT-96).</assert>
+		<assert test="$CII-SR-472" flag="fatal" id="CII-SR-472">[CII-SR-472] - CategoryTradeTax shall occur at most once in a Specified Trade Allowance Charge.</assert>
 		<assert test="$CII-SR-473" flag="fatal" id="CII-SR-473">[CII-SR-473] - ActualAmount should exist maximum once</assert>
 	</rule> 
 	<rule context="$AppliedTradeAllowanceCharge">
 		<assert test="$CII-SR-440" flag="fatal" id="CII-SR-440">[CII-SR-440] - ActualAmount should exist maximum once</assert>
+	</rule>
+	<rule context="$AdditionalReferencedDocument">	
+		<assert test="$CII-SR-475" flag="warning" id="CII-SR-475">[CII-SR-475] - Only one AdditionalReferencedDocument Name BT-123 is allowed with TypeCode 916.</assert>
+		<assert test="$CII-SR-476" flag="warning" id="CII-SR-476">[CII-SR-476] - Only one AdditionalReferencedDocument AttachmentBinaryObject BT-125 is allowed with TypeCode 916.</assert>
 	</rule>
 	<rule context="$SpecifiedLineTradeDelivery">
 		<assert test="$CII-SR-151" flag="warning" id="CII-SR-151">[CII-SR-151] - RequestedQuantity should not be present</assert>
@@ -388,8 +390,6 @@
 		<assert test="$CII-SR-460" flag="fatal" id="CII-SR-460">[CII-SR-460] - BuyerTradeParty URIUniversalCommunication should exist maximum once</assert>
 		<assert test="$CII-SR-465" flag="warning" id="CII-SR-465">[CII-SR-465] - Only one BT-41 element is allowed on an invoice.</assert>
 		<assert test="$CII-SR-466" flag="warning" id="CII-SR-466">[CII-SR-466] - Only one BT-56 element is allowed on an invoice.</assert>
-		<assert test="$CII-SR-475" flag="warning" id="CII-SR-475">[CII-SR-475] - Only one AdditionalReferencedDocument Name BT-123 is allowed with TypeCode 916.</assert>		
-		<assert test="$CII-SR-476" flag="warning" id="CII-SR-476">[CII-SR-476] - Only one AdditionalReferencedDocument AttachmentBinaryObject BT-125 is allowed with TypeCode 916.</assert>		
 	</rule>
 	<rule context="$ApplicableHeaderTradeDelivery">
 		<assert test="$CII-SR-308" flag="warning" id="CII-SR-308">[CII-SR-308] - RelatedSupplyChainConsignment should not be present</assert>
@@ -531,6 +531,7 @@
 		<assert test="$CII-SR-461" flag="fatal" id="CII-SR-461">[CII-SR-461] - Only one TaxPointDate shall be present</assert>		
 		<assert test="$CII-SR-462" flag="fatal" id="CII-SR-462">[CII-SR-462] - Only one DueDateTypeCode shall be present</assert>		
 		<assert test="$CII-SR-470" flag="fatal" id="CII-SR-470">[CII-SR-470] - Either the IBAN or a Proprietary ID (BT-84) shall be used.</assert>
+		<assert test="$CII-SR-497" flag="fatal" id="CII-SR-497">[CII-SR-497] - Mandate reference identifier (BT-89) shall occur maximum once.</assert>
 	</rule>
 	<rule context="$SpecifiedTradeSettlementHeaderMonetarySummation">
 
@@ -566,15 +567,27 @@
 	<rule context="$Invoice">
 		<assert test="$CII-DT-013" flag="fatal" id="CII-DT-013">[CII-DT-013] - languageID should not be present</assert>
 		<assert test="$CII-DT-014" flag="fatal" id="CII-DT-014">[CII-DT-014] - languageLocaleID should not be present</assert>
-
 		<assert test="$CII-SR-438" flag="warning" id="CII-SR-438">[CII-SR-438] - ValuationBreakdownStatement should not be present</assert>
 		<assert test="$CII-SR-467" flag="fatal" id="CII-SR-467">[CII-SR-467] - All Payment means type codes (BT-81) shall have the same value across all SpecifiedTradeSettlementPaymentMeans.</assert>
 		<assert test="$CII-SR-468" flag="fatal" id="CII-SR-468">[CII-SR-468] - All Payment means texts (BT-82) shall have the same value across all SpecifiedTradeSettlementPaymentMeans.</assert>
 		<assert test="$CII-SR-469" flag="fatal" id="CII-SR-469">[CII-SR-469] - Payment reference (BT-83) shall occur at most once in the document.</assert>
+		<assert test="$CII-SR-495" flag="fatal" id="CII-SR-495">[CII-SR-495] - An Invoice shall contain maximum one Payment Card account (BG-18).</assert>
+		<assert test="$CII-SR-496" flag="fatal" id="CII-SR-496">[CII-SR-496] - An Invoice shall contain maximum one Payment Mandate (BG-19).</assert>
 	</rule>
 	<rule context="$DocumentContextParameter">
 		<assert test="$CII-SR-004" flag="warning" id="CII-SR-04">[CII-SR-004] - Value should not be present</assert>
 		<assert test="$CII-SR-005" flag="warning" id="CII-SR-05">[CII-SR-005] - SpecifiedDocumentVersion should not be present</assert>
+	</rule>
+	<rule context="$AttachmentBinaryObject">
+		
+		<assert test="$CII-DT-105" flag="fatal" id="CII-DT-105">
+			[CII-DT-105] - Attached document Mime code (BT-125-1) shall be provided.
+		</assert>
+		
+		<assert test="$CII-DT-106" flag="fatal" id="CII-DT-106">
+			[CII-DT-106] - Attached document Filename (BT-125-2) shall be provided.
+		</assert>
+		
 	</rule>
 	<rule context="$IDTypeNoAttributes">
     <!-- Rules DT-001 to DT-004 need to be copied here to take effect -->
